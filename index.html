@@ -41,8 +41,8 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--b
 .brand svg{flex:none}
 .brand h1{font:800 22px/1 var(--display);letter-spacing:-.02em;margin:0}
 .brand small{display:block;font:500 12px/1.2 var(--body);color:var(--muted);letter-spacing:.01em;margin-top:3px}
-.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
-.tabs button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:600;cursor:pointer;color:var(--muted)}
+.tabs{max-width:100%;overflow-x:auto;scrollbar-width:none;display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.tabs button{white-space:nowrap;border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:600;cursor:pointer;color:var(--muted)}
 .tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
 .btn{border:1px solid var(--line);background:var(--surface);padding:9px 16px;border-radius:10px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .btn:hover{border-color:var(--muted)}
@@ -145,6 +145,13 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
 .taglist{display:flex;flex-wrap:wrap;gap:5px}
 .saved{font-size:13px;color:var(--ok);font-weight:600}
 
+/* Tema e subtema */
+.lvl{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;align-items:start}
+.lvl-label{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:9px}
+.seg button small{font-size:11.5px;font-weight:700;opacity:.6;margin-left:3px}
+#themeRow{padding:10px 12px;margin-left:-12px;margin-right:-12px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px}
+@media (max-width:640px){ .lvl{grid-template-columns:1fr;gap:6px} .lvl-label{padding-top:0} }
+
 /* Por que viraliza */
 .why-btn{border:1px dashed var(--line);background:none;border-radius:9px;padding:7px 10px;font-size:13px;font-weight:600;color:var(--accent);cursor:pointer;text-align:left}
 .why-btn:hover{border-color:var(--accent)}
@@ -229,6 +236,8 @@ button.word:hover{border-color:var(--accent)}
   .prof{grid-template-columns:1fr 1fr auto}
   .grid{grid-template-columns:1fr}
   .brand small{display:none}
+  .tabs{order:3;width:100%}
+  .tabs button{flex:1;padding:7px 8px;font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -262,10 +271,14 @@ button.word:hover{border-color:var(--accent)}
   <div id="sharedTop">
     <div class="notices" id="notices"></div>
     <div class="filters">
-      <div class="row">
+      <div class="lvl">
+        <span class="lvl-label">Tema</span>
         <div class="seg" id="panelSeg"></div>
       </div>
-      <div class="row" id="themeChips"></div>
+      <div class="lvl" id="themeRow">
+        <span class="lvl-label">Subtema</span>
+        <div class="row" id="themeChips"></div>
+      </div>
       <div class="row">
         <div class="search">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -337,7 +350,7 @@ button.word:hover{border-color:var(--accent)}
       <select id="pzEd" aria-label="Edição"></select>
     </div>
     <div class="notices" id="pzNotices"></div>
-    <div class="row" id="pzChips" style="padding-block:14px 4px"></div>
+    <div class="filters" id="pzChips" style="padding-block:14px 4px"></div>
     <div id="pzList"></div>
   </section>
 
@@ -744,10 +757,13 @@ function baseStatus(){
 function renderFilters(){
   const seg = $("#panelSeg");
   const opts = [{ id:"", name:"Todos os temas" }, ...cfg.panels];
-  seg.innerHTML = opts.map(p => `<button data-panel="${esc(p.id)}" aria-pressed="${ui.panel === p.id}">${esc(p.name)}</button>`).join("");
-  const themes = cfg.themes.filter(t => !ui.panel || t.panel === ui.panel);
+  const nSub = id => cfg.themes.filter(t => t.panel === id).length;
+  seg.innerHTML = opts.map(p => `<button data-panel="${esc(p.id)}" aria-pressed="${ui.panel === p.id}">${esc(p.name)}${p.id ? ` <small>${nSub(p.id)}</small>` : ""}</button>`).join("");
+  const themes = ui.panel ? cfg.themes.filter(t => t.panel === ui.panel) : [];
   for (const id of [...ui.themes]) if (!themes.some(t => t.id === id)) ui.themes.delete(id);
-  $("#themeChips").innerHTML = themes.map(t => `<button class="chip" data-theme="${esc(t.id)}" aria-pressed="${ui.themes.has(t.id)}">${esc(t.name)}</button>`).join("");
+  $("#themeRow").hidden = !ui.panel;
+  $("#themeChips").innerHTML = [`<button class="chip" data-theme="" aria-pressed="${!ui.themes.size}">Todos</button>`]
+    .concat(themes.map(t => `<button class="chip" data-theme="${esc(t.id)}" aria-pressed="${ui.themes.has(t.id)}">${esc(t.name)}</button>`)).join("");
   $("#lang").value = ui.lang; $("#fmt").value = ui.fmt; $("#period").value = String(ui.period); $("#sort").value = ui.sort; $("#q").value = ui.q;
 }
 function filtered(posts){
@@ -1162,7 +1178,7 @@ $("#tabAnalise").addEventListener("click", () => switchTab("analise"));
 $("#tabCfg").addEventListener("click", () => switchTab("cfg"));
 
 /* ---------- pautas ---------- */
-const pz = { index:null, ed:null, data:null, theme:"", done:new Set(store.get("rv_pz_done", [])) };
+const pz = { index:null, ed:null, data:null, theme:"", panel:"", done:new Set(store.get("rv_pz_done", [])) };
 async function getJSON(path){
   const r = await fetch(path + "?t=" + Date.now(), { cache:"no-store" });
   if (!r.ok) throw new Error(r.status);
@@ -1201,11 +1217,19 @@ function renderPautas(){
   $("#pzInfo").textContent = `${total} ${total === 1 ? "pauta" : "pautas"} em ${nT} ${nT === 1 ? "tema" : "temas"}` + (d.postsAnalisados ? `, criadas a partir de ${d.postsAnalisados} posts em alta.` : ".");
   $("#pzNotices").innerHTML = (d.avisos || []).map(a => `<div class="notice warn"><div>${esc(a)}</div></div>`).join("");
   const temas = d.temas.filter(t => t.pautas?.length);
-  if (pz.theme && !temas.some(t => t.id === pz.theme)) pz.theme = "";
-  $("#pzChips").innerHTML = [`<button class="chip" data-pzt="" aria-pressed="${!pz.theme}">Todos</button>`]
-    .concat(temas.map(t => `<button class="chip" data-pzt="${esc(t.id)}" aria-pressed="${pz.theme === t.id}">${esc(t.nome)} (${t.pautas.length})</button>`)).join("");
-  let html = "", lastPanel = "";
+  const paineis = [...new Set(temas.map(t => t.painel || "Outros"))];
+  if (pz.panel && !paineis.includes(pz.panel)) pz.panel = "";
+  const subs = pz.panel ? temas.filter(t => (t.painel || "Outros") === pz.panel) : [];
+  if (pz.theme && !subs.some(t => t.id === pz.theme)) pz.theme = "";
+  const count = arr => arr.reduce((n, t) => n + t.pautas.length, 0);
+  $("#pzChips").innerHTML = `
+    <div class="lvl"><span class="lvl-label">Tema</span><div class="seg">${[`<button data-pzp="" aria-pressed="${!pz.panel}">Todos os temas <small>${count(temas)}</small></button>`]
+      .concat(paineis.map(n => `<button data-pzp="${esc(n)}" aria-pressed="${pz.panel === n}">${esc(n)} <small>${count(temas.filter(t => (t.painel || "Outros") === n))}</small></button>`)).join("")}</div></div>
+    ${pz.panel ? `<div class="lvl"><span class="lvl-label">Subtema</span><div class="row">${[`<button class="chip" data-pzt="" aria-pressed="${!pz.theme}">Todos</button>`]
+      .concat(subs.map(t => `<button class="chip" data-pzt="${esc(t.id)}" aria-pressed="${pz.theme === t.id}">${esc(t.nome)} (${t.pautas.length})</button>`)).join("")}</div></div>` : ""}`;
+  let html = "";
   for (const t of temas) {
+    if (pz.panel && (t.painel || "Outros") !== pz.panel) continue;
     if (pz.theme && t.id !== pz.theme) continue;
     html += `<section class="pz-theme"><div class="pz-theme-h"><h3>${esc(t.nome)}</h3><span>${esc(t.painel || "")}</span></div><div class="pz-grid">`;
     t.pautas.forEach((p, i) => {
@@ -1235,7 +1259,10 @@ function renderPautas(){
   $("#pzList").innerHTML = html;
 }
 $("#pzEd").addEventListener("change", e => { pz.ed = e.target.value; loadEdicao().catch(() => pzMsg("Não consegui abrir esta edição.", "err")); });
-$("#pzChips").addEventListener("click", e => { const b = e.target.closest("[data-pzt]"); if (!b) return; pz.theme = b.dataset.pzt; renderPautas(); });
+$("#pzChips").addEventListener("click", e => {
+  const pb = e.target.closest("[data-pzp]"); if (pb) { pz.panel = pb.dataset.pzp; pz.theme = ""; renderPautas(); return; }
+  const b = e.target.closest("[data-pzt]"); if (!b) return; pz.theme = b.dataset.pzt; renderPautas();
+});
 $("#pzList").addEventListener("change", e => {
   const k = e.target.dataset.done; if (!k) return;
   e.target.checked ? pz.done.add(k) : pz.done.delete(k); store.set("rv_pz_done", [...pz.done]);
@@ -1252,7 +1279,7 @@ $("#pzList").addEventListener("click", async e => {
 });
 $("#refreshBtn").addEventListener("click", () => { switchTab("feed"); refresh(); });
 $("#panelSeg").addEventListener("click", e => { const b = e.target.closest("[data-panel]"); if (!b) return; ui.panel = b.dataset.panel; ui.themes.clear(); saveUi(); render(); });
-$("#themeChips").addEventListener("click", e => { const b = e.target.closest("[data-theme]"); if (!b) return; const id = b.dataset.theme; ui.themes.has(id) ? ui.themes.delete(id) : ui.themes.add(id); saveUi(); render(); });
+$("#themeChips").addEventListener("click", e => { const b = e.target.closest("[data-theme]"); if (!b) return; const id = b.dataset.theme; if (!id) ui.themes.clear(); else ui.themes.has(id) ? ui.themes.delete(id) : ui.themes.add(id); saveUi(); render(); });
 $("#lang").addEventListener("change", e => { ui.lang = e.target.value; saveUi(); render(); });
 $("#fmt").addEventListener("change", e => { ui.fmt = e.target.value; saveUi(); render(); });
 $("#period").addEventListener("change", e => { ui.period = +e.target.value; saveUi(); render(); });
