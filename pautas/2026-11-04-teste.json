@@ -25,7 +25,9 @@
             "comentarios": 896,
             "nota": 93,
             "resumo": "Sons do cotidiano que causam desconforto intenso em algumas pessoas neurodivergentes."
-          }
+          },
+          "estrutura": "Gancho com lista de sons concretos → frase de validação (\"não é frescura\") → explicação simples do que acontece no corpo → exemplos do dia a dia → convite para comentar o som que mais incomoda.",
+          "textoPronto": "Slide 1: Garfo raspando no prato. Alguém mastigando de boca aberta. A caneta clicando na reunião.\nSlide 2: Se só de ler você já sentiu um arrepio, não é frescura.\nSlide 3: Em muitas pessoas com TDAH, o cérebro tem mais dificuldade de filtrar estímulos. O som não fica no fundo: ele invade.\nSlide 4: Por isso a irritação vem antes de você conseguir pensar. O corpo reage primeiro.\nSlide 5: Não é falta de educação nem de paciência. É um sistema nervoso que está sempre no volume máximo.\nSlide 6: O que ajuda: fone com cancelamento de ruído, avisar quem mora com você e fazer pausas em lugar silencioso.\nSlide 7: Qual som te tira do sério? Me conta nos comentários."
         },
         {
           "titulo": "\"TDAH virou moda\": o custo que ninguém vê",
@@ -40,7 +42,9 @@
             "comentarios": 357,
             "nota": 83,
             "resumo": "Texto rebatendo a ideia de que TDAH e TEA viraram moda, citando o custo financeiro e emocional."
-          }
+          },
+          "estrutura": "Frase de julgamento entre aspas → concordância irônica curta (\"Sim!!\") → lista do que a pessoa enfrenta → frase irônica sobre descobrir tarde → arremate irônico de uma linha.",
+          "textoPronto": "\"Todo mundo tem TDAH agora, né?\"\n\nCom certeza!\nTodo mundo sonha em perder a chave pela terceira vez na semana, esquecer o aniversário da melhor amiga e ouvir a vida inteira que é preguiça.\n\nDeve ser uma delícia descobrir aos 35 anos que nunca foi falta de esforço.\n\nRealmente. A moda do momento."
         },
         {
           "titulo": "Por que o castigo não funciona com a criança com TDAH",
@@ -55,7 +59,9 @@
             "comentarios": 65,
             "nota": 70,
             "resumo": "Carrossel comparando castigar uma criança com TDAH a apagar incêndio com gasolina."
-          }
+          },
+          "estrutura": "Pergunta que toca na culpa dos pais → \"não é falta de esforço seu\" → comparação forte (castigo = gasolina no incêndio) → por que não funciona → o que fazer no lugar → CTA para salvar.",
+          "textoPronto": "Cena 1 (olhando para a câmera): Você tirou o celular, deixou sem sobremesa, e no dia seguinte estava tudo igual?\nCena 2: Não é falta de esforço seu. Castigar uma criança com TDAH é como tentar secar o chão com a torneira aberta.\nCena 3: Ela já se sente errada o tempo todo. O castigo confirma isso, mas não ensina o que fazer diferente.\nCena 4: Troque por três coisas: um combinado visual na parede, um elogio específico logo depois do acerto e consequências que façam sentido com o que aconteceu.\nCena 5: Salva este vídeo e testa por uma semana."
         }
       ]
     }

@@ -21,8 +21,10 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
 
 ### Como escrever as pautas
 
-- Pautas **originais** para o perfil da Samyra. Use o post de referência como prova de que o assunto, o gancho ou o formato funcionam, nunca copie texto, arte ou roteiro.
-- `ideia` é a **ideia de replicação**: o que fazer no perfil dela, com o ângulo próprio, a estrutura (ex.: slides do carrossel ou cenas do Reels) e o CTA.
+- **Modelagem, não cópia.** A Samyra quer replicar o que viraliza: mantenha a **fórmula** do post de referência (tipo de gancho, estrutura, ritmo, virada, tamanho e tom) o mais próxima possível, mas escreva o texto com palavras, exemplos e números diferentes. Nunca reproduza frases do original nem troque só algumas palavras: isso é cópia, pode gerar denúncia e queda de alcance.
+- `estrutura` descreve o esqueleto do post de referência, passo a passo (ex.: "frase de julgamento entre aspas → concordância irônica → lista do que custa → arremate irônico").
+- `textoPronto` é o post **pronto para publicar**, seguindo a mesma estrutura: para Foto, o texto da arte; para Carrossel, o texto de cada slide ("Slide 1: ..."); para Reels, o roteiro falado por cena. Use quebras de linha (\n).
+- `ideia` é a **ideia de replicação**: como produzir (visual, legenda, CTA) e o que adaptar ao perfil dela.
 - `porQueFunciona` explica o mecanismo que fez o post de referência performar (dor, polêmica, identificação, utilidade, salvar para depois etc.).
 - Temas de saúde mental: linguagem responsável, sem prometer cura, sem diagnóstico pelo post, sem estigmatizar; quando fizer sentido, oriente procurar avaliação profissional.
 - Temas de finanças e tributação: não prometa resultado financeiro; números e regras precisam ser verificáveis ou apresentados como exemplo.
@@ -46,7 +48,9 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
           "titulo": "Frase curta que resume a pauta",
           "formato": "Carrossel",
           "gancho": "Primeira frase/tela do post",
-          "ideia": "Ideia de replicação: ângulo, estrutura e CTA",
+          "estrutura": "Esqueleto do post de referência, passo a passo",
+          "textoPronto": "Post pronto para publicar, mesma fórmula, texto novo",
+          "ideia": "Ideia de replicação: como produzir, legenda e CTA",
           "porQueFunciona": "Por que o post de referência performou",
           "referencia": { "link": "https://www.instagram.com/p/...", "formato": "Reels", "curtidas": 9025, "comentarios": 896, "nota": 93, "resumo": "Do que o post de referência fala, em uma frase" }
         }

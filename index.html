@@ -192,6 +192,10 @@ button.word:hover{border-color:var(--accent)}
 .an-dest-m a{font-weight:600;margin-left:auto}
 
 /* Pautas */
+.pz-pronto{border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));background:var(--accent-soft);border-radius:11px;padding:10px 12px}
+.pz-pronto-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.pz-pronto-h span{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.pz-txt{white-space:pre-line;font-size:14.5px;line-height:1.55;overflow-wrap:anywhere}
 .pz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-top:22px}
 .pz-head h2{font:800 26px/1.15 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
 .pz-head p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:68ch}
@@ -1148,7 +1152,7 @@ async function loadEdicao(){
 }
 function pautaText(t, p){
   const r = p.referencia || {};
-  return `PAUTA: ${p.titulo}\nTema: ${t.nome} · Formato: ${p.formato}\n\nGancho: ${p.gancho}\n\nIdeia de replicação: ${p.ideia}\n\nPor que funciona: ${p.porQueFunciona}\n\nReferência: ${r.link || "-"} (${r.formato || ""}, ${r.curtidas ?? "?"} curtidas, ${r.comentarios ?? "?"} comentários, nota ${r.nota ?? "?"})`;
+  return `PAUTA: ${p.titulo}\nTema: ${t.nome} · Formato: ${p.formato}\n\nGancho: ${p.gancho}\n\n${p.estrutura ? "Estrutura do post original: " + p.estrutura + "\n\n" : ""}${p.textoPronto ? "Texto pronto:\n" + p.textoPronto + "\n\n" : ""}Ideia de replicação: ${p.ideia}\n\nPor que funciona: ${p.porQueFunciona}\n\nReferência: ${r.link || "-"} (${r.formato || ""}, ${r.curtidas ?? "?"} curtidas, ${r.comentarios ?? "?"} comentários, nota ${r.nota ?? "?"})`;
 }
 function renderPautas(){
   const d = pz.data;
@@ -1170,7 +1174,9 @@ function renderPautas(){
       html += `<article class="pz ${pz.done.has(key) ? "done" : ""}">
         <div class="pz-top"><h4>${esc(p.titulo)}</h4><span class="pz-fmt">${esc(p.formato)}</span></div>
         <p class="pz-gancho">${esc(p.gancho)}</p>
+        ${p.textoPronto ? `<div class="pz-pronto"><div class="pz-pronto-h"><span>Texto pronto (modelado)</span><button class="btn small" data-copytxt="${esc(t.id)}|${i}">Copiar texto</button></div><div class="pz-txt">${esc(p.textoPronto)}</div></div>` : ""}
         <dl>
+          ${p.estrutura ? `<div><dt>Estrutura do post original</dt><dd>${esc(p.estrutura)}</dd></div>` : ""}
           <div><dt>Ideia de replicação</dt><dd>${esc(p.ideia)}</dd></div>
           <div><dt>Por que funciona</dt><dd>${esc(p.porQueFunciona)}</dd></div>
         </dl>
@@ -1197,12 +1203,13 @@ $("#pzList").addEventListener("change", e => {
   e.target.closest(".pz").classList.toggle("done", e.target.checked);
 });
 $("#pzList").addEventListener("click", async e => {
-  const b = e.target.closest("[data-copy]"); if (!b) return;
-  const [tid, i] = b.dataset.copy.split("|"); const t = pz.data.temas.find(x => x.id === tid);
-  const text = pautaText(t, t.pautas[+i]);
+  const b = e.target.closest("[data-copy],[data-copytxt]"); if (!b) return;
+  const txtOnly = !!b.dataset.copytxt; const label = b.textContent;
+  const [tid, i] = (b.dataset.copy || b.dataset.copytxt).split("|"); const t = pz.data.temas.find(x => x.id === tid);
+  const text = txtOnly ? t.pautas[+i].textoPronto : pautaText(t, t.pautas[+i]);
   try { await navigator.clipboard.writeText(text); }
   catch { const ta = $("#copyFallback"); ta.value = text; ta.select(); try { document.execCommand("copy"); } catch {} }
-  b.textContent = "Copiada!"; setTimeout(() => b.textContent = "Copiar pauta", 1800);
+  b.textContent = "Copiado!"; setTimeout(() => b.textContent = label, 1800);
 });
 $("#refreshBtn").addEventListener("click", () => { switchTab("feed"); refresh(); });
 $("#panelSeg").addEventListener("click", e => { const b = e.target.closest("[data-panel]"); if (!b) return; ui.panel = b.dataset.panel; ui.themes.clear(); saveUi(); render(); });
