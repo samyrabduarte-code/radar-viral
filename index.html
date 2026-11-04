@@ -426,7 +426,9 @@ const DEFAULT_CFG = {
   token: "", igId: "", igUser: "",
   panels: [
     { id: "saude", name: "Saúde mental e neuro" },
-    { id: "fin",   name: "Finanças e vendas" }
+    { id: "fin",   name: "Finanças e vendas" },
+    { id: "beleza", name: "Saúde, beleza e mulher" },
+    { id: "negocios", name: "Negócios e direito" }
   ],
   themes: [
     { id:"autismo", panel:"saude", name:"Autismo", hashtags:["autismo","tea"], keywords:["autismo","autista","tea","espectro autista","neurodivergente","neurodivergência"] },
@@ -439,7 +441,14 @@ const DEFAULT_CFG = {
     { id:"dividas", panel:"fin", name:"Dívidas", hashtags:["dividas","nomesujo"], keywords:["dívida","dívidas","endividado","endividada","nome sujo","serasa","negociar dívida","desenrola"] },
     { id:"juros", panel:"fin", name:"Juros", hashtags:["juros","educacaofinanceira"], keywords:["juros","cartão de crédito","rotativo","empréstimo","selic","financiamento","consignado"] },
     { id:"impostos", panel:"fin", name:"Impostos e tributação", hashtags:["impostos","tributacao","reformatributaria"], keywords:["imposto","impostos","tributação","tributário","tributária","reforma tributária","imposto de renda","simples nacional","mei","receita federal"] },
-    { id:"vendas", panel:"fin", name:"Vendas e comercial", hashtags:["vendas","comercial","vendasonline"], keywords:["vendas","vender","vendedor","vendedora","fechar venda","prospecção","negociação","comercial","funil de vendas","cliente"] }
+    { id:"vendas", panel:"fin", name:"Vendas e comercial", hashtags:["vendas","comercial","vendasonline"], keywords:["vendas","vender","vendedor","vendedora","fechar venda","prospecção","negociação","comercial","funil de vendas","cliente"] },
+    {"id": "saude", "panel": "beleza", "name": "Saúde", "hashtags": ["saude"], "keywords": ["saúde", "médico", "médica", "exame", "exames", "check-up", "sintoma", "sintomas", "prevenção", "imunidade", "hormônio", "hormônios", "intestino", "sono", "doença"]},
+    {"id": "bemestar", "panel": "beleza", "name": "Bem-estar", "hashtags": ["bemestar"], "keywords": ["bem-estar", "bem estar", "autocuidado", "rotina saudável", "qualidade de vida", "meditação", "hábitos", "alimentação saudável", "treino", "skincare", "dormir melhor"]},
+    {"id": "plastica", "panel": "beleza", "name": "Cirurgia plástica", "hashtags": ["cirurgiaplastica"], "keywords": ["cirurgia plástica", "cirurgião plástico", "cirurgiã plástica", "lipo", "lipoaspiração", "abdominoplastia", "rinoplastia", "mamoplastia", "prótese de silicone", "silicone", "harmonização facial", "pós-operatório", "blefaroplastia", "lipo hd"]},
+    {"id": "mulher", "panel": "beleza", "name": "Mulher", "hashtags": ["mulher"], "keywords": ["mulher", "mulheres", "feminino", "feminina", "maternidade", "menopausa", "climatério", "ciclo menstrual", "tpm", "autoestima feminina", "empoderamento feminino"]},
+    {"id": "mentalidade", "panel": "negocios", "name": "Mentalidade", "hashtags": ["mentalidade"], "keywords": ["mentalidade", "mindset", "disciplina", "autoconhecimento", "crenças limitantes", "crença limitante", "autoestima", "foco", "propósito", "procrastinação", "constância", "autossabotagem"]},
+    {"id": "empreend", "panel": "negocios", "name": "Empreendedorismo", "hashtags": ["empreendedorismo"], "keywords": ["empreendedorismo", "empreender", "empreendedora", "empreendedor", "negócio próprio", "pequeno negócio", "cnpj", "faturamento", "faturar", "marketing digital", "gestão", "precificação", "lucro"]},
+    {"id": "direito", "panel": "negocios", "name": "Direito e advocacia", "hashtags": ["advocacia"], "keywords": ["advogado", "advogada", "advocacia", "direito", "direitos", "processo", "justiça", "inss", "trabalhista", "divórcio", "pensão alimentícia", "herança", "inventário", "oab", "indenização", "aposentadoria"]}
   ],
   profiles: []
 };
@@ -451,6 +460,14 @@ const store = {
   del(k){ try{ localStorage.removeItem(k); }catch{} }
 };
 let cfg = store.get("rv_cfg", null) || structuredClone(DEFAULT_CFG);
+// acrescenta temas e painéis novos do padrão sem mexer nos que a pessoa editou ou removeu
+(() => {
+  cfg.removed = cfg.removed || [];
+  let changed = false;
+  for (const pn of DEFAULT_CFG.panels) if (!cfg.panels.some(x => x.id === pn.id)) { cfg.panels.push(structuredClone(pn)); changed = true; }
+  for (const t of DEFAULT_CFG.themes) if (!cfg.themes.some(x => x.id === t.id) && !cfg.removed.includes(t.id)) { cfg.themes.push(structuredClone(t)); changed = true; }
+  if (changed) store.set("rv_cfg", cfg);
+})();
 let data = store.get("rv_data", null);            // {fetchedAt, posts, errors, sample?}
 let hashIds = store.get("rv_hids", {});            // tag -> id
 let hashUsed = store.get("rv_hused", {});          // tag -> ts da 1ª busca
@@ -1039,7 +1056,7 @@ $("#themesEdit").addEventListener("input", e => {
 });
 $("#themesEdit").addEventListener("click", e => {
   const del = e.target.dataset.del, addp = e.target.dataset.addtheme;
-  if (del) { cfg.themes = cfg.themes.filter(t => t.id !== del); themesChanged(); renderCfg(); }
+  if (del) { cfg.themes = cfg.themes.filter(t => t.id !== del); cfg.removed = [...new Set([...(cfg.removed || []), del])]; themesChanged(); renderCfg(); }
   if (addp) { cfg.themes.push({ id:"t" + Date.now().toString(36), panel:addp, name:"Novo tema", hashtags:[], keywords:[] }); themesChanged(); renderCfg(); }
 });
 $("#profEdit").addEventListener("input", e => {

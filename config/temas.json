@@ -7,6 +7,14 @@
     {
       "id": "fin",
       "name": "Finanças e vendas"
+    },
+    {
+      "id": "beleza",
+      "name": "Saúde, beleza e mulher"
+    },
+    {
+      "id": "negocios",
+      "name": "Negócios e direito"
     }
   ],
   "themes": [
@@ -204,6 +212,168 @@
         "comercial",
         "funil de vendas",
         "cliente"
+      ]
+    },
+    {
+      "id": "saude",
+      "panel": "beleza",
+      "name": "Saúde",
+      "hashtags": [
+        "saude"
+      ],
+      "keywords": [
+        "saúde",
+        "médico",
+        "médica",
+        "exame",
+        "exames",
+        "check-up",
+        "sintoma",
+        "sintomas",
+        "prevenção",
+        "imunidade",
+        "hormônio",
+        "hormônios",
+        "intestino",
+        "sono",
+        "doença"
+      ]
+    },
+    {
+      "id": "bemestar",
+      "panel": "beleza",
+      "name": "Bem-estar",
+      "hashtags": [
+        "bemestar"
+      ],
+      "keywords": [
+        "bem-estar",
+        "bem estar",
+        "autocuidado",
+        "rotina saudável",
+        "qualidade de vida",
+        "meditação",
+        "hábitos",
+        "alimentação saudável",
+        "treino",
+        "skincare",
+        "dormir melhor"
+      ]
+    },
+    {
+      "id": "plastica",
+      "panel": "beleza",
+      "name": "Cirurgia plástica",
+      "hashtags": [
+        "cirurgiaplastica"
+      ],
+      "keywords": [
+        "cirurgia plástica",
+        "cirurgião plástico",
+        "cirurgiã plástica",
+        "lipo",
+        "lipoaspiração",
+        "abdominoplastia",
+        "rinoplastia",
+        "mamoplastia",
+        "prótese de silicone",
+        "silicone",
+        "harmonização facial",
+        "pós-operatório",
+        "blefaroplastia",
+        "lipo hd"
+      ]
+    },
+    {
+      "id": "mulher",
+      "panel": "beleza",
+      "name": "Mulher",
+      "hashtags": [
+        "mulher"
+      ],
+      "keywords": [
+        "mulher",
+        "mulheres",
+        "feminino",
+        "feminina",
+        "maternidade",
+        "menopausa",
+        "climatério",
+        "ciclo menstrual",
+        "tpm",
+        "autoestima feminina",
+        "empoderamento feminino"
+      ]
+    },
+    {
+      "id": "mentalidade",
+      "panel": "negocios",
+      "name": "Mentalidade",
+      "hashtags": [
+        "mentalidade"
+      ],
+      "keywords": [
+        "mentalidade",
+        "mindset",
+        "disciplina",
+        "autoconhecimento",
+        "crenças limitantes",
+        "crença limitante",
+        "autoestima",
+        "foco",
+        "propósito",
+        "procrastinação",
+        "constância",
+        "autossabotagem"
+      ]
+    },
+    {
+      "id": "empreend",
+      "panel": "negocios",
+      "name": "Empreendedorismo",
+      "hashtags": [
+        "empreendedorismo"
+      ],
+      "keywords": [
+        "empreendedorismo",
+        "empreender",
+        "empreendedora",
+        "empreendedor",
+        "negócio próprio",
+        "pequeno negócio",
+        "cnpj",
+        "faturamento",
+        "faturar",
+        "marketing digital",
+        "gestão",
+        "precificação",
+        "lucro"
+      ]
+    },
+    {
+      "id": "direito",
+      "panel": "negocios",
+      "name": "Direito e advocacia",
+      "hashtags": [
+        "advocacia"
+      ],
+      "keywords": [
+        "advogado",
+        "advogada",
+        "advocacia",
+        "direito",
+        "direitos",
+        "processo",
+        "justiça",
+        "inss",
+        "trabalhista",
+        "divórcio",
+        "pensão alimentícia",
+        "herança",
+        "inventário",
+        "oab",
+        "indenização",
+        "aposentadoria"
       ]
     }
   ],
