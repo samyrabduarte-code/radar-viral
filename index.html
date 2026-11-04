@@ -650,7 +650,7 @@ const DEFAULT_CFG = {
 /* ---------- armazenamento ---------- */
 const store = {
   get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch{ return d; } },
-  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); return true; }catch{ return false; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v, (key, val) => key === "_f" || key === "_t" || key === "_h" ? undefined : val)); return true; }catch{ return false; } },
   del(k){ try{ localStorage.removeItem(k); }catch{} }
 };
 let cfg = store.get("rv_cfg", null) || structuredClone(DEFAULT_CFG);
@@ -1049,7 +1049,7 @@ const FEATS = [
 ];
 let anCtx = null;
 function featsOf(p){
-  if (p._f) return p._f;
+  if (p._f instanceof Set) return p._f;
   const raw = p.caption || "";
   const firstRaw = (raw.split(/\n/).find(l => l.trim()) || "").slice(0, 160);
   const f = { raw, n: norm(raw), first: firstRaw, nfirst: norm(firstRaw), len: raw.length, emojis: (raw.match(/\p{Extended_Pictographic}/gu) || []).length };
@@ -1057,7 +1057,7 @@ function featsOf(p){
   return p._f;
 }
 function termsOf(p){
-  if (p._t) return p._t;
+  if (p._t instanceof Map && p._h instanceof Set) return p._t;
   const txt = (p.caption || "").toLowerCase().replace(/https?:\/\/\S+/g, " ").replace(/[@#][\p{L}\p{N}_.]+/gu, " ");
   const words = txt.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   const terms = new Map();                      // chave normalizada -> forma original
