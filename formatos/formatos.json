@@ -1,0 +1,1139 @@
+{
+  "formatos": [
+    {
+      "id": "preguicoso",
+      "nome": "Preguiçoso (frase na tela)",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para postar rápido e alcançar gente nova. É o vídeo mais simples: uma cena qualquer ou um meme, com uma frase forte ou uma lista na tela.",
+      "estrutura": [
+        "Cena de 5 a 8 segundos: você olhando para a câmera, fazendo algo do dia a dia, ou um meme",
+        "Texto grande no centro: uma frase de opinião, identificação ou uma lista curta",
+        "Áudio em alta",
+        "Legenda que desenvolve a ideia e fecha com pergunta ou CTA"
+      ],
+      "comoAplicar": "A frase precisa ser lida em 3 segundos. O vídeo existe para segurar o olho; o conteúdo fica na frase e na legenda. Dá para gravar 10 cenas de uma vez e usar em vários posts.",
+      "modelo": "Cena: [você parada olhando para a câmera / fazendo uma tarefa do dia a dia / meme]\nTexto na tela: [frase forte de opinião ou identificação]\n(ou) Texto na tela: [título]\n1. [item]\n2. [item]\n3. [item]\nLegenda: [explicação em 3 a 5 linhas] + [pergunta para comentar]",
+      "exemplos": [
+        {
+          "nicho": "Ansiedade",
+          "texto": "Cena: tomando café olhando pela janela\nTexto na tela: Ansiedade é viver o ensaio de uma conversa que nunca vai acontecer"
+        },
+        {
+          "nicho": "Dívidas",
+          "texto": "Cena: abrindo a geladeira vazia\nTexto na tela: Quando a fatura do cartão chega maior que o salário"
+        }
+      ]
+    },
+    {
+      "id": "tela-dividida",
+      "nome": "Tela dividida",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Salvamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para comparar duas coisas ao mesmo tempo: dúvida e resposta, mito e correção, situação e consequência.",
+      "estrutura": [
+        "Tela dividida em dois quadros (em cima e embaixo, ou lado a lado)",
+        "Quadro 1: a dúvida, o mito ou a situação",
+        "Quadro 2: a resposta, a correção ou a consequência",
+        "Texto curto identificando cada lado"
+      ],
+      "comoAplicar": "Grave as duas partes separadas e junte no CapCut ou no próprio Instagram (layout). Pode ser você nos dois lados, com roupas ou expressões diferentes.",
+      "modelo": "Quadro de cima: [dúvida / mito / situação] — texto: \"[frase]\"\nQuadro de baixo: [resposta / correção / consequência] — texto: \"[frase]\"\nLegenda: [explicação curta] + [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Direito bancário",
+          "texto": "Cima: \"O banco pode descontar o empréstimo direto do meu benefício?\"\nBaixo: \"Só até o limite da margem consignável, e só se você autorizou.\""
+        },
+        {
+          "nicho": "TDAH",
+          "texto": "Cima: o que as pessoas acham que é TDAH (criança agitada)\nBaixo: o que também é TDAH (adulta que esquece tudo e se sente culpada)"
+        }
+      ]
+    },
+    {
+      "id": "takes",
+      "nome": "Takes (tomadas curtas)",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Seguidores"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para explicar um raciocínio de forma dinâmica, sem parecer aula.",
+      "estrutura": [
+        "Cada frase do raciocínio vira uma tomada curta (2 a 4 segundos)",
+        "Troque de lugar, ângulo ou enquadramento a cada tomada",
+        "Gancho forte na primeira tomada",
+        "Última tomada com a conclusão ou CTA"
+      ],
+      "comoAplicar": "Escreva o roteiro em frases curtas antes, uma frase por take. A troca de cenário a cada frase segura a atenção.",
+      "modelo": "Take 1 (gancho): [frase que prende]\nTake 2: [parte 1 do raciocínio]\nTake 3: [parte 2]\nTake 4: [parte 3]\nTake 5: [conclusão ou CTA]",
+      "exemplos": [
+        {
+          "nicho": "Mentalidade",
+          "texto": "Take 1 (no carro): Você não precisa de motivação.\nTake 2 (na cozinha): Precisa de um horário fixo.\nTake 3 (na academia): ..."
+        },
+        {
+          "nicho": "Juros",
+          "texto": "Take 1: Esse parcelado \"sem juros\" tem juros.\nTake 2: O preço à vista é que está escondendo o desconto. ..."
+        }
+      ]
+    },
+    {
+      "id": "lofi",
+      "nome": "Lo-fi (fala espontânea)",
+      "formato": "Reels",
+      "objetivos": [
+        "Seguidores",
+        "Compartilhamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para gerar conexão e opinião. Você fala direto, do jeito que está, no dia a dia (carro, caminhando, cozinha).",
+      "estrutura": [
+        "Headline na tela resumindo o assunto",
+        "Fala espontânea de 20 a 60 segundos, sem roteiro decorado",
+        "Legenda que complementa"
+      ],
+      "comoAplicar": "Não precisa de luz nem edição. O que importa é a opinião ser clara e a headline ser forte. Bom para comentar algo que aconteceu no dia.",
+      "modelo": "Headline na tela: [assunto em até 8 palavras]\nFala: [o que aconteceu] → [sua opinião] → [o que o público deve saber ou fazer]\nLegenda: [resumo + pergunta]",
+      "exemplos": [
+        {
+          "nicho": "Maternidade atípica",
+          "texto": "Headline: O que ouvi hoje na sala de espera da terapia"
+        },
+        {
+          "nicho": "Empreendedorismo",
+          "texto": "Headline: Por que eu demiti meu melhor cliente"
+        }
+      ]
+    },
+    {
+      "id": "pergunta-resposta",
+      "nome": "Pergunta e resposta",
+      "formato": "Reels",
+      "objetivos": [
+        "Salvamentos",
+        "Vendas"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Quando existe uma dúvida concreta que muita gente tem. Mostra autoridade e ajuda quem está perto de contratar.",
+      "estrutura": [
+        "Comece com a dúvida concreta, do jeito que as pessoas perguntam",
+        "Resposta curta logo em seguida (sim, não, depende de X)",
+        "Desenvolva em 2 ou 3 blocos",
+        "Feche com o que fazer"
+      ],
+      "comoAplicar": "A resposta curta no começo evita que a pessoa saia do vídeo. Pegue as dúvidas reais do direct e do WhatsApp.",
+      "modelo": "Cena 1: \"[Dúvida do jeito que o público pergunta]?\"\nCena 2: Resposta curta: [sim / não / depende de X].\nCena 3: [Explicação, bloco 1]\nCena 4: [Explicação, bloco 2]\nCena 5: [O que fazer agora]",
+      "exemplos": [
+        {
+          "nicho": "Direito trabalhista bancário",
+          "texto": "Cena 1: \"Gerente de banco tem direito a hora extra?\"\nCena 2: Depende. Se ele não tem poder de gestão de verdade, pode ter, sim."
+        },
+        {
+          "nicho": "Psiquiatria",
+          "texto": "Cena 1: \"Vou ter que tomar remédio para sempre?\"\nCena 2: Na maioria dos casos, não."
+        }
+      ]
+    },
+    {
+      "id": "carrossel-famoso",
+      "nome": "Carrossel de famoso (caso conhecido)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para pegar carona em algo que todo mundo conhece: uma pessoa pública, um caso, uma notícia. O famoso abre e as telas seguintes explicam o seu conceito.",
+      "estrutura": [
+        "Capa com a pessoa ou caso conhecido e uma frase intrigante",
+        "Slide 2: o que aconteceu, em fatos públicos",
+        "Slides seguintes: o conceito do seu nicho que explica o caso",
+        "Último slide: lição para o público + CTA"
+      ],
+      "comoAplicar": "Use só fatos públicos e não faça diagnóstico de ninguém (principalmente em saúde mental). O famoso é a porta de entrada; o conteúdo é o seu.",
+      "modelo": "Slide 1: [Pessoa ou caso conhecido] + [frase intrigante]\nSlide 2: O que aconteceu: [fatos públicos]\nSlide 3: O que isso tem a ver com [seu tema]: [conceito]\nSlide 4: [explicação]\nSlide 5: O que você pode tirar disso: [lição] + [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Direito de família",
+          "texto": "Slide 1: O divórcio mais comentado do ano e o que ele ensina sobre partilha de bens"
+        },
+        {
+          "nicho": "Marketing",
+          "texto": "Slide 1: Como uma marca virou assunto nacional com um único post"
+        }
+      ]
+    },
+    {
+      "id": "carrossel-cartoon",
+      "nome": "Carrossel cartoon",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Compartilhamentos",
+        "Salvamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para contar uma situação com personagens e balões de fala, como uma tirinha. Leve, divertido e muito compartilhável.",
+      "estrutura": [
+        "Personagens fixos (você e o público, ou dois tipos de pessoa)",
+        "Uma cena por slide, com balão de fala",
+        "Situação reconhecível com virada no fim",
+        "Último slide com a mensagem"
+      ],
+      "comoAplicar": "Dá para criar com IA ou no Canva. Mantenha os mesmos personagens em todos os carrosséis para virar marca do perfil.",
+      "modelo": "Slide 1: [Personagem A] em [situação comum] — balão: \"[fala]\"\nSlide 2: [Personagem B] — balão: \"[resposta]\"\nSlide 3: [complicação]\nSlide 4: [virada / lição]\nSlide 5: [mensagem final + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Comunicação e diálogo",
+          "texto": "Slide 1: Ela: \"Tá tudo bem.\" (não está)\nSlide 2: Ele: \"Que bom!\" ..."
+        },
+        {
+          "nicho": "Vendas",
+          "texto": "Slide 1: Cliente: \"Vou pensar.\"\nSlide 2: Vendedor iniciante: \"Ok, fico no aguardo!\" ..."
+        }
+      ]
+    },
+    {
+      "id": "carrossel-fundo-branco",
+      "nome": "Carrossel fundo branco (editorial)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos",
+        "Seguidores"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para ideias densas e opinião bem argumentada. Visual limpo, cara de texto de revista ou de tweet.",
+      "estrutura": [
+        "Fundo claro, só texto",
+        "Uma ideia por tela",
+        "Frases curtas, com uma palavra em destaque",
+        "Fechamento com a conclusão"
+      ],
+      "comoAplicar": "Funciona para quem quer passar autoridade. Mantenha o mesmo visual sempre para o público reconhecer.",
+      "modelo": "Slide 1: [Afirmação forte ou pergunta]\nSlide 2: [Ideia 1]\nSlide 3: [Ideia 2]\nSlide 4: [Ideia 3]\nSlide 5: [Conclusão]\nSlide 6: [CTA: salva / compartilha / me segue]",
+      "exemplos": [
+        {
+          "nicho": "Estratégia de conteúdo",
+          "texto": "Slide 1: Você não precisa postar mais. Precisa postar com intenção."
+        },
+        {
+          "nicho": "Depressão",
+          "texto": "Slide 1: Depressão nem sempre parece tristeza."
+        }
+      ]
+    },
+    {
+      "id": "estatico",
+      "nome": "Estático (imagem com frase de impacto)",
+      "formato": "Foto",
+      "objetivos": [
+        "Compartilhamentos",
+        "Seguidores"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para variar o feed e passar autoridade. Uma imagem com uma frase forte; a explicação fica na legenda.",
+      "estrutura": [
+        "Imagem com uma frase de impacto",
+        "Legenda desenvolvendo a ideia",
+        "CTA no fim da legenda"
+      ],
+      "comoAplicar": "A frase da arte precisa funcionar sozinha, sem a legenda. A legenda é onde você aprofunda.",
+      "modelo": "Arte: [frase de impacto em até 15 palavras]\nLegenda: [contexto] → [explicação] → [o que fazer] → [pergunta ou CTA]",
+      "exemplos": [
+        {
+          "nicho": "Burnout",
+          "texto": "Arte: Descansar não é prêmio por ter terminado tudo."
+        },
+        {
+          "nicho": "Impostos",
+          "texto": "Arte: Você trabalha até maio só para pagar imposto."
+        }
+      ]
+    },
+    {
+      "id": "preguicoso-comparativo",
+      "nome": "Preguiçoso comparativo",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para mostrar a diferença entre o que a pessoa acha e o que acontece de verdade.",
+      "estrutura": [
+        "Dois cenários na tela, lado a lado ou um depois do outro",
+        "Texto: \"O que você acha\" × \"O que acontece\"",
+        "Cena simples, sem fala",
+        "Legenda com a explicação"
+      ],
+      "comoAplicar": "O contraste precisa ser claro e um pouco engraçado. Funciona muito com expectativa × realidade.",
+      "modelo": "Texto 1: O que você acha que [situação]: [expectativa]\nTexto 2: O que acontece de verdade: [realidade]\nLegenda: [explicação + dica]",
+      "exemplos": [
+        {
+          "nicho": "Cirurgia plástica",
+          "texto": "Texto 1: O que você acha do pós-operatório: 3 dias de repouso\nTexto 2: O que acontece: 30 dias de cinta, drenagem e paciência"
+        },
+        {
+          "nicho": "Social media",
+          "texto": "Texto 1: O que você acha: postar todo dia faz crescer\nTexto 2: O que acontece: post sem estratégia não cresce nem com 3 por dia"
+        }
+      ]
+    },
+    {
+      "id": "verdade-mentira",
+      "nome": "Preguiçoso de verdade ou mentira",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Comentários",
+        "Salvamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para corrigir crenças comuns de forma rápida e engajadora.",
+      "estrutura": [
+        "Afirmação comum aparece na tela",
+        "Pausa de 1 segundo",
+        "Selo VERDADE ou MENTIRA",
+        "Repita com 3 a 5 afirmações"
+      ],
+      "comoAplicar": "Coloque uma \"verdade\" que parece mentira para surpreender. Peça na legenda para a pessoa comentar quantas acertou.",
+      "modelo": "Texto 1: \"[afirmação comum]\" → [VERDADE / MENTIRA]\nTexto 2: \"[afirmação]\" → [VERDADE / MENTIRA]\nTexto 3: \"[afirmação]\" → [VERDADE / MENTIRA]\nLegenda: [explicação de cada uma] + Quantas você acertou?",
+      "exemplos": [
+        {
+          "nicho": "Autismo",
+          "texto": "\"Autismo tem cura\" → MENTIRA\n\"Mulheres autistas costumam ser diagnosticadas mais tarde\" → VERDADE"
+        },
+        {
+          "nicho": "Dívidas",
+          "texto": "\"Dívida some do Serasa depois de 5 anos\" → VERDADE (a negativação sai)\n\"Então a dívida deixa de existir\" → MENTIRA"
+        }
+      ]
+    },
+    {
+      "id": "print-whatsapp",
+      "nome": "Preguiçoso com print de WhatsApp",
+      "formato": "Reels",
+      "objetivos": [
+        "Vendas",
+        "Salvamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para mostrar a dúvida real de um cliente e a sua orientação, como se fosse uma conversa.",
+      "estrutura": [
+        "Conversa simulada de WhatsApp na tela",
+        "Mensagem do cliente com a dúvida",
+        "Sua resposta com a orientação",
+        "Legenda com mais detalhes"
+      ],
+      "comoAplicar": "A conversa é encenada: nunca use print real de cliente sem autorização e sem apagar os dados. A dúvida precisa ser comum no seu nicho.",
+      "modelo": "Mensagem do cliente: \"[dúvida do jeito que as pessoas escrevem]\"\nSua resposta: \"[orientação curta e clara]\"\nCliente: \"[reação: nossa, não sabia!]\"\nLegenda: [explicação completa + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Direito bancário",
+          "texto": "Cliente: \"Apareceu um empréstimo no meu benefício que eu não fiz, o que faço?\"\nVocê: \"Não pague nada ainda. Primeiro puxe o extrato no Meu INSS...\""
+        },
+        {
+          "nicho": "Bem-estar",
+          "texto": "Cliente: \"Não consigo dormir antes de 1h, é normal?\"\nVocê: \"É comum, mas não é normal...\""
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "nome": "React com vídeo de terceiro",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Comentários"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para comentar uma notícia, um corte ou um vídeo em alta, trazendo a leitura de quem entende do assunto.",
+      "estrutura": [
+        "O vídeo ou notícia aparece (tela verde ou corte)",
+        "Sua reação",
+        "Sua leitura técnica em poucas frases",
+        "Pergunta para o público"
+      ],
+      "comoAplicar": "Escolha vídeos que já estão viralizando para pegar carona no assunto. Dê crédito ao autor e não ridicularize pessoas.",
+      "modelo": "Fundo: [vídeo, notícia ou print em alta]\nCena 1: [reação]\nCena 2: O que ninguém está falando sobre isso: [sua leitura]\nCena 3: [o que o público deve saber ou fazer]\nCena 4: [pergunta]",
+      "exemplos": [
+        {
+          "nicho": "Juros",
+          "texto": "Fundo: notícia da nova alta da Selic\nCena 2: O que isso muda no seu cartão de crédito a partir de agora..."
+        },
+        {
+          "nicho": "Psiquiatria",
+          "texto": "Fundo: vídeo viral dizendo que ansiedade se cura com chá\nCena 2: ..."
+        }
+      ]
+    },
+    {
+      "id": "caixinha",
+      "nome": "Caixinha de pergunta",
+      "formato": "Reels",
+      "objetivos": [
+        "Comentários",
+        "Salvamentos",
+        "Vendas"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para responder dúvidas reais que chegaram pela caixinha dos stories. Gera conteúdo infinito e mostra que você escuta o público.",
+      "estrutura": [
+        "Print da pergunta da caixinha na tela",
+        "Resposta em vídeo, curta e direta",
+        "CTA para mandar mais perguntas"
+      ],
+      "comoAplicar": "Abra caixinha toda semana. Cada pergunta boa vira um Reels. Esconda o nome de quem perguntou.",
+      "modelo": "Tela: caixinha com a pergunta \"[pergunta recebida]\"\nCena 1: [resposta curta]\nCena 2: [explicação]\nCena 3: Manda sua pergunta na caixinha dos stories.",
+      "exemplos": [
+        {
+          "nicho": "Mulher",
+          "texto": "Caixinha: \"Com 42 anos já posso estar na perimenopausa?\""
+        },
+        {
+          "nicho": "Marketing",
+          "texto": "Caixinha: \"Vale a pena impulsionar post?\""
+        }
+      ]
+    },
+    {
+      "id": "respondendo-direct",
+      "nome": "Respondendo direct",
+      "formato": "Reels",
+      "objetivos": [
+        "Comentários",
+        "Vendas"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para responder em público uma mensagem que chegou no direct, sem expor quem mandou.",
+      "estrutura": [
+        "Mensagem na tela (sem nome e sem foto)",
+        "Sua resposta em vídeo",
+        "Legenda reforçando"
+      ],
+      "comoAplicar": "Escolha mensagens que representam muita gente. Sempre esconda os dados de quem mandou.",
+      "modelo": "Tela: mensagem recebida \"[texto, sem identificar a pessoa]\"\nCena 1: Recebi essa mensagem e precisava responder aqui.\nCena 2: [resposta]\nCena 3: [mensagem final + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Dependência emocional",
+          "texto": "Mensagem: \"Ele me trata mal, mas quando está bem é o homem perfeito. Eu sou exagerada?\""
+        },
+        {
+          "nicho": "Empreendedorismo",
+          "texto": "Mensagem: \"Tenho vergonha de cobrar o preço que deveria\""
+        }
+      ]
+    },
+    {
+      "id": "fundo-falso",
+      "nome": "Fundo falso (teatro)",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para encenar uma situação com cenário simulado: a dúvida, o conflito ou o \"vilão\" da história.",
+      "estrutura": [
+        "Cenário simulado (tela verde, fundo de escritório, consultório, banco)",
+        "Você interpreta os personagens",
+        "Conflito ou dúvida encenada",
+        "Virada com a orientação"
+      ],
+      "comoAplicar": "Exagere um pouco nos personagens para ficar engraçado. O \"vilão\" pode ser o banco, o cliente difícil, a sogra, o chefe: nunca uma pessoa real identificável.",
+      "modelo": "Cenário: [lugar simulado]\nPersonagem 1 ([papel]): \"[fala]\"\nPersonagem 2 ([papel]): \"[fala]\"\nVirada: [você saindo do personagem e explicando]\nLegenda: [orientação + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Direito trabalhista bancário",
+          "texto": "Cenário: agência bancária\nGerente-geral: \"Você é cargo de confiança, não tem hora extra.\"\nBancário: \"Mas eu não mando em ninguém...\""
+        },
+        {
+          "nicho": "Relacionamento",
+          "texto": "Cenário: sala de casa\nEla: \"Você não vai falar nada?\"\nEle: (tratamento de silêncio)"
+        }
+      ]
+    },
+    {
+      "id": "estatico-ia-desenho",
+      "nome": "Estático desenhado com IA",
+      "formato": "Foto",
+      "objetivos": [
+        "Compartilhamentos",
+        "Alcance"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para criar uma imagem ilustrada, feita com IA, com uma frase ou cena que gera identificação.",
+      "estrutura": [
+        "Ilustração gerada com IA mostrando uma cena reconhecível",
+        "Frase curta na imagem",
+        "Legenda com a explicação"
+      ],
+      "comoAplicar": "Peça para a IA um estilo fixo (por exemplo, ilustração editorial com cores da sua marca) para manter a identidade visual.",
+      "modelo": "Prompt para a IA: ilustração [estilo] de [cena reconhecível do seu público]\nFrase na imagem: [frase de identificação]\nLegenda: [explicação + pergunta]",
+      "exemplos": [
+        {
+          "nicho": "Burnout",
+          "texto": "Cena: mulher sentada na frente do notebook às 23h com café frio\nFrase: Ela não está cansada. Está esgotada."
+        },
+        {
+          "nicho": "Uso de telas",
+          "texto": "Cena: família na mesa de jantar, todos no celular\nFrase: Todo mundo junto. Ninguém presente."
+        }
+      ]
+    },
+    {
+      "id": "estatico-ia-texto",
+      "nome": "Estático escrito com IA",
+      "formato": "Foto",
+      "objetivos": [
+        "Compartilhamentos",
+        "Seguidores"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para cards de texto rápidos com uma opinião ou frase forte, escritos e diagramados com ajuda de IA.",
+      "estrutura": [
+        "Card só com texto (frase de opinião ou identificação)",
+        "Visual padrão do perfil",
+        "Legenda com contexto"
+      ],
+      "comoAplicar": "Use a IA para gerar várias versões da frase e escolha a mais forte. Revise sempre: o tom precisa ser o seu.",
+      "modelo": "Card: [frase de opinião ou identificação]\nLegenda: [contexto + explicação + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Mentalidade",
+          "texto": "Card: Quem espera estar pronta nunca começa."
+        },
+        {
+          "nicho": "Direito do consumidor",
+          "texto": "Card: \"Não aceitamos devolução\" não vale para defeito."
+        }
+      ]
+    },
+    {
+      "id": "carrossel-ia-texto",
+      "nome": "Carrossel escrito com IA",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos",
+        "Seguidores"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para explicar uma situação em várias telas de texto, com a IA ajudando a escrever e organizar.",
+      "estrutura": [
+        "Capa com o tema",
+        "Uma ideia por tela",
+        "Fechamento com conclusão e CTA"
+      ],
+      "comoAplicar": "Dê para a IA o seu tom de voz e exemplos de posts seus. Revise todas as informações técnicas antes de postar.",
+      "modelo": "Prompt para a IA: escreva um carrossel de [número] telas sobre [tema], para [público], no tom [seu tom]. Uma ideia por tela, frases curtas, última tela com CTA para [ação].\nSlide 1: [capa]\nSlide 2 a [N]: [uma ideia por tela]\nÚltimo slide: [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Ansiedade",
+          "texto": "Tema: o que acontece no corpo durante uma crise de ansiedade"
+        },
+        {
+          "nicho": "Estratégia de conteúdo",
+          "texto": "Tema: como escolher os 3 pilares do seu perfil"
+        }
+      ]
+    },
+    {
+      "id": "nota-repudio",
+      "nome": "Nota de repúdio (teaser de lançamento)",
+      "formato": "Foto",
+      "objetivos": [
+        "Lançamento",
+        "Comentários",
+        "Vendas"
+      ],
+      "origem": "banco",
+      "quandoUsar": "Para anunciar uma oferta, um lançamento ou uma condição especial com humor e curiosidade. A \"denúncia\" é falsa e a \"culpada\" é a própria oferta, revelada nos comentários.",
+      "estrutura": [
+        "Título chamativo: \"Nota de repúdio!\"",
+        "Texto curto e misterioso: alguém (um personagem, como um bicho ou objeto) está \"espalhando\" algo sobre você",
+        "Promessa: \"vou deixar a foto nos comentários\"",
+        "Você comenta e fixa a arte da oferta com o personagem",
+        "Responda os comentários com o link ou o direct"
+      ],
+      "comoAplicar": "O tom de brincadeira precisa ficar claro. O personagem nunca é uma pessoa real. Destaque o personagem com outra cor na arte. Funciona muito bem para abrir carrinho, Black Friday ou vagas limitadas.",
+      "modelo": "Título: Nota de repúdio!\nTexto: Informo aos meus [seguidores / alunos / pacientes] que tem um(a) [personagem: capivara, gato, cafeteira] divulgando [coisas / um segredo] sobre mim. Não vou postar aqui [motivo engraçado], mas vou deixar a foto desse(a) [personagem] nos comentários.\nComentário fixado: É ele(a)! + [arte da oferta com o personagem]",
+      "exemplos": [
+        {
+          "nicho": "Lançamento de mentoria",
+          "texto": "Texto: Informo às minhas alunas que tem um gato divulgando o preço da nova turma antes da hora. Vou deixar a foto dele nos comentários."
+        },
+        {
+          "nicho": "Consultório (agenda)",
+          "texto": "Texto: Informo aos meus pacientes que tem uma cafeteira espalhando que abri horários novos em dezembro. A foto dela está nos comentários."
+        }
+      ]
+    },
+    {
+      "id": "lista-sinais",
+      "nome": "Lista de X sinais (ou erros)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Quando o público precisa se reconhecer em algo ou evitar um erro comum. É o formato que mais gera \"salva para ver depois\" e \"manda para alguém\".",
+      "estrutura": [
+        "Capa: número + promessa específica (\"5 sinais de que...\" ou \"7 erros que...\")",
+        "Slide 2: por que isso importa, em 1 ou 2 frases",
+        "Slides 3 a 7: um sinal ou erro por slide, com título curto e explicação de 1 a 2 linhas",
+        "Penúltimo slide: o que fazer a respeito",
+        "Último slide: CTA para salvar e mandar para alguém"
+      ],
+      "comoAplicar": "Use números ímpares (5 ou 7). Coloque o sinal mais surpreendente na posição 3, porque é onde a pessoa decide se continua arrastando. Título de cada slide com no máximo 6 palavras.",
+      "modelo": "Slide 1: [Número] sinais de que [situação que o público vive]\nSlide 2: Se você se identificar com [2 ou mais], vale [ação: prestar atenção, procurar ajuda, mudar algo].\nSlide 3: 1. [Sinal] — [explicação curta]\nSlide 4: 2. [Sinal] — [explicação curta]\nSlide 5: 3. [Sinal mais surpreendente] — [explicação curta]\nSlide 6: 4. [Sinal] — [explicação curta]\nSlide 7: 5. [Sinal] — [explicação curta]\nSlide 8: O que fazer: [1 a 3 ações práticas]\nSlide 9: Salva para não esquecer e manda para quem precisa ver isso.",
+      "exemplos": [
+        {
+          "nicho": "TDAH",
+          "texto": "Slide 1: 5 sinais de TDAH em adultos que parecem só \"jeito de ser\"\nSlide 3: 1. Você começa 5 coisas e termina nenhuma\nSlide 5: 3. Você só funciona com prazo apertando\n..."
+        },
+        {
+          "nicho": "Dívidas",
+          "texto": "Slide 1: 7 sinais de que suas dívidas estão saindo do controle\nSlide 3: 1. Você paga só o mínimo do cartão\nSlide 5: 3. Você usa um crédito para pagar outro\n..."
+        }
+      ]
+    },
+    {
+      "id": "passo-a-passo",
+      "nome": "Passo a passo (tutorial)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos"
+      ],
+      "quandoUsar": "Quando existe um processo que o público quer fazer e não sabe por onde começar.",
+      "estrutura": [
+        "Capa: \"Como [resultado] em [número] passos\" ou \"Passo a passo para [resultado]\"",
+        "Slide 2: o problema de não saber fazer (rápido)",
+        "Um passo por slide, com verbo no imperativo",
+        "Slide de erro comum ou atenção",
+        "CTA para salvar e testar"
+      ],
+      "comoAplicar": "Cada passo começa com verbo (Anote, Separe, Ligue, Peça). Se o processo tiver mais de 7 passos, divida em dois posts e chame de \"parte 1\".",
+      "modelo": "Slide 1: Como [resultado desejado] em [número] passos\nSlide 2: A maioria das pessoas [erro ou travamento comum]. Faz assim:\nSlide 3: Passo 1: [verbo + ação]\nSlide 4: Passo 2: [verbo + ação]\nSlide 5: Passo 3: [verbo + ação]\nSlide 6: Passo 4: [verbo + ação]\nSlide 7: Atenção: [erro que estraga o processo]\nSlide 8: Salva e faz hoje. Depois me conta o resultado.",
+      "exemplos": [
+        {
+          "nicho": "Direito bancário",
+          "texto": "Slide 1: Como contestar um desconto indevido no seu benefício em 4 passos\nSlide 3: Passo 1: Puxe o extrato de empréstimos no Meu INSS\n..."
+        },
+        {
+          "nicho": "Estratégia de conteúdo",
+          "texto": "Slide 1: Como montar 1 mês de conteúdo em 1 tarde\nSlide 3: Passo 1: Liste as 10 perguntas que seus clientes mais fazem\n..."
+        }
+      ]
+    },
+    {
+      "id": "checklist",
+      "nome": "Checklist ou guia de bolso",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos"
+      ],
+      "quandoUsar": "Quando o conteúdo é algo que a pessoa vai consultar de novo: documentos, perguntas para levar na consulta, o que conferir antes de algo.",
+      "estrutura": [
+        "Capa: \"Checklist: [situação]\" ou \"Leve isso para [momento]\"",
+        "Slides com itens marcáveis (☐), agrupados por categoria",
+        "Último slide: \"Salva para usar quando precisar\""
+      ],
+      "comoAplicar": "Visual limpo, cara de lista de verdade. Funciona muito bem quando o título fala de um momento específico (antes da consulta, antes de assinar, antes de postar).",
+      "modelo": "Slide 1: Checklist: [o que conferir] antes de [momento]\nSlide 2: ☐ [item]\n☐ [item]\n☐ [item]\nSlide 3: ☐ [item]\n☐ [item]\n☐ [item]\nSlide 4: Salva para usar quando precisar. Manda para quem vai passar por isso.",
+      "exemplos": [
+        {
+          "nicho": "Psiquiatria",
+          "texto": "Slide 1: Checklist: o que levar para a primeira consulta com o psiquiatra\nSlide 2: ☐ Lista dos remédios que você toma\n☐ Desde quando os sintomas começaram\n..."
+        },
+        {
+          "nicho": "Cirurgia plástica",
+          "texto": "Slide 1: Checklist do pós-operatório: o que ter em casa antes da cirurgia\nSlide 2: ☐ Cinta modeladora no tamanho certo\n☐ Travesseiro de apoio\n..."
+        }
+      ]
+    },
+    {
+      "id": "mito-verdade",
+      "nome": "Mito × Verdade",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos",
+        "Compartilhamentos",
+        "Comentários"
+      ],
+      "quandoUsar": "Quando circulam crenças erradas sobre o tema. Gera debate e compartilhamento para \"corrigir\" alguém.",
+      "estrutura": [
+        "Capa: \"[Número] mitos sobre [tema] que você ainda acredita\"",
+        "Um mito por slide, com selo MITO, e a verdade logo abaixo",
+        "Deixe um \"verdade\" no meio para quebrar o padrão",
+        "CTA: \"Qual desses você acreditava?\""
+      ],
+      "comoAplicar": "Escreva o mito do jeito que as pessoas falam, entre aspas. A verdade precisa ser curta e com uma prova ou explicação simples.",
+      "modelo": "Slide 1: [Número] mitos sobre [tema] que muita gente ainda acredita\nSlide 2: MITO: \"[frase que as pessoas falam]\"\nVERDADE: [correção em 1 ou 2 frases]\nSlide 3: MITO: \"[frase]\"\nVERDADE: [correção]\nSlide 4: VERDADE: \"[frase que parece mito, mas é verdade]\"\n[explicação]\nSlide 5: Qual desses você acreditava? Comenta aqui.",
+      "exemplos": [
+        {
+          "nicho": "Ansiedade",
+          "texto": "Slide 2: MITO: \"Ansiedade é só nervosismo, passa sozinho\"\nVERDADE: Quando atrapalha sono, trabalho e relações, é sinal para buscar avaliação."
+        },
+        {
+          "nicho": "Impostos",
+          "texto": "Slide 2: MITO: \"Quem é MEI não paga imposto\"\nVERDADE: O MEI paga, sim: o DAS mensal já inclui os tributos."
+        }
+      ]
+    },
+    {
+      "id": "troque-isso",
+      "nome": "Troque isso por isso (errado × certo)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos"
+      ],
+      "quandoUsar": "Quando você quer ensinar uma mudança de comportamento de forma muito prática, lado a lado.",
+      "estrutura": [
+        "Capa: \"Pare de dizer X. Diga Y\" ou \"Troque isso por isso\"",
+        "Cada slide com ❌ o jeito comum e ✅ o jeito melhor",
+        "Último slide: por que a troca funciona + CTA para salvar"
+      ],
+      "comoAplicar": "Use frases reais, do dia a dia. Quanto mais específica a troca, mais salvamentos.",
+      "modelo": "Slide 1: Troque essas [número] frases e veja [resultado] mudar\nSlide 2: ❌ \"[jeito comum]\"\n✅ \"[jeito melhor]\"\nSlide 3: ❌ \"[jeito comum]\"\n✅ \"[jeito melhor]\"\nSlide 4: ❌ \"[jeito comum]\"\n✅ \"[jeito melhor]\"\nSlide 5: Por que funciona: [explicação curta]. Salva para treinar.",
+      "exemplos": [
+        {
+          "nicho": "Comunicação e diálogo",
+          "texto": "Slide 2: ❌ \"Você nunca me escuta\"\n✅ \"Eu me sinto sozinha quando falo e você está no celular\""
+        },
+        {
+          "nicho": "Vendas",
+          "texto": "Slide 2: ❌ \"Ficou alguma dúvida?\"\n✅ \"O que te impediria de começar hoje?\""
+        }
+      ]
+    },
+    {
+      "id": "glossario",
+      "nome": "Glossário: o que significa",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Salvamentos",
+        "Seguidores"
+      ],
+      "quandoUsar": "Quando o seu nicho tem termos técnicos que o público ouve e não entende. Posiciona você como quem traduz.",
+      "estrutura": [
+        "Capa: \"[Número] termos de [área] explicados de um jeito simples\"",
+        "Um termo por slide: palavra grande + tradução em linguagem de gente",
+        "CTA: \"Qual termo você quer que eu explique?\""
+      ],
+      "comoAplicar": "Use exemplos do dia a dia na explicação. Termine pedindo sugestões de termos, porque isso gera comentários e ideias para o próximo post.",
+      "modelo": "Slide 1: [Número] palavras que você ouve no [lugar: consultório, banco, tribunal] e ninguém explica\nSlide 2: [TERMO]\nÉ quando [explicação simples]. Exemplo: [situação do dia a dia].\nSlide 3: [TERMO]\n[explicação + exemplo]\nSlide 4: Qual termo você quer que eu explique no próximo? Comenta.",
+      "exemplos": [
+        {
+          "nicho": "Autismo",
+          "texto": "Slide 2: MASKING\nÉ quando a pessoa autista esconde o próprio jeito para parecer \"normal\". Cansa muito."
+        },
+        {
+          "nicho": "Direito trabalhista bancário",
+          "texto": "Slide 2: CARGO DE CONFIANÇA\nÉ o cargo que, em tese, tira o direito à jornada de 6 horas. Muitos bancários têm o nome, mas não a função."
+        }
+      ]
+    },
+    {
+      "id": "ironia-julgamento",
+      "nome": "Rebater um julgamento com ironia",
+      "formato": "Foto",
+      "objetivos": [
+        "Compartilhamentos",
+        "Comentários"
+      ],
+      "quandoUsar": "Quando seu público escuta sempre a mesma frase preconceituosa ou injusta. A pessoa compartilha como resposta para quem julga.",
+      "estrutura": [
+        "Frase de julgamento entre aspas",
+        "Concordância irônica curta (\"Sim!\", \"Claro!\", \"Com certeza!\")",
+        "Lista do que a pessoa realmente enfrenta, com detalhes concretos",
+        "Frase irônica que expõe o absurdo",
+        "Arremate de uma linha"
+      ],
+      "comoAplicar": "Imagem só com texto, fundo liso e letra grande. Os detalhes concretos (valores, situações) são o que gera identificação. O arremate precisa ser curto.",
+      "modelo": "\"[Frase de julgamento que seu público escuta]\"\n\n[Concordância irônica]!\nTodo mundo adora [sofrimento concreto 1], [sofrimento concreto 2] e [sofrimento concreto 3].\n\nDeve ser ótimo [consequência real, dita com ironia].\n\nRealmente. [Arremate irônico de 3 a 5 palavras].",
+      "exemplos": [
+        {
+          "nicho": "TDAH",
+          "texto": "\"Todo mundo tem TDAH agora, né?\"\n\nCom certeza!\nTodo mundo sonha em perder a chave pela terceira vez na semana e ouvir a vida inteira que é preguiça.\n\nRealmente. A moda do momento."
+        },
+        {
+          "nicho": "Empreendedorismo",
+          "texto": "\"Empreender é ter liberdade, né?\"\n\nClaro!\nLiberdade de trabalhar domingo, responder cliente às 23h e pagar todo mundo antes de você.\n\nRealmente. Uma vida de férias."
+        }
+      ]
+    },
+    {
+      "id": "se-voce",
+      "nome": "Frase de identificação: \"Se você...\"",
+      "formato": "Foto",
+      "objetivos": [
+        "Compartilhamentos",
+        "Alcance"
+      ],
+      "quandoUsar": "Para alcançar quem ainda não te segue. A pessoa se vê na frase e manda para quem vive o mesmo.",
+      "estrutura": [
+        "\"Se você [comportamento muito específico]...\"",
+        "Virada: o que isso pode significar",
+        "Frase de acolhimento ou provocação"
+      ],
+      "comoAplicar": "Quanto mais específico o comportamento, mais identificação. Evite frases genéricas como \"se você está cansada\".",
+      "modelo": "Se você [comportamento específico 1], [comportamento específico 2] e ainda [comportamento específico 3]...\n\ntalvez não seja [rótulo que a pessoa usa contra si].\nPode ser [explicação real].\n\n[Frase de acolhimento ou chamada].",
+      "exemplos": [
+        {
+          "nicho": "Dependência emocional",
+          "texto": "Se você checa o celular a cada 5 minutos esperando a resposta dele e muda seus planos para estar disponível...\n\ntalvez não seja amor demais.\nPode ser dependência emocional."
+        },
+        {
+          "nicho": "Juros",
+          "texto": "Se você paga a fatura inteira, mas no dia 10 já está no limite de novo...\n\nnão é falta de dinheiro.\nÉ o cartão virando salário."
+        }
+      ]
+    },
+    {
+      "id": "carta-aberta",
+      "nome": "Carta aberta: \"Para você que...\"",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Compartilhamentos",
+        "Comentários",
+        "Seguidores"
+      ],
+      "quandoUsar": "Para criar conexão emocional forte. Funciona em temas de dor, culpa e cansaço.",
+      "estrutura": [
+        "Capa: \"Para você que [situação dolorosa específica]\"",
+        "Slides que descrevem o que a pessoa sente, sem julgar",
+        "Virada: o que ninguém disse a ela",
+        "Fechamento acolhedor + \"marca alguém que precisa ler\""
+      ],
+      "comoAplicar": "Escreva como se falasse com uma pessoa só. Frases curtas, uma ideia por slide. Muito usado por terapeutas e por perfis de maternidade.",
+      "modelo": "Slide 1: Para você que [situação dolorosa específica]\nSlide 2: Eu sei que [sentimento 1].\nSlide 3: E que às vezes [pensamento que a pessoa tem sobre si].\nSlide 4: Mas ninguém te disse que [verdade acolhedora].\nSlide 5: [Frase de força ou permissão].\nSlide 6: Marca alguém que precisa ler isso hoje.",
+      "exemplos": [
+        {
+          "nicho": "Maternidade atípica",
+          "texto": "Slide 1: Para você, mãe atípica, que chorou no carro antes de entrar na terapia do seu filho\nSlide 4: Mas ninguém te disse que cansaço não é falta de amor."
+        },
+        {
+          "nicho": "Separação e recomeço",
+          "texto": "Slide 1: Para você que saiu de um casamento e sente vergonha de recomeçar aos 40\nSlide 4: Mas ninguém te disse que recomeçar é coragem, não fracasso."
+        }
+      ]
+    },
+    {
+      "id": "pergunta-polemica",
+      "nome": "Pergunta polêmica: você concorda?",
+      "formato": "Foto",
+      "objetivos": [
+        "Comentários",
+        "Alcance"
+      ],
+      "quandoUsar": "Quando você quer muitos comentários. Comentário puxa alcance.",
+      "estrutura": [
+        "Afirmação forte que divide opiniões",
+        "Contexto em 1 ou 2 linhas na arte ou na legenda",
+        "\"Você concorda ou discorda?\""
+      ],
+      "comoAplicar": "A opinião precisa ser defensável, sem ofender grupos. O objetivo é debate saudável, não briga. Responda os primeiros comentários para puxar a conversa.",
+      "modelo": "[Afirmação forte sobre o seu tema].\n\n[Contexto ou justificativa curta].\n\nConcorda ou discorda? Me conta nos comentários.",
+      "exemplos": [
+        {
+          "nicho": "Uso de telas",
+          "texto": "Criança de 2 anos não deveria ter acesso a celular. Nem \"só um pouquinho\".\n\nConcorda ou discorda?"
+        },
+        {
+          "nicho": "Mentalidade",
+          "texto": "Motivação não existe. O que existe é rotina.\n\nConcorda ou discorda?"
+        }
+      ]
+    },
+    {
+      "id": "comente-palavra",
+      "nome": "Comente uma palavra e receba",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Comentários",
+        "Vendas"
+      ],
+      "quandoUsar": "Quando você tem um material, lista, aula ou link para entregar. Gera comentários e leads no direct.",
+      "estrutura": [
+        "Capa com o problema ou o desejo",
+        "Slides com uma amostra de valor (2 ou 3 dicas)",
+        "Último slide: \"Comenta [PALAVRA] que eu te mando [material completo]\""
+      ],
+      "comoAplicar": "Escolha uma palavra curta e ligada ao tema (GUIA, LISTA, TDAH). Responda todos os comentários e mande no direct, de preferência com automação.",
+      "modelo": "Slide 1: [Problema ou desejo do público]\nSlide 2: [Dica 1]\nSlide 3: [Dica 2]\nSlide 4: [Dica 3]\nSlide 5: Quer [material completo: lista, guia, aula]? Comenta [PALAVRA] que eu te mando no direct.",
+      "exemplos": [
+        {
+          "nicho": "Neurodesenvolvimento",
+          "texto": "Slide 5: Quer a lista completa dos marcos de fala até os 3 anos? Comenta FALA que eu te mando."
+        },
+        {
+          "nicho": "Marketing",
+          "texto": "Slide 5: Quer meu modelo de calendário de conteúdo? Comenta CALENDÁRIO que eu te mando."
+        }
+      ]
+    },
+    {
+      "id": "qual-voce-e",
+      "nome": "Qual você é? (tipos ou \"este ou aquele\")",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Comentários",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Para engajar de forma leve. As pessoas comentam o número ou o tipo e marcam amigos.",
+      "estrutura": [
+        "Capa: \"Qual tipo de [pessoa] você é?\"",
+        "Um tipo por slide, numerado, com descrição divertida e verdadeira",
+        "CTA: \"Comenta o número\" ou \"marca quem é o 3\""
+      ],
+      "comoAplicar": "De 4 a 6 tipos. Cada tipo precisa ser reconhecível em uma frase. Humor leve funciona melhor.",
+      "modelo": "Slide 1: Qual tipo de [pessoa do seu nicho] você é?\nSlide 2: 1. O(a) [apelido] — [descrição]\nSlide 3: 2. O(a) [apelido] — [descrição]\nSlide 4: 3. O(a) [apelido] — [descrição]\nSlide 5: 4. O(a) [apelido] — [descrição]\nSlide 6: Comenta o seu número e marca quem é o 3.",
+      "exemplos": [
+        {
+          "nicho": "Relacionamento amoroso",
+          "texto": "Slide 1: Qual tipo de pessoa você é numa briga de casal?\nSlide 2: 1. A que some — fica 2 dias sem falar"
+        },
+        {
+          "nicho": "Organização financeira",
+          "texto": "Slide 1: Qual tipo de pessoa você é com dinheiro?\nSlide 2: 1. A planilheira — anota até o cafezinho"
+        }
+      ]
+    },
+    {
+      "id": "pov",
+      "nome": "POV: situação do dia a dia",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Para alcançar gente nova com identificação rápida. Vídeo curto, de 7 a 15 segundos.",
+      "estrutura": [
+        "Texto na tela: \"POV: [situação muito comum do público]\"",
+        "Você encena a reação (expressão, gesto, fala curta)",
+        "Legenda com a explicação ou dica"
+      ],
+      "comoAplicar": "Use um áudio em alta. O texto na tela precisa ser lido em 2 segundos. A legenda é onde entra o conteúdo técnico.",
+      "modelo": "Texto na tela: POV: [situação comum e específica do seu público]\nCena: [sua reação sem falar, ou uma fala de até 5 palavras]\nLegenda: [explicação curta do porquê isso acontece] + [dica] + [pergunta para comentar]",
+      "exemplos": [
+        {
+          "nicho": "TDAH",
+          "texto": "Texto na tela: POV: você abriu o celular para ver a hora e 40 minutos depois ainda não sabe que horas são"
+        },
+        {
+          "nicho": "Direito e advocacia",
+          "texto": "Texto na tela: POV: o cliente diz que o processo é \"rapidinho\" e já está no terceiro recurso"
+        }
+      ]
+    },
+    {
+      "id": "3-coisas",
+      "nome": "3 coisas que eu faria (ou não faria) se...",
+      "formato": "Reels",
+      "objetivos": [
+        "Salvamentos",
+        "Alcance",
+        "Seguidores"
+      ],
+      "quandoUsar": "Para mostrar autoridade de forma prática, falando para a câmera.",
+      "estrutura": [
+        "Gancho nos 2 primeiros segundos: \"3 coisas que eu nunca faria sendo [profissão]\" ou \"se eu fosse [situação]\"",
+        "Coisa 1, 2 e 3, com corte rápido entre elas",
+        "Fechamento: \"Salva e manda para quem precisa\""
+      ],
+      "comoAplicar": "Escreva as 3 coisas no texto da tela também, para quem assiste sem som. A terceira deve ser a mais surpreendente.",
+      "modelo": "Cena 1 (gancho): 3 coisas que eu [nunca faria / faria hoje] se [situação do público].\nCena 2: Primeira: [coisa 1 + motivo em 1 frase].\nCena 3: Segunda: [coisa 2 + motivo].\nCena 4: Terceira, a mais importante: [coisa 3 + motivo].\nCena 5: Salva e manda para quem está passando por isso.",
+      "exemplos": [
+        {
+          "nicho": "Cirurgia plástica",
+          "texto": "Cena 1: 3 coisas que eu nunca faria antes de uma lipo.\nCena 2: Primeira: escolher o cirurgião pelo preço."
+        },
+        {
+          "nicho": "Dívidas",
+          "texto": "Cena 1: 3 coisas que eu faria hoje se estivesse com o nome sujo.\nCena 2: Primeira: parar de usar o cheque especial."
+        }
+      ]
+    },
+    {
+      "id": "historia-virada",
+      "nome": "História: erro → virada → lição",
+      "formato": "Reels",
+      "objetivos": [
+        "Seguidores",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Para criar conexão e mostrar quem você é. Funciona bem em vídeo falado ou em carrossel de texto.",
+      "estrutura": [
+        "Gancho com o ponto mais baixo da história",
+        "O que aconteceu (contexto rápido)",
+        "A virada: o que você percebeu ou mudou",
+        "A lição para quem está assistindo",
+        "CTA para seguir ou comentar"
+      ],
+      "comoAplicar": "Comece pelo meio da história, no momento mais tenso. Detalhes concretos (idade, valor, lugar) deixam a história real. Pode ser sua ou de paciente/cliente, sem identificar.",
+      "modelo": "Cena 1 (gancho): [Momento mais difícil, em uma frase].\nCena 2: [Contexto: quando, onde, o que estava acontecendo].\nCena 3: Até que [virada: o que você descobriu ou fez].\nCena 4: Hoje eu sei que [lição].\nCena 5: Se você está [situação parecida], [frase de força]. Me segue para mais.",
+      "exemplos": [
+        {
+          "nicho": "Burnout",
+          "texto": "Cena 1: Eu desmaiei no banheiro do trabalho e voltei para a reunião 10 minutos depois."
+        },
+        {
+          "nicho": "Empreendedorismo",
+          "texto": "Cena 1: No primeiro ano da empresa, eu faturei 300 mil e não sobrou nada para mim."
+        }
+      ]
+    },
+    {
+      "id": "reacao-frase",
+      "nome": "Reagir a uma frase ou mito",
+      "formato": "Reels",
+      "objetivos": [
+        "Alcance",
+        "Comentários"
+      ],
+      "quandoUsar": "Quando existe uma frase popular, um comentário recebido ou um vídeo viral errado no seu tema.",
+      "estrutura": [
+        "Mostre a frase na tela (print de comentário ou texto)",
+        "Sua reação imediata (expressão)",
+        "Explicação curta do que está certo ou errado",
+        "Pergunta para o público"
+      ],
+      "comoAplicar": "Use o recurso de tela verde do Instagram com o print atrás. Responder comentário real gera muito engajamento e ideias de pauta.",
+      "modelo": "Tela: [frase ou comentário recebido]\nCena 1: [reação: \"Não é bem assim...\" ou \"Exatamente!\"]\nCena 2: [explicação em 2 ou 3 frases]\nCena 3: [pergunta para comentar]",
+      "exemplos": [
+        {
+          "nicho": "Psiquiatria",
+          "texto": "Tela: \"Remédio psiquiátrico vicia e deixa a pessoa dopada\"\nCena 1: Não é bem assim..."
+        },
+        {
+          "nicho": "Social media",
+          "texto": "Tela: \"Postar todo dia é obrigatório para crescer\"\nCena 1: Isso não é verdade, e eu explico."
+        }
+      ]
+    },
+    {
+      "id": "bastidores",
+      "nome": "Bastidores: um dia comigo",
+      "formato": "Reels",
+      "objetivos": [
+        "Seguidores",
+        "Vendas"
+      ],
+      "quandoUsar": "Para humanizar o perfil e mostrar como é o seu trabalho. Aproxima quem pode virar cliente.",
+      "estrutura": [
+        "Gancho: \"Um dia na vida de uma [profissão] que [diferencial]\"",
+        "Cortes rápidos da rotina, com texto na tela",
+        "Momento real ou engraçado",
+        "Fechamento com o porquê você faz isso"
+      ],
+      "comoAplicar": "Cortes de 1 a 2 segundos. Mostre coisas que o público não imagina. Cuidado com dados de pacientes e clientes: nunca mostre rosto, nome ou documento.",
+      "modelo": "Texto na tela: Um dia na vida de uma [profissão] que [diferencial]\nCortes: [manhã] → [atendimento ou trabalho, sem expor ninguém] → [pausa real] → [momento engraçado ou inesperado] → [fim do dia]\nTexto final: Eu faço isso porque [propósito].",
+      "exemplos": [
+        {
+          "nicho": "Advocacia",
+          "texto": "Texto na tela: Um dia na vida de uma advogada bancária que só atende aposentados"
+        },
+        {
+          "nicho": "Neuropsicologia",
+          "texto": "Texto na tela: Um dia na vida de uma neuropsicóloga que atende crianças autistas"
+        }
+      ]
+    },
+    {
+      "id": "objecao",
+      "nome": "Responder uma objeção",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Vendas",
+        "Salvamentos"
+      ],
+      "quandoUsar": "Quando seus clientes travam sempre no mesmo ponto antes de contratar ou comprar (preço, tempo, medo, \"não é para mim\").",
+      "estrutura": [
+        "Capa com a objeção do jeito que o cliente fala",
+        "Valide: por que é normal pensar assim",
+        "Desmonte com argumento, dado ou comparação",
+        "Mostre o custo de não resolver",
+        "CTA suave para conversar"
+      ],
+      "comoAplicar": "Pegue as objeções reais do seu WhatsApp ou direct. Uma objeção por post. Evite prometer resultado, principalmente em saúde e direito.",
+      "modelo": "Slide 1: \"[Objeção do jeito que o cliente fala]\"\nSlide 2: Faz sentido pensar assim. [validação]\nSlide 3: Mas [argumento, dado ou comparação].\nSlide 4: Enquanto isso, [custo de não resolver].\nSlide 5: Se você quer entender o seu caso, [CTA: me chama no direct / link na bio].",
+      "exemplos": [
+        {
+          "nicho": "Direito trabalhista bancário",
+          "texto": "Slide 1: \"Se eu entrar com ação, o banco vai me demitir\"\nSlide 2: É um medo muito comum entre bancários."
+        },
+        {
+          "nicho": "Psiquiatria",
+          "texto": "Slide 1: \"Consulta com psiquiatra é muito cara\"\nSlide 2: Faz sentido pensar assim."
+        }
+      ]
+    },
+    {
+      "id": "dado-surpreendente",
+      "nome": "Dado que ninguém te conta",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Compartilhamentos",
+        "Salvamentos"
+      ],
+      "quandoUsar": "Quando você tem um número ou fato que choca e muda a forma como o público vê o tema.",
+      "estrutura": [
+        "Capa com o dado em destaque (número grande)",
+        "O que esse número significa na prática",
+        "Por que quase ninguém fala disso",
+        "O que fazer com essa informação",
+        "Fonte no último slide"
+      ],
+      "comoAplicar": "Use só dados com fonte confiável e cite no final. Traduza o número para a vida real (\"isso é 1 em cada 4 pessoas da sua família\").",
+      "modelo": "Slide 1: [Dado ou número em destaque]\nSlide 2: Na prática, isso quer dizer que [tradução para a vida real].\nSlide 3: E quase ninguém fala disso porque [motivo].\nSlide 4: O que você pode fazer: [ação].\nSlide 5: Fonte: [instituição, ano]. Manda para alguém que precisa saber.",
+      "exemplos": [
+        {
+          "nicho": "Juros",
+          "texto": "Slide 1: R$ 1.000 no rotativo do cartão podem virar mais de R$ 3.000 em um ano\nSlide 5: Fonte: taxas médias do Banco Central (confira o valor do mês)."
+        },
+        {
+          "nicho": "Mulher",
+          "texto": "Slide 1: Muitas mulheres passam anos com sintomas de endometriose até ter o diagnóstico\nSlide 5: Fonte: [cite o estudo que você usar]."
+        }
+      ]
+    },
+    {
+      "id": "antes-depois",
+      "nome": "Antes e depois (transformação)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Vendas",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Para mostrar uma mudança: de rotina, de mentalidade, de organização, de resultado.",
+      "estrutura": [
+        "Capa: \"Como era × como ficou\"",
+        "Slide do antes, com detalhes concretos",
+        "O que mudou (as 2 ou 3 ações principais)",
+        "Slide do depois",
+        "CTA"
+      ],
+      "comoAplicar": "Em saúde e estética, siga as regras do seu conselho profissional: muitos proíbem fotos de antes e depois de pacientes. Nesses casos, faça a transformação em texto, de rotina ou de processo.",
+      "modelo": "Slide 1: [Situação] — antes × depois\nSlide 2: ANTES: [detalhes concretos de como era]\nSlide 3: O que mudou: [ação 1], [ação 2], [ação 3]\nSlide 4: DEPOIS: [detalhes concretos de como ficou]\nSlide 5: [CTA: quer o passo a passo? / me conta onde você está]",
+      "exemplos": [
+        {
+          "nicho": "Organização financeira",
+          "texto": "Slide 2: ANTES: 4 cartões, nenhum controle, fatura de R$ 6 mil\nSlide 4: DEPOIS: 1 cartão, planilha simples, R$ 500 guardados por mês"
+        },
+        {
+          "nicho": "Estratégia de conteúdo",
+          "texto": "Slide 2: ANTES: postava quando dava, sem saber o que falar\nSlide 4: DEPOIS: 3 pilares, 12 posts planejados por mês"
+        }
+      ]
+    }
+  ]
+}

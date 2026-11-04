@@ -28,7 +28,8 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
 - `porQueFunciona` explica o mecanismo que fez o post de referência performar (dor, polêmica, identificação, utilidade, salvar para depois etc.).
 - Temas de saúde mental: linguagem responsável, sem prometer cura, sem diagnóstico pelo post, sem estigmatizar; quando fizer sentido, oriente procurar avaliação profissional.
 - Temas de finanças e tributação: não prometa resultado financeiro; números e regras precisam ser verificáveis ou apresentados como exemplo.
-- Ignore posts de referência que sejam golpe, sorteio, política partidária ou conteúdo sem relação real com o tema.
+- Ignore posts de referência que sejam golpe, sorteio ou conteúdo sem relação real com o tema.
+- **Política e economia** é um subtema desejado (impostos, juros, decisões do governo e do Congresso que mexem no bolso). Explique o impacto prático para o público, com fatos verificáveis, sem tomar partido nem atacar políticos; ignore posts de campanha eleitoral ou de ataque pessoal.
 
 ### Formato de `pautas/AAAA-MM-DD.json`
 

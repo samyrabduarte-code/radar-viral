@@ -198,6 +198,25 @@ button.word:hover{border-color:var(--accent)}
 .an-dest-m{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12.5px;color:var(--muted)}
 .an-dest-m a{font-weight:600;margin-left:auto}
 
+/* Formatos */
+.fm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:12px 0 48px;align-items:start}
+.fm{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+.fm.open{grid-column:1/-1}
+.fm-top{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;padding:16px 18px;width:100%;cursor:pointer}
+.fm-top:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.fm-top h3{font:700 18px/1.25 var(--display);margin:0;text-wrap:balance}
+.fm-top p{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.fm-badges{display:flex;gap:6px;align-items:center}
+.fm-banco{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--warm) 16%,var(--surface));color:var(--warm)}
+.fm-more{font-size:13px;font-weight:600;color:var(--accent)}
+.fm-body{border-top:1px solid var(--line);padding:16px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.fm-body h4{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.fm-body ol{margin:0;padding-left:20px;font-size:14px;line-height:1.55;display:flex;flex-direction:column;gap:4px}
+.fm-body p{margin:0;font-size:14px;line-height:1.55}
+.fm-ex{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-bottom:8px;font-size:13.5px}
+.fm-ex b{display:block;font-size:12px;margin-bottom:3px;color:var(--accent)}
+@media (max-width:640px){ .fm-body{grid-template-columns:1fr} .fm-grid{grid-template-columns:1fr} }
+
 /* Pautas */
 .pz-pronto{border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));background:var(--accent-soft);border-radius:11px;padding:10px 12px}
 .pz-pronto-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
@@ -255,6 +274,7 @@ button.word:hover{border-color:var(--accent)}
         <button role="tab" id="tabFeed" aria-selected="true">Em alta</button>
         <button role="tab" id="tabAnalise" aria-selected="false">Por que viraliza</button>
         <button role="tab" id="tabPautas" aria-selected="false">Pautas</button>
+        <button role="tab" id="tabFormatos" aria-selected="false">Formatos</button>
         <button role="tab" id="tabCfg" aria-selected="false">Configurar</button>
       </div>
       <button class="btn primary" id="refreshBtn">
@@ -339,6 +359,21 @@ button.word:hover{border-color:var(--accent)}
     </div>
     <div id="anClaude"></div>
     <div id="anBody"></div>
+  </section>
+
+  <section id="formatosView" hidden>
+    <div class="pz-head">
+      <div>
+        <h2>Formatos validados</h2>
+        <p id="fmInfo">Fórmulas de post que funcionam em qualquer tema. Escolha o objetivo, copie o modelo e troque o que está entre [colchetes] pelo seu assunto.</p>
+      </div>
+      <div class="search" style="flex:0 1 300px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="fmQ" type="search" placeholder="Buscar formato"></div>
+    </div>
+    <div class="filters" style="padding-block:14px 4px">
+      <div class="lvl"><span class="lvl-label">Objetivo</span><div class="seg" id="fmObj"></div></div>
+      <div class="lvl"><span class="lvl-label">Formato</span><div class="seg" id="fmFmt"></div></div>
+    </div>
+    <div class="fm-grid" id="fmList"></div>
   </section>
 
   <section id="pautasView" hidden>
@@ -455,8 +490,9 @@ const DEFAULT_CFG = {
     { id:"telas", panel:"saude", name:"Uso de telas", hashtags:["tempodetela"], keywords:["tempo de tela", "uso de telas", "telas", "celular", "tablet", "criança no celular", "criança no tablet", "vício em celular", "vício em telas", "dependência digital", "detox digital", "redes sociais", "rolagem infinita", "doomscrolling", "youtube kids", "videogame", "jogos eletrônicos", "autismo virtual", "nomofobia", "excesso de telas", "celular na escola", "proibição do celular", "luz azul"] },
     { id:"dividas", panel:"fin", name:"Dívidas", hashtags:["dividas"], keywords:["dívida", "dívidas", "endividado", "endividada", "endividamento", "superendividamento", "nome sujo", "nome negativado", "negativado", "negativada", "limpar o nome", "limpar nome", "serasa", "spc", "score", "aumentar o score", "negociar dívida", "renegociar", "renegociação", "acordo de dívida", "feirão limpa nome", "desenrola", "desenrola brasil", "cobrança abusiva", "conta atrasada", "boleto atrasado", "cheque especial", "agiota", "prescrição de dívida", "dívida caduca", "sair das dívidas"] },
     { id:"juros", panel:"fin", name:"Juros", hashtags:["juros", "educacaofinanceira"], keywords:["juros", "juros compostos", "juros abusivos", "taxa de juros", "cartão de crédito", "fatura do cartão", "rotativo", "parcelamento", "parcelar", "empréstimo", "empréstimo pessoal", "consignado", "crédito consignado", "financiamento", "financiamento imobiliário", "financiamento de carro", "selic", "taxa selic", "copom", "custo efetivo total", "inflação", "ipca", "educação financeira", "investir", "investimento", "investimentos", "renda fixa", "cdb", "tesouro direto", "reserva de emergência", "poupança"] },
-    { id:"impostos", panel:"fin", name:"Impostos e tributação", hashtags:["impostos", "reformatributaria"], keywords:["imposto", "impostos", "tributação", "tributário", "tributária", "tributos", "carga tributária", "reforma tributária", "ibs", "cbs", "imposto seletivo", "imposto de renda", "irpf", "declaração do imposto de renda", "restituição", "malha fina", "simples nacional", "mei", "microempreendedor individual", "lucro presumido", "lucro real", "receita federal", "icms", "iss", "ipi", "cofins", "nota fiscal", "contador", "contadora", "contabilidade", "planejamento tributário", "sonegação", "isenção", "taxação"] },
+    { id:"impostos", panel:"fin", name:"Impostos e tributação", hashtags:["impostos", "reformatributaria"], keywords:["imposto", "impostos", "tributação", "tributário", "tributária", "tributos", "carga tributária", "reforma tributária", "ibs", "cbs", "imposto seletivo", "imposto de renda", "irpf", "declaração do imposto de renda", "restituição", "malha fina", "simples nacional", "mei", "microempreendedor individual", "lucro presumido", "lucro real", "receita federal", "icms", "iss", "ipi", "cofins", "nota fiscal", "contador", "contadora", "contabilidade", "planejamento tributário", "sonegação", "isenção", "taxação", "split payment", "pagamento dividido", "recolhimento na fonte", "cashback do imposto", "transição tributária", "imposto sobre consumo", "iva dual"] },
     { id:"vendas", panel:"fin", name:"Vendas e comercial", hashtags:["vendas", "vendasonline"], keywords:["vendas", "vender", "vendedor", "vendedora", "vendedores", "fechar venda", "fechar vendas", "prospecção", "prospectar", "negociação", "comercial", "time comercial", "funil de vendas", "objeção", "objeções", "quebra de objeção", "follow-up", "follow up", "ticket médio", "taxa de conversão", "script de vendas", "venda no whatsapp", "vendas pelo instagram", "vendas online", "social selling", "pós-venda", "cliente", "clientes", "atendimento", "closer", "sdr", "meta de vendas", "comissão", "leads", "crm"] },
+    {"id": "politica", "panel": "fin", "name": "Política e economia", "hashtags": [], "keywords": ["política econômica", "política fiscal", "economia brasileira", "governo federal", "ministério da fazenda", "ministro da fazenda", "arcabouço fiscal", "gastos públicos", "déficit", "déficit fiscal", "dívida pública", "orçamento", "congresso", "câmara dos deputados", "senado", "projeto de lei", "pec", "medida provisória", "votação", "aprovado", "sancionado", "banco central", "presidente do banco central", "dólar", "câmbio", "inflação", "pib", "recessão", "crise econômica", "taxa das blusinhas", "taxação", "imposto sobre grandes fortunas", "isenção do imposto de renda", "salário mínimo", "bolsa família", "reforma administrativa", "reforma da previdência", "eleições", "eleição"]},
     {"id": "saude", "panel": "beleza", "name": "Saúde", "hashtags": ["saude"], "keywords": ["saúde", "médico", "médica", "consulta médica", "exame", "exames", "check-up", "exame de sangue", "sintoma", "sintomas", "prevenção", "imunidade", "hormônio", "hormônios", "tireoide", "vitamina d", "vitamina b12", "ferritina", "intestino", "microbiota", "inflamação", "colesterol", "diabetes", "pressão alta", "hipertensão", "obesidade", "emagrecimento", "emagrecer", "ozempic", "mounjaro", "sono", "doença", "sus", "plano de saúde"]},
     {"id": "bemestar", "panel": "beleza", "name": "Bem-estar", "hashtags": ["bemestar"], "keywords": ["bem-estar", "bem estar", "autocuidado", "rotina saudável", "qualidade de vida", "meditação", "mindfulness", "respiração consciente", "yoga", "pilates", "exercício físico", "atividade física", "treino", "academia", "caminhada", "alimentação saudável", "comida de verdade", "hábitos saudáveis", "skincare", "dormir melhor", "higiene do sono", "rotina matinal", "slow living", "desacelerar", "gratidão", "hidratação"]},
     {"id": "plastica", "panel": "beleza", "name": "Cirurgia plástica", "hashtags": ["cirurgiaplastica"], "keywords": ["cirurgia plástica", "cirurgião plástico", "cirurgiã plástica", "plástica", "lipo", "lipoaspiração", "lipo hd", "lipo lad", "abdominoplastia", "mini abdominoplastia", "mamoplastia", "mamoplastia redutora", "mastopexia", "prótese de silicone", "silicone", "troca de prótese", "explante", "rinoplastia", "blefaroplastia", "lifting", "lifting facial", "bichectomia", "otoplastia", "gluteoplastia", "ninfoplastia", "harmonização facial", "preenchimento", "botox", "toxina botulínica", "bioestimulador", "pós-operatório", "pós-op", "drenagem linfática", "cinta modeladora", "seroma", "fibrose", "mommy makeover", "cirurgia íntima"]},
@@ -466,6 +502,7 @@ const DEFAULT_CFG = {
     {"id": "direito", "panel": "negocios", "name": "Direito e advocacia", "hashtags": ["advocacia"], "keywords": ["advogado", "advogada", "advogados", "advocacia", "direito", "direitos", "direito do consumidor", "direito de família", "direito trabalhista", "direito previdenciário", "direito penal", "direito médico", "código de defesa do consumidor", "procon", "justiça", "ação judicial", "processo judicial", "processar", "entrar na justiça", "juizado especial", "pequenas causas", "indenização", "danos morais", "inss", "aposentadoria", "bpc", "loas", "auxílio-doença", "benefício negado", "revisão da vida toda", "trabalhista", "rescisão", "demissão", "justa causa", "fgts", "horas extras", "carteira assinada", "divórcio", "pensão alimentícia", "guarda compartilhada", "guarda dos filhos", "herança", "inventário", "testamento", "partilha", "união estável", "oab"]},
     {"id": "dirbanc", "panel": "negocios", "name": "Direito bancário", "hashtags": ["direitobancario"], "keywords": ["direito bancário", "advogado bancário", "advogada bancária", "advocacia bancária", "juros abusivos", "revisão de contrato", "revisão contratual", "revisional", "ação revisional", "busca e apreensão", "financiamento de veículo", "carro financiado", "alienação fiduciária", "leilão de imóvel", "empréstimo consignado", "cartão consignado", "rmc", "rcc", "desconto indevido", "descontos indevidos", "tarifa abusiva", "tarifas bancárias", "venda casada", "seguro prestamista", "cobrança indevida", "fraude bancária", "golpe do pix", "pix errado", "conta bloqueada", "bloqueio de conta", "bacen", "banco central", "superendividamento", "lei do superendividamento", "negativação indevida", "instituição financeira"]},
     {"id": "trabbanc", "panel": "negocios", "name": "Direito trabalhista bancário", "hashtags": ["bancarios"], "keywords": ["bancário", "bancária", "bancários", "bancárias", "trabalhador bancário", "gerente de banco", "gerente bancário", "caixa bancário", "sétima e oitava hora", "7ª e 8ª hora", "sétima hora", "oitava hora", "horas extras do bancário", "jornada bancária", "jornada de 6 horas", "cargo de confiança", "gratificação de função", "plr", "participação nos lucros", "metas abusivas", "cobrança de metas", "assédio moral", "burnout bancário", "ler/dort", "ler dort", "tendinite", "demissão de bancário", "acordo coletivo", "convenção coletiva", "sindicato dos bancários", "equiparação salarial", "desvio de função", "reintegração", "advogado trabalhista bancário"]},
+    {"id": "clt", "panel": "negocios", "name": "Direitos trabalhistas", "hashtags": [], "keywords": ["direitos trabalhistas", "direito trabalhista", "clt", "carteira assinada", "trabalhador", "trabalhadora", "funcionário", "funcionária", "funcionários", "colaborador", "colaboradora", "colaboradores", "empregado", "empregada", "empregador", "patrão", "contratar funcionário", "demitir funcionário", "obrigações do empregador", "férias", "13º salário", "décimo terceiro", "rescisão", "demissão", "pedido de demissão", "demissão por justa causa", "justa causa", "acordo trabalhista", "aviso prévio", "fgts", "multa de 40%", "seguro-desemprego", "horas extras", "banco de horas", "adicional noturno", "insalubridade", "periculosidade", "escala 6x1", "jornada de trabalho", "home office", "licença-maternidade", "licença maternidade", "licença-paternidade", "estabilidade", "gestante", "assédio moral", "assédio no trabalho", "pj ou clt", "pejotização", "vínculo empregatício", "processo trabalhista", "reclamação trabalhista", "rh", "recursos humanos", "departamento pessoal", "esocial"]},
     {"id": "social", "panel": "mkt", "name": "Social media", "hashtags": ["socialmedia"], "keywords": ["social media", "socialmedia", "gestão de redes sociais", "gestora de redes sociais", "gerenciamento de redes sociais", "algoritmo", "algoritmo do instagram", "engajamento", "alcance", "seguidores", "ganhar seguidores", "crescer no instagram", "crescimento no instagram", "bio do instagram", "perfil profissional", "métricas", "insights do instagram", "frequência de postagem", "melhor horário para postar", "design para redes sociais", "canva", "capcut", "edição de vídeo", "trend", "trends", "viralizar", "tiktok", "collab", "criador de conteúdo", "criadora de conteúdo", "influenciador", "influenciadora", "ugc"]},
     {"id": "marketing", "panel": "mkt", "name": "Marketing", "hashtags": ["marketingdigital"], "keywords": ["marketing", "marketing digital", "tráfego pago", "gestor de tráfego", "gestora de tráfego", "anúncios", "meta ads", "google ads", "funil", "funil de vendas", "lançamento", "perpétuo", "copy", "copywriting", "persona", "público-alvo", "posicionamento", "branding", "marca pessoal", "autoridade", "nicho", "oferta", "proposta de valor", "leads", "landing page", "página de vendas", "email marketing", "cpa", "roas", "cac", "ltv", "remarketing", "estratégia de marketing"]},
     {"id": "conteudo", "panel": "mkt", "name": "Estratégia de conteúdo", "hashtags": ["marketingdeconteudo"], "keywords": ["estratégia de conteúdo", "marketing de conteúdo", "planejamento de conteúdo", "linha editorial", "pilares de conteúdo", "calendário editorial", "calendário de postagens", "pauta", "pautas", "ideias de conteúdo", "conteúdo que vende", "conteúdo de valor", "conteúdo de autoridade", "conteúdo de conexão", "storytelling", "gancho", "ganchos", "roteiro", "roteiros", "headline", "cta", "chamada para ação", "funil de conteúdo", "topo de funil", "meio de funil", "fundo de funil", "produção de conteúdo", "reaproveitamento de conteúdo", "tom de voz", "narrativa", "seo", "seo para instagram"]},
@@ -493,14 +530,14 @@ let cfg = store.get("rv_cfg", null) || structuredClone(DEFAULT_CFG);
   for (const pn of DEFAULT_CFG.panels) if (!cfg.panels.some(x => x.id === pn.id)) { cfg.panels.push(structuredClone(pn)); changed = true; }
   for (const t of DEFAULT_CFG.themes) if (!cfg.themes.some(x => x.id === t.id) && !cfg.removed.includes(t.id)) { cfg.themes.push(structuredClone(t)); changed = true; }
   // versão 2 das palavras-chave: soma as novas às que já existem, sem apagar nenhuma
-  if ((cfg.kwVersion || 1) < 2) {
+  if ((cfg.kwVersion || 1) < 3) {
     const norm = s => String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
     for (const t of cfg.themes) {
       const d = DEFAULT_CFG.themes.find(x => x.id === t.id); if (!d) continue;
       const have = new Set(t.keywords.map(norm));
       for (const k of d.keywords) if (!have.has(norm(k))) { t.keywords.push(k); have.add(norm(k)); }
     }
-    cfg.kwVersion = 2; changed = true;
+    cfg.kwVersion = 3; changed = true;
   }
   // versão 3: libera espaço no limite de 30 hashtags tirando as repetidas
   if ((cfg.tagVersion || 1) < 3) {
@@ -1048,6 +1085,59 @@ async function loadClaudeAnalise(){
   } catch {}
 }
 
+/* ---------- formatos validados ---------- */
+const fm = { list:null, obj:"", fmt:"", q:"", open:new Set() };
+const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Vendas","Lançamento"];
+async function loadFormatos(){
+  if (location.protocol === "file:") { $("#fmList").innerHTML = `<div class="notice warn"><div>Os formatos só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.</div></div>`; return; }
+  if (!fm.list) {
+    try { fm.list = (await getJSON("formatos/formatos.json")).formatos || []; }
+    catch { $("#fmList").innerHTML = `<div class="notice err"><div>Não consegui carregar os formatos agora. Verifique a internet e abra a aba de novo.</div></div>`; return; }
+  }
+  renderFormatos();
+}
+function renderFormatos(){
+  const all = fm.list;
+  const objs = FM_OBJ.filter(o => all.some(f => f.objetivos.includes(o)));
+  const fmts = [...new Set(all.map(f => f.formato))];
+  $("#fmObj").innerHTML = [`<button data-fmo="" aria-pressed="${!fm.obj}">Todos</button>`].concat(objs.map(o => `<button data-fmo="${esc(o)}" aria-pressed="${fm.obj === o}">${esc(o)} <small>${all.filter(f => f.objetivos.includes(o)).length}</small></button>`)).join("");
+  $("#fmFmt").innerHTML = [`<button data-fmf="" aria-pressed="${!fm.fmt}">Todos</button>`].concat(fmts.map(x => `<button data-fmf="${esc(x)}" aria-pressed="${fm.fmt === x}">${esc(x)}</button>`)).join("");
+  const q = norm(fm.q.trim());
+  const list = all.filter(f => (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
+    && (!q || norm(f.nome + " " + f.quandoUsar + " " + f.modelo).includes(q)));
+  $("#fmInfo").textContent = `${list.length} ${list.length === 1 ? "formato" : "formatos"}. Escolha o objetivo, copie o modelo e troque o que está entre [colchetes] pelo seu assunto.`;
+  $("#fmList").innerHTML = list.length ? list.map(f => {
+    const open = fm.open.has(f.id);
+    return `<article class="fm ${open ? "open" : ""}" data-fm="${esc(f.id)}">
+      <button class="fm-top" data-fmtoggle="${esc(f.id)}" aria-expanded="${open}">
+        <div class="fm-badges"><span class="pz-fmt">${esc(f.formato)}</span>${f.origem === "banco" ? `<span class="fm-banco">do seu banco</span>` : ""}</div>
+        <h3>${esc(f.nome)}</h3>
+        <p>${esc(f.quandoUsar)}</p>
+        <div class="themes">${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
+        <span class="fm-more">${open ? "Fechar" : "Ver estrutura e modelo"}</span>
+      </button>
+      ${open ? `<div class="fm-body">
+        <div><h4>Estrutura</h4><ol>${f.estrutura.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>
+        <div><h4>Como aplicar</h4><p>${esc(f.comoAplicar)}</p></div>
+        <div class="pz-pronto"><div class="pz-pronto-h"><span>Modelo para copiar</span><button class="btn small" data-fmcopy="${esc(f.id)}">Copiar modelo</button></div><div class="pz-txt">${esc(f.modelo)}</div></div>
+        ${f.exemplos?.length ? `<div><h4>Exemplos em temas diferentes</h4>${f.exemplos.map(e => `<div class="fm-ex"><b>${esc(e.nicho)}</b><div class="pz-txt">${esc(e.texto)}</div></div>`).join("")}</div>` : ""}
+      </div>` : ""}
+    </article>`; }).join("")
+    : `<div class="empty-state" style="grid-column:1/-1"><h3>Nenhum formato com esse filtro</h3><p>Escolha outro objetivo ou formato.</p></div>`;
+}
+$("#fmObj").addEventListener("click", e => { const b = e.target.closest("[data-fmo]"); if (!b) return; fm.obj = b.dataset.fmo; renderFormatos(); });
+$("#fmFmt").addEventListener("click", e => { const b = e.target.closest("[data-fmf]"); if (!b) return; fm.fmt = b.dataset.fmf; renderFormatos(); });
+let fmT; $("#fmQ").addEventListener("input", e => { clearTimeout(fmT); fmT = setTimeout(() => { fm.q = e.target.value; renderFormatos(); }, 200); });
+$("#fmList").addEventListener("click", async e => {
+  const t = e.target.closest("[data-fmtoggle]");
+  if (t) { const id = t.dataset.fmtoggle; fm.open.has(id) ? fm.open.delete(id) : fm.open.add(id); renderFormatos(); return; }
+  const c = e.target.closest("[data-fmcopy]"); if (!c) return;
+  const f = fm.list.find(x => x.id === c.dataset.fmcopy);
+  const text = `FORMATO: ${f.nome} (${f.formato})\n\n${f.modelo}`;
+  try { await navigator.clipboard.writeText(text); } catch { const ta = $("#copyFallback"); ta.value = text; ta.select(); try { document.execCommand("copy"); } catch {} }
+  c.textContent = "Copiado!"; setTimeout(() => c.textContent = "Copiar modelo", 1800);
+});
+
 /* ---------- configurar ---------- */
 function renderCfg(){
   $("#token").value = cfg.token;
@@ -1171,17 +1261,18 @@ $("#connectBtn").addEventListener("click", connect);
 
 /* ---------- abas e filtros ---------- */
 function switchTab(which){
-  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["analise","#analiseView","#tabAnalise"],["pautas","#pautasView","#tabPautas"],["cfg","#cfgView","#tabCfg"]]) {
+  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["analise","#analiseView","#tabAnalise"],["pautas","#pautasView","#tabPautas"],["formatos","#formatosView","#tabFormatos"],["cfg","#cfgView","#tabCfg"]]) {
     $(view).hidden = k !== which; $(tab).setAttribute("aria-selected", String(k === which));
   }
   $("#sharedTop").hidden = !(which === "feed" || which === "analise");
-  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else { render(); if (which === "analise") loadClaudeAnalise(); }
+  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else if (which === "formatos") loadFormatos(); else { render(); if (which === "analise") loadClaudeAnalise(); }
   try { history.replaceState(null, "", which === "feed" ? location.pathname : "#" + which); } catch {}
   window.scrollTo({ top:0 });
 }
 $("#tabFeed").addEventListener("click", () => switchTab("feed"));
 $("#tabPautas").addEventListener("click", () => switchTab("pautas"));
 $("#tabAnalise").addEventListener("click", () => switchTab("analise"));
+$("#tabFormatos").addEventListener("click", () => switchTab("formatos"));
 $("#tabCfg").addEventListener("click", () => switchTab("cfg"));
 
 /* ---------- pautas ---------- */
@@ -1349,7 +1440,7 @@ $("#dlBtn").addEventListener("click", () => {
 /* ---------- início ---------- */
 if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
 setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
-if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
+if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#formatos") switchTab("formatos"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
 })();
 </script>
 </body>
