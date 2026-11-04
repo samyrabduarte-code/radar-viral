@@ -15,6 +15,10 @@
     {
       "id": "negocios",
       "name": "Negócios e direito"
+    },
+    {
+      "id": "mkt",
+      "name": "Marketing e conteúdo"
     }
   ],
   "themes": [
@@ -23,8 +27,7 @@
       "panel": "saude",
       "name": "Autismo",
       "hashtags": [
-        "autismo",
-        "tea"
+        "autismo"
       ],
       "keywords": [
         "autismo",
@@ -167,8 +170,7 @@
       "panel": "saude",
       "name": "TDAH",
       "hashtags": [
-        "tdah",
-        "tdahadulto"
+        "tdah"
       ],
       "keywords": [
         "tdah",
@@ -274,8 +276,7 @@
       "panel": "saude",
       "name": "Uso de telas",
       "hashtags": [
-        "tempodetela",
-        "usodetelas"
+        "tempodetela"
       ],
       "keywords": [
         "tempo de tela",
@@ -308,8 +309,7 @@
       "panel": "fin",
       "name": "Dívidas",
       "hashtags": [
-        "dividas",
-        "nomesujo"
+        "dividas"
       ],
       "keywords": [
         "dívida",
@@ -393,7 +393,6 @@
       "name": "Impostos e tributação",
       "hashtags": [
         "impostos",
-        "tributacao",
         "reformatributaria"
       ],
       "keywords": [
@@ -439,7 +438,6 @@
       "name": "Vendas e comercial",
       "hashtags": [
         "vendas",
-        "comercial",
         "vendasonline"
       ],
       "keywords": [
@@ -797,6 +795,224 @@
         "partilha",
         "união estável",
         "oab"
+      ]
+    },
+    {
+      "id": "dirbanc",
+      "panel": "negocios",
+      "name": "Direito bancário",
+      "hashtags": [
+        "direitobancario"
+      ],
+      "keywords": [
+        "direito bancário",
+        "advogado bancário",
+        "advogada bancária",
+        "advocacia bancária",
+        "juros abusivos",
+        "revisão de contrato",
+        "revisão contratual",
+        "revisional",
+        "ação revisional",
+        "busca e apreensão",
+        "financiamento de veículo",
+        "carro financiado",
+        "alienação fiduciária",
+        "leilão de imóvel",
+        "empréstimo consignado",
+        "cartão consignado",
+        "rmc",
+        "rcc",
+        "desconto indevido",
+        "descontos indevidos",
+        "tarifa abusiva",
+        "tarifas bancárias",
+        "venda casada",
+        "seguro prestamista",
+        "cobrança indevida",
+        "fraude bancária",
+        "golpe do pix",
+        "pix errado",
+        "conta bloqueada",
+        "bloqueio de conta",
+        "bacen",
+        "banco central",
+        "superendividamento",
+        "lei do superendividamento",
+        "negativação indevida",
+        "instituição financeira"
+      ]
+    },
+    {
+      "id": "trabbanc",
+      "panel": "negocios",
+      "name": "Direito trabalhista bancário",
+      "hashtags": [
+        "bancarios"
+      ],
+      "keywords": [
+        "bancário",
+        "bancária",
+        "bancários",
+        "bancárias",
+        "trabalhador bancário",
+        "gerente de banco",
+        "gerente bancário",
+        "caixa bancário",
+        "sétima e oitava hora",
+        "7ª e 8ª hora",
+        "sétima hora",
+        "oitava hora",
+        "horas extras do bancário",
+        "jornada bancária",
+        "jornada de 6 horas",
+        "cargo de confiança",
+        "gratificação de função",
+        "plr",
+        "participação nos lucros",
+        "metas abusivas",
+        "cobrança de metas",
+        "assédio moral",
+        "burnout bancário",
+        "ler/dort",
+        "ler dort",
+        "tendinite",
+        "demissão de bancário",
+        "acordo coletivo",
+        "convenção coletiva",
+        "sindicato dos bancários",
+        "equiparação salarial",
+        "desvio de função",
+        "reintegração",
+        "advogado trabalhista bancário"
+      ]
+    },
+    {
+      "id": "social",
+      "panel": "mkt",
+      "name": "Social media",
+      "hashtags": [
+        "socialmedia"
+      ],
+      "keywords": [
+        "social media",
+        "socialmedia",
+        "gestão de redes sociais",
+        "gestora de redes sociais",
+        "gerenciamento de redes sociais",
+        "algoritmo",
+        "algoritmo do instagram",
+        "engajamento",
+        "alcance",
+        "seguidores",
+        "ganhar seguidores",
+        "crescer no instagram",
+        "crescimento no instagram",
+        "bio do instagram",
+        "perfil profissional",
+        "métricas",
+        "insights do instagram",
+        "frequência de postagem",
+        "melhor horário para postar",
+        "design para redes sociais",
+        "canva",
+        "capcut",
+        "edição de vídeo",
+        "trend",
+        "trends",
+        "viralizar",
+        "tiktok",
+        "collab",
+        "criador de conteúdo",
+        "criadora de conteúdo",
+        "influenciador",
+        "influenciadora",
+        "ugc"
+      ]
+    },
+    {
+      "id": "marketing",
+      "panel": "mkt",
+      "name": "Marketing",
+      "hashtags": [
+        "marketingdigital"
+      ],
+      "keywords": [
+        "marketing",
+        "marketing digital",
+        "tráfego pago",
+        "gestor de tráfego",
+        "gestora de tráfego",
+        "anúncios",
+        "meta ads",
+        "google ads",
+        "funil",
+        "funil de vendas",
+        "lançamento",
+        "perpétuo",
+        "copy",
+        "copywriting",
+        "persona",
+        "público-alvo",
+        "posicionamento",
+        "branding",
+        "marca pessoal",
+        "autoridade",
+        "nicho",
+        "oferta",
+        "proposta de valor",
+        "leads",
+        "landing page",
+        "página de vendas",
+        "email marketing",
+        "cpa",
+        "roas",
+        "cac",
+        "ltv",
+        "remarketing",
+        "estratégia de marketing"
+      ]
+    },
+    {
+      "id": "conteudo",
+      "panel": "mkt",
+      "name": "Estratégia de conteúdo",
+      "hashtags": [
+        "marketingdeconteudo"
+      ],
+      "keywords": [
+        "estratégia de conteúdo",
+        "marketing de conteúdo",
+        "planejamento de conteúdo",
+        "linha editorial",
+        "pilares de conteúdo",
+        "calendário editorial",
+        "calendário de postagens",
+        "pauta",
+        "pautas",
+        "ideias de conteúdo",
+        "conteúdo que vende",
+        "conteúdo de valor",
+        "conteúdo de autoridade",
+        "conteúdo de conexão",
+        "storytelling",
+        "gancho",
+        "ganchos",
+        "roteiro",
+        "roteiros",
+        "headline",
+        "cta",
+        "chamada para ação",
+        "funil de conteúdo",
+        "topo de funil",
+        "meio de funil",
+        "fundo de funil",
+        "produção de conteúdo",
+        "reaproveitamento de conteúdo",
+        "tom de voz",
+        "narrativa",
+        "seo",
+        "seo para instagram"
       ]
     }
   ],
