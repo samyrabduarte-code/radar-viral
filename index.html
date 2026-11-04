@@ -141,7 +141,33 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
 .taglist{display:flex;flex-wrap:wrap;gap:5px}
 .saved{font-size:13px;color:var(--ok);font-weight:600}
 
+/* Pautas */
+.pz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-top:22px}
+.pz-head h2{font:800 26px/1.15 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
+.pz-head p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:68ch}
+.pz-theme{margin:26px 0 8px}
+.pz-theme-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.pz-theme-h h3{font:700 20px/1.2 var(--display);margin:0}
+.pz-theme-h span{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.pz{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pz.done{opacity:.55}
+.pz-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.pz h4{font:700 17px/1.3 var(--display);margin:0;text-wrap:balance;min-width:0}
+.pz-fmt{flex:none;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.pz-gancho{margin:0;font-size:15px;font-weight:600;line-height:1.45;padding:10px 12px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)}
+.pz-gancho::before{content:"Gancho";display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.pz dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.pz dt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.pz dd{margin:2px 0 0;font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.pz-ref{border-top:1px solid var(--line);padding-top:10px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.pz-ref b{color:var(--ink);font-weight:600}
+.pz-ref .nums{font-variant-numeric:tabular-nums}
+.pz-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:auto}
+.pz-actions label{display:flex;gap:6px;align-items:center;font-size:13px;font-weight:600;cursor:pointer;margin-left:auto}
+
 @media (max-width:640px){
+  .pz-grid{grid-template-columns:1fr}
   .theme-edit .two{grid-template-columns:1fr}
   .prof{grid-template-columns:1fr 1fr auto}
   .grid{grid-template-columns:1fr}
@@ -161,6 +187,7 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
       </div>
       <div class="tabs" role="tablist">
         <button role="tab" id="tabFeed" aria-selected="true">Em alta</button>
+        <button role="tab" id="tabPautas" aria-selected="false">Pautas</button>
         <button role="tab" id="tabCfg" aria-selected="false">Configurar</button>
       </div>
       <button class="btn primary" id="refreshBtn">
@@ -226,6 +253,19 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
     </div>
     <textarea id="copyFallback" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0;width:1px;height:1px"></textarea>
     <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="pautasView" hidden>
+    <div class="pz-head">
+      <div>
+        <h2 id="pzTitle">Pautas da semana</h2>
+        <p id="pzInfo">Toda quinta-feira o Claude analisa os posts em alta e cria pautas novas aqui.</p>
+      </div>
+      <select id="pzEd" aria-label="Edição"></select>
+    </div>
+    <div class="notices" id="pzNotices"></div>
+    <div class="row" id="pzChips" style="padding-block:14px 4px"></div>
+    <div id="pzList"></div>
   </section>
 
   <section id="cfgView" hidden>
@@ -790,14 +830,103 @@ $("#connectBtn").addEventListener("click", connect);
 
 /* ---------- abas e filtros ---------- */
 function switchTab(which){
-  const cfgOn = which === "cfg";
-  $("#feedView").hidden = cfgOn; $("#cfgView").hidden = !cfgOn;
-  $("#tabFeed").setAttribute("aria-selected", String(!cfgOn)); $("#tabCfg").setAttribute("aria-selected", String(cfgOn));
-  if (cfgOn) renderCfg(); else render();
+  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["pautas","#pautasView","#tabPautas"],["cfg","#cfgView","#tabCfg"]]) {
+    $(view).hidden = k !== which; $(tab).setAttribute("aria-selected", String(k === which));
+  }
+  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else render();
+  try { history.replaceState(null, "", which === "feed" ? location.pathname : "#" + which); } catch {}
   window.scrollTo({ top:0 });
 }
 $("#tabFeed").addEventListener("click", () => switchTab("feed"));
+$("#tabPautas").addEventListener("click", () => switchTab("pautas"));
 $("#tabCfg").addEventListener("click", () => switchTab("cfg"));
+
+/* ---------- pautas ---------- */
+const pz = { index:null, ed:null, data:null, theme:"", done:new Set(store.get("rv_pz_done", [])) };
+async function getJSON(path){
+  const r = await fetch(path + "?t=" + Date.now(), { cache:"no-store" });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function loadPautas(){
+  if (location.protocol === "file:") { pzMsg("As pautas só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.", "warn"); return; }
+  try {
+    pz.index = await getJSON("pautas/index.json");
+    const eds = pz.index.edicoes || [];
+    if (!eds.length) { pzMsg("Ainda não há pautas. A primeira edição chega na quinta-feira.", ""); return; }
+    $("#pzEd").innerHTML = eds.map(e => `<option value="${esc(e.arquivo)}">${esc(fmtEd(e))}</option>`).join("");
+    if (!pz.ed || !eds.some(e => e.arquivo === pz.ed)) pz.ed = eds[0].arquivo;
+    $("#pzEd").value = pz.ed;
+    await loadEdicao();
+  } catch { pzMsg("Não consegui carregar as pautas agora. Verifique a internet e abra a aba de novo.", "err"); }
+}
+function fmtEd(e){
+  const d = new Date(e.edicao + "T12:00:00");
+  return d.toLocaleDateString("pt-BR", { day:"2-digit", month:"long" }) + (e.arquivo.includes("teste") ? " (teste)" : "") + ` · ${e.total} pautas`;
+}
+function pzMsg(html, kind){ $("#pzNotices").innerHTML = `<div class="notice ${kind}"><div>${html}</div></div>`; $("#pzList").innerHTML = ""; $("#pzChips").innerHTML = ""; }
+async function loadEdicao(){
+  pz.data = await getJSON("pautas/" + pz.ed);
+  renderPautas();
+}
+function pautaText(t, p){
+  const r = p.referencia || {};
+  return `PAUTA: ${p.titulo}\nTema: ${t.nome} · Formato: ${p.formato}\n\nGancho: ${p.gancho}\n\nIdeia de replicação: ${p.ideia}\n\nPor que funciona: ${p.porQueFunciona}\n\nReferência: ${r.link || "-"} (${r.formato || ""}, ${r.curtidas ?? "?"} curtidas, ${r.comentarios ?? "?"} comentários, nota ${r.nota ?? "?"})`;
+}
+function renderPautas(){
+  const d = pz.data;
+  $("#pzTitle").textContent = d.titulo || "Pautas da semana";
+  const total = d.temas.reduce((n, t) => n + (t.pautas?.length || 0), 0);
+  const nT = d.temas.filter(t => t.pautas?.length).length;
+  $("#pzInfo").textContent = `${total} ${total === 1 ? "pauta" : "pautas"} em ${nT} ${nT === 1 ? "tema" : "temas"}` + (d.postsAnalisados ? `, criadas a partir de ${d.postsAnalisados} posts em alta.` : ".");
+  $("#pzNotices").innerHTML = (d.avisos || []).map(a => `<div class="notice warn"><div>${esc(a)}</div></div>`).join("");
+  const temas = d.temas.filter(t => t.pautas?.length);
+  if (pz.theme && !temas.some(t => t.id === pz.theme)) pz.theme = "";
+  $("#pzChips").innerHTML = [`<button class="chip" data-pzt="" aria-pressed="${!pz.theme}">Todos</button>`]
+    .concat(temas.map(t => `<button class="chip" data-pzt="${esc(t.id)}" aria-pressed="${pz.theme === t.id}">${esc(t.nome)} (${t.pautas.length})</button>`)).join("");
+  let html = "", lastPanel = "";
+  for (const t of temas) {
+    if (pz.theme && t.id !== pz.theme) continue;
+    html += `<section class="pz-theme"><div class="pz-theme-h"><h3>${esc(t.nome)}</h3><span>${esc(t.painel || "")}</span></div><div class="pz-grid">`;
+    t.pautas.forEach((p, i) => {
+      const key = `${pz.ed}|${t.id}|${i}`; const r = p.referencia || {};
+      html += `<article class="pz ${pz.done.has(key) ? "done" : ""}">
+        <div class="pz-top"><h4>${esc(p.titulo)}</h4><span class="pz-fmt">${esc(p.formato)}</span></div>
+        <p class="pz-gancho">${esc(p.gancho)}</p>
+        <dl>
+          <div><dt>Ideia de replicação</dt><dd>${esc(p.ideia)}</dd></div>
+          <div><dt>Por que funciona</dt><dd>${esc(p.porQueFunciona)}</dd></div>
+        </dl>
+        <div class="pz-ref">
+          <div><b>Post de referência:</b> ${esc(r.resumo || "")}</div>
+          <div class="nums">${esc(r.formato || "")} · ${r.curtidas != null ? nf.format(r.curtidas) + " curtidas" : "curtidas ocultas"} · ${nf.format(r.comentarios || 0)} comentários${r.nota != null ? " · nota " + r.nota : ""}</div>
+        </div>
+        <div class="pz-actions">
+          ${r.link ? `<a class="btn small" href="${esc(r.link)}" target="_blank" rel="noopener">Ver referência ↗</a>` : ""}
+          <button class="btn small" data-copy="${esc(t.id)}|${i}">Copiar pauta</button>
+          <label><input type="checkbox" data-done="${esc(key)}" ${pz.done.has(key) ? "checked" : ""}> Já usei</label>
+        </div>
+      </article>`;
+    });
+    html += `</div></section>`;
+  }
+  $("#pzList").innerHTML = html;
+}
+$("#pzEd").addEventListener("change", e => { pz.ed = e.target.value; loadEdicao().catch(() => pzMsg("Não consegui abrir esta edição.", "err")); });
+$("#pzChips").addEventListener("click", e => { const b = e.target.closest("[data-pzt]"); if (!b) return; pz.theme = b.dataset.pzt; renderPautas(); });
+$("#pzList").addEventListener("change", e => {
+  const k = e.target.dataset.done; if (!k) return;
+  e.target.checked ? pz.done.add(k) : pz.done.delete(k); store.set("rv_pz_done", [...pz.done]);
+  e.target.closest(".pz").classList.toggle("done", e.target.checked);
+});
+$("#pzList").addEventListener("click", async e => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const [tid, i] = b.dataset.copy.split("|"); const t = pz.data.temas.find(x => x.id === tid);
+  const text = pautaText(t, t.pautas[+i]);
+  try { await navigator.clipboard.writeText(text); }
+  catch { const ta = $("#copyFallback"); ta.value = text; ta.select(); try { document.execCommand("copy"); } catch {} }
+  b.textContent = "Copiada!"; setTimeout(() => b.textContent = "Copiar pauta", 1800);
+});
 $("#refreshBtn").addEventListener("click", () => { switchTab("feed"); refresh(); });
 $("#panelSeg").addEventListener("click", e => { const b = e.target.closest("[data-panel]"); if (!b) return; ui.panel = b.dataset.panel; ui.themes.clear(); saveUi(); render(); });
 $("#themeChips").addEventListener("click", e => { const b = e.target.closest("[data-theme]"); if (!b) return; const id = b.dataset.theme; ui.themes.has(id) ? ui.themes.delete(id) : ui.themes.add(id); saveUi(); render(); });
@@ -863,7 +992,7 @@ $("#dlBtn").addEventListener("click", () => {
 /* ---------- início ---------- */
 if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
 setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
-render();
+if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
 })();
 </script>
 </body>

@@ -1,0 +1,64 @@
+# Radar Viral
+
+Painel pessoal da Samyra (@samyra__duarte) que mostra posts em alta no Instagram nos temas dela e entrega pautas semanais.
+
+- `index.html`: o sistema inteiro (página única, publicada no GitHub Pages em https://samyrabduarte-code.github.io/radar-viral/). A chave de acesso fica no navegador dela; nunca coloque chave no repositório.
+- `config/temas.json`: temas, hashtags, palavras-chave e perfis usados pela coleta automática.
+- `config/hashtag_ids.json`: cache dos IDs de hashtag (o Instagram permite 30 hashtags novas por semana; não apague).
+- `scripts/coletar.py`: busca os posts em alta e grava `dados/coleta-AAAA-MM-DD.json`. Lê a chave da variável de ambiente `IG_TOKEN`.
+- `pautas/`: edições semanais de pautas, lidas pela aba **Pautas** do sistema.
+
+Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o que o GitHub Pages publica).
+
+## Rotina semanal de pautas (toda quinta-feira)
+
+1. Rode `python3 scripts/coletar.py`. Se falhar porque `IG_TOKEN` falta ou a chave expirou, **não invente dados**: crie a edição só com o campo `avisos` explicando o problema e o que a Samyra precisa fazer (gerar nova chave de 60 dias e atualizar `IG_TOKEN` no ambiente do Claude), publique e pare.
+2. Leia o arquivo `dados/coleta-*.json` mais recente.
+3. Para **cada tema** que tiver posts, crie **3 pautas** (menos se o tema tiver poucos posts bons). Cada pauta se inspira em um post de referência real da coleta, preferindo notas altas e posts recentes.
+4. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.
+5. Faça commit (`Pautas da semana AAAA-MM-DD`) e push para `main`. Não faça commit da pasta `dados/` (está no .gitignore).
+
+### Como escrever as pautas
+
+- Pautas **originais** para o perfil da Samyra. Use o post de referência como prova de que o assunto, o gancho ou o formato funcionam, nunca copie texto, arte ou roteiro.
+- `ideia` é a **ideia de replicação**: o que fazer no perfil dela, com o ângulo próprio, a estrutura (ex.: slides do carrossel ou cenas do Reels) e o CTA.
+- `porQueFunciona` explica o mecanismo que fez o post de referência performar (dor, polêmica, identificação, utilidade, salvar para depois etc.).
+- Temas de saúde mental: linguagem responsável, sem prometer cura, sem diagnóstico pelo post, sem estigmatizar; quando fizer sentido, oriente procurar avaliação profissional.
+- Temas de finanças e tributação: não prometa resultado financeiro; números e regras precisam ser verificáveis ou apresentados como exemplo.
+- Ignore posts de referência que sejam golpe, sorteio, política partidária ou conteúdo sem relação real com o tema.
+
+### Formato de `pautas/AAAA-MM-DD.json`
+
+```json
+{
+  "edicao": "2026-11-06",
+  "geradoEm": "2026-11-06T09:47:00Z",
+  "postsAnalisados": 812,
+  "avisos": [],
+  "temas": [
+    {
+      "id": "tdah",
+      "nome": "TDAH",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "Frase curta que resume a pauta",
+          "formato": "Carrossel",
+          "gancho": "Primeira frase/tela do post",
+          "ideia": "Ideia de replicação: ângulo, estrutura e CTA",
+          "porQueFunciona": "Por que o post de referência performou",
+          "referencia": { "link": "https://www.instagram.com/p/...", "formato": "Reels", "curtidas": 9025, "comentarios": 896, "nota": 93, "resumo": "Do que o post de referência fala, em uma frase" }
+        }
+      ]
+    }
+  ]
+}
+```
+
+`formato` é `Reels`, `Carrossel` ou `Foto`. Copie os campos `avisos` da coleta para a edição.
+
+### Formato de `pautas/index.json`
+
+```json
+{ "edicoes": [ { "arquivo": "2026-11-06.json", "edicao": "2026-11-06", "total": 33 } ] }
+```

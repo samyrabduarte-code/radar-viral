@@ -1,0 +1,211 @@
+{
+  "panels": [
+    {
+      "id": "saude",
+      "name": "Saúde mental e neuro"
+    },
+    {
+      "id": "fin",
+      "name": "Finanças e vendas"
+    }
+  ],
+  "themes": [
+    {
+      "id": "autismo",
+      "panel": "saude",
+      "name": "Autismo",
+      "hashtags": [
+        "autismo",
+        "tea"
+      ],
+      "keywords": [
+        "autismo",
+        "autista",
+        "tea",
+        "espectro autista",
+        "neurodivergente",
+        "neurodivergência"
+      ]
+    },
+    {
+      "id": "neuro",
+      "panel": "saude",
+      "name": "Neurodesenvolvimento",
+      "hashtags": [
+        "neurodesenvolvimento",
+        "desenvolvimentoinfantil"
+      ],
+      "keywords": [
+        "neurodesenvolvimento",
+        "desenvolvimento infantil",
+        "atraso de fala",
+        "atraso na fala",
+        "marcos do desenvolvimento",
+        "estimulação precoce"
+      ]
+    },
+    {
+      "id": "psiq",
+      "panel": "saude",
+      "name": "Psiquiatria",
+      "hashtags": [
+        "psiquiatria",
+        "saudemental"
+      ],
+      "keywords": [
+        "psiquiatra",
+        "psiquiatria",
+        "saúde mental",
+        "medicação",
+        "psicofármaco"
+      ]
+    },
+    {
+      "id": "tdah",
+      "panel": "saude",
+      "name": "TDAH",
+      "hashtags": [
+        "tdah",
+        "tdahadulto"
+      ],
+      "keywords": [
+        "tdah",
+        "déficit de atenção",
+        "hiperatividade",
+        "desatenção",
+        "hiperfoco",
+        "impulsividade"
+      ]
+    },
+    {
+      "id": "depressao",
+      "panel": "saude",
+      "name": "Depressão",
+      "hashtags": [
+        "depressao"
+      ],
+      "keywords": [
+        "depressão",
+        "depressivo",
+        "deprimido",
+        "antidepressivo"
+      ]
+    },
+    {
+      "id": "ansiedade",
+      "panel": "saude",
+      "name": "Ansiedade",
+      "hashtags": [
+        "ansiedade"
+      ],
+      "keywords": [
+        "ansiedade",
+        "ansioso",
+        "ansiosa",
+        "crise de ansiedade",
+        "síndrome do pânico",
+        "pânico"
+      ]
+    },
+    {
+      "id": "telas",
+      "panel": "saude",
+      "name": "Uso de telas",
+      "hashtags": [
+        "tempodetela",
+        "usodetelas"
+      ],
+      "keywords": [
+        "tempo de tela",
+        "uso de telas",
+        "telas",
+        "celular",
+        "tablet",
+        "vício em celular",
+        "redes sociais"
+      ]
+    },
+    {
+      "id": "dividas",
+      "panel": "fin",
+      "name": "Dívidas",
+      "hashtags": [
+        "dividas",
+        "nomesujo"
+      ],
+      "keywords": [
+        "dívida",
+        "dívidas",
+        "endividado",
+        "endividada",
+        "nome sujo",
+        "serasa",
+        "negociar dívida",
+        "desenrola"
+      ]
+    },
+    {
+      "id": "juros",
+      "panel": "fin",
+      "name": "Juros",
+      "hashtags": [
+        "juros",
+        "educacaofinanceira"
+      ],
+      "keywords": [
+        "juros",
+        "cartão de crédito",
+        "rotativo",
+        "empréstimo",
+        "selic",
+        "financiamento",
+        "consignado"
+      ]
+    },
+    {
+      "id": "impostos",
+      "panel": "fin",
+      "name": "Impostos e tributação",
+      "hashtags": [
+        "impostos",
+        "tributacao",
+        "reformatributaria"
+      ],
+      "keywords": [
+        "imposto",
+        "impostos",
+        "tributação",
+        "tributário",
+        "tributária",
+        "reforma tributária",
+        "imposto de renda",
+        "simples nacional",
+        "mei",
+        "receita federal"
+      ]
+    },
+    {
+      "id": "vendas",
+      "panel": "fin",
+      "name": "Vendas e comercial",
+      "hashtags": [
+        "vendas",
+        "comercial",
+        "vendasonline"
+      ],
+      "keywords": [
+        "vendas",
+        "vender",
+        "vendedor",
+        "vendedora",
+        "fechar venda",
+        "prospecção",
+        "negociação",
+        "comercial",
+        "funil de vendas",
+        "cliente"
+      ]
+    }
+  ],
+  "profiles": []
+}
