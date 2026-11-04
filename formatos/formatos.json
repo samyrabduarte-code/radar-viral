@@ -28,6 +28,9 @@
           "nicho": "Direitos trabalhistas",
           "texto": "Slide 1: O Senado aprovou o fim da escala 6x1. E agora?\nSlide 3: O que muda para você: ainda depende da Câmara, nada muda no seu contrato hoje"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -57,6 +60,9 @@
           "nicho": "Dívidas",
           "texto": "Cena: abrindo a geladeira vazia\nTexto na tela: Quando a fatura do cartão chega maior que o salário"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -86,6 +92,9 @@
           "nicho": "TDAH",
           "texto": "Cima: o que as pessoas acham que é TDAH (criança agitada)\nBaixo: o que também é TDAH (adulta que esquece tudo e se sente culpada)"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -115,6 +124,9 @@
           "nicho": "Juros",
           "texto": "Take 1: Esse parcelado \"sem juros\" tem juros.\nTake 2: O preço à vista é que está escondendo o desconto. ..."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -143,6 +155,9 @@
           "nicho": "Empreendedorismo",
           "texto": "Headline: Por que eu demiti meu melhor cliente"
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -172,6 +187,9 @@
           "nicho": "Psiquiatria",
           "texto": "Cena 1: \"Vou ter que tomar remédio para sempre?\"\nCena 2: Na maioria dos casos, não."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -201,6 +219,9 @@
           "nicho": "Marketing",
           "texto": "Slide 1: Como uma marca virou assunto nacional com um único post"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -230,6 +251,9 @@
           "nicho": "Vendas",
           "texto": "Slide 1: Cliente: \"Vou pensar.\"\nSlide 2: Vendedor iniciante: \"Ok, fico no aguardo!\" ..."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -259,6 +283,9 @@
           "nicho": "Depressão",
           "texto": "Slide 1: Depressão nem sempre parece tristeza."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -287,6 +314,9 @@
           "nicho": "Impostos",
           "texto": "Arte: Você trabalha até maio só para pagar imposto."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -316,6 +346,9 @@
           "nicho": "Social media",
           "texto": "Texto 1: O que você acha: postar todo dia faz crescer\nTexto 2: O que acontece: post sem estratégia não cresce nem com 3 por dia"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -346,6 +379,9 @@
           "nicho": "Dívidas",
           "texto": "\"Dívida some do Serasa depois de 5 anos\" → VERDADE (a negativação sai)\n\"Então a dívida deixa de existir\" → MENTIRA"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -375,6 +411,10 @@
           "nicho": "Bem-estar",
           "texto": "Cliente: \"Não consigo dormir antes de 1h, é normal?\"\nVocê: \"É comum, mas não é normal...\""
         }
+      ],
+      "etapas": [
+        "Meio",
+        "Fundo"
       ]
     },
     {
@@ -404,6 +444,9 @@
           "nicho": "Psiquiatria",
           "texto": "Fundo: vídeo viral dizendo que ansiedade se cura com chá\nCena 2: ..."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -433,6 +476,9 @@
           "nicho": "Marketing",
           "texto": "Caixinha: \"Vale a pena impulsionar post?\""
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -461,6 +507,9 @@
           "nicho": "Empreendedorismo",
           "texto": "Mensagem: \"Tenho vergonha de cobrar o preço que deveria\""
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -490,6 +539,9 @@
           "nicho": "Relacionamento",
           "texto": "Cenário: sala de casa\nEla: \"Você não vai falar nada?\"\nEle: (tratamento de silêncio)"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -518,6 +570,9 @@
           "nicho": "Uso de telas",
           "texto": "Cena: família na mesa de jantar, todos no celular\nFrase: Todo mundo junto. Ninguém presente."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -546,6 +601,9 @@
           "nicho": "Direito do consumidor",
           "texto": "Card: \"Não aceitamos devolução\" não vale para defeito."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -574,6 +632,9 @@
           "nicho": "Estratégia de conteúdo",
           "texto": "Tema: como escolher os 3 pilares do seu perfil"
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -605,6 +666,9 @@
           "nicho": "Consultório (agenda)",
           "texto": "Texto: Informo aos meus pacientes que tem uma cafeteira espalhando que abri horários novos em dezembro. A foto dela está nos comentários."
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -634,6 +698,9 @@
           "nicho": "Dívidas",
           "texto": "Slide 1: 7 sinais de que suas dívidas estão saindo do controle\nSlide 3: 1. Você paga só o mínimo do cartão\nSlide 5: 3. Você usa um crédito para pagar outro\n..."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -662,6 +729,9 @@
           "nicho": "Estratégia de conteúdo",
           "texto": "Slide 1: Como montar 1 mês de conteúdo em 1 tarde\nSlide 3: Passo 1: Liste as 10 perguntas que seus clientes mais fazem\n..."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -688,6 +758,9 @@
           "nicho": "Cirurgia plástica",
           "texto": "Slide 1: Checklist do pós-operatório: o que ter em casa antes da cirurgia\nSlide 2: ☐ Cinta modeladora no tamanho certo\n☐ Travesseiro de apoio\n..."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -717,6 +790,10 @@
           "nicho": "Impostos",
           "texto": "Slide 2: MITO: \"Quem é MEI não paga imposto\"\nVERDADE: O MEI paga, sim: o DAS mensal já inclui os tributos."
         }
+      ],
+      "etapas": [
+        "Topo",
+        "Meio"
       ]
     },
     {
@@ -743,6 +820,9 @@
           "nicho": "Vendas",
           "texto": "Slide 2: ❌ \"Ficou alguma dúvida?\"\n✅ \"O que te impediria de começar hoje?\""
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -770,6 +850,9 @@
           "nicho": "Direito trabalhista bancário",
           "texto": "Slide 2: CARGO DE CONFIANÇA\nÉ o cargo que, em tese, tira o direito à jornada de 6 horas. Muitos bancários têm o nome, mas não a função."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -799,6 +882,9 @@
           "nicho": "Empreendedorismo",
           "texto": "\"Empreender é ter liberdade, né?\"\n\nClaro!\nLiberdade de trabalhar domingo, responder cliente às 23h e pagar todo mundo antes de você.\n\nRealmente. Uma vida de férias."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -826,6 +912,9 @@
           "nicho": "Juros",
           "texto": "Se você paga a fatura inteira, mas no dia 10 já está no limite de novo...\n\nnão é falta de dinheiro.\nÉ o cartão virando salário."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -855,6 +944,10 @@
           "nicho": "Separação e recomeço",
           "texto": "Slide 1: Para você que saiu de um casamento e sente vergonha de recomeçar aos 40\nSlide 4: Mas ninguém te disse que recomeçar é coragem, não fracasso."
         }
+      ],
+      "etapas": [
+        "Topo",
+        "Meio"
       ]
     },
     {
@@ -882,6 +975,9 @@
           "nicho": "Mentalidade",
           "texto": "Motivação não existe. O que existe é rotina.\n\nConcorda ou discorda?"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -910,6 +1006,10 @@
           "nicho": "Marketing",
           "texto": "Slide 5: Quer meu modelo de calendário de conteúdo? Comenta CALENDÁRIO que eu te mando."
         }
+      ],
+      "etapas": [
+        "Meio",
+        "Fundo"
       ]
     },
     {
@@ -937,6 +1037,9 @@
           "nicho": "Organização financeira",
           "texto": "Slide 1: Qual tipo de pessoa você é com dinheiro?\nSlide 2: 1. A planilheira — anota até o cafezinho"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -964,6 +1067,9 @@
           "nicho": "Direito e advocacia",
           "texto": "Texto na tela: POV: o cliente diz que o processo é \"rapidinho\" e já está no terceiro recurso"
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -992,6 +1098,9 @@
           "nicho": "Dívidas",
           "texto": "Cena 1: 3 coisas que eu faria hoje se estivesse com o nome sujo.\nCena 2: Primeira: parar de usar o cheque especial."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -1021,6 +1130,9 @@
           "nicho": "Empreendedorismo",
           "texto": "Cena 1: No primeiro ano da empresa, eu faturei 300 mil e não sobrou nada para mim."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -1049,6 +1161,9 @@
           "nicho": "Social media",
           "texto": "Tela: \"Postar todo dia é obrigatório para crescer\"\nCena 1: Isso não é verdade, e eu explico."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -1078,6 +1193,9 @@
           "nicho": "Neuropsicologia",
           "texto": "Texto na tela: Um dia na vida de uma neuropsicóloga que atende crianças autistas"
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -1108,6 +1226,9 @@
           "nicho": "Psiquiatria",
           "texto": "Slide 1: \"Consulta com psiquiatra é muito cara\"\nSlide 2: Faz sentido pensar assim."
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -1137,6 +1258,9 @@
           "nicho": "Mulher",
           "texto": "Slide 1: Muitas mulheres passam anos com sintomas de endometriose até ter o diagnóstico\nSlide 5: Fonte: [cite o estudo que você usar]."
         }
+      ],
+      "etapas": [
+        "Topo"
       ]
     },
     {
@@ -1166,6 +1290,10 @@
           "nicho": "Estratégia de conteúdo",
           "texto": "Slide 2: ANTES: postava quando dava, sem saber o que falar\nSlide 4: DEPOIS: 3 pilares, 12 posts planejados por mês"
         }
+      ],
+      "etapas": [
+        "Meio",
+        "Fundo"
       ]
     },
     {
@@ -1193,6 +1321,9 @@
           "nicho": "Consultório",
           "texto": "Arte: Dezembro vai ter uma novidade para quem está na lista de espera."
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -1223,6 +1354,9 @@
           "nicho": "Direito bancário",
           "texto": "Slide 1: Agenda aberta: análise gratuita de contrato de empréstimo consignado"
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -1252,6 +1386,9 @@
           "nicho": "Mentoria",
           "texto": "Slide 1: Ela saiu de 0 para 12 mentorados em 60 dias"
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -1279,6 +1416,9 @@
           "nicho": "Bem-estar",
           "texto": "Story 1: Últimas 3 vagas no retiro de janeiro"
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -1308,6 +1448,9 @@
           "nicho": "Impostos",
           "texto": "Slide 1: Quanto custa errar a declaração do imposto de renda?"
         }
+      ],
+      "etapas": [
+        "Fundo"
       ]
     },
     {
@@ -1336,6 +1479,10 @@
           "nicho": "Neurodesenvolvimento",
           "texto": "Cena 1: Se seu filho de 2 anos ainda não fala, essa aula é para você."
         }
+      ],
+      "etapas": [
+        "Meio",
+        "Fundo"
       ]
     },
     {
@@ -1363,6 +1510,10 @@
           "nicho": "Cirurgia plástica",
           "texto": "Story 2: Quem entrar na lista de espera vai ter prioridade na agenda de 2027"
         }
+      ],
+      "etapas": [
+        "Meio",
+        "Fundo"
       ]
     },
     {
@@ -1391,6 +1542,9 @@
           "nicho": "Autismo",
           "texto": "Slide 4: Fiz um guia com os direitos da pessoa autista na escola"
         }
+      ],
+      "etapas": [
+        "Meio"
       ]
     },
     {
@@ -1419,6 +1573,72 @@
           "nicho": "Organização financeira",
           "texto": "Slide 1: Qual é o seu nível de controle financeiro?"
         }
+      ],
+      "etapas": [
+        "Meio"
+      ]
+    },
+    {
+      "id": "meme",
+      "nome": "Meme do nicho",
+      "formato": "Foto",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos"
+      ],
+      "quandoUsar": "Para alcançar gente nova com humor. Uma imagem conhecida (cena de filme, foto engraçada, criança, casal) com uma frase que só quem vive o seu tema entende.",
+      "estrutura": [
+        "Imagem reconhecível ou engraçada",
+        "Frase curta por cima, descrevendo uma situação do seu público",
+        "Legenda curta, com pergunta ou \"marca alguém\""
+      ],
+      "comoAplicar": "A graça está na situação ser muito real para o seu público. Use imagens que você tem direito de usar (fotos suas, bancos de imagem ou memes populares). Funciona ainda melhor quando conversa com uma notícia da semana.",
+      "modelo": "Imagem: [foto engraçada, cena conhecida ou foto sua com expressão forte]\nTexto: [situação muito comum do seu público, contada em uma frase]\nLegenda: [comentário curto] + [Marca quem é assim / Alguém mais?]",
+      "exemplos": [
+        {
+          "nicho": "Ansiedade",
+          "texto": "Imagem: criança sentada no chão com cara de cansada\nTexto: Sinto que preciso ir no meio do nada e dar um grito."
+        },
+        {
+          "nicho": "Impostos",
+          "texto": "Texto: Já pode treinar para quando o split payment chegar: \"R$ 90 no dinheiro, R$ 95 no Pix, R$ 100 no cartão\"."
+        }
+      ],
+      "etapas": [
+        "Topo"
+      ]
+    },
+    {
+      "id": "print-tweet",
+      "nome": "Print de tweet (post estilo X)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Compartilhamentos",
+        "Salvamentos",
+        "Seguidores"
+      ],
+      "quandoUsar": "Para opiniões e frases fortes com cara de conversa. O visual de tweet (foto de perfil, nome, @ e texto) passa autenticidade e é muito compartilhado.",
+      "estrutura": [
+        "Fundo branco ou preto imitando um post do X/Twitter",
+        "Sua foto, nome e @ no topo",
+        "Uma frase forte ou pergunta na primeira tela",
+        "Nas telas seguintes (se for carrossel), o desenvolvimento, uma ideia por tela"
+      ],
+      "comoAplicar": "Use o seu próprio perfil no layout, nunca o de outra pessoa. A primeira frase precisa funcionar sozinha, porque é ela que vai ser compartilhada nos stories.",
+      "modelo": "Tela 1 (estilo tweet): [Sua foto] [Seu nome] [@seu_perfil]\n\"[Frase forte, pergunta ou opinião]\"\nTela 2: [desenvolvimento]\nTela 3: [desenvolvimento]\nÚltima tela: [conclusão + CTA]",
+      "exemplos": [
+        {
+          "nicho": "Autismo",
+          "texto": "Tela 1: \"Todo mundo fala da mãe da criança autista. Mas e se a mãe também for autista?\""
+        },
+        {
+          "nicho": "Impostos",
+          "texto": "Tela 1: \"Lembrete do dia: hoje é 20. Bora pagar imposto.\""
+        }
+      ],
+      "etapas": [
+        "Topo",
+        "Meio"
       ]
     }
   ]

@@ -229,11 +229,13 @@ button.word:hover{border-color:var(--accent)}
 .fm-badges{display:flex;gap:6px;align-items:center}
 .fm-banco{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--warm) 16%,var(--surface));color:var(--warm)}
 .fm-more{font-size:13px;font-weight:600;color:var(--accent)}
+.tag.fm-et{background:var(--accent-soft);color:var(--accent);border-color:transparent}
 .fm-real{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--ok) 15%,var(--surface));color:var(--ok)}
 .fm-reais{grid-column:1/-1}
 .fm-reais-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
 .fm-real-card{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--surface-2);min-width:0}
-.fm-embed{max-height:560px;overflow:auto;border-radius:8px;background:var(--surface)}
+.fm-embed.on{max-height:560px;overflow:auto;border-radius:8px;background:var(--surface)}
+.fm-trecho{margin:0;font-size:13.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
 .fm-embed .instagram-media{min-width:0!important;max-width:100%!important}
 .fm-real-meta{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
 .fm-real-meta span{font-weight:700;color:var(--accent);margin-right:6px}
@@ -416,6 +418,7 @@ button.word:hover{border-color:var(--accent)}
       <div class="search" style="flex:0 1 300px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="fmQ" type="search" placeholder="Buscar formato"></div>
     </div>
     <div class="filters" style="padding-block:14px 4px">
+      <div class="lvl"><span class="lvl-label">Funil</span><div class="seg" id="fmEt"></div></div>
       <div class="lvl"><span class="lvl-label">Objetivo</span><div class="seg" id="fmObj"></div></div>
       <div class="lvl"><span class="lvl-label">Formato</span><div class="seg" id="fmFmt"></div></div>
     </div>
@@ -560,7 +563,7 @@ const DEFAULT_CFG = {
     {"id": "separacao", "panel": "rel", "name": "Separação e recomeço", "hashtags": [], "keywords": ["separação", "separada", "separado", "divórcio", "divorciada", "divorciado", "fim do casamento", "recomeço", "recomeçar", "coparentalidade", "guarda dos filhos", "luto do relacionamento", "superar a separação", "mãe solo", "família reconstituída", "padrasto", "madrasta"]},
     {"id": "familia", "panel": "rel", "name": "Família e criação dos filhos", "hashtags": [], "keywords": ["parentalidade", "educação dos filhos", "criação dos filhos", "criar filhos", "paternidade", "pai presente", "criação com apego", "disciplina positiva", "educação positiva", "parentalidade positiva", "limites para crianças", "filhos adolescentes", "adolescência", "relação mãe e filha", "relação com os pais", "família", "conflito familiar", "pais tóxicos", "família disfuncional", "irmãos"]}
   ],
-  profiles: []
+  profiles: [{"username": "portalg1", "theme": ""}, {"username": "cnnbrasil", "theme": ""}, {"username": "metropoles", "theme": ""}, {"username": "bbcbrasil", "theme": ""}, {"username": "jovempannews", "theme": ""}, {"username": "globonews", "theme": ""}, {"username": "forbesbr", "theme": ""}, {"username": "exame", "theme": ""}, {"username": "estadao", "theme": ""}, {"username": "folhadespaulo", "theme": ""}, {"username": "choquei", "theme": ""}, {"username": "poder360", "theme": ""}, {"username": "thiago.nigro", "theme": ""}, {"username": "joeljota", "theme": ""}, {"username": "caiocarneiro", "theme": ""}, {"username": "nathaliaarcuri", "theme": ""}, {"username": "eduardofeldberg", "theme": ""}, {"username": "pablomarcal1", "theme": ""}, {"username": "janguiediniz", "theme": ""}, {"username": "pedrosobral", "theme": ""}, {"username": "gustavocerbasi", "theme": ""}, {"username": "primorico", "theme": ""}, {"username": "luizguedesm", "theme": ""}]
 };
 
 /* ---------- armazenamento ---------- */
@@ -591,6 +594,12 @@ let cfg = store.get("rv_cfg", null) || structuredClone(DEFAULT_CFG);
     const drop = ["tea","tdahadulto","usodetelas","nomesujo","tributacao","comercial"];
     for (const t of cfg.themes) t.hashtags = t.hashtags.filter(h => !drop.includes(h));
     cfg.tagVersion = 3; changed = true;
+  }
+  // perfis de referência padrão (notícias e negócios), sem repetir e sem trazer de volta os que a pessoa removeu
+  if ((cfg.profVersion || 0) < 1) {
+    cfg.removedProfiles = cfg.removedProfiles || [];
+    for (const pr of DEFAULT_CFG.profiles) if (!cfg.profiles.some(x => x.username === pr.username) && !cfg.removedProfiles.includes(pr.username)) cfg.profiles.push({ ...pr });
+    cfg.profVersion = 1; changed = true;
   }
   if (changed) store.set("rv_cfg", cfg);
 })();
@@ -1179,9 +1188,9 @@ function renderNews(list){
   const row = p => `<div class="nw-post">
       <div class="nw-post-top"><span class="pz-fmt">${esc(FMT_LABEL[p.type] || p.type)}</span><span class="nw-nums">${p.views != null ? `<b>${nf.format(p.views)}</b> visualizações · ` : ""}<b>${fmtN(p.likes)}</b> curtidas · <b>${fmtN(p.comments)}</b> comentários</span></div>
       <p>${esc((p.caption || "Sem legenda").slice(0, 160))}${(p.caption || "").length > 160 ? "…" : ""}</p>
-      <div class="nw-meta"><span>${esc(p.themes.slice(0, 2).map(id => themeById(id)?.name).join(" · "))} · ${ago(p.ts)}</span>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir ↗</a>` : "<span>Exemplo</span>"}</div>
+      <div class="nw-meta"><span>${(() => { const pf = p.sources.find(x => x.kind === "perfil"); return pf ? "@" + esc(pf.user) + " · " : ""; })()}${esc(p.themes.slice(0, 2).map(id => themeById(id)?.name).join(" · "))} · ${ago(p.ts)}</span>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir ↗</a>` : "<span>Exemplo</span>"}</div>
     </div>`;
-  const reels = list.filter(p => p.type === "VIDEO").sort((a, b) => b.vel - a.vel).slice(0, 8);
+  const reels = list.filter(p => p.type === "VIDEO").sort((a, b) => (b.views ?? -1) - (a.views ?? -1) || b.vel - a.vel).slice(0, 12);
   $("#nwReels").innerHTML = reels.length ? reels.map(row).join("") : `<p class="hint">Nenhum Reels neste recorte. Clique em Atualizar ou escolha outro tema.</p>`;
   const com = [...list].sort((a, b) => b.comments - a.comments).slice(0, 8);
   $("#nwComments").innerHTML = com.length ? com.map(row).join("") : `<p class="hint">Nenhum post neste recorte.</p>`;
@@ -1195,7 +1204,7 @@ $("#nwNews").addEventListener("click", async e => {
 });
 
 /* ---------- formatos validados ---------- */
-const fm = { list:null, ex:{}, obj:"", fmt:"", q:"", open:new Set(), more:new Set() };
+const fm = { list:null, ex:{}, et:"", obj:"", fmt:"", q:"", open:new Set(), more:new Set() };
 const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Captação","Vendas","Lançamento"];
 async function loadFormatos(){
   if (location.protocol === "file:") { $("#fmList").innerHTML = `<div class="notice warn"><div>Os formatos só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.</div></div>`; return; }
@@ -1209,10 +1218,12 @@ function renderFormatos(){
   const all = fm.list;
   const objs = FM_OBJ.filter(o => all.some(f => f.objetivos.includes(o)));
   const fmts = [...new Set(all.map(f => f.formato))];
+  const ETAPAS = [["Topo","Topo: atrair"],["Meio","Meio: confiança"],["Fundo","Fundo: vender"]];
+  $("#fmEt").innerHTML = [`<button data-fmet="" aria-pressed="${!fm.et}">Todas</button>`].concat(ETAPAS.map(([k, l]) => `<button data-fmet="${k}" aria-pressed="${fm.et === k}">${l} <small>${all.filter(f => (f.etapas || []).includes(k)).length}</small></button>`)).join("");
   $("#fmObj").innerHTML = [`<button data-fmo="" aria-pressed="${!fm.obj}">Todos</button>`].concat(objs.map(o => `<button data-fmo="${esc(o)}" aria-pressed="${fm.obj === o}">${esc(o)} <small>${all.filter(f => f.objetivos.includes(o)).length}</small></button>`)).join("");
   $("#fmFmt").innerHTML = [`<button data-fmf="" aria-pressed="${!fm.fmt}">Todos</button>`].concat(fmts.map(x => `<button data-fmf="${esc(x)}" aria-pressed="${fm.fmt === x}">${esc(x)}</button>`)).join("");
   const q = norm(fm.q.trim());
-  const list = all.filter(f => (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
+  const list = all.filter(f => (!fm.et || (f.etapas || []).includes(fm.et)) && (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
     && (!q || norm(f.nome + " " + f.quandoUsar + " " + f.modelo).includes(q)))
     .sort((a, b) => (fm.ex[b.id]?.length ? 1 : 0) - (fm.ex[a.id]?.length ? 1 : 0));
   $("#fmInfo").textContent = `${list.length} ${list.length === 1 ? "formato" : "formatos"}. Escolha o objetivo, copie o modelo e troque o que está entre [colchetes] pelo seu assunto.`;
@@ -1223,7 +1234,7 @@ function renderFormatos(){
         <div class="fm-badges"><span class="pz-fmt">${esc(f.formato)}</span>${f.origem === "banco" ? `<span class="fm-banco">do seu banco</span>` : ""}${fm.ex[f.id]?.length ? `<span class="fm-real">${fm.ex[f.id].length} ${fm.ex[f.id].length === 1 ? "exemplo real" : "exemplos reais"}</span>` : ""}</div>
         <h3>${esc(f.nome)}</h3>
         <p>${esc(f.quandoUsar)}</p>
-        <div class="themes">${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
+        <div class="themes">${(f.etapas || []).map(o => `<span class="tag fm-et">${esc(o)} de funil</span>`).join("")}${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
         <span class="fm-more">${open ? "Fechar" : "Ver estrutura e modelo"}</span>
       </button>
       ${open ? `<div class="fm-body">
@@ -1231,7 +1242,8 @@ function renderFormatos(){
         <div><h4>Como aplicar</h4><p>${esc(f.comoAplicar)}</p></div>
         <div class="pz-pronto"><div class="pz-pronto-h"><span>Modelo para copiar</span><div class="row" style="gap:6px"><button class="btn small" data-fmcopy="${esc(f.id)}">Copiar modelo</button><button class="btn small primary" data-fmprompt="${esc(f.id)}">Copiar prompt para IA</button></div></div><div class="pz-txt">${esc(f.modelo)}</div></div>
         ${fm.ex[f.id]?.length ? `<div class="fm-reais"><h4>Posts reais que usam este formato (${fm.ex[f.id].length})</h4><div class="fm-reais-grid">${fm.ex[f.id].slice(0, fm.more.has(f.id) ? undefined : 6).map(e => `<div class="fm-real-card">
-            <div class="fm-embed"><blockquote class="instagram-media" data-instgrm-permalink="${esc(e.link)}" data-instgrm-version="14" style="margin:0;min-width:0;width:100%"><a href="${esc(e.link)}" target="_blank" rel="noopener">Ver post no Instagram</a></blockquote></div>
+            <p class="fm-trecho">${esc(e.trecho || "")}</p>
+            <div class="fm-embed" data-embed="${esc(e.link)}"><button class="btn small" data-loadembed="${esc(e.link)}">Ver o post aqui</button></div>
             <div class="fm-real-meta"><span>${esc(e.formato || "")}</span>${e.visualizacoes != null ? `<b>${nf.format(e.visualizacoes)}</b> visualizações · ` : ""}<b>${e.curtidas != null ? nf.format(e.curtidas) : "?"}</b> curtidas · <b>${nf.format(e.comentarios || 0)}</b> comentários</div>
             ${e.temas?.length ? `<div class="themes">${e.temas.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>` : ""}
             <a class="btn small" href="${esc(e.link)}" target="_blank" rel="noopener">Abrir no Instagram ↗</a>
@@ -1242,10 +1254,13 @@ function renderFormatos(){
     : `<div class="empty-state" style="grid-column:1/-1"><h3>Nenhum formato com esse filtro</h3><p>Escolha outro objetivo ou formato.</p></div>`;
   igEmbeds();
 }
+$("#fmEt").addEventListener("click", e => { const b = e.target.closest("[data-fmet]"); if (!b) return; fm.et = b.dataset.fmet; renderFormatos(); });
 $("#fmObj").addEventListener("click", e => { const b = e.target.closest("[data-fmo]"); if (!b) return; fm.obj = b.dataset.fmo; renderFormatos(); });
 $("#fmFmt").addEventListener("click", e => { const b = e.target.closest("[data-fmf]"); if (!b) return; fm.fmt = b.dataset.fmf; renderFormatos(); });
 let fmT; $("#fmQ").addEventListener("input", e => { clearTimeout(fmT); fmT = setTimeout(() => { fm.q = e.target.value; renderFormatos(); }, 200); });
 $("#fmList").addEventListener("click", async e => {
+  const le = e.target.closest("[data-loadembed]");
+  if (le) { loadEmbed(le.dataset.loadembed); return; }
   const mb = e.target.closest("[data-fmmore]");
   if (mb) { fm.more.add(mb.dataset.fmmore); renderFormatos(); return; }
   const t = e.target.closest("[data-fmtoggle]");
@@ -1295,6 +1310,11 @@ function igEmbeds(){
   if (window.instgrm) { window.instgrm.Embeds.process(); return; }
   if (igLoaded) return; igLoaded = true;
   const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.instagram.com/embed.js"; document.body.appendChild(sc);
+}
+function loadEmbed(link){
+  const box = [...document.querySelectorAll("#fmList [data-embed]")].find(x => x.dataset.embed === link); if (!box) return;
+  box.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${esc(link)}" data-instgrm-version="14" style="margin:0;min-width:0;width:100%"><a href="${esc(link)}" target="_blank" rel="noopener">Carregando post…</a></blockquote>`;
+  box.classList.add("on"); igEmbeds();
 }
 
 /* ---------- configurar ---------- */
@@ -1358,7 +1378,7 @@ $("#profEdit").addEventListener("input", e => {
   cfg.profiles[+row.dataset.i][e.target.dataset.k] = e.target.dataset.k === "username" ? e.target.value.trim().replace(/^@/, "") : e.target.value;
   saveCfg();
 });
-$("#profEdit").addEventListener("click", e => { if (e.target.dataset.delprof != null) { cfg.profiles.splice(+e.target.dataset.delprof, 1); saveCfg(); renderCfg(); } });
+$("#profEdit").addEventListener("click", e => { if (e.target.dataset.delprof != null) { const [r] = cfg.profiles.splice(+e.target.dataset.delprof, 1); if (r?.username) cfg.removedProfiles = [...new Set([...(cfg.removedProfiles || []), r.username])]; saveCfg(); renderCfg(); } });
 $("#addProf").addEventListener("click", () => { cfg.profiles.push({ username:"", theme:"" }); saveCfg(); renderCfg(); $("#profEdit").querySelector(".prof:last-child input")?.focus(); });
 function cfgMsg(t, bad){ const m = $("#cfgMsg"); m.textContent = t; m.style.color = bad ? "var(--hot)" : ""; m.hidden = false; clearTimeout(cfgMsg.t); cfgMsg.t = setTimeout(() => m.hidden = true, 3500); }
 $("#expCfg").addEventListener("click", async () => {

@@ -1389,5 +1389,98 @@
       ]
     }
   ],
-  "profiles": []
+  "profiles": [
+    {
+      "username": "portalg1",
+      "theme": ""
+    },
+    {
+      "username": "cnnbrasil",
+      "theme": ""
+    },
+    {
+      "username": "metropoles",
+      "theme": ""
+    },
+    {
+      "username": "bbcbrasil",
+      "theme": ""
+    },
+    {
+      "username": "jovempannews",
+      "theme": ""
+    },
+    {
+      "username": "globonews",
+      "theme": ""
+    },
+    {
+      "username": "forbesbr",
+      "theme": ""
+    },
+    {
+      "username": "exame",
+      "theme": ""
+    },
+    {
+      "username": "estadao",
+      "theme": ""
+    },
+    {
+      "username": "folhadespaulo",
+      "theme": ""
+    },
+    {
+      "username": "choquei",
+      "theme": ""
+    },
+    {
+      "username": "poder360",
+      "theme": ""
+    },
+    {
+      "username": "thiago.nigro",
+      "theme": ""
+    },
+    {
+      "username": "joeljota",
+      "theme": ""
+    },
+    {
+      "username": "caiocarneiro",
+      "theme": ""
+    },
+    {
+      "username": "nathaliaarcuri",
+      "theme": ""
+    },
+    {
+      "username": "eduardofeldberg",
+      "theme": ""
+    },
+    {
+      "username": "pablomarcal1",
+      "theme": ""
+    },
+    {
+      "username": "janguiediniz",
+      "theme": ""
+    },
+    {
+      "username": "pedrosobral",
+      "theme": ""
+    },
+    {
+      "username": "gustavocerbasi",
+      "theme": ""
+    },
+    {
+      "username": "primorico",
+      "theme": ""
+    },
+    {
+      "username": "luizguedesm",
+      "theme": ""
+    }
+  ]
 }
