@@ -63,12 +63,12 @@ REGRAS = {
 
 
 def main():
-    coletas = sorted((ROOT / "dados").glob("coleta-*.json"))
+    coletas = sorted((ROOT / "dados").glob("coleta-*.json")) or [p for p in [ROOT / "radar/coleta.json"] if p.exists()]
     if not coletas:
         raise SystemExit("Nenhuma coleta em dados/. Rode scripts/coletar.py antes.")
     d = json.loads(coletas[-1].read_text(encoding="utf-8"))
-    nomes = {t["id"]: t["nome"] for t in d["temas"]}
-    posts = d.get("todos")
+    nomes = {t["id"]: t["nome"] for t in d.get("temas", [])}
+    posts = d.get("todos") or d.get("posts")
     if not posts:  # coletas antigas: junta as listas por tema
         vistos = {}
         for t in d["temas"]:

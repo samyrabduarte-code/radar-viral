@@ -5,7 +5,9 @@ Painel pessoal da Samyra (@samyra__duarte) que mostra posts em alta no Instagram
 - `index.html`: o sistema inteiro (página única, publicada no GitHub Pages em https://samyrabduarte-code.github.io/radar-viral/). A chave de acesso fica no navegador dela; nunca coloque chave no repositório.
 - `config/temas.json`: temas, hashtags, palavras-chave e perfis usados pela coleta automática.
 - `config/hashtag_ids.json`: cache dos IDs de hashtag (o Instagram permite 30 hashtags novas por semana; não apague).
-- `scripts/coletar.py`: busca os posts em alta e grava `dados/coleta-AAAA-MM-DD.json`. Lê a chave da variável de ambiente `IG_TOKEN`.
+- `scripts/coletar.py`: busca os posts em alta, **primeiro pelos perfis de referência** (a busca principal, parecida com SEO: quem fala do tema) e depois pelas hashtags (complemento). Grava `radar/coleta.json` (público, lido pelo site) e `dados/coleta-AAAA-MM-DD.json`. Lê a chave de `IG_TOKEN`; `RADAR_PAUSA` (segundos entre consultas) evita estourar o limite de ~200 consultas por hora.
+- `.github/workflows/radar.yml`: **coleta automática todo dia às 4h07** no GitHub (notícias + posts + às segundas, perfis novos). A chave fica no segredo `IG_TOKEN` do repositório no GitHub.
+- `scripts/descobrir_perfis.py`: descobre quem postou os virais e cadastra os melhores perfis de cada subtema em `config/temas.json` (`profiles`). Perfis recusados ficam em `perfisRecusados` e não voltam.
 - `pautas/`: edições semanais de pautas, lidas pela aba **Pautas** do sistema.
 - `scripts/noticias.py`: busca notícias da semana de cada subtema (Google Notícias, sem chave) e grava `noticias/noticias.json` (aba **Notícias e react**).
 - `formatos/formatos.json`: biblioteca de formatos validados (aba **Formatos**). `formatos/exemplos.json`: posts reais que usam cada formato, revisados um a um.
@@ -15,9 +17,9 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
 
 ## Rotina semanal de pautas (toda quinta-feira)
 
-1. Rode `python3 scripts/coletar.py`. Se falhar porque `IG_TOKEN` falta ou a chave expirou, **não invente dados**: crie a edição só com o campo `avisos` explicando o problema e o que a Samyra precisa fazer (gerar nova chave de 60 dias e atualizar `IG_TOKEN` no ambiente do Claude), publique e pare.
-2. Rode `python3 scripts/noticias.py` (atualiza as notícias de todos os subtemas).
-3. Leia o arquivo `dados/coleta-*.json` mais recente.
+1. Use os dados da coleta automática: `radar/coleta.json` (campo `posts`; cada post tem `temas`, `fontes`, números, `legenda` e `link`). Se o `geradoEm` tiver mais de 2 dias, a coleta diária falhou: se houver `IG_TOKEN` neste ambiente, rode `python3 scripts/coletar.py`; se não, **não invente dados**, crie a edição só com `avisos` explicando que a coleta automática parou e que a Samyra precisa conferir o segredo `IG_TOKEN` no GitHub (Settings → Secrets and variables → Actions) ou gerar uma nova chave de 60 dias, publique e pare.
+2. As notícias (`noticias/noticias.json`) são atualizadas todo dia pelo GitHub; se estiverem com mais de 2 dias, rode `python3 scripts/noticias.py`.
+3. Leia `radar/coleta.json` e a lista de subtemas em `config/temas.json`.
 4. Para **cada subtema** que tiver posts, crie **3 pautas** (menos se o tema tiver poucos posts bons). Cada pauta se inspira em um post de referência real da coleta, preferindo notas altas e posts recentes.
 5. Escreva também a **análise de por que viralizou** (campo `analise`, formato abaixo): um resumo da semana e, para cada tema com posts, 2 a 4 padrões observados (assunto, palavra, gancho, emoção, formato, CTA) e os 2 posts mais fortes explicados em linguagem simples. Baseie-se só nos posts e números da coleta.
 6. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.

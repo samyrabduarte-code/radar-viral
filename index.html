@@ -759,6 +759,9 @@ async function refresh(){
   busy = true; $("#refreshBtn").disabled = true;
   const bar = $("#progress"); bar.hidden = false;
   const posts = new Map(), errors = [];
+  // escopo: só o tema/subtema escolhido (a coleta completa roda sozinha todo dia de madrugada)
+  const scopeIds = ui.themes.size ? [...ui.themes] : ui.panel ? cfg.themes.filter(t => t.panel === ui.panel).map(t => t.id) : null;
+  const inScope = id => !scopeIds || scopeIds.includes(id);
   const add = p => {
     const old = posts.get(p.id);
     if (old) { old.sources.push(...p.sources); if (p.views != null) old.views = p.views; if (p.mult != null) old.mult = Math.max(old.mult ?? 0, p.mult); if (!old.thumb) { old.thumb = p.thumb; old.thumbVideo = p.thumbVideo; } }
@@ -766,38 +769,22 @@ async function refresh(){
   };
   const tagJobs = [];
   const seen = new Set();
-  for (const t of cfg.themes) for (const h of t.hashtags) { const tag = cleanTag(h); if (tag && !seen.has(tag)) { seen.add(tag); tagJobs.push({ tag, theme: t.id }); } }
-  const profJobs = cfg.profiles.filter(p => cleanTag(p.username));
+  for (const t of cfg.themes) if (inScope(t.id)) for (const h of t.hashtags) { const tag = cleanTag(h); if (tag && !seen.has(tag)) { seen.add(tag); tagJobs.push({ tag, theme: t.id }); } }
+  const profJobs = cfg.profiles.filter(p => cleanTag(p.username) && (scopeIds ? scopeIds.includes(p.theme) : true)).slice(0, scopeIds ? 40 : 60);
   const total = tagJobs.length + profJobs.length || 1;
+  if (!scopeIds) setStatus("Atualizando os perfis principais. Para buscar tudo de um tema, escolha o tema antes de clicar em Atualizar.");
   let done = 0;
   const tick = label => { done++; bar.firstElementChild.style.width = (done/total*100) + "%"; setStatus(`Buscando ${label} (${done} de ${total})…`); };
   let fatal = null;
 
-  await pool(tagJobs, 3, async ({ tag, theme }) => {
-    if (fatal) return;
-    try {
-      const id = await hashtagId(tag);
-      const src = { kind:"tag", tag, theme };
-      const [top, rec] = await Promise.all([
-        api(`${id}/top_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 50 }),
-        api(`${id}/recent_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 50 }).catch(() => ({ data: [] }))
-      ]);
-      for (const m of top.data || []) add(toPost(m, src));
-      for (const m of rec.data || []) { const p = toPost(m, src); if ((p.likes||0) + 2*p.comments >= 15) add(p); }
-    } catch (e) {
-      if (e.code === 190) fatal = e; else errors.push(`#${tag}: ${friendly(e)}`);
-    }
-    tick("#" + tag);
-  });
-
-  if (!fatal) await pool(profJobs, 2, async (pr) => {
+  await pool(profJobs, 1, async (pr) => {
     if (fatal) return;
     const user = String(pr.username).trim().replace(/^@/, "");
-    const q = media => `business_discovery.username(${user}){username,followers_count,media.limit(30){${media}}}`;
+    const q = media => `business_discovery.username(${user}){username,followers_count,media.limit(20){${media}}}`;
     try {
       let j;
       try { j = await api(cfg.igId, { fields: q(BD_MEDIA_FULL) }); }
-      catch (e) { if (e.code === 100) j = await api(cfg.igId, { fields: q(BD_MEDIA_MIN) }); else throw e; }
+      catch (e) { if (e.code === 100 || /reduce the amount/i.test(e.message)) j = await api(cfg.igId, { fields: q(BD_MEDIA_MIN).replace("media.limit(20)", "media.limit(10)") }); else throw e; }
       const bd = j.business_discovery; const media = bd?.media?.data || [];
       const list = media.map(m => toPost(m, { kind:"perfil", user: bd.username, theme: pr.theme || null, followers: bd.followers_count }));
       const engs = list.map(p => (p.likes||0) + 2*p.comments).sort((a,b)=>a-b);
@@ -807,16 +794,36 @@ async function refresh(){
       if (e.code === 190) fatal = e; else errors.push(`@${user}: ${friendly(e)}`);
     }
     tick("@" + user);
+    await new Promise(r => setTimeout(r, 800));   // calma para não estourar o limite por hora
+  });
+
+
+  if (!fatal) await pool(tagJobs, 2, async ({ tag, theme }) => {
+    if (fatal) return;
+    try {
+      const id = await hashtagId(tag);
+      const src = { kind:"tag", tag, theme };
+      const top = await api(`${id}/top_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 30 })
+        .catch(e => { if (/reduce the amount/i.test(e.message)) return api(`${id}/top_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 12 }); throw e; });
+      const rec = await api(`${id}/recent_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 25 }).catch(() => ({ data: [] }));
+      for (const m of top.data || []) add(toPost(m, src));
+      for (const m of rec.data || []) { const p = toPost(m, src); if ((p.likes||0) + 2*p.comments >= 15) add(p); }
+    } catch (e) {
+      if (e.code === 190) fatal = e; else errors.push(`#${tag}: ${friendly(e)}`);
+    }
+    tick("#" + tag);
   });
 
   bar.hidden = true; bar.firstElementChild.style.width = "0";
   busy = false; $("#refreshBtn").disabled = false;
   if (fatal) { setConn(false, friendly(fatal)); data = data ? { ...data, errors:[friendly(fatal)] } : { fetchedAt:0, posts:[], errors:[friendly(fatal)] }; render(); return; }
 
+  const novos = new Set(posts.keys());
+  for (const p of (data?.posts || [])) if (!novos.has(p.id) && !p.sample) posts.set(p.id, p);
   const all = [...posts.values()];
   all.forEach(classify); score(all);
   all.sort((a,b) => b.score - a.score || b.vel - a.vel);
-  data = { fetchedAt: Date.now(), posts: all, errors };
+  data = { fetchedAt: Date.now(), auto: data?.auto, posts: all, errors };
   if (!store.set("rv_data", { ...data, posts: all.slice(0, 900) })) store.set("rv_data", { ...data, posts: all.slice(0, 300) });
   render();
 }
@@ -848,7 +855,7 @@ function setStatus(html){ $("#status").innerHTML = html; }
 function baseStatus(){
   const parts = [];
   if (cfg.igUser) parts.push(`Conta <b>@${esc(cfg.igUser)}</b>`);
-  if (data?.fetchedAt) parts.push(`Atualizado <b>${ago(data.fetchedAt)}</b>`);
+  if (data?.fetchedAt) parts.push(data.auto && data.fetchedAt === data.auto ? `Coleta automática <b>${ago(data.fetchedAt)}</b>` : `Atualizado <b>${ago(data.fetchedAt)}</b>`);
   if (data?.posts?.length) parts.push(`<b>${data.posts.length}</b> posts analisados`);
   const tags = new Set(cfg.themes.flatMap(t => t.hashtags.map(cleanTag)));
   parts.push(`<b>${cfg.themes.length}</b> temas · <b>${tags.size}</b> hashtags · <b>${cfg.profiles.length}</b> perfis`);
@@ -923,7 +930,7 @@ function render(){
   const real = data?.posts?.length || data?.fetchedAt;
   const posts = real ? (data.posts || []) : samplePosts();
   if (!real) notices.push(`<div class="notice warn"><div><b>Estes são posts de exemplo.</b> Conecte sua conta em <b>Configurar</b> e clique em <b>Atualizar</b> para ver os posts reais em alta nos seus temas.</div></div>`);
-  if (data?.errors?.length) notices.push(`<div class="notice err"><div><b>Algumas buscas não deram certo:</b><ul>${data.errors.slice(0, 12).map(e => `<li>${esc(e)}</li>`).join("")}</ul>${data.errors.length > 12 ? `<div>e mais ${data.errors.length - 12}.</div>` : ""}</div></div>`);
+  if (data?.errors?.length) notices.push(`<div class="notice err"><div><b>${data.auto ? "Avisos da coleta:" : "Algumas buscas não deram certo:"}</b><ul>${data.errors.slice(0, 12).map(e => `<li>${esc(e)}</li>`).join("")}</ul>${data.errors.length > 12 ? `<div>e mais ${data.errors.length - 12}.</div>` : ""}</div></div>`);
   $("#notices").innerHTML = notices.join("");
   const list = filtered(posts);
   lastList = list;
@@ -1617,9 +1624,43 @@ $("#dlBtn").addEventListener("click", () => {
   expMsg("Relatório baixado.");
 });
 
+/* ---------- dados automáticos (coleta diária no GitHub) ---------- */
+function fromPublic(q){
+  return {
+    id: q.link, caption: q.legenda || "", type: q.tipo || ({ Reels:"VIDEO", Carrossel:"CAROUSEL_ALBUM", Foto:"IMAGE" }[q.formato] || "IMAGE"),
+    likes: q.curtidas ?? null, comments: q.comentarios || 0, views: q.visualizacoes ?? null,
+    ts: Date.parse(q.ts) || (Date.now() - (q.publicadoHaDias || 0)*864e5), link: q.link, thumb: q.thumb || null, thumbVideo: false,
+    mult: q.mult ?? null,
+    sources: (q.fontes?.length ? q.fontes : [{ tipo:"hashtag" }]).map(f => f.tipo === "perfil" ? { kind:"perfil", user:f.perfil, theme:f.tema || null, mult:q.mult } : { kind:"tag", tag:f.tag || "", theme:f.tema || null })
+  };
+}
+async function loadAuto(){
+  if (location.protocol === "file:") return;
+  try {
+    const repoCfg = await getJSON("config/temas.json");
+    const removed = cfg.removedProfiles || []; let add = 0;
+    for (const pr of repoCfg.profiles || []) if (!cfg.profiles.some(x => x.username.toLowerCase() === pr.username.toLowerCase()) && !removed.includes(pr.username)) { cfg.profiles.push({ username: pr.username, theme: pr.theme || "" }); add++; }
+    if (add) saveCfg();
+    try { const ids = await getJSON("config/hashtag_ids.json"); for (const [k, v] of Object.entries(ids)) if (!hashIds[k]) hashIds[k] = v; store.set("rv_hids", hashIds); } catch {}
+  } catch {}
+  try {
+    const r = await getJSON("radar/coleta.json");
+    const t = Date.parse(r.geradoEm);
+    if (!r.posts?.length || (data?.fetchedAt && data.fetchedAt >= t && !data.auto)) return;
+    const posts = r.posts.map(fromPublic);
+    const own = new Set(posts.map(p => p.id));
+    for (const p of (data?.posts || [])) if (!own.has(p.id) && !p.sample && data.fetchedAt > t - 864e5) posts.push(p);
+    posts.forEach(classify); score(posts);
+    data = { fetchedAt: t, auto: t, posts, errors: r.avisos?.length ? r.avisos : [] };
+    store.set("rv_data", { ...data, posts: posts.slice(0, 900) }) || store.set("rv_data", { ...data, posts: posts.slice(0, 300) });
+    if (!$("#feedView").hidden || !$("#analiseView").hidden || !$("#newsView").hidden) render(); else baseStatus();
+  } catch {}
+}
+
 /* ---------- início ---------- */
 if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
 setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
+loadAuto();
 if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#noticias") switchTab("noticias"); else if (location.hash === "#formatos") switchTab("formatos"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
 })();
 </script>

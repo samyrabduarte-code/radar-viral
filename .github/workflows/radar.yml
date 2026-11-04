@@ -1,0 +1,43 @@
+name: Radar diário
+# Todo dia de madrugada: busca os posts dos perfis de referência e das hashtags (com calma, para não
+# estourar o limite de ~200 consultas por hora do Instagram), atualiza as notícias e publica no site.
+# Às segundas (ou quando rodado à mão), também descobre perfis novos a partir dos posts que viralizaram.
+on:
+  schedule:
+    - cron: "7 7 * * *"   # 4h07 (Brasília)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: radar
+  cancel-in-progress: false
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      IG_TOKEN: ${{ secrets.IG_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Notícias
+        run: python3 scripts/noticias.py
+      - name: Posts do Instagram
+        if: ${{ env.IG_TOKEN != '' }}
+        env:
+          RADAR_PAUSA: "15"
+        run: python3 scripts/coletar.py
+      - name: Perfis novos
+        if: ${{ env.IG_TOKEN != '' }}
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then python3 scripts/descobrir_perfis.py || true; fi
+      - name: Publicar
+        run: |
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add radar noticias config
+          git diff --cached --quiet && exit 0
+          git commit -m "Radar do dia $(date +%F)"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push && break; sleep 10; done

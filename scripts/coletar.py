@@ -17,7 +17,11 @@ ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "config/temas.json").read_text(encoding="utf-8"))
 IDS_FILE = ROOT / "config/hashtag_ids.json"
 TAG_FIELDS = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url"
-BD_FIELDS = "id,caption,media_type,like_count,comments_count,view_count,timestamp,permalink"
+BD_FIELDS = "id,caption,media_type,like_count,comments_count,view_count,timestamp,permalink,media_url,thumbnail_url"
+BD_FIELDS_MIN = "id,caption,media_type,like_count,comments_count,view_count,timestamp,permalink"
+# Pausa entre consultas (segundos). O Instagram aceita cerca de 200 consultas por hora;
+# na coleta automática diária (GitHub) usamos RADAR_PAUSA=15 para nunca estourar.
+PAUSA = float(os.environ.get("RADAR_PAUSA", "0"))
 POSTS_POR_TEMA = 15
 DIAS = 30
 
@@ -41,7 +45,9 @@ class ApiError(Exception):
 def api(path, **params):
     params["access_token"] = TOKEN
     url = f"https://graph.facebook.com/{VER}/{path}?{urllib.parse.urlencode(params)}"
-    for tentativa in range(3):
+    if PAUSA:
+        time.sleep(PAUSA)
+    for tentativa in range(5):
         try:
             with urllib.request.urlopen(url, context=_ctx, timeout=40) as r:
                 return json.loads(r.read())
@@ -50,15 +56,16 @@ def api(path, **params):
             if "error" in body:
                 err = body["error"]
                 limite = err.get("code") in (4, 17, 32, 613) or "resource limits" in str(err.get("message", ""))
-                if limite and tentativa < 2:
-                    print("limite de consultas do Instagram; esperando 2 minutos...", file=sys.stderr)
-                    time.sleep(120)
+                if limite and tentativa < 4:
+                    espera = 600 if PAUSA else 120
+                    print(f"limite de consultas do Instagram; esperando {espera // 60} minutos...", file=sys.stderr)
+                    time.sleep(espera)
                     continue
                 raise ApiError(err)
-            if tentativa == 2:
+            if tentativa == 4:
                 raise
-        except urllib.error.URLError:
-            if tentativa == 2:
+        except (urllib.error.URLError, ConnectionError, TimeoutError):
+            if tentativa == 4:
                 raise
         time.sleep(2 * (tentativa + 1))
 
@@ -101,6 +108,7 @@ def to_post(m, source):
         "id": m["id"], "legenda": m.get("caption") or "", "tipo": m.get("media_type", "IMAGE"),
         "curtidas": m.get("like_count"), "comentarios": m.get("comments_count") or 0, "visualizacoes": m.get("view_count"),
         "ts": ts, "link": m.get("permalink", ""), "fontes": [source],
+        "thumb": m.get("thumbnail_url") or (m.get("media_url") if m.get("media_type") != "VIDEO" else None),
     }
 
 
@@ -142,7 +150,7 @@ def main():
         if exp:
             dias = (exp - time.time()) / 86400
             if dias < 14:
-                avisos.append(f"A chave de acesso do Instagram expira em {max(0, round(dias))} dias. Gere uma nova de 60 dias e atualize IG_TOKEN no ambiente do Claude e no radar.")
+                avisos.append(f"A chave de acesso do Instagram expira em {max(0, round(dias))} dias. Gere uma nova de 60 dias e atualize o segredo IG_TOKEN no GitHub e no radar.")
         if "instagram_manage_insights" not in d.get("scopes", []) and CFG.get("profiles"):
             avisos.append("A chave não tem instagram_manage_insights; os perfis de referência foram pulados.")
     except ApiError:
@@ -162,6 +170,32 @@ def main():
         else:
             posts[p["id"]] = p
 
+    # 1) perfis de referência: a busca principal (funciona como o SEO: quem fala do tema)
+    for pr in CFG.get("profiles", []):
+        u = str(pr.get("username", "")).strip().lstrip("@")
+        if not u:
+            continue
+        try:
+            try:
+                r = api(ig, fields=f"business_discovery.username({u}){{username,followers_count,media.limit(20){{{BD_FIELDS}}}}}")
+            except ApiError as e1:
+                if e1.code != 100 and "reduce the amount" not in str(e1):
+                    raise
+                r = api(ig, fields=f"business_discovery.username({u}){{username,followers_count,media.limit(12){{{BD_FIELDS_MIN}}}}}")
+            bd = r["business_discovery"]
+            lst = [to_post(m, {"tipo": "perfil", "perfil": bd["username"], "tema": pr.get("theme") or None}) for m in bd.get("media", {}).get("data", [])]
+            engs = sorted((p["curtidas"] or 0) + 2 * p["comentarios"] for p in lst)
+            med = engs[len(engs) // 2] if engs else 0
+            for p in lst:
+                p["mult"] = ((p["curtidas"] or 0) + 2 * p["comentarios"]) / max(med, 1)
+                add(p)
+        except ApiError as e:
+            if e.code == 190:
+                sys.exit("A chave de acesso expirou. Gere uma nova de 60 dias e atualize o segredo IG_TOKEN no GitHub.")
+            avisos.append(f"@{u}: {e}")
+        print(f"@{u} ok", file=sys.stderr)
+
+    # 2) hashtags: porta de entrada para descobrir perfis novos (complemento)
     vistos = set()
     for t in themes:
         for h in t["hashtags"]:
@@ -178,11 +212,16 @@ def main():
                     ids[tag] = r["data"][0]["id"]
                     IDS_FILE.write_text(json.dumps(ids, indent=2, ensure_ascii=False) + "\n")
                 src = {"tipo": "hashtag", "tag": tag, "tema": t["id"]}
-                top = api(f"{ids[tag]}/top_media", user_id=ig, fields=TAG_FIELDS, limit=50)
+                try:
+                    top = api(f"{ids[tag]}/top_media", user_id=ig, fields=TAG_FIELDS, limit=30)
+                except ApiError as e1:
+                    if "reduce the amount" not in str(e1):
+                        raise
+                    top = api(f"{ids[tag]}/top_media", user_id=ig, fields=TAG_FIELDS, limit=12)
                 for m in top.get("data", []):
                     add(to_post(m, src))
                 try:
-                    rec = api(f"{ids[tag]}/recent_media", user_id=ig, fields=TAG_FIELDS, limit=50)
+                    rec = api(f"{ids[tag]}/recent_media", user_id=ig, fields=TAG_FIELDS, limit=25)
                     for m in rec.get("data", []):
                         p = to_post(m, src)
                         if (p["curtidas"] or 0) + 2 * p["comentarios"] >= 15:
@@ -191,25 +230,9 @@ def main():
                     pass
             except ApiError as e:
                 if e.code == 190:
-                    sys.exit("A chave de acesso expirou. Gere uma nova e atualize IG_TOKEN no ambiente do Claude.")
+                    sys.exit("A chave de acesso expirou. Gere uma nova de 60 dias e atualize o segredo IG_TOKEN no GitHub.")
                 avisos.append(f"#{tag}: {e}")
             print(f"#{tag} ok", file=sys.stderr)
-
-    for pr in CFG.get("profiles", []):
-        u = str(pr.get("username", "")).strip().lstrip("@")
-        if not u:
-            continue
-        try:
-            r = api(ig, fields=f"business_discovery.username({u}){{username,followers_count,media.limit(30){{{BD_FIELDS}}}}}")
-            bd = r["business_discovery"]
-            lst = [to_post(m, {"tipo": "perfil", "perfil": bd["username"], "tema": pr.get("theme") or None}) for m in bd.get("media", {}).get("data", [])]
-            engs = sorted((p["curtidas"] or 0) + 2 * p["comentarios"] for p in lst)
-            med = engs[len(engs) // 2] if engs else 0
-            for p in lst:
-                p["mult"] = ((p["curtidas"] or 0) + 2 * p["comentarios"]) / max(med, 1)
-                add(p)
-        except ApiError as e:
-            avisos.append(f"@{u}: {e}")
 
     # classificação, idioma e nota
     now = time.time()
@@ -255,8 +278,14 @@ def main():
         return {"nota": p["nota"], "formato": {"VIDEO": "Reels", "CAROUSEL_ALBUM": "Carrossel", "IMAGE": "Foto"}.get(p["tipo"], p["tipo"]),
                 "visualizacoes": p.get("visualizacoes"), "curtidas": p["curtidas"], "comentarios": p["comentarios"],
                 "interacoesPorHora": round(p["vel"], 1), "publicadoHaDias": round(p["horas"] / 24, 1), "link": p["link"],
-                "temas": p["temas"], "legenda": re.sub(r"\s+", " ", p["legenda"]).strip()[:1200]}
+                "temas": p["temas"], "legenda": re.sub(r"\s+", " ", p["legenda"]).strip()[:1200],
+                "ts": datetime.fromtimestamp(p["ts"], timezone.utc).isoformat(timespec="seconds"), "thumb": p.get("thumb"),
+                "tipo": p["tipo"], "mult": round(p["mult"], 2) if p.get("mult") is not None else None,
+                "fontes": [{"tipo": f["tipo"], "tag": f.get("tag"), "perfil": f.get("perfil"), "tema": f.get("tema")} for f in p["fontes"]][:4]}
     saida["todos"] = [resumo(p) for p in sorted(todos, key=lambda p: -p["nota"])[:800]]
+    publico = ROOT / "radar/coleta.json"   # lido pelo site: abre com os dados prontos
+    publico.parent.mkdir(exist_ok=True)
+    publico.write_text(json.dumps({"geradoEm": saida["geradoEm"], "conta": user, "postsAnalisados": len(todos), "avisos": avisos, "posts": saida["todos"]}, ensure_ascii=False) + "\n", encoding="utf-8")
     out = ROOT / f"dados/coleta-{datetime.now().strftime('%Y-%m-%d')}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(saida, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
