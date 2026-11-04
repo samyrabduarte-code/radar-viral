@@ -1195,7 +1195,7 @@ $("#nwNews").addEventListener("click", async e => {
 });
 
 /* ---------- formatos validados ---------- */
-const fm = { list:null, ex:{}, obj:"", fmt:"", q:"", open:new Set() };
+const fm = { list:null, ex:{}, obj:"", fmt:"", q:"", open:new Set(), more:new Set() };
 const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Captação","Vendas","Lançamento"];
 async function loadFormatos(){
   if (location.protocol === "file:") { $("#fmList").innerHTML = `<div class="notice warn"><div>Os formatos só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.</div></div>`; return; }
@@ -1230,12 +1230,12 @@ function renderFormatos(){
         <div><h4>Estrutura</h4><ol>${f.estrutura.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>
         <div><h4>Como aplicar</h4><p>${esc(f.comoAplicar)}</p></div>
         <div class="pz-pronto"><div class="pz-pronto-h"><span>Modelo para copiar</span><div class="row" style="gap:6px"><button class="btn small" data-fmcopy="${esc(f.id)}">Copiar modelo</button><button class="btn small primary" data-fmprompt="${esc(f.id)}">Copiar prompt para IA</button></div></div><div class="pz-txt">${esc(f.modelo)}</div></div>
-        ${fm.ex[f.id]?.length ? `<div class="fm-reais"><h4>Posts reais que usam este formato</h4><div class="fm-reais-grid">${fm.ex[f.id].map(e => `<div class="fm-real-card">
+        ${fm.ex[f.id]?.length ? `<div class="fm-reais"><h4>Posts reais que usam este formato (${fm.ex[f.id].length})</h4><div class="fm-reais-grid">${fm.ex[f.id].slice(0, fm.more.has(f.id) ? undefined : 6).map(e => `<div class="fm-real-card">
             <div class="fm-embed"><blockquote class="instagram-media" data-instgrm-permalink="${esc(e.link)}" data-instgrm-version="14" style="margin:0;min-width:0;width:100%"><a href="${esc(e.link)}" target="_blank" rel="noopener">Ver post no Instagram</a></blockquote></div>
             <div class="fm-real-meta"><span>${esc(e.formato || "")}</span>${e.visualizacoes != null ? `<b>${nf.format(e.visualizacoes)}</b> visualizações · ` : ""}<b>${e.curtidas != null ? nf.format(e.curtidas) : "?"}</b> curtidas · <b>${nf.format(e.comentarios || 0)}</b> comentários</div>
             ${e.temas?.length ? `<div class="themes">${e.temas.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>` : ""}
             <a class="btn small" href="${esc(e.link)}" target="_blank" rel="noopener">Abrir no Instagram ↗</a>
-          </div>`).join("")}</div></div>` : `<div class="fm-reais"><h4>Posts reais</h4><p class="hint">Ainda não achamos um post viral com este formato nos seus temas. O robô de quinta procura toda semana.</p></div>`}
+          </div>`).join("")}</div>${fm.ex[f.id].length > 6 && !fm.more.has(f.id) ? `<button class="btn small" style="margin-top:12px" data-fmmore="${esc(f.id)}">Ver mais ${fm.ex[f.id].length - 6} exemplos</button>` : ""}</div>` : `<div class="fm-reais"><h4>Posts reais</h4><p class="hint">Ainda não achamos um post viral com este formato nos seus temas. O robô de quinta procura toda semana.</p></div>`}
         ${f.exemplos?.length ? `<div><h4>Exemplos em temas diferentes</h4>${f.exemplos.map(e => `<div class="fm-ex"><b>${esc(e.nicho)}</b><div class="pz-txt">${esc(e.texto)}</div></div>`).join("")}</div>` : ""}
       </div>` : ""}
     </article>`; }).join("")
@@ -1246,6 +1246,8 @@ $("#fmObj").addEventListener("click", e => { const b = e.target.closest("[data-f
 $("#fmFmt").addEventListener("click", e => { const b = e.target.closest("[data-fmf]"); if (!b) return; fm.fmt = b.dataset.fmf; renderFormatos(); });
 let fmT; $("#fmQ").addEventListener("input", e => { clearTimeout(fmT); fmT = setTimeout(() => { fm.q = e.target.value; renderFormatos(); }, 200); });
 $("#fmList").addEventListener("click", async e => {
+  const mb = e.target.closest("[data-fmmore]");
+  if (mb) { fm.more.add(mb.dataset.fmmore); renderFormatos(); return; }
   const t = e.target.closest("[data-fmtoggle]");
   if (t) { const id = t.dataset.fmtoggle; fm.open.has(id) ? fm.open.delete(id) : fm.open.add(id); renderFormatos(); return; }
   const c = e.target.closest("[data-fmcopy],[data-fmprompt]"); if (!c) return;
