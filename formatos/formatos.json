@@ -1,6 +1,36 @@
 {
   "formatos": [
     {
+      "id": "noticia-explicada",
+      "nome": "Notícia explicada: o que muda para você",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Alcance",
+        "Compartilhamentos",
+        "Seguidores"
+      ],
+      "quandoUsar": "Sempre que sair uma notícia que mexe com o seu público (lei nova, decisão do governo, estudo, mudança de regra). Você traduz a notícia para a vida da pessoa.",
+      "estrutura": [
+        "Capa: a notícia em uma frase forte, com alerta (\"URGENTE\", \"MUDOU\", \"A partir de...\")",
+        "O que aconteceu, em fatos (quem, o quê, quando)",
+        "O que muda na prática para o seu público",
+        "O que a pessoa deve fazer agora",
+        "Fonte + \"siga para não perder as próximas\""
+      ],
+      "comoAplicar": "Poste rápido: notícia perde força em 24 a 48 horas. Use a aba Notícias e react para achar as notícias da semana do seu tema. Confira a fonte antes de postar e não dê opinião partidária: foque no impacto para o público.",
+      "modelo": "Slide 1: [ALERTA]: [notícia em uma frase]\nSlide 2: O que aconteceu: [fato, com data e quem decidiu]\nSlide 3: O que muda para você: [impacto 1]\nSlide 4: [impacto 2]\nSlide 5: O que fazer agora: [ação]\nSlide 6: Fonte: [veículo / órgão]. Siga para não perder as próximas mudanças.",
+      "exemplos": [
+        {
+          "nicho": "Impostos",
+          "texto": "Slide 1: MUDOU: com o split payment, o imposto vai sair direto do pagamento da sua venda\nSlide 3: O que muda para você: o dinheiro do imposto nem chega na sua conta"
+        },
+        {
+          "nicho": "Direitos trabalhistas",
+          "texto": "Slide 1: O Senado aprovou o fim da escala 6x1. E agora?\nSlide 3: O que muda para você: ainda depende da Câmara, nada muda no seu contrato hoje"
+        }
+      ]
+    },
+    {
       "id": "preguicoso",
       "nome": "Preguiçoso (frase na tela)",
       "formato": "Reels",
@@ -860,7 +890,8 @@
       "formato": "Carrossel",
       "objetivos": [
         "Comentários",
-        "Vendas"
+        "Vendas",
+        "Captação"
       ],
       "quandoUsar": "Quando você tem um material, lista, aula ou link para entregar. Gera comentários e leads no direct.",
       "estrutura": [
@@ -1026,7 +1057,8 @@
       "formato": "Reels",
       "objetivos": [
         "Seguidores",
-        "Vendas"
+        "Vendas",
+        "Lançamento"
       ],
       "quandoUsar": "Para humanizar o perfil e mostrar como é o seu trabalho. Aproxima quem pode virar cliente.",
       "estrutura": [
@@ -1054,7 +1086,8 @@
       "formato": "Carrossel",
       "objetivos": [
         "Vendas",
-        "Salvamentos"
+        "Salvamentos",
+        "Lançamento"
       ],
       "quandoUsar": "Quando seus clientes travam sempre no mesmo ponto antes de contratar ou comprar (preço, tempo, medo, \"não é para mim\").",
       "estrutura": [
@@ -1132,6 +1165,259 @@
         {
           "nicho": "Estratégia de conteúdo",
           "texto": "Slide 2: ANTES: postava quando dava, sem saber o que falar\nSlide 4: DEPOIS: 3 pilares, 12 posts planejados por mês"
+        }
+      ]
+    },
+    {
+      "id": "anuncio-misterio",
+      "nome": "Anúncio misterioso (vem aí)",
+      "formato": "Foto",
+      "objetivos": [
+        "Lançamento",
+        "Comentários"
+      ],
+      "quandoUsar": "Antes de abrir vagas ou lançar algo. Cria curiosidade sem contar tudo.",
+      "estrutura": [
+        "Frase curta que anuncia algo sem dizer o quê",
+        "Uma pista (data, número, palavra)",
+        "Pedido para ativar notificação ou comentar"
+      ],
+      "comoAplicar": "Poste de 3 a 7 dias antes da abertura. Use a mesma identidade visual depois, na abertura, para o público ligar uma coisa à outra.",
+      "modelo": "Arte: [Frase misteriosa: \"Algo que eu nunca fiz vai acontecer dia [data]\"]\nPista: [número / palavra / imagem]\nLegenda: [contexto curto sem revelar] + Comenta \"[EU QUERO]\" para ser a primeira a saber.",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Arte: Dia 15 eu vou abrir uma porta que fiquei 2 anos sem abrir."
+        },
+        {
+          "nicho": "Consultório",
+          "texto": "Arte: Dezembro vai ter uma novidade para quem está na lista de espera."
+        }
+      ]
+    },
+    {
+      "id": "abertura-carrinho",
+      "nome": "Abertura de vagas (carrinho aberto)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "No dia em que as vagas, inscrições ou vendas abrem.",
+      "estrutura": [
+        "Capa: \"Vagas abertas\" + para quem é",
+        "Para quem é (e para quem não é)",
+        "O que a pessoa recebe",
+        "Resultado ou transformação esperada (sem prometer o impossível)",
+        "Condição e prazo",
+        "CTA: link na bio ou comente"
+      ],
+      "comoAplicar": "Deixe claro o prazo e a condição especial. Colocar \"para quem NÃO é\" aumenta a confiança e filtra curiosos.",
+      "modelo": "Slide 1: Vagas abertas: [nome da oferta] para [público]\nSlide 2: É para você se [situação 1], [situação 2], [situação 3]\nSlide 3: Não é para você se [situação]\nSlide 4: O que você recebe: [item 1], [item 2], [item 3]\nSlide 5: [Condição especial] até [data]\nSlide 6: [CTA: link na bio / comenta QUERO]",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Slide 1: Vagas abertas: Mentoria Conteúdo que Vende para psicólogas"
+        },
+        {
+          "nicho": "Direito bancário",
+          "texto": "Slide 1: Agenda aberta: análise gratuita de contrato de empréstimo consignado"
+        }
+      ]
+    },
+    {
+      "id": "prova-social",
+      "nome": "Prova social (resultado de cliente ou aluno)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "Durante o lançamento ou sempre que quiser mostrar que funciona. Resultado de outra pessoa convence mais do que a sua promessa.",
+      "estrutura": [
+        "Capa com o resultado em uma frase (com autorização)",
+        "Como a pessoa estava antes",
+        "O que ela fez (com sua ajuda)",
+        "Resultado",
+        "CTA"
+      ],
+      "comoAplicar": "Peça autorização por escrito e esconda dados sensíveis. Em saúde e direito, siga as regras do seu conselho: muitas vezes não é permitido divulgar resultado de paciente ou de processo. Nesse caso, use depoimento sobre a experiência, não sobre o resultado.",
+      "modelo": "Slide 1: \"[Frase do depoimento ou resultado]\" — [nome ou iniciais, com autorização]\nSlide 2: Antes: [situação]\nSlide 3: O que ela fez: [ações]\nSlide 4: Hoje: [resultado ou mudança]\nSlide 5: Quer o mesmo caminho? [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Marketing",
+          "texto": "Slide 1: \"Fechei 4 clientes com um carrossel\" — Ana, aluna da turma 3"
+        },
+        {
+          "nicho": "Mentoria",
+          "texto": "Slide 1: Ela saiu de 0 para 12 mentorados em 60 dias"
+        }
+      ]
+    },
+    {
+      "id": "contagem-regressiva",
+      "nome": "Contagem regressiva (últimas vagas)",
+      "formato": "Stories",
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "Nos últimos dias ou horas de uma oferta. Urgência real faz quem estava em dúvida decidir.",
+      "estrutura": [
+        "Número grande: horas, dias ou vagas restantes",
+        "Lembrete do que a pessoa perde",
+        "Botão ou link"
+      ],
+      "comoAplicar": "Só use urgência verdadeira. Se disser que fecha, feche: urgência falsa destrói confiança. Use a figurinha de contagem regressiva dos stories.",
+      "modelo": "Story 1: Faltam [número] [horas / vagas]\nStory 2: Depois disso, [o que acaba: condição, bônus, turma]\nStory 3: [Link / figurinha de link] Garanta aqui",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Story 1: Faltam 6 horas para fechar a turma"
+        },
+        {
+          "nicho": "Bem-estar",
+          "texto": "Story 1: Últimas 3 vagas no retiro de janeiro"
+        }
+      ]
+    },
+    {
+      "id": "oferta-comparativa",
+      "nome": "Quanto custaria × o que você recebe",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "Para mostrar o valor da oferta comparando com o custo de resolver de outro jeito.",
+      "estrutura": [
+        "Capa: o problema caro",
+        "Quanto custa resolver sozinho (tempo, dinheiro, erro)",
+        "O que a sua oferta entrega",
+        "Comparação clara",
+        "CTA"
+      ],
+      "comoAplicar": "Use valores reais e verificáveis. Compare com alternativas honestas, sem diminuir colegas.",
+      "modelo": "Slide 1: Quanto custa [resolver problema] sozinha?\nSlide 2: [Custo 1: tempo / dinheiro / erro]\nSlide 3: [Custo 2]\nSlide 4: Com [oferta] você recebe: [lista]\nSlide 5: Tudo isso por [condição]. [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Estratégia de conteúdo",
+          "texto": "Slide 1: Quanto custa contratar uma social media por 1 ano?"
+        },
+        {
+          "nicho": "Impostos",
+          "texto": "Slide 1: Quanto custa errar a declaração do imposto de renda?"
+        }
+      ]
+    },
+    {
+      "id": "convite-aula",
+      "nome": "Convite para aula ou evento gratuito",
+      "formato": "Reels",
+      "objetivos": [
+        "Captação",
+        "Lançamento"
+      ],
+      "quandoUsar": "Para juntar pessoas interessadas antes de vender: aula, live, workshop, masterclass.",
+      "estrutura": [
+        "Gancho com a dor que a aula resolve",
+        "O que a pessoa vai aprender (3 pontos)",
+        "Data, horário e onde",
+        "CTA para se inscrever"
+      ],
+      "comoAplicar": "O título da aula precisa prometer um resultado específico. Lembre o público várias vezes: no dia anterior, de manhã e 1 hora antes.",
+      "modelo": "Cena 1: Se você [dor], essa aula é para você.\nCena 2: Dia [data], às [hora], eu vou te mostrar: [ponto 1], [ponto 2], [ponto 3].\nCena 3: É gratuito e ao vivo. [CTA: link na bio / comenta AULA]",
+      "exemplos": [
+        {
+          "nicho": "Direitos trabalhistas",
+          "texto": "Cena 1: Se você foi demitida e não sabe se recebeu tudo certo, essa live é para você."
+        },
+        {
+          "nicho": "Neurodesenvolvimento",
+          "texto": "Cena 1: Se seu filho de 2 anos ainda não fala, essa aula é para você."
+        }
+      ]
+    },
+    {
+      "id": "lista-vip",
+      "nome": "Lista VIP ou lista de espera",
+      "formato": "Stories",
+      "objetivos": [
+        "Captação",
+        "Lançamento"
+      ],
+      "quandoUsar": "Para juntar interessados antes da abertura e vender para quem já levantou a mão.",
+      "estrutura": [
+        "Anuncie que algo vai abrir",
+        "Benefício de entrar na lista (prioridade, condição, bônus)",
+        "Link ou palavra para entrar"
+      ],
+      "comoAplicar": "Quem entra na lista compra muito mais do que quem só segue. Dê um motivo concreto para entrar agora.",
+      "modelo": "Story 1: Vou abrir [oferta] em [período]\nStory 2: Quem entrar na lista VIP vai ter [benefício]\nStory 3: [Link] Entre aqui (ou responda \"EU\")",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Story 2: Quem entrar na lista VIP vai ter 30% de desconto e o grupo antes de todo mundo"
+        },
+        {
+          "nicho": "Cirurgia plástica",
+          "texto": "Story 2: Quem entrar na lista de espera vai ter prioridade na agenda de 2027"
+        }
+      ]
+    },
+    {
+      "id": "isca-material",
+      "nome": "Material gratuito (guia, e-book, checklist)",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Captação",
+        "Salvamentos"
+      ],
+      "quandoUsar": "Para trocar um material útil pelo contato da pessoa (direct, e-mail, WhatsApp).",
+      "estrutura": [
+        "Capa com o problema que o material resolve",
+        "2 ou 3 dicas de amostra",
+        "Apresentação do material completo",
+        "CTA para pegar"
+      ],
+      "comoAplicar": "O material precisa resolver um problema pequeno e específico. Entregue rápido, de preferência com automação no direct.",
+      "modelo": "Slide 1: [Problema específico]\nSlide 2: [Dica de amostra 1]\nSlide 3: [Dica de amostra 2]\nSlide 4: Eu fiz um [guia / checklist / e-book] com [o que tem dentro]\nSlide 5: Comenta [PALAVRA] ou pega no link da bio. É gratuito.",
+      "exemplos": [
+        {
+          "nicho": "Dívidas",
+          "texto": "Slide 4: Fiz uma planilha para organizar todas as suas dívidas em uma página"
+        },
+        {
+          "nicho": "Autismo",
+          "texto": "Slide 4: Fiz um guia com os direitos da pessoa autista na escola"
+        }
+      ]
+    },
+    {
+      "id": "quiz-diagnostico",
+      "nome": "Teste: descubra seu nível",
+      "formato": "Carrossel",
+      "objetivos": [
+        "Captação",
+        "Comentários"
+      ],
+      "quandoUsar": "Para engajar e mostrar para a pessoa onde ela está, abrindo caminho para sua solução.",
+      "estrutura": [
+        "Capa: \"Descubra se você...\" ou \"Qual é o seu nível de...\"",
+        "Perguntas de sim ou não, ou opções A/B/C",
+        "Resultado por faixa de pontos",
+        "CTA para o próximo passo"
+      ],
+      "comoAplicar": "Mantenha de 5 a 8 perguntas. O resultado deve ser útil para todos os níveis e apontar um próximo passo.",
+      "modelo": "Slide 1: Descubra [seu nível de / se você tem] [tema]\nSlide 2: Responda sim ou não:\n1. [pergunta]\n2. [pergunta]\n3. [pergunta]\nSlide 3: 4. [pergunta]\n5. [pergunta]\nSlide 4: 0 a 1 sim: [resultado]\n2 a 3: [resultado]\n4 a 5: [resultado]\nSlide 5: Comenta seu resultado. [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Dependência emocional",
+          "texto": "Slide 1: Descubra se você está em uma relação de dependência emocional"
+        },
+        {
+          "nicho": "Organização financeira",
+          "texto": "Slide 1: Qual é o seu nível de controle financeiro?"
         }
       ]
     }

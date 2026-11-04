@@ -7,17 +7,22 @@ Painel pessoal da Samyra (@samyra__duarte) que mostra posts em alta no Instagram
 - `config/hashtag_ids.json`: cache dos IDs de hashtag (o Instagram permite 30 hashtags novas por semana; não apague).
 - `scripts/coletar.py`: busca os posts em alta e grava `dados/coleta-AAAA-MM-DD.json`. Lê a chave da variável de ambiente `IG_TOKEN`.
 - `pautas/`: edições semanais de pautas, lidas pela aba **Pautas** do sistema.
+- `scripts/noticias.py`: busca notícias da semana de cada subtema (Google Notícias, sem chave) e grava `noticias/noticias.json` (aba **Notícias e react**).
+- `formatos/formatos.json`: biblioteca de formatos validados (aba **Formatos**). `formatos/exemplos.json`: posts reais que usam cada formato, revisados um a um.
+- `scripts/exemplos.py`: acha **candidatos** a exemplo por padrões de texto e grava `dados/candidatos-formatos.json`. Erra bastante; serve só como ponto de partida.
 
 Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o que o GitHub Pages publica).
 
 ## Rotina semanal de pautas (toda quinta-feira)
 
 1. Rode `python3 scripts/coletar.py`. Se falhar porque `IG_TOKEN` falta ou a chave expirou, **não invente dados**: crie a edição só com o campo `avisos` explicando o problema e o que a Samyra precisa fazer (gerar nova chave de 60 dias e atualizar `IG_TOKEN` no ambiente do Claude), publique e pare.
-2. Leia o arquivo `dados/coleta-*.json` mais recente.
-3. Para **cada tema** que tiver posts, crie **3 pautas** (menos se o tema tiver poucos posts bons). Cada pauta se inspira em um post de referência real da coleta, preferindo notas altas e posts recentes.
-4. Escreva também a **análise de por que viralizou** (campo `analise`, formato abaixo): um resumo da semana e, para cada tema com posts, 2 a 4 padrões observados (assunto, palavra, gancho, emoção, formato, CTA) e os 2 posts mais fortes explicados em linguagem simples. Baseie-se só nos posts e números da coleta.
-5. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.
-6. Faça commit (`Pautas da semana AAAA-MM-DD`) e push para `main`. Não faça commit da pasta `dados/` (está no .gitignore).
+2. Rode `python3 scripts/noticias.py` (atualiza as notícias de todos os subtemas).
+3. Leia o arquivo `dados/coleta-*.json` mais recente.
+4. Para **cada subtema** que tiver posts, crie **3 pautas** (menos se o tema tiver poucos posts bons). Cada pauta se inspira em um post de referência real da coleta, preferindo notas altas e posts recentes.
+5. Escreva também a **análise de por que viralizou** (campo `analise`, formato abaixo): um resumo da semana e, para cada tema com posts, 2 a 4 padrões observados (assunto, palavra, gancho, emoção, formato, CTA) e os 2 posts mais fortes explicados em linguagem simples. Baseie-se só nos posts e números da coleta.
+6. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.
+7. **Exemplos reais dos formatos.** Rode `python3 scripts/exemplos.py` e leia também a lista `todos` da coleta. Para cada formato de `formatos/formatos.json`, procure posts que **de fato** usam aquela fórmula (leia a legenda; na dúvida, não coloque) e acrescente em `formatos/exemplos.json` com os campos `link, formato, visualizacoes, curtidas, comentarios, nota, temas, trecho, achadoEm`. Máximo de 6 por formato: fique com os de maior nota e mais recentes. Dê atenção especial a posts de **lançamento** (vagas abertas, turma nova, carrinho, últimas vagas, prova social, contagem regressiva) e de **captação** (comente uma palavra, material gratuito, aula gratuita, lista VIP, teste) e coloque nos formatos com objetivo Lançamento ou Captação. Nunca use posts partidários, de sorteio ou golpe. Se aparecer uma fórmula nova que se repete em vários virais, crie o formato em `formatos/formatos.json` seguindo o mesmo padrão (id, nome, formato, objetivos, quandoUsar, estrutura, comoAplicar, modelo, exemplos).
+8. Faça commit (`Pautas da semana AAAA-MM-DD`) e push para `main`, incluindo `noticias/`, `formatos/` e `config/hashtag_ids.json`. Não faça commit da pasta `dados/` (está no .gitignore).
 
 ### Como escrever as pautas
 

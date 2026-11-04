@@ -198,6 +198,26 @@ button.word:hover{border-color:var(--accent)}
 .an-dest-m{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12.5px;color:var(--muted)}
 .an-dest-m a{font-weight:600;margin-left:auto}
 
+/* Notícias e react */
+.nw-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;padding:14px 0 48px;align-items:start}
+.nw-side{display:flex;flex-direction:column;gap:16px;min-width:0}
+.nw-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.nw-h span{font-size:12.5px;color:var(--muted)}
+.nw-block{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.nw-block h3{font:700 15px var(--display);margin:0 0 6px}
+.nw-item{padding:8px 0;border-bottom:1px dashed var(--line)}
+.nw-item:last-child{border-bottom:0}
+.nw-item a{font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4}
+.nw-item a:hover{color:var(--accent);text-decoration:underline}
+.nw-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);margin-top:4px;flex-wrap:wrap}
+.nw-meta a{font-weight:600;text-decoration:none}
+.nw-post{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--surface-2)}
+.nw-post p{margin:6px 0 0;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.nw-post-top{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.nw-nums{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.nw-nums b{color:var(--ink)}
+@media (max-width:860px){ .nw-grid{grid-template-columns:1fr} }
+
 /* Formatos */
 .fm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:12px 0 48px;align-items:start}
 .fm{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
@@ -209,6 +229,15 @@ button.word:hover{border-color:var(--accent)}
 .fm-badges{display:flex;gap:6px;align-items:center}
 .fm-banco{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--warm) 16%,var(--surface));color:var(--warm)}
 .fm-more{font-size:13px;font-weight:600;color:var(--accent)}
+.fm-real{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--ok) 15%,var(--surface));color:var(--ok)}
+.fm-reais{grid-column:1/-1}
+.fm-reais-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
+.fm-real-card{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--surface-2);min-width:0}
+.fm-embed{max-height:560px;overflow:auto;border-radius:8px;background:var(--surface)}
+.fm-embed .instagram-media{min-width:0!important;max-width:100%!important}
+.fm-real-meta{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fm-real-meta span{font-weight:700;color:var(--accent);margin-right:6px}
+.fm-real-meta b{color:var(--ink)}
 .fm-body{border-top:1px solid var(--line);padding:16px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
 .fm-body h4{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .fm-body ol{margin:0;padding-left:20px;font-size:14px;line-height:1.55;display:flex;flex-direction:column;gap:4px}
@@ -273,6 +302,7 @@ button.word:hover{border-color:var(--accent)}
       <div class="tabs" role="tablist">
         <button role="tab" id="tabFeed" aria-selected="true">Em alta</button>
         <button role="tab" id="tabAnalise" aria-selected="false">Por que viraliza</button>
+        <button role="tab" id="tabNews" aria-selected="false">Notícias e react</button>
         <button role="tab" id="tabPautas" aria-selected="false">Pautas</button>
         <button role="tab" id="tabFormatos" aria-selected="false">Formatos</button>
         <button role="tab" id="tabCfg" aria-selected="false">Configurar</button>
@@ -348,6 +378,22 @@ button.word:hover{border-color:var(--accent)}
     </div>
     <textarea id="copyFallback" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0;width:1px;height:1px"></textarea>
     <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="newsView" hidden>
+    <div class="pz-head">
+      <div>
+        <h2>Notícias e react</h2>
+        <p>Notícias da semana dos seus temas, Reels em alta para reagir e os posts com mais comentários (assuntos que estão gerando debate). Use os filtros de tema e subtema acima.</p>
+      </div>
+    </div>
+    <div class="nw-grid">
+      <section class="panel nw-col"><div class="nw-h"><h2>Notícias da semana</h2><span id="nwDate"></span></div><div id="nwNews"></div></section>
+      <div class="nw-side">
+        <section class="panel"><h2>Reels em alta para react</h2><p class="lead">Vídeos que estão subindo rápido. Abra, grave sua reação com tela verde e dê sua leitura de especialista.</p><div id="nwReels"></div></section>
+        <section class="panel"><h2>Mais comentados</h2><p class="lead">Posts que estão gerando debate. Bons para react, resposta ou pergunta polêmica.</p><div id="nwComments"></div></section>
+      </div>
+    </div>
   </section>
 
   <section id="analiseView" hidden>
@@ -874,6 +920,7 @@ function render(){
   lastList = list;
   anCtx = analyze(list);
   if (!$("#analiseView").hidden) renderAnalise(list);
+  if (!$("#newsView").hidden) renderNews(list);
   const pName = cfg.panels.find(p => p.id === ui.panel)?.name;
   $("#sumTitle").textContent = ui.themes.size === 1 ? themeById([...ui.themes][0])?.name : (pName || "Em alta em todos os temas");
   $("#sumInfo").textContent = `${list.length} ${list.length === 1 ? "post" : "posts"}`;
@@ -1086,13 +1133,74 @@ async function loadClaudeAnalise(){
   } catch {}
 }
 
+/* ---------- notícias e react ---------- */
+let news = null;
+async function loadNews(){
+  if (news || location.protocol === "file:") { renderNews(lastList); return; }
+  try { news = await getJSON("noticias/noticias.json"); } catch { news = { temas:{} , erro:true }; }
+  renderNews(lastList);
+}
+function newsPrompt(n, tema){
+  return `Você é estrategista de conteúdo para Instagram e escreve em português do Brasil.
+
+Quero transformar esta notícia em um post no formato "Notícia explicada: o que muda para você".
+
+NOTÍCIA
+Título: ${n.titulo}
+Fonte: ${n.fonte}
+Link: ${n.link}
+
+ESTRUTURA
+1. Capa: a notícia em uma frase forte, com alerta
+2. O que aconteceu, em fatos (quem, o quê, quando)
+3. O que muda na prática para o meu público
+4. O que a pessoa deve fazer agora
+5. Fonte + "siga para não perder as próximas"
+
+MEU CONTEXTO (preencha)
+- Meu perfil e profissão: [ex.: advogada bancária]
+- Tema: ${tema}
+- Meu público: [quem é]
+- Tom de voz: [ex.: direto e acolhedor]
+
+ENTREGUE: o texto de cada slide de um carrossel, uma legenda com CTA e um roteiro curto de Reels (30 segundos) com a mesma notícia. Confira os fatos no link antes. Sem opinião partidária e sem prometer resultado.`;
+}
+function renderNews(list){
+  if (!news) return;
+  const ids = ui.themes.size ? [...ui.themes] : cfg.themes.filter(t => !ui.panel || t.panel === ui.panel).map(t => t.id);
+  const per = ids.length === 1 ? 10 : ids.length <= 6 ? 4 : 2;
+  $("#nwDate").textContent = news.geradoEm ? "atualizado " + ago(Date.parse(news.geradoEm)) : "";
+  const blocks = ids.map(id => ({ id, nome: themeById(id)?.name || id, itens: (news.temas[id] || []).slice(0, per) })).filter(b => b.itens.length);
+  $("#nwNews").innerHTML = news.erro ? `<p class="hint">Não consegui carregar as notícias agora.</p>`
+    : blocks.length ? blocks.map(b => `<div class="nw-block"><h3>${esc(b.nome)}</h3>${b.itens.map((n, i) => `<div class="nw-item">
+        <a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.titulo)}</a>
+        <div class="nw-meta"><span>${esc(n.fonte || "")}${n.data ? " · " + ago(Date.parse(n.data)) : ""}</span><button class="btn small" data-nwprompt="${esc(b.id)}|${i}">Prompt de post</button></div>
+      </div>`).join("")}</div>`).join("") : `<p class="hint">Sem notícias para este recorte ainda. Elas são atualizadas toda semana.</p>`;
+  const row = p => `<div class="nw-post">
+      <div class="nw-post-top"><span class="pz-fmt">${esc(FMT_LABEL[p.type] || p.type)}</span><span class="nw-nums">${p.views != null ? `<b>${nf.format(p.views)}</b> visualizações · ` : ""}<b>${fmtN(p.likes)}</b> curtidas · <b>${fmtN(p.comments)}</b> comentários</span></div>
+      <p>${esc((p.caption || "Sem legenda").slice(0, 160))}${(p.caption || "").length > 160 ? "…" : ""}</p>
+      <div class="nw-meta"><span>${esc(p.themes.slice(0, 2).map(id => themeById(id)?.name).join(" · "))} · ${ago(p.ts)}</span>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir ↗</a>` : "<span>Exemplo</span>"}</div>
+    </div>`;
+  const reels = list.filter(p => p.type === "VIDEO").sort((a, b) => b.vel - a.vel).slice(0, 8);
+  $("#nwReels").innerHTML = reels.length ? reels.map(row).join("") : `<p class="hint">Nenhum Reels neste recorte. Clique em Atualizar ou escolha outro tema.</p>`;
+  const com = [...list].sort((a, b) => b.comments - a.comments).slice(0, 8);
+  $("#nwComments").innerHTML = com.length ? com.map(row).join("") : `<p class="hint">Nenhum post neste recorte.</p>`;
+}
+$("#nwNews").addEventListener("click", async e => {
+  const b = e.target.closest("[data-nwprompt]"); if (!b) return;
+  const [id, i] = b.dataset.nwprompt.split("|"); const n = news.temas[id][+i];
+  const text = newsPrompt(n, themeById(id)?.name || id);
+  try { await navigator.clipboard.writeText(text); } catch { const ta = $("#copyFallback"); ta.value = text; ta.select(); try { document.execCommand("copy"); } catch {} }
+  b.textContent = "Copiado!"; setTimeout(() => b.textContent = "Prompt de post", 1800);
+});
+
 /* ---------- formatos validados ---------- */
-const fm = { list:null, obj:"", fmt:"", q:"", open:new Set() };
-const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Vendas","Lançamento"];
+const fm = { list:null, ex:{}, obj:"", fmt:"", q:"", open:new Set() };
+const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Captação","Vendas","Lançamento"];
 async function loadFormatos(){
   if (location.protocol === "file:") { $("#fmList").innerHTML = `<div class="notice warn"><div>Os formatos só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.</div></div>`; return; }
   if (!fm.list) {
-    try { fm.list = (await getJSON("formatos/formatos.json")).formatos || []; }
+    try { fm.list = (await getJSON("formatos/formatos.json")).formatos || []; try { fm.ex = (await getJSON("formatos/exemplos.json")).formatos || {}; } catch {} }
     catch { $("#fmList").innerHTML = `<div class="notice err"><div>Não consegui carregar os formatos agora. Verifique a internet e abra a aba de novo.</div></div>`; return; }
   }
   renderFormatos();
@@ -1105,13 +1213,14 @@ function renderFormatos(){
   $("#fmFmt").innerHTML = [`<button data-fmf="" aria-pressed="${!fm.fmt}">Todos</button>`].concat(fmts.map(x => `<button data-fmf="${esc(x)}" aria-pressed="${fm.fmt === x}">${esc(x)}</button>`)).join("");
   const q = norm(fm.q.trim());
   const list = all.filter(f => (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
-    && (!q || norm(f.nome + " " + f.quandoUsar + " " + f.modelo).includes(q)));
+    && (!q || norm(f.nome + " " + f.quandoUsar + " " + f.modelo).includes(q)))
+    .sort((a, b) => (fm.ex[b.id]?.length ? 1 : 0) - (fm.ex[a.id]?.length ? 1 : 0));
   $("#fmInfo").textContent = `${list.length} ${list.length === 1 ? "formato" : "formatos"}. Escolha o objetivo, copie o modelo e troque o que está entre [colchetes] pelo seu assunto.`;
   $("#fmList").innerHTML = list.length ? list.map(f => {
     const open = fm.open.has(f.id);
     return `<article class="fm ${open ? "open" : ""}" data-fm="${esc(f.id)}">
       <button class="fm-top" data-fmtoggle="${esc(f.id)}" aria-expanded="${open}">
-        <div class="fm-badges"><span class="pz-fmt">${esc(f.formato)}</span>${f.origem === "banco" ? `<span class="fm-banco">do seu banco</span>` : ""}</div>
+        <div class="fm-badges"><span class="pz-fmt">${esc(f.formato)}</span>${f.origem === "banco" ? `<span class="fm-banco">do seu banco</span>` : ""}${fm.ex[f.id]?.length ? `<span class="fm-real">${fm.ex[f.id].length} ${fm.ex[f.id].length === 1 ? "exemplo real" : "exemplos reais"}</span>` : ""}</div>
         <h3>${esc(f.nome)}</h3>
         <p>${esc(f.quandoUsar)}</p>
         <div class="themes">${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
@@ -1120,11 +1229,18 @@ function renderFormatos(){
       ${open ? `<div class="fm-body">
         <div><h4>Estrutura</h4><ol>${f.estrutura.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>
         <div><h4>Como aplicar</h4><p>${esc(f.comoAplicar)}</p></div>
-        <div class="pz-pronto"><div class="pz-pronto-h"><span>Modelo para copiar</span><button class="btn small" data-fmcopy="${esc(f.id)}">Copiar modelo</button></div><div class="pz-txt">${esc(f.modelo)}</div></div>
+        <div class="pz-pronto"><div class="pz-pronto-h"><span>Modelo para copiar</span><div class="row" style="gap:6px"><button class="btn small" data-fmcopy="${esc(f.id)}">Copiar modelo</button><button class="btn small primary" data-fmprompt="${esc(f.id)}">Copiar prompt para IA</button></div></div><div class="pz-txt">${esc(f.modelo)}</div></div>
+        ${fm.ex[f.id]?.length ? `<div class="fm-reais"><h4>Posts reais que usam este formato</h4><div class="fm-reais-grid">${fm.ex[f.id].map(e => `<div class="fm-real-card">
+            <div class="fm-embed"><blockquote class="instagram-media" data-instgrm-permalink="${esc(e.link)}" data-instgrm-version="14" style="margin:0;min-width:0;width:100%"><a href="${esc(e.link)}" target="_blank" rel="noopener">Ver post no Instagram</a></blockquote></div>
+            <div class="fm-real-meta"><span>${esc(e.formato || "")}</span>${e.visualizacoes != null ? `<b>${nf.format(e.visualizacoes)}</b> visualizações · ` : ""}<b>${e.curtidas != null ? nf.format(e.curtidas) : "?"}</b> curtidas · <b>${nf.format(e.comentarios || 0)}</b> comentários</div>
+            ${e.temas?.length ? `<div class="themes">${e.temas.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>` : ""}
+            <a class="btn small" href="${esc(e.link)}" target="_blank" rel="noopener">Abrir no Instagram ↗</a>
+          </div>`).join("")}</div></div>` : `<div class="fm-reais"><h4>Posts reais</h4><p class="hint">Ainda não achamos um post viral com este formato nos seus temas. O robô de quinta procura toda semana.</p></div>`}
         ${f.exemplos?.length ? `<div><h4>Exemplos em temas diferentes</h4>${f.exemplos.map(e => `<div class="fm-ex"><b>${esc(e.nicho)}</b><div class="pz-txt">${esc(e.texto)}</div></div>`).join("")}</div>` : ""}
       </div>` : ""}
     </article>`; }).join("")
     : `<div class="empty-state" style="grid-column:1/-1"><h3>Nenhum formato com esse filtro</h3><p>Escolha outro objetivo ou formato.</p></div>`;
+  igEmbeds();
 }
 $("#fmObj").addEventListener("click", e => { const b = e.target.closest("[data-fmo]"); if (!b) return; fm.obj = b.dataset.fmo; renderFormatos(); });
 $("#fmFmt").addEventListener("click", e => { const b = e.target.closest("[data-fmf]"); if (!b) return; fm.fmt = b.dataset.fmf; renderFormatos(); });
@@ -1132,12 +1248,52 @@ let fmT; $("#fmQ").addEventListener("input", e => { clearTimeout(fmT); fmT = set
 $("#fmList").addEventListener("click", async e => {
   const t = e.target.closest("[data-fmtoggle]");
   if (t) { const id = t.dataset.fmtoggle; fm.open.has(id) ? fm.open.delete(id) : fm.open.add(id); renderFormatos(); return; }
-  const c = e.target.closest("[data-fmcopy]"); if (!c) return;
-  const f = fm.list.find(x => x.id === c.dataset.fmcopy);
-  const text = `FORMATO: ${f.nome} (${f.formato})\n\n${f.modelo}`;
+  const c = e.target.closest("[data-fmcopy],[data-fmprompt]"); if (!c) return;
+  const isPrompt = !!c.dataset.fmprompt; const label = c.textContent;
+  const f = fm.list.find(x => x.id === (c.dataset.fmcopy || c.dataset.fmprompt));
+  const text = isPrompt ? fmPrompt(f) : `FORMATO: ${f.nome} (${f.formato})\n\n${f.modelo}`;
   try { await navigator.clipboard.writeText(text); } catch { const ta = $("#copyFallback"); ta.value = text; ta.select(); try { document.execCommand("copy"); } catch {} }
-  c.textContent = "Copiado!"; setTimeout(() => c.textContent = "Copiar modelo", 1800);
+  c.textContent = "Copiado!"; setTimeout(() => c.textContent = label, 1800);
 });
+function fmPrompt(f){
+  const ex = (fm.ex[f.id] || []).slice(0, 2).map(e => `- ${e.link} (${e.curtidas != null ? e.curtidas + " curtidas, " : ""}${e.comentarios} comentários): "${e.trecho}"`).join("\n");
+  return `Você é estrategista de conteúdo para Instagram e escreve em português do Brasil.
+
+Quero criar um post no formato "${f.nome}" (${f.formato}).
+
+PARA QUE SERVE O FORMATO
+${f.quandoUsar}
+
+ESTRUTURA OBRIGATÓRIA
+${f.estrutura.map((x, i) => `${i + 1}. ${x}`).join("\n")}
+
+COMO APLICAR
+${f.comoAplicar}
+
+MODELO DE REFERÊNCIA
+${f.modelo}
+${ex ? `\nPOSTS REAIS QUE VIRALIZARAM COM ESSE FORMATO (use só como referência de estrutura, não copie)\n${ex}\n` : ""}
+MEU CONTEXTO (preencha antes de enviar)
+- Meu perfil e profissão: [ex.: psicóloga, advogada bancária, mentora]
+- Tema deste post: [ex.: TDAH em mulheres adultas]
+- Meu público: [quem é, o que sente, o que quer]
+- Objetivo do post: ${f.objetivos.join(", ")}
+- Meu tom de voz: [ex.: acolhedor, direto, bem-humorado]
+
+O QUE EU QUERO QUE VOCÊ ENTREGUE
+1. Três versões diferentes do post, prontas para publicar, seguindo exatamente a estrutura: o texto de cada slide, cena ou arte.
+2. Uma legenda para cada versão, com CTA alinhado ao objetivo.
+3. Três opções de gancho (primeira frase) para eu testar.
+
+Regras: frases curtas, linguagem de gente (sem clichês de IA), nada de prometer resultado garantido, e não copie textos de outros criadores.`;
+}
+let igLoaded = false;
+function igEmbeds(){
+  if (!document.querySelector("#fmList .instagram-media")) return;
+  if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+  if (igLoaded) return; igLoaded = true;
+  const sc = document.createElement("script"); sc.async = true; sc.src = "https://www.instagram.com/embed.js"; document.body.appendChild(sc);
+}
 
 /* ---------- configurar ---------- */
 function renderCfg(){
@@ -1262,17 +1418,18 @@ $("#connectBtn").addEventListener("click", connect);
 
 /* ---------- abas e filtros ---------- */
 function switchTab(which){
-  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["analise","#analiseView","#tabAnalise"],["pautas","#pautasView","#tabPautas"],["formatos","#formatosView","#tabFormatos"],["cfg","#cfgView","#tabCfg"]]) {
+  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["analise","#analiseView","#tabAnalise"],["noticias","#newsView","#tabNews"],["pautas","#pautasView","#tabPautas"],["formatos","#formatosView","#tabFormatos"],["cfg","#cfgView","#tabCfg"]]) {
     $(view).hidden = k !== which; $(tab).setAttribute("aria-selected", String(k === which));
   }
-  $("#sharedTop").hidden = !(which === "feed" || which === "analise");
-  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else if (which === "formatos") loadFormatos(); else { render(); if (which === "analise") loadClaudeAnalise(); }
+  $("#sharedTop").hidden = !(which === "feed" || which === "analise" || which === "noticias");
+  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else if (which === "formatos") loadFormatos(); else { render(); if (which === "analise") loadClaudeAnalise(); if (which === "noticias") loadNews(); }
   try { history.replaceState(null, "", which === "feed" ? location.pathname : "#" + which); } catch {}
   window.scrollTo({ top:0 });
 }
 $("#tabFeed").addEventListener("click", () => switchTab("feed"));
 $("#tabPautas").addEventListener("click", () => switchTab("pautas"));
 $("#tabAnalise").addEventListener("click", () => switchTab("analise"));
+$("#tabNews").addEventListener("click", () => switchTab("noticias"));
 $("#tabFormatos").addEventListener("click", () => switchTab("formatos"));
 $("#tabCfg").addEventListener("click", () => switchTab("cfg"));
 
@@ -1441,7 +1598,7 @@ $("#dlBtn").addEventListener("click", () => {
 /* ---------- início ---------- */
 if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
 setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
-if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#formatos") switchTab("formatos"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
+if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#noticias") switchTab("noticias"); else if (location.hash === "#formatos") switchTab("formatos"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
 })();
 </script>
 </body>

@@ -48,7 +48,13 @@ def api(path, **params):
         except urllib.error.HTTPError as e:
             body = json.loads(e.read() or b"{}")
             if "error" in body:
-                raise ApiError(body["error"])
+                err = body["error"]
+                limite = err.get("code") in (4, 17, 32, 613) or "resource limits" in str(err.get("message", ""))
+                if limite and tentativa < 2:
+                    print("limite de consultas do Instagram; esperando 2 minutos...", file=sys.stderr)
+                    time.sleep(120)
+                    continue
+                raise ApiError(err)
             if tentativa == 2:
                 raise
         except urllib.error.URLError:
@@ -245,6 +251,12 @@ def main():
                 "legenda": re.sub(r"\s+", " ", p["legenda"]).strip()[:900],
             } for p in doTema],
         })
+    def resumo(p):
+        return {"nota": p["nota"], "formato": {"VIDEO": "Reels", "CAROUSEL_ALBUM": "Carrossel", "IMAGE": "Foto"}.get(p["tipo"], p["tipo"]),
+                "visualizacoes": p.get("visualizacoes"), "curtidas": p["curtidas"], "comentarios": p["comentarios"],
+                "interacoesPorHora": round(p["vel"], 1), "publicadoHaDias": round(p["horas"] / 24, 1), "link": p["link"],
+                "temas": p["temas"], "legenda": re.sub(r"\s+", " ", p["legenda"]).strip()[:1200]}
+    saida["todos"] = [resumo(p) for p in sorted(todos, key=lambda p: -p["nota"])[:800]]
     out = ROOT / f"dados/coleta-{datetime.now().strftime('%Y-%m-%d')}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(saida, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
