@@ -94,8 +94,12 @@ select{border:1px solid var(--line);background:var(--surface);border-radius:10px
 .tag{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
 .cap{margin:0;font-size:14px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
 .cap.empty{color:var(--muted);font-style:italic}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
 .stats div{display:flex;flex-direction:column;min-width:0}
+.stats .views{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:8px;padding-bottom:6px;border-bottom:1px dashed var(--line);margin-bottom:2px}
+.stats .views strong{font-size:22px}
+.stats .views span{font-size:12.5px}
+.stats .views.na strong{font-size:16px;color:var(--muted)}
 .stats strong{font:700 16px/1.2 var(--display);font-variant-numeric:tabular-nums}
 .stats span{font-size:11.5px;color:var(--muted)}
 .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
@@ -283,6 +287,7 @@ button.word:hover{border-color:var(--accent)}
         <select id="sort" aria-label="Ordenar">
           <option value="viral">Mais viral</option>
           <option value="vel">Subindo mais rápido</option>
+          <option value="views">Mais visualizações</option>
           <option value="eng">Mais engajamento</option>
           <option value="recent">Mais recentes</option>
         </select>
@@ -554,7 +559,7 @@ function level(p){
 
 /* ---------- busca ---------- */
 const TAG_FIELDS = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url";
-const BD_MEDIA_FULL = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url,thumbnail_url";
+const BD_MEDIA_FULL = "id,caption,media_type,like_count,comments_count,view_count,timestamp,permalink,media_url,thumbnail_url";
 const BD_MEDIA_MIN = "id,caption,media_type,like_count,comments_count,timestamp,permalink";
 
 function toPost(m, source){
@@ -564,7 +569,7 @@ function toPost(m, source){
   if (thumb && (m.media_type === "VIDEO" && !m.thumbnail_url || /\.mp4(\?|$)/i.test(thumb))) thumbVideo = true;
   return {
     id: m.id, caption: m.caption || "", type: m.media_type || "IMAGE",
-    likes: m.like_count ?? null, comments: m.comments_count ?? 0,
+    likes: m.like_count ?? null, comments: m.comments_count ?? 0, views: m.view_count ?? null,
     ts: Date.parse(String(m.timestamp).replace(/\+0000$/, "Z")) || Date.now(),
     link: m.permalink || "", thumb, thumbVideo, sources: [source]
   };
@@ -600,7 +605,7 @@ async function refresh(){
   const posts = new Map(), errors = [];
   const add = p => {
     const old = posts.get(p.id);
-    if (old) { old.sources.push(...p.sources); if (p.mult != null) old.mult = Math.max(old.mult ?? 0, p.mult); if (!old.thumb) { old.thumb = p.thumb; old.thumbVideo = p.thumbVideo; } }
+    if (old) { old.sources.push(...p.sources); if (p.views != null) old.views = p.views; if (p.mult != null) old.mult = Math.max(old.mult ?? 0, p.mult); if (!old.thumb) { old.thumb = p.thumb; old.thumbVideo = p.thumbVideo; } }
     else posts.set(p.id, p);
   };
   const tagJobs = [];
@@ -714,7 +719,7 @@ function filtered(posts){
     if (q && !norm(p.caption).includes(q)) return false;
     return true;
   });
-  const by = { viral:(a,b)=>b.score-a.score||b.vel-a.vel, vel:(a,b)=>b.vel-a.vel, eng:(a,b)=>b.eng-a.eng, recent:(a,b)=>b.ts-a.ts }[ui.sort];
+  const by = { viral:(a,b)=>b.score-a.score||b.vel-a.vel, vel:(a,b)=>b.vel-a.vel, views:(a,b)=>(b.views ?? -1)-(a.views ?? -1)||b.eng-a.eng, eng:(a,b)=>b.eng-a.eng, recent:(a,b)=>b.ts-a.ts }[ui.sort];
   return out.sort(by);
 }
 function card(p, i){
@@ -741,6 +746,7 @@ function card(p, i){
       ${tags ? `<div class="themes">${tags}</div>` : ""}
       <p class="cap ${p.caption ? "" : "empty"}">${p.caption ? esc(p.caption) : "Sem legenda"}</p>
       <div class="stats">
+        <div class="views ${p.views == null ? "na" : ""}" ${p.views == null ? `title="O Instagram só mostra visualizações de Reels dos perfis de referência. Posts achados por hashtag não trazem esse número."` : ""}><strong>${p.views == null ? "—" : nf.format(p.views)}</strong><span>${p.views == null ? "visualizações não liberadas" : "visualizações"}</span></div>
         <div><strong>${fmtN(p.likes)}</strong><span>curtidas</span></div>
         <div><strong>${fmtN(p.comments)}</strong><span>comentários</span></div>
         <div><strong>${velTxt}</strong><span>interações/h</span></div>
@@ -1234,7 +1240,7 @@ function reportText(){
     const origem = src.kind === "perfil" ? `perfil @${src.user} (${p.mult.toFixed(1).replace(".", ",")}x a média do perfil)` : `hashtag #${src.tag}`;
     const cap = (p.caption || "(sem legenda)").replace(/\s+/g, " ").trim();
     out += `\n### ${i+1}. ${temas} · ${FMT_LABEL[p.type] || p.type} · nota ${p.score} (${level(p)[1]})\n`;
-    out += `- Curtidas: ${p.likes == null ? "ocultas" : p.likes.toLocaleString("pt-BR")} · Comentários: ${p.comments.toLocaleString("pt-BR")} · Interações/h: ${p.vel.toFixed(1).replace(".", ",")} · Publicado ${ago(p.ts)}\n`;
+    out += `- Visualizações: ${p.views == null ? "não liberadas" : p.views.toLocaleString("pt-BR")} · Curtidas: ${p.likes == null ? "ocultas" : p.likes.toLocaleString("pt-BR")} · Comentários: ${p.comments.toLocaleString("pt-BR")} · Interações/h: ${p.vel.toFixed(1).replace(".", ",")} · Publicado ${ago(p.ts)}\n`;
     out += `- Origem: ${origem}\n`;
     if (p.link) out += `- Link: ${p.link}\n`;
     out += `- Legenda: ${cap.length > 700 ? cap.slice(0, 700) + "…" : cap}\n`;

@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "config/temas.json").read_text(encoding="utf-8"))
 IDS_FILE = ROOT / "config/hashtag_ids.json"
 TAG_FIELDS = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url"
-BD_FIELDS = "id,caption,media_type,like_count,comments_count,timestamp,permalink"
+BD_FIELDS = "id,caption,media_type,like_count,comments_count,view_count,timestamp,permalink"
 POSTS_POR_TEMA = 15
 DIAS = 30
 
@@ -93,7 +93,7 @@ def to_post(m, source):
     ts = datetime.strptime(m["timestamp"], "%Y-%m-%dT%H:%M:%S%z").timestamp()
     return {
         "id": m["id"], "legenda": m.get("caption") or "", "tipo": m.get("media_type", "IMAGE"),
-        "curtidas": m.get("like_count"), "comentarios": m.get("comments_count") or 0,
+        "curtidas": m.get("like_count"), "comentarios": m.get("comments_count") or 0, "visualizacoes": m.get("view_count"),
         "ts": ts, "link": m.get("permalink", ""), "fontes": [source],
     }
 
@@ -149,6 +149,8 @@ def main():
         old = posts.get(p["id"])
         if old:
             old["fontes"] += p["fontes"]
+            if p.get("visualizacoes") is not None:
+                old["visualizacoes"] = p["visualizacoes"]
             if p.get("mult") is not None:
                 old["mult"] = max(old.get("mult") or 0, p["mult"])
         else:
@@ -237,7 +239,7 @@ def main():
             "id": t["id"], "nome": t["name"], "painel": panel_name.get(t["panel"], t["panel"]),
             "posts": [{
                 "nota": p["nota"], "formato": {"VIDEO": "Reels", "CAROUSEL_ALBUM": "Carrossel", "IMAGE": "Foto"}.get(p["tipo"], p["tipo"]),
-                "curtidas": p["curtidas"], "comentarios": p["comentarios"], "interacoesPorHora": round(p["vel"], 1),
+                "visualizacoes": p.get("visualizacoes"), "curtidas": p["curtidas"], "comentarios": p["comentarios"], "interacoesPorHora": round(p["vel"], 1),
                 "publicadoHaDias": round(p["horas"] / 24, 1), "link": p["link"],
                 "origem": next((f"@{f['perfil']} ({p['mult']:.1f}x a média)" for f in p["fontes"] if f["tipo"] == "perfil"), f"#{p['fontes'][0].get('tag')}"),
                 "legenda": re.sub(r"\s+", " ", p["legenda"]).strip()[:900],
