@@ -15,8 +15,9 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
 1. Rode `python3 scripts/coletar.py`. Se falhar porque `IG_TOKEN` falta ou a chave expirou, **não invente dados**: crie a edição só com o campo `avisos` explicando o problema e o que a Samyra precisa fazer (gerar nova chave de 60 dias e atualizar `IG_TOKEN` no ambiente do Claude), publique e pare.
 2. Leia o arquivo `dados/coleta-*.json` mais recente.
 3. Para **cada tema** que tiver posts, crie **3 pautas** (menos se o tema tiver poucos posts bons). Cada pauta se inspira em um post de referência real da coleta, preferindo notas altas e posts recentes.
-4. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.
-5. Faça commit (`Pautas da semana AAAA-MM-DD`) e push para `main`. Não faça commit da pasta `dados/` (está no .gitignore).
+4. Escreva também a **análise de por que viralizou** (campo `analise`, formato abaixo): um resumo da semana e, para cada tema com posts, 2 a 4 padrões observados (assunto, palavra, gancho, emoção, formato, CTA) e os 2 posts mais fortes explicados em linguagem simples. Baseie-se só nos posts e números da coleta.
+5. Grave `pautas/AAAA-MM-DD.json` (data de hoje) no formato abaixo e acrescente a edição **no início** de `pautas/index.json`.
+6. Faça commit (`Pautas da semana AAAA-MM-DD`) e push para `main`. Não faça commit da pasta `dados/` (está no .gitignore).
 
 ### Como escrever as pautas
 
@@ -56,6 +57,26 @@ Escreva tudo em português do Brasil. Commits vão direto na branch `main` (é o
 ```
 
 `formato` é `Reels`, `Carrossel` ou `Foto`. Copie os campos `avisos` da coleta para a edição.
+
+O campo `analise` fica no mesmo arquivo, ao lado de `temas`, e aparece na aba **Por que viraliza**:
+
+```json
+"analise": {
+  "resumo": "2 ou 3 frases sobre o que mais viralizou na semana",
+  "temas": [
+    {
+      "id": "tdah",
+      "nome": "TDAH",
+      "padroes": ["Padrão observado nos virais deste tema"],
+      "destaques": [
+        { "link": "https://www.instagram.com/p/...", "formato": "Carrossel", "curtidas": 9025, "comentarios": 896, "nota": 93,
+          "porQueViralizou": "Explicação simples: assunto, gancho, emoção, palavra ou CTA que fez o post performar",
+          "gatilhos": ["identificação", "lista prática"] }
+      ]
+    }
+  ]
+}
+```
 
 ### Formato de `pautas/index.json`
 

@@ -3,7 +3,9 @@
   "titulo": "Edição de teste (só TDAH)",
   "geradoEm": "2026-11-04T01:30:00Z",
   "postsAnalisados": 16,
-  "avisos": ["Edição de teste feita só com a hashtag #tdah. A primeira edição completa, com todos os temas, sai na quinta-feira."],
+  "avisos": [
+    "Edição de teste feita só com a hashtag #tdah. A primeira edição completa, com todos os temas, sai na quinta-feira."
+  ],
   "temas": [
     {
       "id": "tdah",
@@ -16,7 +18,14 @@
           "gancho": "Mastigação, caneta clicando, talher no prato: por que alguns sons parecem atravessar o corpo?",
           "ideia": "Carrossel de 7 slides. Slide 1: o gancho com 4 ou 5 sons do dia a dia. Slides 2 a 4: o que acontece no cérebro (filtro sensorial e regulação emocional), em linguagem simples. Slide 5: diferença entre incômodo comum e algo que atrapalha a rotina. Slide 6: 3 estratégias práticas (fone com cancelamento, aviso combinado em casa, pausas). Slide 7: CTA \"Qual som te tira do sério? Comenta aqui\" e indicação de buscar avaliação se isso pesa no dia a dia.",
           "porQueFunciona": "Identificação imediata: a pessoa reconhece o próprio incômodo nos exemplos concretos e comenta o som dela, o que gera muitos comentários.",
-          "referencia": { "link": "https://www.instagram.com/p/DeKDqoVjjds/", "formato": "Carrossel", "curtidas": 9025, "comentarios": 896, "nota": 93, "resumo": "Sons do cotidiano que causam desconforto intenso em algumas pessoas neurodivergentes." }
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKDqoVjjds/",
+            "formato": "Carrossel",
+            "curtidas": 9025,
+            "comentarios": 896,
+            "nota": 93,
+            "resumo": "Sons do cotidiano que causam desconforto intenso em algumas pessoas neurodivergentes."
+          }
         },
         {
           "titulo": "\"TDAH virou moda\": o custo que ninguém vê",
@@ -24,7 +33,14 @@
           "gancho": "\"Virou moda.\" Então me explica por que ninguém sonha em pagar avaliação, consulta e terapia.",
           "ideia": "Post de imagem com fundo liso e texto grande respondendo a frase \"TDAH virou moda\". Na legenda, conte em primeira pessoa (ou de pacientes, sem identificar) o caminho até o diagnóstico: anos sem entender, custo de cada etapa, desgaste emocional. Feche com CTA para salvar e mandar para quem ainda acha que é moda.",
           "porQueFunciona": "Responde a um julgamento que o público escuta com frequência. Gera revolta compartilhável e comentários de quem viveu o mesmo caminho.",
-          "referencia": { "link": "https://www.instagram.com/p/DeKPIa0zGBD/", "formato": "Foto", "curtidas": 9715, "comentarios": 357, "nota": 83, "resumo": "Texto rebatendo a ideia de que TDAH e TEA viraram moda, citando o custo financeiro e emocional." }
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKPIa0zGBD/",
+            "formato": "Foto",
+            "curtidas": 9715,
+            "comentarios": 357,
+            "nota": 83,
+            "resumo": "Texto rebatendo a ideia de que TDAH e TEA viraram moda, citando o custo financeiro e emocional."
+          }
         },
         {
           "titulo": "Por que o castigo não funciona com a criança com TDAH",
@@ -32,9 +48,59 @@
           "gancho": "Você deixou seu filho de castigo e no dia seguinte estava tudo igual? Não é falta de esforço seu.",
           "ideia": "Reels de 40 a 60 segundos falando para a câmera. Cena 1: o gancho, com tom acolhedor. Cena 2: por que o castigo costuma reforçar a sensação de rejeição em vez de ensinar. Cena 3: 3 trocas práticas (combinado visual, elogio específico logo depois do comportamento, consequência natural em vez de punição). Cena 4: CTA \"Salva para testar esta semana\". Legenda com a lista das 3 trocas.",
           "porQueFunciona": "Fala com a culpa dos pais, uma dor forte, e entrega uma solução prática que dá vontade de salvar.",
-          "referencia": { "link": "https://www.instagram.com/p/De7P6_ticgL/", "formato": "Carrossel", "curtidas": 3116, "comentarios": 65, "nota": 70, "resumo": "Carrossel comparando castigar uma criança com TDAH a apagar incêndio com gasolina." }
+          "referencia": {
+            "link": "https://www.instagram.com/p/De7P6_ticgL/",
+            "formato": "Carrossel",
+            "curtidas": 3116,
+            "comentarios": 65,
+            "nota": 70,
+            "resumo": "Carrossel comparando castigar uma criança com TDAH a apagar incêndio com gasolina."
+          }
         }
       ]
     }
-  ]
+  ],
+  "analise": {
+    "resumo": "Nesta amostra de #tdah, o que mais viralizou foi conteúdo que valida a experiência de quem tem TDAH (sensibilidade a sons, julgamento de que \"virou moda\") e conteúdo de utilidade para mães e pais. Legendas longas, que explicam e acolhem, foram mais fortes que legendas curtas.",
+    "temas": [
+      {
+        "id": "tdah",
+        "nome": "TDAH",
+        "padroes": [
+          "Validação: os posts mais fortes dizem em voz alta algo que a pessoa sente e raramente vê explicado (sons que incomodam, o custo do diagnóstico).",
+          "Rebater um julgamento comum (\"virou moda\", \"é falta de esforço\") gera identificação e compartilhamento.",
+          "Público de mães e pais atípicos responde muito a direitos e benefícios.",
+          "Ganchos em pergunta foram menos comuns entre os virais desta amostra; afirmações diretas funcionaram melhor."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DeKDqoVjjds/",
+            "formato": "Carrossel",
+            "curtidas": 9025,
+            "comentarios": 896,
+            "nota": 93,
+            "porQueViralizou": "Lista sons concretos do dia a dia (mastigação, caneta, talher) e quem sente isso se reconhece na hora. A pessoa comenta o som que mais a incomoda, o que explica os quase 900 comentários.",
+            "gatilhos": [
+              "identificação",
+              "exemplos concretos",
+              "convite a comentar"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DeKPIa0zGBD/",
+            "formato": "Foto",
+            "curtidas": 9715,
+            "comentarios": 357,
+            "nota": 83,
+            "porQueViralizou": "Responde com ironia a frase \"virou moda\", que o público escuta com frequência, e mostra o custo financeiro e emocional do diagnóstico. Dá vontade de compartilhar como resposta a quem julga.",
+            "gatilhos": [
+              "quebra de crença",
+              "indignação",
+              "compartilhável"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

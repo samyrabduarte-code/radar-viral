@@ -141,6 +141,52 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
 .taglist{display:flex;flex-wrap:wrap;gap:5px}
 .saved{font-size:13px;color:var(--ok);font-weight:600}
 
+/* Por que viraliza */
+.why-btn{border:1px dashed var(--line);background:none;border-radius:9px;padding:7px 10px;font-size:13px;font-weight:600;color:var(--accent);cursor:pointer;text-align:left}
+.why-btn:hover{border-color:var(--accent)}
+.why{font-size:13px;line-height:1.5;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.why ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:5px}
+.an-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:18px;margin-top:16px}
+.an-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.an-kpis div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column}
+.an-kpis strong{font:800 24px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.an-kpis span{font-size:12.5px;color:var(--muted)}
+.an-ins{background:var(--ink);color:var(--bg);border-radius:14px;padding:16px 20px}
+.an-ins h3{font:700 16px var(--display);margin:0 0 8px}
+.an-ins ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.5}
+.an-legend{font-size:13px;color:var(--muted);margin:16px 0 12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
+.an-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-bottom:48px}
+.an-wide{grid-column:1/-1}
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1.6fr) auto 92px;gap:10px;align-items:center;font-size:13.5px}
+.bar-label{min-width:0}
+.bar-track{display:flex;flex-direction:column;gap:3px}
+.bar-track i{display:block;height:7px;border-radius:4px;min-width:2px}
+.bv{background:var(--accent)} .bo{background:var(--line)}
+.bar-val{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap;font-size:12.5px}
+.bar-val b{color:var(--ink)}
+.bar-lift{font-size:12px;font-weight:700;text-align:right;white-space:nowrap}
+.bar-lift.up{color:var(--ok)} .bar-lift.down{color:var(--hot)} .bar-lift.flat{color:var(--muted)}
+.words{display:flex;flex-wrap:wrap;gap:8px}
+.word{display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:7px 11px;font-size:14px;cursor:pointer;text-align:left}
+span.word{cursor:default}
+.word b{font-weight:700}
+.word span{font-size:11.5px;color:var(--muted)}
+button.word:hover{border-color:var(--accent)}
+.hint{font-size:13px;color:var(--muted);margin:10px 0 0}
+.an-claude{margin-top:16px}
+.an-claude-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.an-claude-h span{font-size:13px;color:var(--muted)}
+.an-res{font-size:15px;line-height:1.55;margin:6px 0 4px;max-width:75ch}
+.an-t{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.an-t h3{font:700 16px var(--display);margin:0 0 6px}
+.an-pad{margin:0 0 10px;padding-left:18px;font-size:14px;line-height:1.5}
+.an-dest{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.an-dest p{margin:0 0 6px;font-size:14px;line-height:1.5}
+.an-dest-m{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12.5px;color:var(--muted)}
+.an-dest-m a{font-weight:600;margin-left:auto}
+
 /* Pautas */
 .pz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-top:22px}
 .pz-head h2{font:800 26px/1.15 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
@@ -168,6 +214,9 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
 
 @media (max-width:640px){
   .pz-grid{grid-template-columns:1fr}
+  .an-summary,.an-grid{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:minmax(0,1fr) 70px;row-gap:3px}
+  .bar-track{grid-column:1/-1;order:3}
   .theme-edit .two{grid-template-columns:1fr}
   .prof{grid-template-columns:1fr 1fr auto}
   .grid{grid-template-columns:1fr}
@@ -187,6 +236,7 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
       </div>
       <div class="tabs" role="tablist">
         <button role="tab" id="tabFeed" aria-selected="true">Em alta</button>
+        <button role="tab" id="tabAnalise" aria-selected="false">Por que viraliza</button>
         <button role="tab" id="tabPautas" aria-selected="false">Pautas</button>
         <button role="tab" id="tabCfg" aria-selected="false">Configurar</button>
       </div>
@@ -201,7 +251,7 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
 </header>
 
 <main class="wrap">
-  <section id="feedView">
+  <div id="sharedTop">
     <div class="notices" id="notices"></div>
     <div class="filters">
       <div class="row">
@@ -238,6 +288,9 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
         </select>
       </div>
     </div>
+  </div>
+
+  <section id="feedView">
     <div class="summary">
       <div><h2 id="sumTitle">Em alta</h2><span id="sumInfo"></span></div>
       <div class="row">
@@ -253,6 +306,17 @@ code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;
     </div>
     <textarea id="copyFallback" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0;width:1px;height:1px"></textarea>
     <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="analiseView" hidden>
+    <div class="pz-head">
+      <div>
+        <h2>Por que viraliza</h2>
+        <p id="anInfo">O que os posts que viralizaram têm em comum, comparados com os outros posts do mesmo recorte. Use os filtros acima para analisar um tema, formato ou período.</p>
+      </div>
+    </div>
+    <div id="anClaude"></div>
+    <div id="anBody"></div>
   </section>
 
   <section id="pautasView" hidden>
@@ -683,6 +747,8 @@ function card(p, i){
       </div>
       <div class="meta"><span class="src">${srcText} · ${ago(p.ts)}</span>
         ${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir ↗</a>` : `<span>Exemplo</span>`}</div>
+      <button class="why-btn" data-why="${esc(p.id)}" aria-expanded="false">Por que viralizou?</button>
+      <div class="why" hidden></div>
     </div>
   </article>`;
 }
@@ -696,6 +762,8 @@ function render(){
   $("#notices").innerHTML = notices.join("");
   const list = filtered(posts);
   lastList = list;
+  anCtx = analyze(list);
+  if (!$("#analiseView").hidden) renderAnalise(list);
   const pName = cfg.panels.find(p => p.id === ui.panel)?.name;
   $("#sumTitle").textContent = ui.themes.size === 1 ? themeById([...ui.themes][0])?.name : (pName || "Em alta em todos os temas");
   $("#sumInfo").textContent = `${list.length} ${list.length === 1 ? "post" : "posts"}`;
@@ -705,6 +773,207 @@ function render(){
   for (const el of $("#grid").querySelectorAll("img,video")) {
     el.addEventListener("error", () => { el.remove(); el.parentElement?.querySelector(".ph")?.removeAttribute("hidden"); }, { once:true });
   }
+}
+
+/* ---------- por que viraliza ---------- */
+const STOP = new Set(("a o e de da do das dos em no na nos nas um uma uns umas para pra pro por com sem que se sua seu suas seus meu minha meus minhas eu voce voces ele ela eles elas nos isso isto esse essa esses essas este esta estes estas aquele aquela ao aos as os mais menos muito muita muitos muitas ja nao sim mas ou quando como onde porque pq qual quais quem tem ter ser sao foi era sobre ate tambem entre depois antes ainda so bem vai vou fazer faz pode mesmo cada todo toda todos todas aqui ali la lhe te me mim ti num numa pelo pela pelos pelas dele dela deles delas nem tao tudo nada coisa coisas sempre nunca vez vezes hoje dia dias outro outra outros outras alguns algumas algum alguma esta estao estou sou fica ficar seja sendo assim entao agora ate via link bio post posts").split(" "));
+const FEATS = [
+  ["pergunta", "Gancho em pergunta", f => /\?/.test(f.first)],
+  ["numero", "Número no gancho (ex.: \"5 sinais\")", f => /\d/.test(f.first)],
+  ["lista", "Lista ou passo a passo", f => (f.raw.match(/(^|\n)\s*(\d+[\.\)\-]|[-•*✅✔️👉➡️▶️🔹🔸⭐📌])/gu) || []).length >= 3],
+  ["voce", "Fala direto com \"você\" no gancho", f => /\b(voce|vc|seu|sua|te)\b/.test(f.nfirst)],
+  ["quebra", "Quebra de crença ou polêmica", f => /\b(nao e|ninguem (fala|te conta|conta|explica)|pare de|parem de|mito|mitos|virou moda|ninguem sonha|errado|erro|nao existe|a verdade)\b/.test(f.n)],
+  ["alerta", "Alerta ou urgência", f => /\b(urgente|atencao|alerta|cuidado)\b/.test(f.n) || /🚨|⚠️/u.test(f.raw)],
+  ["historia", "História em primeira pessoa", f => (f.n.match(/\b(eu|minha|meu|comigo|mim)\b/g) || []).length >= 3],
+  ["comenta", "Pede comentário", f => /\b(comenta|comente|comentem|me conta|me conte|me diz|deixa nos comentarios|deixe nos comentarios|qual (e|foi) (o|a) (seu|sua))\b/.test(f.n)],
+  ["salva", "Pede para salvar", f => /\b(salva|salve|salvar|salvem|guarda esse|guarde esse)\b/.test(f.n)],
+  ["compartilha", "Pede para compartilhar ou marcar alguém", f => /\b(compartilh\w*|manda (pra|para)|envia (pra|para)|envie (pra|para)|marca (alguem|aquela|aquele|quem)|marque)\b/.test(f.n)],
+  ["isca", "Comente uma palavra para receber algo", f => /\b(comenta|comente)\s+["“']?[a-z0-9]{2,15}["”']?\s+(que|e)\b/.test(f.n)],
+  ["emojis", "Muitos emojis (5 ou mais)", f => f.emojis >= 5],
+  ["curta", "Legenda curta (até 150 caracteres)", f => f.len <= 150],
+  ["longa", "Legenda longa (mais de 800 caracteres)", f => f.len > 800]
+];
+let anCtx = null;
+function featsOf(p){
+  if (p._f) return p._f;
+  const raw = p.caption || "";
+  const firstRaw = (raw.split(/\n/).find(l => l.trim()) || "").slice(0, 160);
+  const f = { raw, n: norm(raw), first: firstRaw, nfirst: norm(firstRaw), len: raw.length, emojis: (raw.match(/\p{Extended_Pictographic}/gu) || []).length };
+  p._f = new Set(FEATS.filter(([, , fn]) => fn(f)).map(([id]) => id));
+  return p._f;
+}
+function termsOf(p){
+  if (p._t) return p._t;
+  const txt = (p.caption || "").toLowerCase().replace(/https?:\/\/\S+/g, " ").replace(/[@#][\p{L}\p{N}_.]+/gu, " ");
+  const words = txt.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  const terms = new Map();                      // chave normalizada -> forma original
+  const keep = w => w.length >= 4 && !STOP.has(norm(w)) && !/^\d+$/.test(w);
+  for (let i = 0; i < words.length; i++) {
+    const w = words[i];
+    if (keep(w)) terms.set(norm(w), w);
+    const w2 = words[i+1];
+    if (w2 && !STOP.has(norm(w)) && !STOP.has(norm(w2)) && w.length >= 3 && w2.length >= 3) terms.set(norm(w) + " " + norm(w2), w + " " + w2);
+  }
+  p._t = terms;
+  p._h = new Set(((p.caption || "").match(/#[\p{L}\p{N}_]+/gu) || []).map(h => norm(h)));
+  return terms;
+}
+const median = arr => { if (!arr.length) return 0; const a = [...arr].sort((x, y) => x - y); return a[Math.floor(a.length/2)]; };
+function lift(cv, nV, co, nO){ return ((cv + .5)/(nV + 1)) / ((co + .5)/(nO + 1)); }
+function analyze(list){
+  const n = list.length;
+  if (n < 12) return { n, ok:false };
+  const ranked = [...list].sort((a, b) => b.score - a.score || b.vel - a.vel);
+  const nV = Math.max(5, Math.round(n*.2));
+  const vir = ranked.slice(0, nV), out = ranked.slice(nV), nO = out.length;
+  const virSet = new Set(vir);
+  const share = (arr, fn) => arr.filter(fn).length;
+  const rows = (cats, fn) => cats.map(([id, label]) => {
+    const cv = share(vir, p => fn(p, id)), co = share(out, p => fn(p, id));
+    return { id, label, cv, co, pv: cv/nV, po: nO ? co/nO : 0, lift: lift(cv, nV, co, nO) };
+  });
+  const feats = rows(FEATS.map(([id, l]) => [id, l]), (p, id) => featsOf(p).has(id)).filter(r => r.cv + r.co > 0);
+  const formats = rows(Object.entries(FMT_LABEL), (p, id) => p.type === id).filter(r => r.cv + r.co > 0);
+  const themeIds = [...new Set(list.flatMap(p => p.themes))];
+  const themes = rows(themeIds.map(id => [id, themeById(id)?.name || id]), (p, id) => p.themes.includes(id)).filter(r => r.cv + r.co >= 3);
+  const HOURS = [["madrugada","Madrugada (0h–6h)",0,6],["manha","Manhã (6h–12h)",6,12],["tarde","Tarde (12h–18h)",12,18],["noite","Noite (18h–24h)",18,24]];
+  const hours = rows(HOURS.map(([id, l]) => [id, l]), (p, id) => { const h = new Date(p.ts).getHours(); const b = HOURS.find(x => x[0] === id); return h >= b[2] && h < b[3]; }).filter(r => r.cv + r.co > 0);
+  const DAYS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+  const days = rows(DAYS.map((l, i) => [String(i), l]), (p, id) => new Date(p.ts).getDay() === +id).filter(r => r.cv + r.co > 0);
+  // palavras e hashtags
+  const cnt = (arr, getter) => { const m = new Map(); for (const p of arr) for (const k of getter(p)) m.set(k, (m.get(k) || 0) + 1); return m; };
+  list.forEach(termsOf);
+  const tv = cnt(vir, p => p._t.keys()), to = cnt(out, p => p._t.keys());
+  const forms = new Map(); for (const p of list) for (const [k, v] of p._t) if (!forms.has(k)) forms.set(k, v);
+  const minC = nV >= 15 ? 3 : 2;
+  let words = [...tv].filter(([, c]) => c >= minC).map(([k, cv]) => { const co = to.get(k) || 0; return { k, label: forms.get(k), cv, co, pv: cv/nV, po: nO ? co/nO : 0, lift: lift(cv, nV, co, nO) }; })
+    .filter(w => w.lift >= 1.4).sort((a, b) => b.lift*Math.log(1+b.cv) - a.lift*Math.log(1+a.cv));
+  const picked = []; for (const w of words) { if (picked.some(x => x.k.includes(w.k) || w.k.includes(x.k))) continue; picked.push(w); if (picked.length >= 16) break; }
+  const hv = cnt(vir, p => p._h), ho = cnt(out, p => p._h);
+  const tags = [...hv].filter(([, c]) => c >= 2).map(([k, cv]) => { const co = ho.get(k) || 0; return { k, label: k, cv, co, pv: cv/nV, po: nO ? co/nO : 0, lift: lift(cv, nV, co, nO) }; })
+    .filter(w => w.lift >= 1.3).sort((a, b) => b.lift*Math.log(1+b.cv) - a.lift*Math.log(1+a.cv)).slice(0, 12);
+  // referência por tema para o "por que viralizou?" de cada post
+  const themeMedVel = new Map(themeIds.map(id => [id, median(list.filter(p => p.themes.includes(id)).map(p => p.vel))]));
+  const ratio = p => p.likes ? p.comments / p.likes : 0;
+  const medRatio = median(list.filter(p => p.likes).map(ratio));
+  return { n, ok:true, nV, nO, vir, virSet, feats, formats, themes, hours, days, words: picked, tags, themeMedVel, medRatio, ranked,
+    featLift: new Map(feats.map(r => [r.id, r])), fmtLift: new Map(formats.map(r => [r.id, r])), wordLift: new Map(picked.map(w => [w.k, w])) };
+}
+const xf = v => v.toFixed(1).replace(".", ",") + "x";
+const pc = v => Math.round(v*100) + "%";
+function barRows(rows, opts = {}){
+  const max = Math.max(.01, ...rows.map(r => Math.max(r.pv, r.po)));
+  return `<div class="bars">${rows.map(r => {
+    const few = r.cv + r.co < 3;
+    const tone = few ? "flat" : r.lift >= 1.25 ? "up" : r.lift <= .8 ? "down" : "flat";
+    return `<div class="bar-row">
+      <div class="bar-label">${esc(r.label)}</div>
+      <div class="bar-track" title="${pc(r.pv)} dos virais · ${pc(r.po)} dos outros">
+        <i class="bv" style="width:${r.pv/max*100}%"></i><i class="bo" style="width:${r.po/max*100}%"></i>
+      </div>
+      <div class="bar-val"><b>${pc(r.pv)}</b> vs ${pc(r.po)}</div>
+      <div class="bar-lift ${tone}">${few ? "poucos posts" : r.lift >= 1.25 ? xf(r.lift) + " mais" : r.lift <= .8 ? xf(1/r.lift) + " menos" : "igual"}</div>
+    </div>`; }).join("")}</div>`;
+}
+function insights(c){
+  const out = [];
+  const bestF = c.feats.filter(r => r.cv >= 2 && r.lift >= 1.3).sort((a, b) => b.lift - a.lift)[0];
+  if (bestF) out.push(`<b>${esc(bestF.label)}</b> aparece em ${pc(bestF.pv)} dos virais e em ${pc(bestF.po)} dos outros posts (${xf(bestF.lift)}).`);
+  const bestFmt = c.formats.filter(r => r.cv >= 2).sort((a, b) => b.lift - a.lift)[0];
+  if (bestFmt && bestFmt.lift >= 1.15) out.push(`O formato <b>${esc(bestFmt.label)}</b> é ${xf(bestFmt.lift)} mais comum entre os virais.`);
+  if (c.words.length) out.push(`As palavras que mais separam os virais dos outros: ${c.words.slice(0, 5).map(w => `<b>${esc(w.label)}</b>`).join(", ")}.`);
+  const worst = c.feats.filter(r => r.co >= 3 && r.lift <= .7).sort((a, b) => a.lift - b.lift)[0];
+  if (worst) out.push(`<b>${esc(worst.label)}</b> é menos comum nos virais (${pc(worst.pv)} contra ${pc(worst.po)}): não parece ajudar neste recorte.`);
+  return out;
+}
+function renderAnalise(list){
+  const c = anCtx;
+  if (!c?.ok) {
+    $("#anBody").innerHTML = `<div class="empty-state"><h3>Poucos posts para analisar</h3><p>Este recorte tem ${c?.n || 0} posts. A análise precisa de pelo menos 12. Aumente o período, escolha mais temas ou clique em Atualizar.</p></div>`;
+    return;
+  }
+  const sample = list.some(p => p.sample);
+  const ins = insights(c);
+  $("#anBody").innerHTML = `
+    ${sample ? `<div class="notice warn" style="margin-top:12px"><div>Análise feita com os posts de exemplo. Conecte sua conta para analisar posts reais.</div></div>` : ""}
+    <div class="an-summary">
+      <div class="an-kpis">
+        <div><strong>${c.n}</strong><span>posts no recorte</span></div>
+        <div><strong>${c.nV}</strong><span>virais (20% com maior nota)</span></div>
+        <div><strong>${nf.format(Math.round(median(c.vir.map(p => p.vel))))}</strong><span>interações/h na mediana dos virais</span></div>
+        <div><strong>${nf.format(Math.round(median(c.ranked.slice(c.nV).map(p => p.vel))) || 0)}</strong><span>interações/h na mediana dos outros</span></div>
+      </div>
+      ${ins.length ? `<div class="an-ins"><h3>O que mais pesa neste recorte</h3><ul>${ins.map(i => `<li>${i}</li>`).join("")}</ul></div>` : ""}
+    </div>
+    <p class="an-legend"><span class="sw bv"></span> virais <span class="sw bo"></span> outros posts · "2,0x mais" quer dizer que aparece o dobro de vezes entre os virais. Mostra o que anda junto com a viralização, não prova a causa.</p>
+    <div class="an-grid">
+      <section class="panel an-wide"><h2>Palavras e expressões dos virais</h2><p class="lead">Termos da legenda que aparecem muito mais nos virais do que nos outros posts.</p>
+        ${c.words.length ? `<div class="words">${c.words.map(w => `<button class="word" data-q="${esc(w.label)}" title="Ver posts com esta palavra"><b>${esc(w.label)}</b><span>${w.cv} virais · ${xf(w.lift)}</span></button>`).join("")}</div><p class="hint">Clique numa palavra para ver os posts que usam ela na aba Em alta.</p>` : `<p class="hint">Nenhuma palavra se destacou neste recorte.</p>`}
+      </section>
+      <section class="panel an-wide"><h2>Gancho, CTA e legenda</h2><p class="lead">Como os virais começam, o que pedem para o público e o tamanho da legenda.</p>${barRows([...c.feats].sort((a, b) => b.lift - a.lift))}</section>
+      <section class="panel"><h2>Formato</h2>${barRows(c.formats)}</section>
+      <section class="panel"><h2>Tema</h2>${c.themes.length ? barRows([...c.themes].sort((a, b) => b.lift - a.lift)) : `<p class="hint">Escolha "Todos os temas" para comparar temas.</p>`}</section>
+      <section class="panel"><h2>Horário da publicação</h2>${barRows(c.hours)}</section>
+      <section class="panel"><h2>Dia da publicação</h2>${barRows(c.days)}</section>
+      ${c.tags.length ? `<section class="panel an-wide"><h2>Hashtags dos virais</h2><div class="words">${c.tags.map(w => `<span class="word"><b>${esc(w.label)}</b><span>${w.cv} virais · ${xf(w.lift)}</span></span>`).join("")}</div></section>` : ""}
+    </div>`;
+}
+function explain(p){
+  const c = anCtx; const items = [];
+  if (!c?.ok) return `<p>Carregue mais posts (pelo menos 12 no recorte) para ver a explicação.</p>`;
+  const pos = c.ranked.indexOf(p);
+  if (pos >= 0) items.push(`<b>Nota ${p.score}</b>: está em ${pos+1}º de ${c.n} posts neste recorte${c.virSet.has(p) ? ", entre os virais" : ""}.`);
+  const tid = p.themes[0]; const med = tid ? c.themeMedVel.get(tid) : 0;
+  if (med) items.push(`<b>Ritmo</b>: ${p.vel >= 10 ? nf.format(Math.round(p.vel)) : p.vel.toFixed(1).replace(".", ",")} interações/h, ${xf(p.vel / med)} a mediana de ${esc(themeById(tid)?.name)}.`);
+  if (p.mult != null) items.push(`<b>Perfil</b>: fez ${xf(p.mult)} a média do próprio perfil.`);
+  const fl = c.fmtLift.get(p.type);
+  if (fl && fl.lift >= 1.15) items.push(`<b>Formato ${esc(fl.label)}</b>: ${xf(fl.lift)} mais comum entre os virais.`);
+  const has = [...featsOf(p)].map(id => c.featLift.get(id)).filter(r => r && r.lift >= 1.2).sort((a, b) => b.lift - a.lift);
+  for (const r of has.slice(0, 4)) items.push(`<b>${esc(r.label)}</b>: aparece ${xf(r.lift)} mais nos virais.`);
+  termsOf(p);
+  const strong = [...p._t.keys()].map(k => c.wordLift.get(k)).filter(Boolean).slice(0, 5);
+  if (strong.length) items.push(`<b>Palavras fortes</b>: ${strong.map(w => esc(w.label)).join(", ")}.`);
+  if (p.likes && c.medRatio && p.comments / p.likes >= 2*c.medRatio && p.comments >= 20) items.push(`<b>Conversa</b>: ${xf((p.comments/p.likes)/c.medRatio)} mais comentários por curtida que o normal. O post puxa debate ou pede resposta.`);
+  if (items.length <= 1) items.push("Nenhum padrão forte deste recorte aparece neste post. O desempenho pode vir da imagem, do vídeo ou do perfil que postou.");
+  return `<ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+}
+$("#grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-why]"); if (!b) return;
+  const box = b.nextElementSibling; const open = box.hidden;
+  if (open) { const p = lastList.find(x => x.id === b.dataset.why); box.innerHTML = p ? explain(p) : ""; }
+  box.hidden = !open; b.setAttribute("aria-expanded", String(open)); b.textContent = open ? "Fechar explicação" : "Por que viralizou?";
+});
+$("#anBody").addEventListener("click", e => {
+  const b = e.target.closest("[data-q]"); if (!b) return;
+  ui.q = b.dataset.q; saveUi(); switchTab("feed");
+});
+let anClaudeLoaded = false;
+async function loadClaudeAnalise(){
+  if (anClaudeLoaded || location.protocol === "file:") return;
+  try {
+    const idx = await getJSON("pautas/index.json");
+    for (const e of (idx.edicoes || []).slice(0, 3)) {
+      const d = await getJSON("pautas/" + e.arquivo);
+      if (!d.analise) continue;
+      anClaudeLoaded = true;
+      const a = d.analise;
+      $("#anClaude").innerHTML = `<section class="panel an-claude">
+        <div class="an-claude-h"><h2>Análise do Claude</h2><span>${esc(fmtEd(e))}</span></div>
+        ${a.resumo ? `<p class="an-res">${esc(a.resumo)}</p>` : ""}
+        ${(a.temas || []).map(t => `<div class="an-t">
+          <h3>${esc(t.nome)}</h3>
+          ${t.padroes?.length ? `<ul class="an-pad">${t.padroes.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          ${(t.destaques || []).map(h => `<div class="an-dest">
+            <p>${esc(h.porQueViralizou)}</p>
+            <div class="an-dest-m">${(h.gatilhos || []).map(g => `<span class="tag">${esc(g)}</span>`).join("")}
+              <span class="nums">${esc(h.formato || "")}${h.curtidas != null ? " · " + nf.format(h.curtidas) + " curtidas" : ""}${h.comentarios != null ? " · " + nf.format(h.comentarios) + " comentários" : ""}</span>
+              ${h.link ? `<a href="${esc(h.link)}" target="_blank" rel="noopener">Ver post ↗</a>` : ""}</div>
+          </div>`).join("")}
+        </div>`).join("")}
+      </section>`;
+      return;
+    }
+  } catch {}
 }
 
 /* ---------- configurar ---------- */
@@ -830,15 +1099,17 @@ $("#connectBtn").addEventListener("click", connect);
 
 /* ---------- abas e filtros ---------- */
 function switchTab(which){
-  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["pautas","#pautasView","#tabPautas"],["cfg","#cfgView","#tabCfg"]]) {
+  for (const [k, view, tab] of [["feed","#feedView","#tabFeed"],["analise","#analiseView","#tabAnalise"],["pautas","#pautasView","#tabPautas"],["cfg","#cfgView","#tabCfg"]]) {
     $(view).hidden = k !== which; $(tab).setAttribute("aria-selected", String(k === which));
   }
-  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else render();
+  $("#sharedTop").hidden = !(which === "feed" || which === "analise");
+  if (which === "cfg") renderCfg(); else if (which === "pautas") loadPautas(); else { render(); if (which === "analise") loadClaudeAnalise(); }
   try { history.replaceState(null, "", which === "feed" ? location.pathname : "#" + which); } catch {}
   window.scrollTo({ top:0 });
 }
 $("#tabFeed").addEventListener("click", () => switchTab("feed"));
 $("#tabPautas").addEventListener("click", () => switchTab("pautas"));
+$("#tabAnalise").addEventListener("click", () => switchTab("analise"));
 $("#tabCfg").addEventListener("click", () => switchTab("cfg"));
 
 /* ---------- pautas ---------- */
@@ -992,7 +1263,7 @@ $("#dlBtn").addEventListener("click", () => {
 /* ---------- início ---------- */
 if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
 setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
-if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
+if (location.hash === "#pautas") switchTab("pautas"); else if (location.hash === "#analise") switchTab("analise"); else if (location.hash === "#cfg") switchTab("cfg"); else render();
 })();
 </script>
 </body>
