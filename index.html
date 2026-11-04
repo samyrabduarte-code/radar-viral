@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar Viral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: barra fixa no topo com filtros; grade de cartões de post (4:5, como o feed) que vira 1 coluna no celular. */
+:root{
+  --bg:#f2f3f9; --surface:#ffffff; --surface-2:#f7f7fc; --ink:#15162c; --muted:#5d607a; --line:#dcdeec;
+  --accent:#5132e6; --accent-ink:#ffffff; --accent-soft:#ebe7ff;
+  --hot:#e03e52; --warm:#e8820c; --cool:#2f7fd8; --ok:#23915f;
+  --display:"Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e0f1e; --surface:#181a2f; --surface-2:#1f2139; --ink:#ecedf8; --muted:#9c9fbb; --line:#2c2f4c;
+    --accent:#9581ff; --accent-ink:#0e0f1e; --accent-soft:#272250;
+    --hot:#ff6577; --warm:#ffa84a; --cool:#6aaeff; --ok:#4fc68f;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand svg{flex:none}
+.brand h1{font:800 22px/1 var(--display);letter-spacing:-.02em;margin:0}
+.brand small{display:block;font:500 12px/1.2 var(--body);color:var(--muted);letter-spacing:.01em;margin-top:3px}
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.tabs button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:600;cursor:pointer;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.btn{border:1px solid var(--line);background:var(--surface);padding:9px 16px;border-radius:10px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.55;cursor:progress}
+.btn.small{padding:6px 11px;font-size:13px;border-radius:8px}
+.btn.danger{color:var(--hot)}
+
+.status{font-size:13px;color:var(--muted);padding-bottom:10px;display:flex;gap:6px 16px;flex-wrap:wrap}
+.status b{color:var(--ink);font-weight:600}
+.progress{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+
+.filters{display:flex;flex-direction:column;gap:12px;padding-block:18px 6px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:500;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.search{flex:1 1 260px;min-width:0;position:relative}
+.search input{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 12px 9px 36px}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted)}
+select{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 10px}
+.label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.notice{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px 16px;font-size:14px;display:flex;gap:12px;align-items:flex-start}
+.notice.warn{border-color:color-mix(in srgb,var(--warm) 50%,var(--line));background:color-mix(in srgb,var(--warm) 8%,var(--surface))}
+.notice.err{border-color:color-mix(in srgb,var(--hot) 50%,var(--line));background:color-mix(in srgb,var(--hot) 7%,var(--surface))}
+.notice ul{margin:6px 0 0;padding-left:18px}
+.notices{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+
+.summary{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:18px 0 12px}
+.summary h2{font:700 20px/1.2 var(--display);margin:0;letter-spacing:-.01em}
+.summary span{color:var(--muted);font-size:14px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding-bottom:48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.thumb{position:relative;aspect-ratio:4/5;max-width:100%;background:linear-gradient(150deg,var(--accent-soft),var(--surface-2));overflow:hidden}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font:700 15px var(--display)}
+.rank{position:absolute;left:10px;top:10px;background:var(--ink);color:var(--bg);font:800 14px/1 var(--display);padding:6px 9px;border-radius:8px}
+.fmt{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.62);color:#fff;font-size:12px;font-weight:600;padding:4px 9px;border-radius:999px}
+.score{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:6px;background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 10px 4px 5px;font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.score b{display:inline-grid;place-items:center;min-width:28px;height:22px;border-radius:999px;color:#fff;font:800 12px/1 var(--display);padding:0 6px}
+.lv-fogo{background:var(--hot)} .lv-alta{background:var(--warm)} .lv-subindo{background:var(--cool)} .lv-normal{background:var(--muted)}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:9px;flex:1;min-width:0}
+.themes{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.cap{margin:0;font-size:14px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.cap.empty{color:var(--muted);font-style:italic}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.stats div{display:flex;flex-direction:column;min-width:0}
+.stats strong{font:700 16px/1.2 var(--display);font-variant-numeric:tabular-nums}
+.stats span{font-size:11.5px;color:var(--muted)}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.meta .src{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.meta a{font-weight:600;text-decoration:none;white-space:nowrap}
+.meta a:hover{text-decoration:underline}
+.mult{color:var(--hot);font-weight:700}
+
+.empty-state{text-align:center;padding:60px 16px;color:var(--muted)}
+.empty-state h3{font:700 20px var(--display);color:var(--ink);margin:0 0 6px}
+
+/* Configurar */
+.cfg{display:grid;gap:18px;padding-block:22px 60px;max-width:900px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.panel h2{font:700 18px/1.2 var(--display);margin:0 0 4px}
+.panel > p.lead{margin:0 0 14px;color:var(--muted);font-size:14px;max-width:68ch}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;min-width:0}
+.field label{font-size:13px;font-weight:600}
+.field input,.field textarea{border:1px solid var(--line);background:var(--surface-2);border-radius:9px;padding:9px 11px;width:100%;min-width:0}
+.field textarea{resize:vertical;min-height:62px}
+.conn{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none}
+.dot.on{background:var(--ok)} .dot.off{background:var(--hot)}
+details{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}
+summary{cursor:pointer;font-weight:600;font-size:14px}
+details ol{padding-left:20px;margin:10px 0 0;font-size:14px;max-width:70ch}
+details li{margin-bottom:6px}
+code{background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px}
+.theme-edit{border:1px solid var(--line);border-radius:11px;padding:12px 14px;margin-bottom:10px;background:var(--surface-2)}
+.theme-edit .head{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.theme-edit .head input{flex:1;min-width:0;font-weight:700;border:1px solid transparent;background:transparent;border-radius:7px;padding:4px 6px}
+.theme-edit .head input:hover,.theme-edit .head input:focus{border-color:var(--line);background:var(--surface)}
+.theme-edit .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.theme-edit .field{margin-bottom:0}
+.theme-edit .field input{background:var(--surface)}
+.panel-group + .panel-group{margin-top:18px}
+.panel-group h3{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.prof{display:grid;grid-template-columns:1fr 200px auto;gap:8px;margin-bottom:8px;align-items:center}
+.prof input,.prof select{border:1px solid var(--line);background:var(--surface-2);border-radius:9px;padding:8px 10px;min-width:0;width:100%}
+.budget{display:flex;align-items:center;gap:12px;font-size:14px;margin-bottom:8px}
+.meter{flex:1;height:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;max-width:320px}
+.meter i{display:block;height:100%;background:var(--accent)}
+.taglist{display:flex;flex-wrap:wrap;gap:5px}
+.saved{font-size:13px;color:var(--ok);font-weight:600}
+
+@media (max-width:640px){
+  .theme-edit .two{grid-template-columns:1fr}
+  .prof{grid-template-columns:1fr 1fr auto}
+  .grid{grid-template-columns:1fr}
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="17" cy="17" r="9.5" fill="none" stroke="var(--accent)" stroke-width="2" opacity=".55"/><path d="M17 17 L28 7" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="12" r="3" fill="var(--hot)"/></svg>
+        <div><h1>Radar Viral</h1><small id="accountLine">Posts em alta nos seus temas</small></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tabFeed" aria-selected="true">Em alta</button>
+        <button role="tab" id="tabCfg" aria-selected="false">Configurar</button>
+      </div>
+      <button class="btn primary" id="refreshBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
+        Atualizar
+      </button>
+    </div>
+    <div class="progress" id="progress" hidden><i></i></div>
+    <div class="status" id="status"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="feedView">
+    <div class="notices" id="notices"></div>
+    <div class="filters">
+      <div class="row">
+        <div class="seg" id="panelSeg"></div>
+      </div>
+      <div class="row" id="themeChips"></div>
+      <div class="row">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Buscar palavra nas legendas (ex.: rotina, mãe, cartão de crédito)">
+        </div>
+        <select id="lang" aria-label="Idioma">
+          <option value="pt">Só em português</option>
+          <option value="">Todos os idiomas</option>
+        </select>
+        <select id="fmt" aria-label="Formato">
+          <option value="">Todos os formatos</option>
+          <option value="VIDEO">Reels / vídeo</option>
+          <option value="CAROUSEL_ALBUM">Carrossel</option>
+          <option value="IMAGE">Foto</option>
+        </select>
+        <select id="period" aria-label="Período">
+          <option value="1">Últimas 24 horas</option>
+          <option value="3">Últimos 3 dias</option>
+          <option value="7">Últimos 7 dias</option>
+          <option value="30" selected>Últimos 30 dias</option>
+          <option value="0">Qualquer data</option>
+        </select>
+        <select id="sort" aria-label="Ordenar">
+          <option value="viral">Mais viral</option>
+          <option value="vel">Subindo mais rápido</option>
+          <option value="eng">Mais engajamento</option>
+          <option value="recent">Mais recentes</option>
+        </select>
+      </div>
+    </div>
+    <div class="summary">
+      <div><h2 id="sumTitle">Em alta</h2><span id="sumInfo"></span></div>
+      <div class="row">
+        <select id="expN" aria-label="Quantos posts levar para as pautas">
+          <option value="10">Top 10</option>
+          <option value="20" selected>Top 20</option>
+          <option value="40">Top 40</option>
+        </select>
+        <button class="btn small primary" id="copyBtn">Copiar para pautas</button>
+        <button class="btn small" id="dlBtn">Baixar relatório</button>
+        <span class="saved" id="expMsg" hidden></span>
+      </div>
+    </div>
+    <textarea id="copyFallback" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0;width:1px;height:1px"></textarea>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="cfgView" hidden>
+    <div class="cfg">
+      <div class="panel">
+        <h2>Conexão com o Instagram</h2>
+        <p class="lead">Cole aqui a chave de acesso gerada no Explorador da Graph API. Ela fica salva só neste navegador, neste computador.</p>
+        <div class="field">
+          <label for="token">Chave de acesso</label>
+          <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="EAAS…">
+        </div>
+        <div class="conn">
+          <button class="btn primary small" id="connectBtn">Conectar</button>
+          <button class="btn small" id="showTok">Mostrar chave</button>
+          <span class="dot" id="connDot"></span><span id="connText">Não conectado</span>
+        </div>
+        <div class="notices" id="connNotices"></div>
+        <details>
+          <summary>Como gerar uma chave que dura 60 dias</summary>
+          <ol>
+            <li>Abra <b>developers.facebook.com/tools/explorer</b>, escolha o app <b>RADAR VIRAL</b> e <b>Token do usuário</b>.</li>
+            <li>Em Permissões, deixe marcadas: <code>instagram_basic</code>, <code>instagram_manage_insights</code>, <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>business_management</code>.</li>
+            <li>Clique em <b>Generate Access Token</b> e autorize sua Página e seu Instagram.</li>
+            <li>Clique no <b>ícone "i"</b> ao lado da chave e depois em <b>Abrir na Ferramenta de Token de Acesso</b>.</li>
+            <li>No fim da página, clique em <b>Estender token de acesso</b>. Copie a chave nova (ela dura cerca de 60 dias) e cole aqui.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="panel">
+        <h2>Temas, hashtags e palavras-chave</h2>
+        <p class="lead">As <b>hashtags</b> trazem os posts. As <b>palavras-chave</b> leem a legenda e colocam cada post no tema certo, mesmo que ele não use a hashtag. Separe por vírgula.</p>
+        <div id="themesEdit"></div>
+        <span class="saved" id="themesSaved" hidden>Salvo</span>
+      </div>
+
+      <div class="panel">
+        <h2>Perfis de referência</h2>
+        <p class="lead">Perfis profissionais que você quer vigiar. O radar compara cada post com a média do próprio perfil: um post que fez 5x a média aparece como viral, mesmo num perfil pequeno.</p>
+        <div id="profEdit"></div>
+        <button class="btn small" id="addProf">+ Adicionar perfil</button>
+      </div>
+
+      <div class="panel">
+        <h2>Limite de hashtags</h2>
+        <p class="lead">O Instagram permite buscar até 30 hashtags diferentes a cada 7 dias. Hashtags já buscadas podem ser atualizadas à vontade.</p>
+        <div id="budget"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Levar configurações para outro lugar</h2>
+        <p class="lead">Copia seus temas, hashtags, palavras-chave e perfis (sem a chave de acesso) para colar em outra cópia do radar.</p>
+        <div class="row" style="margin-bottom:10px">
+          <button class="btn small primary" id="expCfg">Exportar configurações</button>
+          <span class="saved" id="cfgMsg" hidden></span>
+        </div>
+        <div class="field">
+          <label for="impText">Importar: cole aqui o texto exportado</label>
+          <textarea id="impText" spellcheck="false" placeholder='{"radarViral":1, ...}'></textarea>
+        </div>
+        <button class="btn small" id="impCfg">Importar configurações</button>
+      </div>
+
+      <div class="panel">
+        <h2>Dados salvos</h2>
+        <p class="lead">Os resultados da última atualização ficam guardados para abrir rápido. Apagar tudo remove também a chave e as configurações.</p>
+        <div class="row">
+          <button class="btn small" id="resetThemes">Restaurar temas padrão</button>
+          <button class="btn small danger" id="wipe">Apagar tudo deste navegador</button>
+          <span id="wipeConfirm" hidden>Tem certeza? <button class="btn small danger" id="wipeYes">Sim, apagar</button> <button class="btn small" id="wipeNo">Cancelar</button></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+"use strict";
+const VER = "v26.0";
+const MAX_TAGS = 30, WEEK = 7*24*3600e3;
+
+/* ---------- padrões ---------- */
+const DEFAULT_CFG = {
+  token: "", igId: "", igUser: "",
+  panels: [
+    { id: "saude", name: "Saúde mental e neuro" },
+    { id: "fin",   name: "Finanças e vendas" }
+  ],
+  themes: [
+    { id:"autismo", panel:"saude", name:"Autismo", hashtags:["autismo","tea"], keywords:["autismo","autista","tea","espectro autista","neurodivergente","neurodivergência"] },
+    { id:"neuro", panel:"saude", name:"Neurodesenvolvimento", hashtags:["neurodesenvolvimento","desenvolvimentoinfantil"], keywords:["neurodesenvolvimento","desenvolvimento infantil","atraso de fala","atraso na fala","marcos do desenvolvimento","estimulação precoce"] },
+    { id:"psiq", panel:"saude", name:"Psiquiatria", hashtags:["psiquiatria","saudemental"], keywords:["psiquiatra","psiquiatria","saúde mental","medicação","psicofármaco"] },
+    { id:"tdah", panel:"saude", name:"TDAH", hashtags:["tdah","tdahadulto"], keywords:["tdah","déficit de atenção","hiperatividade","desatenção","hiperfoco","impulsividade"] },
+    { id:"depressao", panel:"saude", name:"Depressão", hashtags:["depressao"], keywords:["depressão","depressivo","deprimido","antidepressivo"] },
+    { id:"ansiedade", panel:"saude", name:"Ansiedade", hashtags:["ansiedade"], keywords:["ansiedade","ansioso","ansiosa","crise de ansiedade","síndrome do pânico","pânico"] },
+    { id:"telas", panel:"saude", name:"Uso de telas", hashtags:["tempodetela","usodetelas"], keywords:["tempo de tela","uso de telas","telas","celular","tablet","vício em celular","redes sociais"] },
+    { id:"dividas", panel:"fin", name:"Dívidas", hashtags:["dividas","nomesujo"], keywords:["dívida","dívidas","endividado","endividada","nome sujo","serasa","negociar dívida","desenrola"] },
+    { id:"juros", panel:"fin", name:"Juros", hashtags:["juros","educacaofinanceira"], keywords:["juros","cartão de crédito","rotativo","empréstimo","selic","financiamento","consignado"] },
+    { id:"impostos", panel:"fin", name:"Impostos e tributação", hashtags:["impostos","tributacao","reformatributaria"], keywords:["imposto","impostos","tributação","tributário","tributária","reforma tributária","imposto de renda","simples nacional","mei","receita federal"] },
+    { id:"vendas", panel:"fin", name:"Vendas e comercial", hashtags:["vendas","comercial","vendasonline"], keywords:["vendas","vender","vendedor","vendedora","fechar venda","prospecção","negociação","comercial","funil de vendas","cliente"] }
+  ],
+  profiles: []
+};
+
+/* ---------- armazenamento ---------- */
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch{ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); return true; }catch{ return false; } },
+  del(k){ try{ localStorage.removeItem(k); }catch{} }
+};
+let cfg = store.get("rv_cfg", null) || structuredClone(DEFAULT_CFG);
+let data = store.get("rv_data", null);            // {fetchedAt, posts, errors, sample?}
+let hashIds = store.get("rv_hids", {});            // tag -> id
+let hashUsed = store.get("rv_hused", {});          // tag -> ts da 1ª busca
+const saveCfg = () => store.set("rv_cfg", cfg);
+
+const ui = { panel:"", themes:new Set(), lang:"pt", fmt:"", period:30, sort:"viral", q:"" };
+Object.assign(ui, store.get("rv_ui", {}), { themes:new Set(store.get("rv_ui", {}).themes || []) });
+const saveUi = () => store.set("rv_ui", { ...ui, themes:[...ui.themes] });
+
+/* ---------- utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm = s => String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const nf = new Intl.NumberFormat("pt-BR", { notation:"compact", maximumFractionDigits:1 });
+const fmtN = n => n == null ? "oculto" : nf.format(n);
+const cleanTag = t => norm(t).replace(/^#/,"").replace(/[^a-z0-9_]/g,"");
+const splitList = s => String(s||"").split(",").map(x=>x.trim()).filter(Boolean);
+function ago(ts){
+  const h = (Date.now() - ts)/3600e3;
+  if (h < 1) return "há " + Math.max(1, Math.round(h*60)) + " min";
+  if (h < 24) return "há " + Math.round(h) + " h";
+  const d = Math.round(h/24); return "há " + d + (d === 1 ? " dia" : " dias");
+}
+const FMT_LABEL = { VIDEO:"Reels", CAROUSEL_ALBUM:"Carrossel", IMAGE:"Foto" };
+const themeById = id => cfg.themes.find(t => t.id === id);
+
+/* ---------- API ---------- */
+class ApiError extends Error { constructor(e){ super(e.message); this.code = e.code; this.sub = e.error_subcode; } }
+async function api(path, params = {}){
+  const u = new URL(`https://graph.facebook.com/${VER}/${path}`);
+  for (const [k,v] of Object.entries(params)) u.searchParams.set(k, v);
+  u.searchParams.set("access_token", cfg.token);
+  let r;
+  try { r = await fetch(u); } catch { throw new ApiError({ message:"Sem conexão com o Instagram. Verifique sua internet.", code:-1 }); }
+  const j = await r.json().catch(() => ({}));
+  if (j.error) throw new ApiError(j.error);
+  return j;
+}
+function friendly(e){
+  if (e.code === 190) return "Sua chave expirou ou foi revogada. Gere uma nova e cole em Configurar.";
+  if (e.code === 10 || e.code === 200) return "Falta permissão no app ou na chave. " + e.message;
+  if (e.code === 4 || e.code === 17 || e.code === 32 || e.code === 613) return "O Instagram limitou o número de consultas por hora. Tente de novo mais tarde.";
+  if (e.code === 24 && e.sub === 2207042) return "Limite de 30 hashtags por semana atingido.";
+  return e.message;
+}
+
+/* ---------- classificação e pontuação ---------- */
+const kwCache = new Map();
+function kwRegex(kw){
+  if (!kwCache.has(kw)) {
+    const k = norm(kw).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    kwCache.set(kw, new RegExp(`(^|[^a-z0-9])#?${k}([^a-z0-9]|$)`));
+  }
+  return kwCache.get(kw);
+}
+function isPt(caption){
+  const c = " " + String(caption||"").toLowerCase() + " ";
+  if (c.trim().length < 3) return true;
+  let pt = (c.match(/[ãõç]/g) || []).length;
+  pt += 2*(c.match(/\b(não|você|vocês|voce|nao|também|então|muito|isso|está|são|uma|pra|filho|criança)\b/g) || []).length;
+  let es = (c.match(/[ñ¿¡]/g) || []).length * 2;
+  es += 2*(c.match(/\b(y|pero|muy|tiene|usted|niño|niños|una vez|hace|hacer|eres|soy|ella|cuando|porque|también|está bien|los|las|del)\b/g) || []).length;
+  let en = 2*(c.match(/\b(the|and|you|your|with|this|that|is|are|my|for)\b/g) || []).length;
+  return pt >= es && pt >= en;
+}
+function classify(post){
+  post.pt = isPt(post.caption);
+  const set = new Set(post.sources.map(s => s.theme).filter(Boolean));
+  const cap = norm(post.caption);
+  if (cap) for (const t of cfg.themes) {
+    if (t.keywords.some(k => kwRegex(k).test(cap)) || t.hashtags.some(h => cap.includes("#" + cleanTag(h)))) set.add(t.id);
+  }
+  post.themes = [...set].filter(id => themeById(id));
+}
+function percentiles(list, key){
+  const vals = list.map(p => p[key]).sort((a,b)=>a-b);
+  const n = vals.length;
+  const out = new Map();
+  if (!n) return out;
+  for (const p of list) {
+    let lo = 0, hi = n;                 // posição (busca binária)
+    while (lo < hi) { const m = (lo+hi)>>1; vals[m] < p[key] ? lo = m+1 : hi = m; }
+    out.set(p, n === 1 ? 1 : lo/(n-1));
+  }
+  return out;
+}
+function score(posts){
+  const now = Date.now();
+  for (const p of posts) {
+    p.eng = (p.likes || 0) + 2*(p.comments || 0);
+    p.hours = Math.max(1, (now - p.ts)/3600e3);
+    p.vel = p.eng / (p.hours + 3);
+  }
+  const tagPosts = posts.filter(p => p.sources.some(s => s.kind === "tag"));
+  const profPosts = posts.filter(p => p.mult != null);
+  const pv = percentiles(tagPosts, "vel"), pe = percentiles(tagPosts, "eng"), pm = percentiles(profPosts, "mult");
+  for (const p of posts) {
+    const tagS = pv.has(p) ? .55*pv.get(p) + .45*pe.get(p) : 0;
+    let s = Math.max(tagS, pm.get(p) ?? 0);
+    if (p.mult != null && p.mult >= 5) s = Math.max(s, .97);
+    p.score = Math.round(s*100);
+  }
+}
+function level(p){
+  if (p.score >= 90) return ["fogo","Viralizando"];
+  if (p.score >= 70) return ["alta","Em alta"];
+  if (p.score >= 45) return ["subindo","Subindo"];
+  return ["normal","Normal"];
+}
+
+/* ---------- busca ---------- */
+const TAG_FIELDS = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url";
+const BD_MEDIA_FULL = "id,caption,media_type,like_count,comments_count,timestamp,permalink,media_url,thumbnail_url";
+const BD_MEDIA_MIN = "id,caption,media_type,like_count,comments_count,timestamp,permalink";
+
+function toPost(m, source){
+  let thumb = m.thumbnail_url || null, thumbVideo = false;
+  if (!thumb && m.media_type === "CAROUSEL_ALBUM") thumb = m.children?.data?.[0]?.media_url || m.media_url || null;
+  if (!thumb && m.media_url) thumb = m.media_url;
+  if (thumb && (m.media_type === "VIDEO" && !m.thumbnail_url || /\.mp4(\?|$)/i.test(thumb))) thumbVideo = true;
+  return {
+    id: m.id, caption: m.caption || "", type: m.media_type || "IMAGE",
+    likes: m.like_count ?? null, comments: m.comments_count ?? 0,
+    ts: Date.parse(String(m.timestamp).replace(/\+0000$/, "Z")) || Date.now(),
+    link: m.permalink || "", thumb, thumbVideo, sources: [source]
+  };
+}
+function usedThisWeek(){
+  const now = Date.now();
+  for (const [t, ts] of Object.entries(hashUsed)) if (now - ts > WEEK) delete hashUsed[t];
+  store.set("rv_hused", hashUsed);
+  return Object.keys(hashUsed);
+}
+async function hashtagId(tag){
+  if (hashIds[tag]) return hashIds[tag];
+  const used = usedThisWeek();
+  if (!used.includes(tag) && used.length >= MAX_TAGS) throw new ApiError({ message:`#${tag} não foi buscada: limite de 30 hashtags por semana atingido.`, code:-2 });
+  const j = await api("ig_hashtag_search", { user_id: cfg.igId, q: tag });
+  hashUsed[tag] = hashUsed[tag] || Date.now(); store.set("rv_hused", hashUsed);
+  const id = j.data?.[0]?.id;
+  if (!id) throw new ApiError({ message:`#${tag} não existe no Instagram.`, code:-3 });
+  hashIds[tag] = id; store.set("rv_hids", hashIds);
+  return id;
+}
+async function pool(items, n, fn){
+  let i = 0;
+  await Promise.all(Array.from({ length: Math.min(n, items.length) }, async () => { while (i < items.length) { const k = i++; await fn(items[k], k); } }));
+}
+
+let busy = false;
+async function refresh(){
+  if (busy) return;
+  if (!cfg.token || !cfg.igId) { switchTab("cfg"); flashConn("Cole sua chave de acesso e clique em Conectar antes de atualizar.", "warn"); return; }
+  busy = true; $("#refreshBtn").disabled = true;
+  const bar = $("#progress"); bar.hidden = false;
+  const posts = new Map(), errors = [];
+  const add = p => {
+    const old = posts.get(p.id);
+    if (old) { old.sources.push(...p.sources); if (p.mult != null) old.mult = Math.max(old.mult ?? 0, p.mult); if (!old.thumb) { old.thumb = p.thumb; old.thumbVideo = p.thumbVideo; } }
+    else posts.set(p.id, p);
+  };
+  const tagJobs = [];
+  const seen = new Set();
+  for (const t of cfg.themes) for (const h of t.hashtags) { const tag = cleanTag(h); if (tag && !seen.has(tag)) { seen.add(tag); tagJobs.push({ tag, theme: t.id }); } }
+  const profJobs = cfg.profiles.filter(p => cleanTag(p.username));
+  const total = tagJobs.length + profJobs.length || 1;
+  let done = 0;
+  const tick = label => { done++; bar.firstElementChild.style.width = (done/total*100) + "%"; setStatus(`Buscando ${label} (${done} de ${total})…`); };
+  let fatal = null;
+
+  await pool(tagJobs, 3, async ({ tag, theme }) => {
+    if (fatal) return;
+    try {
+      const id = await hashtagId(tag);
+      const src = { kind:"tag", tag, theme };
+      const [top, rec] = await Promise.all([
+        api(`${id}/top_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 50 }),
+        api(`${id}/recent_media`, { user_id: cfg.igId, fields: TAG_FIELDS, limit: 50 }).catch(() => ({ data: [] }))
+      ]);
+      for (const m of top.data || []) add(toPost(m, src));
+      for (const m of rec.data || []) { const p = toPost(m, src); if ((p.likes||0) + 2*p.comments >= 15) add(p); }
+    } catch (e) {
+      if (e.code === 190) fatal = e; else errors.push(`#${tag}: ${friendly(e)}`);
+    }
+    tick("#" + tag);
+  });
+
+  if (!fatal) await pool(profJobs, 2, async (pr) => {
+    if (fatal) return;
+    const user = String(pr.username).trim().replace(/^@/, "");
+    const q = media => `business_discovery.username(${user}){username,followers_count,media.limit(30){${media}}}`;
+    try {
+      let j;
+      try { j = await api(cfg.igId, { fields: q(BD_MEDIA_FULL) }); }
+      catch (e) { if (e.code === 100) j = await api(cfg.igId, { fields: q(BD_MEDIA_MIN) }); else throw e; }
+      const bd = j.business_discovery; const media = bd?.media?.data || [];
+      const list = media.map(m => toPost(m, { kind:"perfil", user: bd.username, theme: pr.theme || null, followers: bd.followers_count }));
+      const engs = list.map(p => (p.likes||0) + 2*p.comments).sort((a,b)=>a-b);
+      const med = engs.length ? engs[Math.floor(engs.length/2)] : 0;
+      for (const p of list) { p.mult = ((p.likes||0) + 2*p.comments) / Math.max(med, 1); p.sources[0].mult = p.mult; add(p); }
+    } catch (e) {
+      if (e.code === 190) fatal = e; else errors.push(`@${user}: ${friendly(e)}`);
+    }
+    tick("@" + user);
+  });
+
+  bar.hidden = true; bar.firstElementChild.style.width = "0";
+  busy = false; $("#refreshBtn").disabled = false;
+  if (fatal) { setConn(false, friendly(fatal)); data = data ? { ...data, errors:[friendly(fatal)] } : { fetchedAt:0, posts:[], errors:[friendly(fatal)] }; render(); return; }
+
+  const all = [...posts.values()];
+  all.forEach(classify); score(all);
+  all.sort((a,b) => b.score - a.score || b.vel - a.vel);
+  data = { fetchedAt: Date.now(), posts: all, errors };
+  if (!store.set("rv_data", { ...data, posts: all.slice(0, 900) })) store.set("rv_data", { ...data, posts: all.slice(0, 300) });
+  render();
+}
+
+/* ---------- exemplos (antes de conectar) ---------- */
+function samplePosts(){
+  const h = 3600e3, now = Date.now();
+  const s = [
+    ["CAROUSEL_ALBUM","5 sinais de TDAH em adultos que quase ninguém percebe. O 3º é o mais comum no trabalho.", 4200, 310, 9, "tdah"],
+    ["VIDEO","Seu filho só come vendo o celular? Faça este teste de 7 dias com o tempo de tela.", 8900, 640, 20, "telas"],
+    ["CAROUSEL_ALBUM","Reforma tributária: o que muda para quem é MEI a partir de 2027.", 3100, 420, 30, "impostos"],
+    ["VIDEO","Como eu negociei uma dívida de R$ 18 mil pagando 30%. Passo a passo.", 6100, 900, 14, "dividas"],
+    ["IMAGE","Crise de ansiedade não é frescura. Salve para mandar para quem precisa.", 2500, 120, 40, "ansiedade"],
+    ["VIDEO","Atraso de fala: quando esperar e quando procurar avaliação.", 3800, 260, 26, "neuro"],
+    ["CAROUSEL_ALBUM","O rotativo do cartão de crédito em números: quanto R$ 1.000 vira em 12 meses.", 2900, 180, 60, "juros"],
+    ["VIDEO","A pergunta que mais fecha vendas no WhatsApp (e quase ninguém faz).", 5200, 700, 18, "vendas"],
+    ["CAROUSEL_ALBUM","Autismo nível 1 em mulheres: por que o diagnóstico chega tão tarde.", 4700, 390, 50, "autismo"]
+  ];
+  const posts = s.map(([type, caption, likes, comments, hrs, theme], i) => ({
+    id:"ex"+i, caption, type, likes, comments, ts: now - hrs*h, link:"", thumb:null, thumbVideo:false,
+    sources:[{ kind:"tag", tag: themeById(theme)?.hashtags[0] || theme, theme }], sample:true
+  }));
+  posts.forEach(classify); score(posts);
+  return posts;
+}
+
+/* ---------- render ---------- */
+function setStatus(html){ $("#status").innerHTML = html; }
+function baseStatus(){
+  const parts = [];
+  if (cfg.igUser) parts.push(`Conta <b>@${esc(cfg.igUser)}</b>`);
+  if (data?.fetchedAt) parts.push(`Atualizado <b>${ago(data.fetchedAt)}</b>`);
+  if (data?.posts?.length) parts.push(`<b>${data.posts.length}</b> posts analisados`);
+  const tags = new Set(cfg.themes.flatMap(t => t.hashtags.map(cleanTag)));
+  parts.push(`<b>${cfg.themes.length}</b> temas · <b>${tags.size}</b> hashtags · <b>${cfg.profiles.length}</b> perfis`);
+  setStatus(parts.map(p => `<span>${p}</span>`).join(""));
+}
+function renderFilters(){
+  const seg = $("#panelSeg");
+  const opts = [{ id:"", name:"Todos os temas" }, ...cfg.panels];
+  seg.innerHTML = opts.map(p => `<button data-panel="${esc(p.id)}" aria-pressed="${ui.panel === p.id}">${esc(p.name)}</button>`).join("");
+  const themes = cfg.themes.filter(t => !ui.panel || t.panel === ui.panel);
+  for (const id of [...ui.themes]) if (!themes.some(t => t.id === id)) ui.themes.delete(id);
+  $("#themeChips").innerHTML = themes.map(t => `<button class="chip" data-theme="${esc(t.id)}" aria-pressed="${ui.themes.has(t.id)}">${esc(t.name)}</button>`).join("");
+  $("#lang").value = ui.lang; $("#fmt").value = ui.fmt; $("#period").value = String(ui.period); $("#sort").value = ui.sort; $("#q").value = ui.q;
+}
+function filtered(posts){
+  const q = norm(ui.q.trim());
+  const minTs = ui.period ? Date.now() - ui.period*24*3600e3 : 0;
+  const out = posts.filter(p => {
+    if (ui.panel && !p.themes.some(id => themeById(id)?.panel === ui.panel)) return false;
+    if (ui.themes.size && !p.themes.some(id => ui.themes.has(id))) return false;
+    if (ui.fmt && p.type !== ui.fmt) return false;
+    if (ui.lang === "pt" && p.pt === false) return false;
+    if (p.ts < minTs) return false;
+    if (q && !norm(p.caption).includes(q)) return false;
+    return true;
+  });
+  const by = { viral:(a,b)=>b.score-a.score||b.vel-a.vel, vel:(a,b)=>b.vel-a.vel, eng:(a,b)=>b.eng-a.eng, recent:(a,b)=>b.ts-a.ts }[ui.sort];
+  return out.sort(by);
+}
+function card(p, i){
+  const [lv, lvName] = level(p);
+  const src = p.sources.find(s => s.kind === "perfil") || p.sources[0];
+  const srcText = src.kind === "perfil"
+    ? `@${esc(src.user)} · <span class="mult">${p.mult.toFixed(1).replace(".", ",")}x</span> a média`
+    : `via #${esc(src.tag)}`;
+  const media = p.thumb
+    ? (p.thumbVideo
+        ? `<video src="${esc(p.thumb)}#t=0.5" muted playsinline preload="metadata"></video>`
+        : `<img src="${esc(p.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">`)
+    : "";
+  const tags = p.themes.slice(0, 3).map(id => `<span class="tag">${esc(themeById(id)?.name)}</span>`).join("");
+  const velTxt = p.vel >= 10 ? nf.format(Math.round(p.vel)) : p.vel.toFixed(1).replace(".", ",");
+  return `<article class="card">
+    <div class="thumb">
+      ${media}<div class="ph" ${p.thumb ? "hidden" : ""}>${FMT_LABEL[p.type] || "Post"}</div>
+      <span class="rank">${i+1}</span>
+      <span class="fmt">${FMT_LABEL[p.type] || p.type}</span>
+      <span class="score" title="Nota viral de 0 a 100, comparando com os outros posts do radar"><b class="lv-${lv}">${p.score}</b>${lvName}</span>
+    </div>
+    <div class="body">
+      ${tags ? `<div class="themes">${tags}</div>` : ""}
+      <p class="cap ${p.caption ? "" : "empty"}">${p.caption ? esc(p.caption) : "Sem legenda"}</p>
+      <div class="stats">
+        <div><strong>${fmtN(p.likes)}</strong><span>curtidas</span></div>
+        <div><strong>${fmtN(p.comments)}</strong><span>comentários</span></div>
+        <div><strong>${velTxt}</strong><span>interações/h</span></div>
+      </div>
+      <div class="meta"><span class="src">${srcText} · ${ago(p.ts)}</span>
+        ${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">Abrir ↗</a>` : `<span>Exemplo</span>`}</div>
+    </div>
+  </article>`;
+}
+function render(){
+  baseStatus(); renderFilters();
+  const notices = [];
+  const real = data?.posts?.length || data?.fetchedAt;
+  const posts = real ? (data.posts || []) : samplePosts();
+  if (!real) notices.push(`<div class="notice warn"><div><b>Estes são posts de exemplo.</b> Conecte sua conta em <b>Configurar</b> e clique em <b>Atualizar</b> para ver os posts reais em alta nos seus temas.</div></div>`);
+  if (data?.errors?.length) notices.push(`<div class="notice err"><div><b>Algumas buscas não deram certo:</b><ul>${data.errors.slice(0, 12).map(e => `<li>${esc(e)}</li>`).join("")}</ul>${data.errors.length > 12 ? `<div>e mais ${data.errors.length - 12}.</div>` : ""}</div></div>`);
+  $("#notices").innerHTML = notices.join("");
+  const list = filtered(posts);
+  lastList = list;
+  const pName = cfg.panels.find(p => p.id === ui.panel)?.name;
+  $("#sumTitle").textContent = ui.themes.size === 1 ? themeById([...ui.themes][0])?.name : (pName || "Em alta em todos os temas");
+  $("#sumInfo").textContent = `${list.length} ${list.length === 1 ? "post" : "posts"}`;
+  const shown = list.slice(0, 120);
+  $("#grid").innerHTML = shown.length ? shown.map(card).join("")
+    : `<div class="empty-state" style="grid-column:1/-1"><h3>Nenhum post com esses filtros</h3><p>Tente aumentar o período, escolher outro tema ou limpar a busca.</p></div>`;
+  for (const el of $("#grid").querySelectorAll("img,video")) {
+    el.addEventListener("error", () => { el.remove(); el.parentElement?.querySelector(".ph")?.removeAttribute("hidden"); }, { once:true });
+  }
+}
+
+/* ---------- configurar ---------- */
+function renderCfg(){
+  $("#token").value = cfg.token;
+  // temas
+  $("#themesEdit").innerHTML = cfg.panels.map(pn => `
+    <div class="panel-group"><h3>${esc(pn.name)}</h3>
+      ${cfg.themes.filter(t => t.panel === pn.id).map(t => `
+        <div class="theme-edit" data-id="${esc(t.id)}">
+          <div class="head"><input data-k="name" value="${esc(t.name)}" aria-label="Nome do tema"><button class="btn small danger" data-del="${esc(t.id)}">Remover</button></div>
+          <div class="two">
+            <div class="field"><label>Hashtags (sem #)</label><input data-k="hashtags" value="${esc(t.hashtags.join(", "))}"></div>
+            <div class="field"><label>Palavras-chave na legenda</label><input data-k="keywords" value="${esc(t.keywords.join(", "))}"></div>
+          </div>
+        </div>`).join("")}
+      <button class="btn small" data-addtheme="${esc(pn.id)}">+ Novo tema em ${esc(pn.name)}</button>
+    </div>`).join("");
+  // perfis
+  const opts = `<option value="">Sem tema fixo</option>` + cfg.themes.map(t => `<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("");
+  $("#profEdit").innerHTML = cfg.profiles.length ? cfg.profiles.map((p, i) => `
+    <div class="prof" data-i="${i}">
+      <input data-k="username" value="${esc(p.username)}" placeholder="@usuario" aria-label="Usuário">
+      <select data-k="theme" aria-label="Tema">${opts}</select>
+      <button class="btn small danger" data-delprof="${i}">Remover</button>
+    </div>`).join("") : `<p style="color:var(--muted);font-size:14px;margin:0 0 10px">Nenhum perfil ainda.</p>`;
+  $("#profEdit").querySelectorAll(".prof").forEach(row => { row.querySelector("select").value = cfg.profiles[+row.dataset.i].theme || ""; });
+  renderBudget();
+}
+function renderBudget(){
+  const used = usedThisWeek();
+  const planned = [...new Set(cfg.themes.flatMap(t => t.hashtags.map(cleanTag)).filter(Boolean))];
+  const newOnes = planned.filter(t => !hashIds[t] && !used.includes(t));
+  $("#budget").innerHTML = `
+    <div class="budget"><div class="meter"><i style="width:${Math.min(100, used.length/MAX_TAGS*100)}%"></i></div><span><b>${used.length}</b> de ${MAX_TAGS} usadas nesta semana</span></div>
+    <p style="font-size:14px;margin:0 0 8px;color:var(--muted)">Você tem ${planned.length} hashtags configuradas${newOnes.length ? `; ${newOnes.length} ainda não foram buscadas` : ""}.${used.length + newOnes.length > MAX_TAGS ? ` <b style="color:var(--hot)">Isso passa do limite: algumas ficarão de fora até a semana virar.</b>` : ""}</p>
+    ${used.length ? `<div class="taglist">${used.map(t => `<span class="tag">#${esc(t)}</span>`).join("")}</div>` : ""}`;
+}
+let savedTimer;
+function themesChanged(){
+  saveCfg(); kwCache.clear();
+  if (data?.posts?.length && !data.posts[0]?.sample) { data.posts.forEach(classify); store.set("rv_data", { ...data, posts: data.posts.slice(0, 900) }); }
+  const s = $("#themesSaved"); s.hidden = false; clearTimeout(savedTimer); savedTimer = setTimeout(() => s.hidden = true, 1400);
+  renderBudget();
+}
+$("#themesEdit").addEventListener("input", e => {
+  const box = e.target.closest(".theme-edit"); if (!box) return;
+  const t = themeById(box.dataset.id); const k = e.target.dataset.k;
+  if (k === "name") t.name = e.target.value;
+  if (k === "hashtags") t.hashtags = splitList(e.target.value).map(cleanTag).filter(Boolean);
+  if (k === "keywords") t.keywords = splitList(e.target.value);
+  themesChanged();
+});
+$("#themesEdit").addEventListener("click", e => {
+  const del = e.target.dataset.del, addp = e.target.dataset.addtheme;
+  if (del) { cfg.themes = cfg.themes.filter(t => t.id !== del); themesChanged(); renderCfg(); }
+  if (addp) { cfg.themes.push({ id:"t" + Date.now().toString(36), panel:addp, name:"Novo tema", hashtags:[], keywords:[] }); themesChanged(); renderCfg(); }
+});
+$("#profEdit").addEventListener("input", e => {
+  const row = e.target.closest(".prof"); if (!row) return;
+  cfg.profiles[+row.dataset.i][e.target.dataset.k] = e.target.dataset.k === "username" ? e.target.value.trim().replace(/^@/, "") : e.target.value;
+  saveCfg();
+});
+$("#profEdit").addEventListener("click", e => { if (e.target.dataset.delprof != null) { cfg.profiles.splice(+e.target.dataset.delprof, 1); saveCfg(); renderCfg(); } });
+$("#addProf").addEventListener("click", () => { cfg.profiles.push({ username:"", theme:"" }); saveCfg(); renderCfg(); $("#profEdit").querySelector(".prof:last-child input")?.focus(); });
+function cfgMsg(t, bad){ const m = $("#cfgMsg"); m.textContent = t; m.style.color = bad ? "var(--hot)" : ""; m.hidden = false; clearTimeout(cfgMsg.t); cfgMsg.t = setTimeout(() => m.hidden = true, 3500); }
+$("#expCfg").addEventListener("click", async () => {
+  const text = JSON.stringify({ radarViral:1, panels:cfg.panels, themes:cfg.themes, profiles:cfg.profiles });
+  try { await navigator.clipboard.writeText(text); cfgMsg("Copiado! Cole no outro radar, em Importar."); }
+  catch { const ta = $("#impText"); ta.value = text; ta.select(); try { document.execCommand("copy"); cfgMsg("Copiado! Cole no outro radar, em Importar."); } catch { cfgMsg("Copie o texto que apareceu no campo abaixo."); } }
+});
+$("#impCfg").addEventListener("click", () => {
+  let j; try { j = JSON.parse($("#impText").value.trim()); } catch { j = null; }
+  if (!j || j.radarViral !== 1 || !Array.isArray(j.themes)) { cfgMsg("Texto inválido. Use o texto do botão Exportar configurações.", true); return; }
+  cfg.panels = j.panels || cfg.panels; cfg.themes = j.themes; cfg.profiles = j.profiles || [];
+  $("#impText").value = ""; themesChanged(); renderCfg(); cfgMsg("Configurações importadas.");
+});
+$("#resetThemes").addEventListener("click", () => { cfg.themes = structuredClone(DEFAULT_CFG.themes); cfg.panels = structuredClone(DEFAULT_CFG.panels); themesChanged(); renderCfg(); });
+$("#wipe").addEventListener("click", () => { $("#wipeConfirm").hidden = false; });
+$("#wipeNo").addEventListener("click", () => { $("#wipeConfirm").hidden = true; });
+$("#wipeYes").addEventListener("click", () => {
+  ["rv_cfg","rv_data","rv_hids","rv_ui"].forEach(store.del);   // rv_hused fica: o limite semanal continua valendo no Instagram
+  cfg = structuredClone(DEFAULT_CFG); data = null; hashIds = {};
+  $("#wipeConfirm").hidden = true; setConn(null); renderCfg(); render();
+});
+$("#showTok").addEventListener("click", e => { const t = $("#token"); const show = t.type === "password"; t.type = show ? "text" : "password"; e.target.textContent = show ? "Esconder chave" : "Mostrar chave"; });
+
+function setConn(ok, msg){
+  const dot = $("#connDot"); dot.className = "dot" + (ok === true ? " on" : ok === false ? " off" : "");
+  $("#connText").textContent = msg || (ok ? "Conectado" : "Não conectado");
+  $("#accountLine").textContent = cfg.igUser && ok !== false ? `@${cfg.igUser} · posts em alta nos seus temas` : "Posts em alta nos seus temas";
+}
+function flashConn(msg, kind){ $("#connNotices").innerHTML = msg ? `<div class="notice ${kind || ""}"><div>${msg}</div></div>` : ""; }
+async function connect(){
+  const tok = $("#token").value.trim();
+  if (!tok) { flashConn("Cole a chave de acesso no campo acima.", "warn"); return; }
+  cfg.token = tok; saveCfg();
+  const btn = $("#connectBtn"); btn.disabled = true; setConn(null, "Conectando…"); flashConn("");
+  try {
+    const j = await api("me/accounts", { fields: "name,instagram_business_account{id,username,followers_count}" });
+    const page = (j.data || []).find(p => p.instagram_business_account);
+    if (!page) throw new ApiError({ message:"Nenhuma conta profissional do Instagram ligada às suas Páginas foi encontrada. Gere a chave de novo e marque sua Página e seu Instagram na janela de autorização.", code:-4 });
+    cfg.igId = page.instagram_business_account.id; cfg.igUser = page.instagram_business_account.username; saveCfg();
+    let extra = "", warn = [];
+    try {
+      const d = (await api("debug_token", { input_token: tok })).data || {};
+      const scopes = d.scopes || [];
+      if (d.expires_at) {
+        const hrs = (d.expires_at*1000 - Date.now())/3600e3;
+        extra = hrs < 48 ? ` · a chave expira em ${Math.max(0, Math.round(hrs*60))} min` : ` · a chave vale por mais ${Math.round(hrs/24)} dias`;
+        if (hrs < 48) warn.push("Esta chave é temporária e dura cerca de 1 hora. Abra <b>Como gerar uma chave que dura 60 dias</b> logo abaixo.");
+      } else if (d.expires_at === 0) extra = " · a chave não expira";
+      if (!scopes.includes("instagram_manage_insights")) warn.push("Falta a permissão <code>instagram_manage_insights</code>. Sem ela, os <b>perfis de referência</b> não funcionam (as hashtags funcionam). Gere a chave de novo marcando essa permissão.");
+    } catch {}
+    setConn(true, `Conectado como @${cfg.igUser}${extra}`);
+    flashConn(warn.length ? `<ul style="margin:0;padding-left:18px">${warn.map(w => `<li>${w}</li>`).join("")}</ul>` : "Tudo certo. Clique em <b>Atualizar</b> para buscar os posts.", warn.length ? "warn" : "");
+    baseStatus();
+  } catch (e) {
+    setConn(false, friendly(e));
+  } finally { btn.disabled = false; }
+}
+$("#connectBtn").addEventListener("click", connect);
+
+/* ---------- abas e filtros ---------- */
+function switchTab(which){
+  const cfgOn = which === "cfg";
+  $("#feedView").hidden = cfgOn; $("#cfgView").hidden = !cfgOn;
+  $("#tabFeed").setAttribute("aria-selected", String(!cfgOn)); $("#tabCfg").setAttribute("aria-selected", String(cfgOn));
+  if (cfgOn) renderCfg(); else render();
+  window.scrollTo({ top:0 });
+}
+$("#tabFeed").addEventListener("click", () => switchTab("feed"));
+$("#tabCfg").addEventListener("click", () => switchTab("cfg"));
+$("#refreshBtn").addEventListener("click", () => { switchTab("feed"); refresh(); });
+$("#panelSeg").addEventListener("click", e => { const b = e.target.closest("[data-panel]"); if (!b) return; ui.panel = b.dataset.panel; ui.themes.clear(); saveUi(); render(); });
+$("#themeChips").addEventListener("click", e => { const b = e.target.closest("[data-theme]"); if (!b) return; const id = b.dataset.theme; ui.themes.has(id) ? ui.themes.delete(id) : ui.themes.add(id); saveUi(); render(); });
+$("#lang").addEventListener("change", e => { ui.lang = e.target.value; saveUi(); render(); });
+$("#fmt").addEventListener("change", e => { ui.fmt = e.target.value; saveUi(); render(); });
+$("#period").addEventListener("change", e => { ui.period = +e.target.value; saveUi(); render(); });
+$("#sort").addEventListener("change", e => { ui.sort = e.target.value; saveUi(); render(); });
+let qT; $("#q").addEventListener("input", e => { clearTimeout(qT); qT = setTimeout(() => { ui.q = e.target.value; saveUi(); render(); }, 200); });
+
+/* ---------- exportar para pautas ---------- */
+let lastList = [];
+function reportText(){
+  const n = +$("#expN").value;
+  const list = lastList.slice(0, n);
+  const when = data?.fetchedAt ? new Date(data.fetchedAt) : new Date();
+  const dt = when.toLocaleString("pt-BR", { dateStyle:"short", timeStyle:"short" });
+  const filt = [];
+  filt.push(cfg.panels.find(p => p.id === ui.panel)?.name || "Todos os temas");
+  if (ui.themes.size) filt.push("Temas: " + [...ui.themes].map(id => themeById(id)?.name).join(", "));
+  if (ui.fmt) filt.push("Formato: " + FMT_LABEL[ui.fmt]);
+  filt.push(ui.period ? `Últimos ${ui.period} ${ui.period === 1 ? "dia" : "dias"}` : "Qualquer data");
+  if (ui.q) filt.push(`Busca: "${ui.q}"`);
+  const ordem = { viral:"mais viral", vel:"subindo mais rápido", eng:"mais engajamento", recent:"mais recentes" }[ui.sort];
+  const sample = list.some(p => p.sample);
+  let out = `# Radar Viral: posts em alta (${dt})\n\n`;
+  out += `Conta: @${cfg.igUser || "não conectada"} · Filtros: ${filt.join(" · ")} · Ordem: ${ordem} · ${list.length} posts\n`;
+  if (sample) out += `\nATENÇÃO: estes são posts de EXEMPLO, não dados reais.\n`;
+  out += `\n## Como usar este material\n`;
+  out += `Estes são posts que estão performando acima da média no Instagram nos meus temas. Use como referência de assunto, gancho e formato para criar pautas ORIGINAIS para o meu perfil (não copiar). Para cada pauta: tema, gancho, formato sugerido (Reels, carrossel ou foto), por que tende a funcionar (com base no post de referência) e o link do post que inspirou.\n`;
+  out += `\nNota viral = 0 a 100, comparando com os outros posts do radar. Interações/h = (curtidas + 2×comentários) por hora desde a publicação.\n`;
+  list.forEach((p, i) => {
+    const temas = p.themes.map(id => themeById(id)?.name).filter(Boolean).join(", ") || "sem tema";
+    const src = p.sources.find(s => s.kind === "perfil") || p.sources[0];
+    const origem = src.kind === "perfil" ? `perfil @${src.user} (${p.mult.toFixed(1).replace(".", ",")}x a média do perfil)` : `hashtag #${src.tag}`;
+    const cap = (p.caption || "(sem legenda)").replace(/\s+/g, " ").trim();
+    out += `\n### ${i+1}. ${temas} · ${FMT_LABEL[p.type] || p.type} · nota ${p.score} (${level(p)[1]})\n`;
+    out += `- Curtidas: ${p.likes == null ? "ocultas" : p.likes.toLocaleString("pt-BR")} · Comentários: ${p.comments.toLocaleString("pt-BR")} · Interações/h: ${p.vel.toFixed(1).replace(".", ",")} · Publicado ${ago(p.ts)}\n`;
+    out += `- Origem: ${origem}\n`;
+    if (p.link) out += `- Link: ${p.link}\n`;
+    out += `- Legenda: ${cap.length > 700 ? cap.slice(0, 700) + "…" : cap}\n`;
+  });
+  return out;
+}
+function expMsg(t){ const m = $("#expMsg"); m.textContent = t; m.hidden = false; clearTimeout(expMsg.t); expMsg.t = setTimeout(() => m.hidden = true, 2500); }
+$("#copyBtn").addEventListener("click", async () => {
+  const text = reportText();
+  try { await navigator.clipboard.writeText(text); expMsg("Copiado! Cole no chat de pautas."); }
+  catch {
+    const ta = $("#copyFallback"); ta.value = text; ta.select();
+    try { document.execCommand("copy"); expMsg("Copiado! Cole no chat de pautas."); } catch { expMsg("Não deu para copiar. Use Baixar relatório."); }
+  }
+});
+$("#dlBtn").addEventListener("click", () => {
+  const blob = new Blob([reportText()], { type:"text/markdown;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `radar-viral-${new Date().toISOString().slice(0,10)}.md`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  expMsg("Relatório baixado.");
+});
+
+/* ---------- início ---------- */
+if (data?.posts?.length) { data.posts.forEach(classify); score(data.posts); }          // reavalia idade/velocidade ao abrir
+setConn(cfg.token && cfg.igId ? true : null, cfg.igUser ? `Conectado como @${cfg.igUser}` : null);
+render();
+})();
+</script>
+</body>
+</html>
