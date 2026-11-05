@@ -27,7 +27,8 @@ jobs:
       - name: Posts do Instagram
         if: ${{ env.IG_TOKEN != '' }}
         env:
-          RADAR_PAUSA: "15"
+          RADAR_PAUSA: "18"
+          RADAR_MAX_MIN: "170"
         run: python3 scripts/coletar.py
       - name: Perfis novos
         if: ${{ env.IG_TOKEN != '' }}

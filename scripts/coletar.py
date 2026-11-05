@@ -22,6 +22,19 @@ BD_FIELDS_MIN = "id,caption,media_type,like_count,comments_count,view_count,time
 # Pausa entre consultas (segundos). O Instagram aceita cerca de 200 consultas por hora;
 # na coleta automática diária (GitHub) usamos RADAR_PAUSA=15 para nunca estourar.
 PAUSA = float(os.environ.get("RADAR_PAUSA", "0"))
+# Tempo máximo de coleta (minutos). Ao passar dele, para de buscar e publica o que já tem,
+# para o GitHub não cortar a execução no meio e perder tudo.
+LIMITE_MIN = float(os.environ.get("RADAR_MAX_MIN", "0"))
+INICIO = time.time()
+LIMITES_SEGUIDOS = 0
+
+
+class TempoEsgotado(Exception):
+    pass
+
+
+def tempo_ok():
+    return not LIMITE_MIN or (time.time() - INICIO) / 60 < LIMITE_MIN
 POSTS_POR_TEMA = 15
 DIAS = 30
 
@@ -43,6 +56,9 @@ class ApiError(Exception):
 
 
 def api(path, **params):
+    global LIMITES_SEGUIDOS
+    if not tempo_ok():
+        raise TempoEsgotado()
     params["access_token"] = TOKEN
     url = f"https://graph.facebook.com/{VER}/{path}?{urllib.parse.urlencode(params)}"
     if PAUSA:
@@ -50,14 +66,19 @@ def api(path, **params):
     for tentativa in range(5):
         try:
             with urllib.request.urlopen(url, context=_ctx, timeout=40) as r:
+                LIMITES_SEGUIDOS = 0
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
             body = json.loads(e.read() or b"{}")
             if "error" in body:
                 err = body["error"]
                 limite = err.get("code") in (4, 17, 32, 613) or "resource limits" in str(err.get("message", ""))
-                if limite and tentativa < 4:
-                    espera = 600 if PAUSA else 120
+                if limite:
+                    LIMITES_SEGUIDOS += 1
+                    # bateu no limite várias vezes: para e publica o que já tem
+                    if LIMITES_SEGUIDOS >= 3 or tentativa >= 2 or not tempo_ok():
+                        raise TempoEsgotado()
+                    espera = 900 if PAUSA else 120
                     print(f"limite de consultas do Instagram; esperando {espera // 60} minutos...", file=sys.stderr)
                     time.sleep(espera)
                     continue
@@ -171,7 +192,11 @@ def main():
             posts[p["id"]] = p
 
     # 1) perfis de referência: a busca principal (funciona como o SEO: quem fala do tema)
-    for pr in CFG.get("profiles", []):
+    parou = False
+    perfis = sorted(CFG.get("profiles", []), key=lambda p: (not p.get("theme"), p.get("origem") != "descoberto"))
+    for pr in perfis:
+        if parou:
+            break
         u = str(pr.get("username", "")).strip().lstrip("@")
         if not u:
             continue
@@ -189,6 +214,10 @@ def main():
             for p in lst:
                 p["mult"] = ((p["curtidas"] or 0) + 2 * p["comentarios"]) / max(med, 1)
                 add(p)
+        except TempoEsgotado:
+            parou = True
+            avisos.append("A coleta parou antes do fim (limite de consultas do Instagram ou de tempo). Os perfis que faltaram entram na próxima coleta.")
+            break
         except ApiError as e:
             if e.code == 190:
                 sys.exit("A chave de acesso expirou. Gere uma nova de 60 dias e atualize o segredo IG_TOKEN no GitHub.")
@@ -198,7 +227,11 @@ def main():
     # 2) hashtags: porta de entrada para descobrir perfis novos (complemento)
     vistos = set()
     for t in themes:
+        if parou:
+            break
         for h in t["hashtags"]:
+            if parou:
+                break
             tag = clean_tag(h)
             if not tag or tag in vistos:
                 continue
@@ -228,6 +261,10 @@ def main():
                             add(p)
                 except ApiError:
                     pass
+            except TempoEsgotado:
+                parou = True
+                avisos.append("A coleta parou antes do fim (limite de consultas do Instagram ou de tempo). As hashtags que faltaram entram na próxima coleta.")
+                break
             except ApiError as e:
                 if e.code == 190:
                     sys.exit("A chave de acesso expirou. Gere uma nova de 60 dias e atualize o segredo IG_TOKEN no GitHub.")
@@ -285,6 +322,21 @@ def main():
     saida["todos"] = [resumo(p) for p in sorted(todos, key=lambda p: -p["nota"])[:800]]
     publico = ROOT / "radar/coleta.json"   # lido pelo site: abre com os dados prontos
     publico.parent.mkdir(exist_ok=True)
+    # junta com os posts dos últimos 14 dias da coleta anterior (uma coleta interrompida nunca diminui o radar)
+    try:
+        antes = json.loads(publico.read_text(encoding="utf-8")).get("posts", [])
+        novos = {p["link"] for p in saida["todos"]}
+        corte = (datetime.now(timezone.utc).timestamp() - 14 * 86400)
+        for p in antes:
+            try:
+                ts = datetime.fromisoformat(p.get("ts")).timestamp()
+            except Exception:
+                continue
+            if p.get("link") not in novos and ts >= corte:
+                saida["todos"].append(p)
+        saida["todos"] = sorted(saida["todos"], key=lambda p: -(p.get("nota") or 0))[:1200]
+    except Exception:
+        pass
     publico.write_text(json.dumps({"geradoEm": saida["geradoEm"], "conta": user, "postsAnalisados": len(todos), "avisos": avisos, "posts": saida["todos"]}, ensure_ascii=False) + "\n", encoding="utf-8")
     out = ROOT / f"dados/coleta-{datetime.now().strftime('%Y-%m-%d')}.json"
     out.parent.mkdir(exist_ok=True)
