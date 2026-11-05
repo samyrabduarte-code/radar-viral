@@ -1,0 +1,1223 @@
+{
+  "edicao": "2026-11-05",
+  "geradoEm": "2026-11-05T13:30:00Z",
+  "postsAnalisados": 479,
+  "avisos": [
+    "Edição feita com os posts coletados em 04/11 (a coleta automática desta madrugada não terminou a tempo). Posts de campanha eleitoral viralizaram muito, mas ficaram de fora das pautas. Uso de telas, Social media e Estratégia de conteúdo tiveram poucos posts fortes e ficaram sem pauta nesta semana."
+  ],
+  "temas": [
+    {
+      "id": "autismo",
+      "nome": "Autismo",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "Auxílio Mãe Atípica: o que é e o que falta para virar lei",
+          "formato": "Carrossel",
+          "gancho": "URGENTE, mães atípicas: um auxílio de R$ 600 foi aprovado numa comissão da Câmara. Mas atenção: ainda não está valendo.",
+          "estrutura": "Alerta em caixa alta → o que é a proposta → quem teria direito → em que etapa está → o que fazer agora → CTA salvar/compartilhar",
+          "textoPronto": "Slide 1: 🚨 MÃES ATÍPICAS: um auxílio de R$ 600 avançou na Câmara. Mas ainda NÃO está valendo.\nSlide 2: O que é: o Auxílio Mãe Atípica (AMA) é um projeto de lei para apoiar financeiramente quem cuida de filhos com deficiência.\nSlide 3: Quem teria direito, pela proposta: [confira os critérios no texto do projeto antes de postar].\nSlide 4: Em que pé está: aprovado em comissão. Ainda precisa passar por outras etapas no Congresso e ser sancionado.\nSlide 5: Cuidado com golpe: ninguém pode cobrar para \"cadastrar\" você num benefício que ainda não existe.\nSlide 6: Salve este post e mande para outra mãe atípica. Eu aviso aqui quando houver novidade.",
+          "ideia": "Carrossel informativo com visual de alerta (faixa vermelha só no slide 1). Legenda curta com o número do projeto e a fonte. Fixe nos destaques.",
+          "porQueFunciona": "Notícia que mexe no bolso de um público muito engajado e organizado em comunidade. Gera compartilhamento entre mães e muitos comentários de dúvida.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfQjw-cpUwH/",
+            "formato": "Foto",
+            "curtidas": 13166,
+            "comentarios": 805,
+            "nota": 93,
+            "resumo": "Alerta sobre o projeto do Auxílio Mãe Atípica e quem teria direito."
+          }
+        },
+        {
+          "titulo": "A mãe que também é autista",
+          "formato": "Carrossel",
+          "gancho": "Todo mundo fala da mãe da criança autista. Quase ninguém pergunta como está a mãe.",
+          "estrutura": "Frase de contraste no slide 1 → retrato detalhado da experiência (sensorial, culpa, cansaço) → virada: diagnóstico tardio → acolhimento → CTA marcar alguém",
+          "textoPronto": "Slide 1: A gente fala muito da criança autista. E quase nada da mãe que também é.\nSlide 2: A mãe para quem o barulho da festa infantil dói no corpo.\nSlide 3: Que precisa de 10 minutos sozinha no carro antes de entrar em casa. E sente culpa por isso.\nSlide 4: Que só se reconheceu no diagnóstico do filho.\nSlide 5: Diagnóstico tardio não é \"moda\". É finalmente ter um nome para uma vida inteira.\nSlide 6: Se você se viu aqui, procure uma avaliação com profissional especializado. E marque uma mãe que precisa ler isso.",
+          "ideia": "Formato print de tweet com seu nome e @ no topo. Fundo branco, letra grande, uma frase por tela.",
+          "porQueFunciona": "Identificação muito específica de um grupo que raramente se vê representado. Quem se reconhece comenta e marca outras mães.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DewrjvFloek/",
+            "formato": "Carrossel",
+            "curtidas": 10912,
+            "comentarios": 607,
+            "nota": 82,
+            "resumo": "Fala da mãe autista que só se descobre com o diagnóstico do filho."
+          }
+        },
+        {
+          "titulo": "Escolher entre trabalhar e manter o BPC",
+          "formato": "Foto",
+          "gancho": "Por que uma mãe atípica precisa escolher entre trabalhar e garantir o benefício do filho?",
+          "estrutura": "Pergunta indignada em caixa alta → explicação da regra (renda) → impacto real na família → o que a pessoa pode fazer → CTA",
+          "textoPronto": "POR QUE UMA MÃE ATÍPICA PRECISA ESCOLHER ENTRE TRABALHAR E GARANTIR O BPC DO FILHO?\n\nA regra de renda do BPC faz muitas famílias recusarem emprego com medo de perder o benefício.\n\nResultado: mães fora do mercado, sem aposentadoria e sem descanso.\n\nVocê conhece alguém nessa situação? Conta nos comentários.",
+          "ideia": "Arte com fundo escuro e a pergunta em destaque. Na legenda, explique a regra atual com fonte oficial (INSS) e oriente procurar um advogado previdenciário ou a Defensoria.",
+          "porQueFunciona": "Indignação + dor real e cotidiana. A pergunta no título provoca comentários de quem vive isso.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DejVotuARVw/",
+            "formato": "Foto",
+            "curtidas": 18698,
+            "comentarios": 1362,
+            "nota": 86,
+            "resumo": "Crítica à regra que obriga mães atípicas a escolherem entre trabalho e BPC."
+          }
+        }
+      ]
+    },
+    {
+      "id": "neuro",
+      "nome": "Neurodesenvolvimento",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "A criança não está \"demais\"",
+          "formato": "Foto",
+          "gancho": "Às vezes a criança não está \"demais\". O mundo é que está apertado demais para ela.",
+          "estrutura": "Frase de virada (não é a criança, é o ambiente) → 3 exemplos concretos de ambientes que exigem demais → fechamento acolhedor",
+          "textoPronto": "Às vezes a criança não está \"agitada demais\".\nO apartamento é que ficou pequeno para a energia dela.\nA fila do mercado é que é longa demais para quem tem 3 anos.\nO almoço de domingo é que espera silêncio demais de quem ainda está aprendendo a esperar.\n\nCriança precisa de movimento. Não de rótulo.",
+          "ideia": "Foto real de criança brincando (sua ou banco de imagem) com o texto por cima. Legenda com 2 dicas de como dar espaço para gastar energia. Se o comportamento atrapalha muito a rotina, oriente avaliação com pediatra ou neuropediatra.",
+          "porQueFunciona": "Inverte a culpa: tira o peso dos pais e da criança. Muito compartilhado por mães que se sentem julgadas.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeJqqTdx7vF/",
+            "formato": "Foto",
+            "curtidas": 48293,
+            "comentarios": 224,
+            "nota": 92,
+            "resumo": "Texto mostrando que o ambiente, e não a criança, está 'demais'."
+          }
+        },
+        {
+          "titulo": "O que a criança aprende com o jeito que é tratada",
+          "formato": "Carrossel",
+          "gancho": "A infância passa. O jeito como a criança foi tratada, não.",
+          "estrutura": "Frase forte de capa → pares 'criança que vive X aprende Y' (positivo e negativo) → convite à reflexão sem culpa",
+          "textoPronto": "Slide 1: A infância passa. As marcas ficam.\nSlide 2: Criança que é ouvida aprende que pode falar.\nSlide 3: Criança que é acolhida no choro aprende a se acalmar.\nSlide 4: Criança que vive com gritos aprende que amor e medo andam juntos.\nSlide 5: Ninguém acerta sempre. Mas dá para reparar: pedir desculpa também educa.\nSlide 6: Salve para lembrar nos dias difíceis.",
+          "ideia": "Carrossel de texto com fotos suaves de mãos (adulto e criança). Tom acolhedor, sem apontar dedo para os pais.",
+          "porQueFunciona": "Frases de impacto em paralelo são fáceis de salvar e compartilhar. Fala com a culpa e com o desejo de fazer melhor.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeRjC6-lOSV/",
+            "formato": "Carrossel",
+            "curtidas": 103131,
+            "comentarios": 904,
+            "nota": 97,
+            "resumo": "Carrossel sobre como a forma de tratar a criança deixa marcas."
+          }
+        },
+        {
+          "titulo": "Glossário do neurodesenvolvimento",
+          "formato": "Carrossel",
+          "gancho": "Você já ouviu falar de interocepção, scripting ou masking? Eu traduzo.",
+          "estrutura": "Pergunta com termos técnicos → um termo por slide com tradução simples e exemplo → CTA pedindo o próximo termo",
+          "textoPronto": "Slide 1: 5 palavras que você ouve nas terapias do seu filho e ninguém explica\nSlide 2: INTEROCEPÇÃO: perceber sinais de dentro do corpo, como fome e vontade de ir ao banheiro.\nSlide 3: SCRIPTING: repetir falas de desenhos ou de outras pessoas, muitas vezes para se comunicar ou se regular.\nSlide 4: MASKING: esconder o próprio jeito para parecer \"normal\". Cansa muito.\nSlide 5: ECOLALIA: repetir palavras ou frases ouvidas.\nSlide 6: Qual termo você quer que eu explique no próximo? Comenta aqui.",
+          "ideia": "Visual lúdico (ilustrações simples) e linguagem de conversa. Feche pedindo sugestões: vira pauta para as próximas semanas.",
+          "porQueFunciona": "Traduz jargão que pais escutam e não entendem. Alto salvamento e posiciona como autoridade didática.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeQYQchDtZ6/",
+            "formato": "Carrossel",
+            "curtidas": 10969,
+            "comentarios": 163,
+            "nota": 73,
+            "resumo": "Glossário de termos do neurodesenvolvimento explicados de forma simples."
+          }
+        }
+      ]
+    },
+    {
+      "id": "psiq",
+      "nome": "Psiquiatria",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "O Nobel que liga e desliga emoções",
+          "formato": "Carrossel",
+          "gancho": "O Nobel de Medicina deste ano foi para um psiquiatra. E a descoberta parece ficção.",
+          "estrutura": "Notícia de prêmio/fato famoso → o que foi descoberto em linguagem simples → por que importa para quem sofre → o que muda (e o que ainda não muda) → CTA",
+          "textoPronto": "Slide 1: Um psiquiatra ganhou o Nobel de Medicina. E a descoberta parece ficção científica.\nSlide 2: [Explique em uma frase o que foi descoberto, conferindo a notícia oficial do prêmio].\nSlide 3: Por que isso importa: ajuda a entender como o cérebro liga e desliga estados como medo e tristeza.\nSlide 4: O que ainda NÃO muda: não é tratamento disponível no consultório amanhã.\nSlide 5: O que já funciona hoje: avaliação, psicoterapia e, quando indicado, medicação.\nSlide 6: Siga para entender a ciência da saúde mental sem complicação.",
+          "ideia": "Carrossel com visual de 'notícia' no slide 1 e explicação calma nos seguintes. Cite a fonte oficial do prêmio na legenda.",
+          "porQueFunciona": "Aproveita um fato que todo mundo está comentando e traduz para o dia a dia. Combina curiosidade com autoridade.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKo1xkDwNV/",
+            "formato": "Carrossel",
+            "curtidas": 33903,
+            "comentarios": 422,
+            "nota": 88,
+            "resumo": "Explicação do Nobel de Medicina dado a um psiquiatra."
+          }
+        },
+        {
+          "titulo": "Meme: quando a cabeça não desliga",
+          "formato": "Foto",
+          "gancho": "Alguém mais?",
+          "estrutura": "Imagem engraçada e reconhecível → frase curta de identificação → legenda curta pedindo 'alguém mais?'",
+          "textoPronto": "Imagem: [foto ou meme de alguém deitado olhando o teto, olhos arregalados]\nTexto: Eu às 2h da manhã revisando uma conversa de 2019.\nLegenda: Alguém mais? Se isso acontece quase toda noite, vale conversar com um profissional. Marca quem é assim.",
+          "ideia": "Meme simples, sem marca pesada. Poste em horário noturno, quando o público se identifica mais.",
+          "porQueFunciona": "Humor de identificação alcança gente nova e é muito compartilhado. A legenda dá o recado de saúde sem pesar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfQtR-BMXIE/",
+            "formato": "Foto",
+            "curtidas": 59522,
+            "comentarios": 78,
+            "nota": 98,
+            "resumo": "Meme de saúde mental com a legenda 'Alguém mais?'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tdah",
+      "nome": "TDAH",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "Sons que incomodam no TDAH",
+          "formato": "Carrossel",
+          "gancho": "Mastigação, caneta clicando, notificação repetida: por que alguns sons parecem atravessar o corpo?",
+          "estrutura": "Lista de sons concretos → validação ('não é frescura') → explicação simples → dicas → CTA comentar o som",
+          "textoPronto": "Slide 1: Alguém mastigando de boca aberta. A caneta clicando na reunião. A notificação que não para.\nSlide 2: Se você sentiu um arrepio só de ler, não é frescura.\nSlide 3: Muitas pessoas com TDAH têm mais dificuldade de filtrar estímulos. O som não fica no fundo: ele invade.\nSlide 4: Por isso a irritação vem antes de você conseguir pensar.\nSlide 5: O que ajuda: fone com cancelamento de ruído, combinar sinais em casa e pausas em lugar silencioso.\nSlide 6: Qual som te tira do sério? Conta nos comentários.",
+          "ideia": "Carrossel com um ícone por som. Termine pedindo o som que mais incomoda: rende muitos comentários.",
+          "porQueFunciona": "Identificação imediata com exemplos concretos e convite para comentar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKDqoVjjds/",
+            "formato": "Carrossel",
+            "curtidas": 9025,
+            "comentarios": 896,
+            "nota": 72,
+            "resumo": "Lista de sons do dia a dia que incomodam pessoas com TDAH."
+          }
+        },
+        {
+          "titulo": "\"TDAH virou moda\"",
+          "formato": "Foto",
+          "gancho": "\"TDAH virou moda, né?\" Então me explica por que ninguém sonha em pagar avaliação, consulta e terapia.",
+          "estrutura": "Frase de julgamento entre aspas → concordância irônica → lista do que custa → frase irônica sobre descobrir tarde → arremate",
+          "textoPronto": "\"Todo mundo tem TDAH agora, né?\"\n\nCom certeza!\nTodo mundo sonha em perder a chave pela terceira vez na semana, esquecer o aniversário da melhor amiga e ouvir a vida inteira que é preguiça.\n\nDeve ser uma delícia descobrir aos 35 anos que nunca foi falta de esforço.\n\nRealmente. A moda do momento.",
+          "ideia": "Arte só com texto, fundo escuro e letra grande. Legenda contando o custo real do caminho até o diagnóstico.",
+          "porQueFunciona": "Rebate um julgamento que o público escuta sempre. Vira resposta compartilhável para quem julga.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKPIa0zGBD/",
+            "formato": "Foto",
+            "curtidas": 9715,
+            "comentarios": 357,
+            "nota": 71,
+            "resumo": "Texto irônico rebatendo a ideia de que TDAH virou moda."
+          }
+        },
+        {
+          "titulo": "O castigo não ensina a criança com TDAH",
+          "formato": "Reels",
+          "gancho": "Você deixou seu filho de castigo e no dia seguinte estava tudo igual? Não é falta de esforço seu.",
+          "estrutura": "Pergunta que toca na culpa → comparação forte → por que não funciona → 3 trocas práticas → CTA salvar",
+          "textoPronto": "Cena 1: Você tirou o celular, deixou sem sobremesa, e no dia seguinte estava tudo igual?\nCena 2: Não é falta de esforço seu. Castigo para criança com TDAH é como secar o chão com a torneira aberta.\nCena 3: Ela já se sente errada o tempo todo. O castigo confirma isso, mas não ensina o que fazer diferente.\nCena 4: Troque por: combinado visual na parede, elogio específico logo depois do acerto e consequências que façam sentido com o que aconteceu.\nCena 5: Salva e testa por uma semana.",
+          "ideia": "Vídeo falando para a câmera, tom acolhedor. Legenda com as 3 trocas em lista.",
+          "porQueFunciona": "Fala com a culpa dos pais e entrega solução prática: dá vontade de salvar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/De7P6_ticgL/",
+            "formato": "Carrossel",
+            "curtidas": 3121,
+            "comentarios": 66,
+            "nota": 62,
+            "resumo": "Carrossel comparando castigar criança com TDAH a apagar incêndio com gasolina."
+          }
+        }
+      ]
+    },
+    {
+      "id": "depressao",
+      "nome": "Depressão",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "Depressão em homens não parece tristeza",
+          "formato": "Carrossel",
+          "gancho": "Muito homem aprendeu que não pode chorar. Por isso a depressão dele aparece de outro jeito.",
+          "estrutura": "Crença cultural → sinais menos óbvios em lista → frase de virada ('é doença, não fraqueza') → orientação de ajuda",
+          "textoPronto": "Slide 1: \"Homem não chora.\" E é justamente por isso que a depressão masculina passa despercebida.\nSlide 2: Irritação constante.\nSlide 3: Trabalhar demais para não pensar.\nSlide 4: Beber mais do que antes.\nSlide 5: Sumir dos amigos e dizer que \"está tudo bem\".\nSlide 6: Depressão é doença, não fraqueza. Se você reconheceu alguém, chame para conversar e procurem ajuda profissional. Em crise, ligue 188 (CVV).",
+          "ideia": "Carrossel sóbrio, fotos de homens comuns. Legenda com o 188 e convite para marcar um amigo.",
+          "porQueFunciona": "Quebra uma crença muito difundida e traz sinais concretos. Pessoas compartilham pensando em alguém específico.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfM3q_yoFjJ/",
+            "formato": "Carrossel",
+            "curtidas": 6560,
+            "comentarios": 161,
+            "nota": 85,
+            "resumo": "Sinais de depressão em homens que fogem do estereótipo da tristeza."
+          }
+        },
+        {
+          "titulo": "Luto: aprender a conviver com a ausência",
+          "formato": "Foto",
+          "gancho": "\"Quem eu perdi continua cada vez mais presente em mim.\"",
+          "estrutura": "Frase poética entre aspas → reflexão sobre o luto (não é esquecer) → acolhimento → convite a homenagear",
+          "textoPronto": "\"Quem eu perdi continua cada vez mais presente em mim.\"\n\nO luto não é sobre esquecer.\nÉ sobre aprender a carregar a saudade sem que ela te esmague.\n\nSe a dor está te impedindo de viver, procure apoio. Luto também se trata.",
+          "ideia": "Foto delicada (flores, mãos, luz de fim de tarde) com a frase. Legenda convidando a escrever o nome de quem faz falta.",
+          "porQueFunciona": "Emoção universal. O convite para homenagear gera comentários longos e muito alcance.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfOFYdCMo_Y/",
+            "formato": "Foto",
+            "curtidas": 22421,
+            "comentarios": 280,
+            "nota": 95,
+            "resumo": "Reflexão sobre luto e conviver com a ausência."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ansiedade",
+      "nome": "Ansiedade",
+      "painel": "Saúde mental e neuro",
+      "pautas": [
+        {
+          "titulo": "Evitar abrir o app do banco",
+          "formato": "Foto",
+          "gancho": "Tem gente que passa meses sem abrir o aplicativo do banco. Não é descuido. É ansiedade.",
+          "estrutura": "Comportamento de evitação reconhecível → por que alivia na hora → o custo de evitar → o primeiro passo pequeno",
+          "textoPronto": "Tem gente que não abre o app do banco há semanas.\nNão é desleixo. É medo do que vai aparecer.\n\nEvitar alivia na hora.\nMas os juros não esperam a coragem chegar.\n\nPrimeiro passo: abra hoje, só para olhar. Sem resolver nada. Só olhar.",
+          "ideia": "Arte de texto com fundo claro. Na legenda, conecte ansiedade e finanças e indique buscar ajuda (psicológica e de orientação financeira).",
+          "porQueFunciona": "Descreve um comportamento escondido que muita gente tem vergonha de admitir. Identificação forte e compartilhamento.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DenFFVgxxBZ/",
+            "formato": "Foto",
+            "curtidas": 53729,
+            "comentarios": 898,
+            "nota": 95,
+            "resumo": "Post sobre evitar abrir o aplicativo do banco por medo das dívidas."
+          }
+        },
+        {
+          "titulo": "Relações em que você calcula cada palavra",
+          "formato": "Foto",
+          "gancho": "Tem relação em que você não conversa. Você calcula.",
+          "estrutura": "Frase curta de impacto → comportamentos detalhados (apagar mensagem, evitar assunto) → virada: o problema não é você → pergunta",
+          "textoPronto": "Tem relação em que você não conversa.\nVocê calcula.\n\nEscreve, apaga, escreve de novo.\nEvita assuntos porque já sabe como termina.\nE começa a achar que o problema é você.\n\nRelação saudável não pede que você ande pisando em ovos.",
+          "ideia": "Foto simbólica (ovos no chão, alguém digitando) com o texto. Legenda com sinais de alerta e convite para terapia.",
+          "porQueFunciona": "Descreve com precisão uma sensação difícil de nomear. Quem vive isso salva e manda para alguém.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/Dec27yyl-ZF/",
+            "formato": "Foto",
+            "curtidas": 44905,
+            "comentarios": 350,
+            "nota": 92,
+            "resumo": "Texto sobre relações em que é preciso calcular cada palavra."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dividas",
+      "nome": "Dívidas",
+      "painel": "Finanças e vendas",
+      "pautas": [
+        {
+          "titulo": "Eu achava que precisava pagar tudo para voltar a viver",
+          "formato": "Carrossel",
+          "gancho": "Por muito tempo eu achei que só ia descansar quando pagasse todas as dívidas.",
+          "estrutura": "História em primeira pessoa → o peso do dia a dia → virada (o que mudou) → lição prática → CTA",
+          "textoPronto": "Slide 1: Eu achava que só ia poder viver depois de pagar todas as dívidas.\nSlide 2: Não descansava. Não aproveitava um almoço sem fazer conta de cabeça.\nSlide 3: Até perceber que esperar \"zerar tudo\" para viver estava me adoecendo.\nSlide 4: O que mudou: listei todas as dívidas numa folha, negociei a mais cara primeiro e separei um valor pequeno, fixo, para viver.\nSlide 5: Dívida é um problema para resolver. Não é a sua identidade.\nSlide 6: Salva se você precisava ouvir isso hoje.",
+          "ideia": "Pode ser sua história ou de cliente (sem identificar). Fotos reais e simples.",
+          "porQueFunciona": "História com virada emocional e conselho prático. Mistura alívio e utilidade.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfIwGmODlJ8/",
+            "formato": "Carrossel",
+            "curtidas": 13034,
+            "comentarios": 244,
+            "nota": 90,
+            "resumo": "Relato de quem achava que só podia viver depois de pagar as dívidas."
+          }
+        },
+        {
+          "titulo": "Dívida de mais de 5 anos ainda aparece no Serasa?",
+          "formato": "Carrossel",
+          "gancho": "Sua dívida tem mais de 5 anos e ainda aparece no Serasa?",
+          "estrutura": "Pergunta-alerta → o que acontece com a negativação após 5 anos → diferença entre negativação e dívida → o que fazer → CTA",
+          "textoPronto": "Slide 1: 🚨 SUA DÍVIDA TEM MAIS DE 5 ANOS E AINDA APARECE NO SERASA?\nSlide 2: Depois de 5 anos, a dívida não pode continuar te negativando.\nSlide 3: Mas atenção: sair do cadastro negativo não é o mesmo que a dívida deixar de existir.\nSlide 4: Se ela aparece como \"oferta para negociar\", você decide se quer negociar.\nSlide 5: Se o seu nome continua negativado por dívida antiga, procure orientação de um advogado ou do Procon.\nSlide 6: Salva e manda para quem vive com medo do Serasa.",
+          "ideia": "Carrossel com cara de alerta. Confira a regra (Código de Defesa do Consumidor) e cite na legenda.",
+          "porQueFunciona": "Dúvida muito comum, com sensação de injustiça. Gera muitos comentários de quem está na situação.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DepCMdmkWWx/",
+            "formato": "Carrossel",
+            "curtidas": 2727,
+            "comentarios": 1000,
+            "nota": 63,
+            "resumo": "Explicação sobre dívidas antigas que continuam aparecendo no Serasa."
+          }
+        }
+      ]
+    },
+    {
+      "id": "juros",
+      "nome": "Juros",
+      "painel": "Finanças e vendas",
+      "pautas": [
+        {
+          "titulo": "Quanto valem hoje R$ 1.000 de 1994",
+          "formato": "Carrossel",
+          "gancho": "Quem guardou R$ 1.000 no colchão em 1994 hoje compra o equivalente a pouco mais de R$ 100.",
+          "estrutura": "Dado chocante com número grande → tradução para a vida real → por que acontece (inflação) → o que fazer → pergunta",
+          "textoPronto": "Slide 1: R$ 1.000 de 1994 valem cerca de R$ 112 hoje.\nSlide 2: Não é que o dinheiro sumiu. É que tudo ficou mais caro (inflação).\nSlide 3: Dinheiro parado perde valor todo ano.\nSlide 4: Por isso a reserva de emergência precisa render pelo menos a inflação.\nSlide 5: [Exemplo de onde guardar com liquidez, apresentado como exemplo, sem recomendação personalizada.]\nSlide 6: Quanto você ganhava no primeiro emprego? Conta aqui.",
+          "ideia": "Confira o cálculo atualizado na calculadora do Banco Central e cite a fonte no último slide.",
+          "porQueFunciona": "Número chocante e fácil de entender, com pergunta nostálgica no fim que gera muitos comentários.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfE2ZlujI2e/",
+            "formato": "Carrossel",
+            "curtidas": 4847,
+            "comentarios": 233,
+            "nota": 77,
+            "resumo": "Comparação do poder de compra de R$ 1.000 em 1994 e hoje."
+          }
+        },
+        {
+          "titulo": "O salário mínimo paga o básico?",
+          "formato": "Foto",
+          "gancho": "Você já fez a conta de quanto custa só o básico do mês?",
+          "estrutura": "Pergunta que ninguém gosta de fazer → conta do essencial item por item → resultado → reflexão e dica",
+          "textoPronto": "O salário mínimo paga o básico?\n\nAluguel: R$ ___\nMercado: R$ ___\nLuz e água: R$ ___\nTransporte: R$ ___\nInternet: R$ ___\n\nTotal: R$ ___ (preencha com valores reais da sua cidade)\n\nAntes de cortar o cafezinho, olhe para onde vai o grosso do dinheiro.",
+          "ideia": "Arte em formato de 'conta de padaria', com valores médios reais e fonte (DIEESE, IBGE). Peça para o público comentar a conta da cidade dele.",
+          "porQueFunciona": "Conta concreta que todo mundo sente no bolso. Gera debate e comparação entre cidades nos comentários.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DezvLzvx1ln/",
+            "formato": "Foto",
+            "curtidas": 45152,
+            "comentarios": 824,
+            "nota": 95,
+            "resumo": "Conta do custo de vida comparado ao salário mínimo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "impostos",
+      "nome": "Impostos e tributação",
+      "painel": "Finanças e vendas",
+      "pautas": [
+        {
+          "titulo": "Split payment: o imposto sai antes de chegar na sua conta",
+          "formato": "Carrossel",
+          "gancho": "Empresário, já imaginou receber uma venda e o imposto nem passar pela sua conta?",
+          "estrutura": "Pergunta que gera estranhamento → o que é o split payment → exemplo numérico → o que muda no caixa → o que fazer agora",
+          "textoPronto": "Slide 1: Já imaginou vender R$ 1.000 e cair na conta só o valor sem o imposto?\nSlide 2: É o split payment, da reforma tributária: o imposto é separado no momento do pagamento.\nSlide 3: Exemplo (ilustrativo): venda de R$ 1.000 → o imposto vai direto para o governo → você recebe o restante.\nSlide 4: O que muda: menos dinheiro \"emprestado\" do imposto no seu caixa até o dia de pagar.\nSlide 5: O que fazer: revise preço e capital de giro com seu contador antes da mudança começar a valer.\nSlide 6: Salva e manda para outro empresário.",
+          "ideia": "Carrossel didático com um exemplo de conta. Deixe claro na legenda o cronograma oficial da reforma.",
+          "porQueFunciona": "Mudança que assusta empresários e quase ninguém explicou em linguagem simples. Utilidade alta e compartilhamento entre empreendedores.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfABLynJHDR/",
+            "formato": "Foto",
+            "curtidas": 2076,
+            "comentarios": 119,
+            "nota": 57,
+            "resumo": "Explicação do split payment da reforma tributária para empresários."
+          }
+        },
+        {
+          "titulo": "6 mudanças com data marcada para 2027",
+          "formato": "Carrossel",
+          "gancho": "2027 vai começar diferente para o seu bolso. E quase ninguém está falando disso.",
+          "estrutura": "Alerta temporal → lista numerada de mudanças com data → o que fazer antes → CTA",
+          "textoPronto": "Slide 1: 2027 vai começar diferente para o seu bolso.\nSlide 2: 1. [Mudança 1 com data, conferida em fonte oficial]\nSlide 3: 2. [Mudança 2]\nSlide 4: 3. [Mudança 3]\nSlide 5: E mais 3 na legenda.\nSlide 6: Salva para não ser pego de surpresa em janeiro.",
+          "ideia": "Liste mudanças reais e verificadas (reforma tributária, imposto de renda, MEI). Use visual de calendário.",
+          "porQueFunciona": "Antecipa algo que vai afetar todo mundo. Utilidade e urgência fazem salvar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfPTHPNG4Z3/",
+            "formato": "Carrossel",
+            "curtidas": 1598,
+            "comentarios": 147,
+            "nota": 68,
+            "resumo": "Lista das mudanças do governo com data marcada para 2027."
+          }
+        }
+      ]
+    },
+    {
+      "id": "vendas",
+      "nome": "Vendas e comercial",
+      "painel": "Finanças e vendas",
+      "pautas": [
+        {
+          "titulo": "Ser vendedor é bater a meta e a meta aumentar",
+          "formato": "Foto",
+          "gancho": "Ser vendedor é bater a meta e descobrir que a meta aumentou.",
+          "estrutura": "Frase de humor de identificação → descrição da rotina (correr atrás, negociar) → virada cômica → CTA seguir/marcar",
+          "textoPronto": "Ser vendedor é bater a meta\ne descobrir no dia seguinte\nque a meta aumentou. 😂\n\nMarca aquele colega que vive isso todo mês.",
+          "ideia": "Formato de print de conversa ou meme com a frase. Legenda leve, pedindo para marcar colegas.",
+          "porQueFunciona": "Humor que só quem vive a profissão entende. Marcação de colegas espalha o post.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DerMpOyh1VJ/",
+            "formato": "Foto",
+            "curtidas": 43294,
+            "comentarios": 387,
+            "nota": 94,
+            "resumo": "Humor sobre a meta de vendas que sempre aumenta."
+          }
+        },
+        {
+          "titulo": "Responder a objeção \"vou pensar\"",
+          "formato": "Carrossel",
+          "gancho": "\"Vou pensar.\" O que o cliente quer dizer com isso, e o que responder.",
+          "estrutura": "Objeção entre aspas → o que costuma estar por trás → 3 respostas possíveis → CTA salvar",
+          "textoPronto": "Slide 1: \"Vou pensar.\"\nSlide 2: Quase sempre quer dizer: falta uma informação, falta confiança ou falta dinheiro agora.\nSlide 3: Pergunte: \"Claro! O que ainda te deixa em dúvida?\"\nSlide 4: Se for preço: mostre o custo de não resolver o problema.\nSlide 5: Se for confiança: traga um caso real ou uma garantia.\nSlide 6: Salva para usar no próximo atendimento.",
+          "ideia": "Carrossel com visual de conversa de WhatsApp. Pode virar série semanal de objeções.",
+          "porQueFunciona": "Objeção universal em vendas. Conteúdo prático que vendedores salvam para usar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DerMpOyh1VJ/",
+            "formato": "Foto",
+            "curtidas": 43294,
+            "comentarios": 387,
+            "nota": 94,
+            "resumo": "Post de humor que mostra a rotina e as cobranças do vendedor."
+          }
+        }
+      ]
+    },
+    {
+      "id": "politica",
+      "nome": "Política e economia",
+      "painel": "Finanças e vendas",
+      "pautas": [
+        {
+          "titulo": "Quem paga a conta dos gastos públicos",
+          "formato": "Foto",
+          "gancho": "Não existe dinheiro do governo. Existe o dinheiro de quem paga imposto.",
+          "estrutura": "Frase de efeito entre aspas → explicação simples de como o governo se financia → impacto no bolso → pergunta",
+          "textoPronto": "\"Dinheiro do governo\" não existe.\nExiste o seu imposto.\n\nQuando o governo gasta mais do que arrecada, ele pega emprestado.\nE quanto mais pega, maiores ficam os juros para todo mundo, inclusive no seu cartão.\n\nVocê sabia que uma coisa influencia a outra?",
+          "ideia": "Arte de texto em fundo escuro. Na legenda, explique a relação entre dívida pública e juros com dados do Tesouro e do Banco Central, sem citar partido nem político.",
+          "porQueFunciona": "Frase forte que provoca reflexão e debate. Ligar política ao bolso torna o tema concreto.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/Dew1tiitKUN/",
+            "formato": "Foto",
+            "curtidas": 52592,
+            "comentarios": 273,
+            "nota": 95,
+            "resumo": "Frase sobre dinheiro público ser dinheiro dos pagadores de impostos."
+          }
+        },
+        {
+          "titulo": "Notícia explicada: decisão do STF sobre dívidas",
+          "formato": "Carrossel",
+          "gancho": "URGENTE: uma decisão do STF pode mexer com quem tem dívida no banco ou processo correndo.",
+          "estrutura": "Alerta → o que foi decidido → quem é afetado → o que fazer → fonte",
+          "textoPronto": "Slide 1: 🚨 Uma decisão do STF acendeu um alerta para quem tem dívidas.\nSlide 2: O que foi decidido: [resuma a decisão conferindo a notícia oficial].\nSlide 3: Quem pode ser afetado: [ex.: quem tem dívida bancária, imposto atrasado ou processo].\nSlide 4: O que fazer agora: não entre em pânico e converse com um advogado sobre o seu caso.\nSlide 5: Fonte: [portal oficial do STF ou veículo confiável]. Siga para entender o que muda no seu bolso.",
+          "ideia": "Carrossel no formato notícia explicada. Poste rápido, enquanto o assunto está quente.",
+          "porQueFunciona": "Notícia com impacto direto no bolso e sensação de urgência. Muitos comentários de dúvida.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfGEE1AkYdQ/",
+            "formato": "Carrossel",
+            "curtidas": 1853,
+            "comentarios": 1102,
+            "nota": 72,
+            "resumo": "Alerta sobre decisão do STF que afeta quem tem dívidas."
+          }
+        }
+      ]
+    },
+    {
+      "id": "saude",
+      "nome": "Saúde",
+      "painel": "Saúde, beleza e mulher",
+      "pautas": [
+        {
+          "titulo": "Remédio novo para Alzheimer: esperança e custo",
+          "formato": "Carrossel",
+          "gancho": "Chegou ao Brasil um remédio que pode frear o Alzheimer no início. Mas tem um porém.",
+          "estrutura": "Notícia de esperança → para quem serve → o porém (custo, acesso) → o que a família pode fazer → fonte",
+          "textoPronto": "Slide 1: Um remédio novo para Alzheimer chegou ao Brasil. E ele tem um porém.\nSlide 2: Para quem é: pacientes em fase inicial, com indicação médica.\nSlide 3: O porém: o custo é alto e ainda não está disponível para todos.\nSlide 4: O que a família pode fazer: diagnóstico cedo faz diferença. Esquecimentos frequentes merecem avaliação.\nSlide 5: Fonte: [Anvisa / veículo de saúde confiável].",
+          "ideia": "Carrossel informativo e cuidadoso, sem prometer cura. Confira o nome do medicamento e o status na Anvisa.",
+          "porQueFunciona": "Notícia de saúde com esperança e polêmica (preço). Público compartilha com familiares de idosos.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/Deooac3xsGd/",
+            "formato": "Foto",
+            "curtidas": 22751,
+            "comentarios": 498,
+            "nota": 88,
+            "resumo": "Notícia sobre novo medicamento para Alzheimer e seu custo elevado."
+          }
+        },
+        {
+          "titulo": "Quanto custa tratar câncer no particular",
+          "formato": "Foto",
+          "gancho": "Uma sessão de quimioterapia pode custar de R$ 1.000 a R$ 15 mil no particular.",
+          "estrutura": "Dado chocante de custo → comparação com o acesso pelo SUS/plano → direito do paciente → CTA",
+          "textoPronto": "Uma sessão de quimioterapia pode custar de R$ 1.000 a R$ 15 mil na rede particular.\n\nPelo SUS, o tratamento é um direito.\nPelo plano de saúde, a cobertura também tem regras.\n\nSe o seu tratamento foi negado, procure orientação. Você tem direitos.",
+          "ideia": "Arte com o número em destaque. Confira os valores em fonte confiável e cite. Na legenda, oriente sobre negativa de plano (ANS) e Defensoria.",
+          "porQueFunciona": "Número chocante + direito do paciente. Muito compartilhado e com muitos comentários de experiência pessoal.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeO2tp3xniE/",
+            "formato": "Foto",
+            "curtidas": 49081,
+            "comentarios": 5677,
+            "nota": 94,
+            "resumo": "Custos de quimioterapia e radioterapia na rede particular."
+          }
+        }
+      ]
+    },
+    {
+      "id": "bemestar",
+      "nome": "Bem-estar",
+      "painel": "Saúde, beleza e mulher",
+      "pautas": [
+        {
+          "titulo": "Adiar a felicidade para quando tudo estiver resolvido",
+          "formato": "Foto",
+          "gancho": "A gente adia a vida para quando tudo estiver resolvido. E nunca fica tudo resolvido.",
+          "estrutura": "Observação sobre comportamento comum → lista do que fazemos (se cobrar, se preocupar) → virada → convite simples",
+          "textoPronto": "A gente adia a vida para quando tudo estiver resolvido.\nQuando pagar as contas.\nQuando emagrecer.\nQuando o trabalho acalmar.\n\nSó que nunca fica tudo resolvido.\n\nO que você pode aproveitar hoje, do jeito que está?",
+          "ideia": "Foto de um momento simples (café, pôr do sol) com o texto. Legenda convidando a comentar uma coisa boa do dia.",
+          "porQueFunciona": "Reflexão leve e universal. Convite a comentar algo positivo gera engajamento tranquilo.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfRAoOzxErM/",
+            "formato": "Foto",
+            "curtidas": 4466,
+            "comentarios": 21,
+            "nota": 84,
+            "resumo": "Reflexão sobre adiar a felicidade até tudo estar resolvido."
+          }
+        },
+        {
+          "titulo": "Bingo do burnout",
+          "formato": "Carrossel",
+          "gancho": "Quantos quadrados você marca nesse bingo do burnout?",
+          "estrutura": "Título de jogo → cartela com sintomas do dia a dia → regra de interpretação → orientação de ajuda",
+          "textoPronto": "Slide 1: Bingo do burnout: quantos você marca?\nSlide 2 (cartela): sempre cansada · irritada com pouco · domingo à noite com aperto no peito · checando e-mail na cama · sem vontade de nada · esquecendo tudo · dor de cabeça frequente · sem tempo para comer · culpa ao descansar\nSlide 3: Marcou mais de 5? Presta atenção. Esse cansaço não passa só com fim de semana.\nSlide 4: Burnout tem tratamento. Converse com um profissional de saúde.\nSlide 5: Comenta quantos você marcou.",
+          "ideia": "Cartela 3x3 com visual de jogo. A pessoa comenta o número: engajamento alto.",
+          "porQueFunciona": "Formato de jogo gera comentário e compartilhamento ('marca quem completou a cartela').",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeaHQeVBNS3/",
+            "formato": "Foto",
+            "curtidas": 11649,
+            "comentarios": 234,
+            "nota": 76,
+            "resumo": "Bingo com sinais de burnout."
+          }
+        }
+      ]
+    },
+    {
+      "id": "plastica",
+      "nome": "Cirurgia plástica",
+      "painel": "Saúde, beleza e mulher",
+      "pautas": [
+        {
+          "titulo": "Toda escolha sobre o próprio corpo é válida",
+          "formato": "Foto",
+          "gancho": "Tem mulher que se sente linda sem nunca ter feito procedimento. E tem mulher que se realiza fazendo.",
+          "estrutura": "Frase de equilíbrio → dois lados respeitados → o problema real (julgamento) → convite à empatia",
+          "textoPronto": "Tem mulher que se sente linda sem nunca ter feito um procedimento.\nTem mulher que se realiza ao fazer uma cirurgia plástica.\n\nO problema nunca foi a escolha.\nÉ achar que a escolha de uma mulher precisa da aprovação de outra.\n\nE você, já foi julgada por uma escolha sobre o seu corpo?",
+          "ideia": "Arte com tom leve. Legenda lembrando da importância de escolher cirurgião com registro e título de especialista.",
+          "porQueFunciona": "Tira o tema do 'certo ou errado' e foca no julgamento, que todo mundo já sentiu. Gera comentários e defende a autonomia.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeYZWooArcq/",
+            "formato": "Foto",
+            "curtidas": 1370,
+            "comentarios": 39,
+            "nota": 33,
+            "resumo": "Post sobre respeitar a escolha de cada mulher sobre procedimentos estéticos."
+          }
+        },
+        {
+          "titulo": "3 coisas que eu nunca faria antes de uma lipo",
+          "formato": "Reels",
+          "gancho": "3 coisas que eu nunca faria antes de uma lipo.",
+          "estrutura": "Gancho com número → 3 erros com motivo → o mais importante por último → CTA salvar",
+          "textoPronto": "Cena 1: 3 coisas que eu nunca faria antes de uma lipo.\nCena 2: Primeira: escolher o cirurgião só pelo preço.\nCena 3: Segunda: não conferir se o médico é especialista registrado na Sociedade Brasileira de Cirurgia Plástica.\nCena 4: Terceira, a mais importante: esconder do médico remédios e doenças que eu tenho.\nCena 5: Salva e manda para quem está pensando em operar.",
+          "ideia": "Vídeo falando para a câmera, com o texto de cada item na tela. Linguagem de segurança, sem prometer resultado.",
+          "porQueFunciona": "Segurança é a maior dor de quem pensa em cirurgia. Conteúdo de prevenção que as pessoas salvam e repassam.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/De16-jPkfnc/",
+            "formato": "Carrossel",
+            "curtidas": 533,
+            "comentarios": 34,
+            "nota": 21,
+            "resumo": "Bastidores de uma Lipo HD realizada com sucesso."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mulher",
+      "nome": "Mulher",
+      "painel": "Saúde, beleza e mulher",
+      "pautas": [
+        {
+          "titulo": "Ensinadas a ser escolhidas",
+          "formato": "Carrossel",
+          "gancho": "Enquanto os homens são ensinados a SER alguém, as mulheres são ensinadas a SER ESCOLHIDAS.",
+          "estrutura": "Contraste de criação entre gêneros → perguntas retóricas sobre decisões do dia a dia → virada de empoderamento → CTA",
+          "textoPronto": "Slide 1: Eles são ensinados a ser alguém. Nós, a ser escolhidas.\nSlide 2: Quantas vezes você mudou um plano pensando no que ele ia achar?\nSlide 3: Quantas vezes diminuiu um sonho para caber numa relação?\nSlide 4: Não é sobre culpar ninguém. É sobre perceber o roteiro que aprendemos.\nSlide 5: Você pode escolher você.\nSlide 6: Manda para uma mulher que precisa lembrar disso.",
+          "ideia": "Carrossel com cenas de filme ou fotos de mulheres (com direito de uso). Tom firme e acolhedor.",
+          "porQueFunciona": "Contraste forte e verdadeiro para muitas mulheres. Gera identificação, debate e compartilhamento.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfF-ewPGTJH/",
+            "formato": "Carrossel",
+            "curtidas": 57526,
+            "comentarios": 1257,
+            "nota": 98,
+            "resumo": "Contraste entre como homens e mulheres são ensinados a se ver."
+          }
+        },
+        {
+          "titulo": "O que a minha mãe me ensinou sobre riqueza",
+          "formato": "Foto",
+          "gancho": "Eu não vim de família rica. Vim de uma mãe que nunca deixou faltar o essencial.",
+          "estrutura": "Frase em primeira pessoa com contraste → o que a mãe deu de verdade → homenagem curta",
+          "textoPronto": "Eu não vim de uma família rica.\nVim de uma mãe que nunca deixou faltar o que importa.\n\nPresença. Cuidado. Coragem.\n\nEu te amo, mãe.",
+          "ideia": "Frase em fundo escuro, estilo tweet, ou foto antiga sua com sua mãe. Legenda pedindo para marcar a mãe.",
+          "porQueFunciona": "Homenagem emocional que as pessoas marcam e repostam nos stories.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfDzdZBtVZo/",
+            "formato": "Foto",
+            "curtidas": 55973,
+            "comentarios": 313,
+            "nota": 97,
+            "resumo": "Homenagem à mãe que ensinou o valor do essencial."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mentalidade",
+      "nome": "Mentalidade",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Por trás de cada conquista existe uma história",
+          "formato": "Foto",
+          "gancho": "Por trás de cada conquista tem uma história que ninguém viu.",
+          "estrutura": "Frase de abertura → lista do que ninguém vê (renúncias, recomeços) → a decisão de continuar → pergunta",
+          "textoPronto": "Por trás de cada conquista tem uma história que ninguém viu.\n\nAnos de estudo.\nNoites sem dormir.\nTentativas que deram errado.\nRecomeços em silêncio.\n\nE a decisão de continuar quando ninguém estava aplaudindo.\n\nQual conquista sua quase ninguém sabe o quanto custou?",
+          "ideia": "Foto sua trabalhando (bastidor real) com o texto. Legenda contando uma renúncia real sua.",
+          "porQueFunciona": "Fala com o orgulho silencioso de quem ralou. A pergunta final rende comentários longos.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfAOnZgvOL4/",
+            "formato": "Foto",
+            "curtidas": 46347,
+            "comentarios": 34,
+            "nota": 96,
+            "resumo": "Reflexão sobre o que existe por trás de cada conquista."
+          }
+        },
+        {
+          "titulo": "Os 4 hábitos que mais vejo em quem tem patrimônio",
+          "formato": "Carrossel",
+          "gancho": "Conviver com quem tem patrimônio muda sua cabeça sobre dinheiro.",
+          "estrutura": "Promessa de bastidor → lista de hábitos com check → pergunta de autoavaliação",
+          "textoPronto": "Slide 1: 4 hábitos que eu mais vejo em quem construiu patrimônio\nSlide 2: ✅ Se pagam primeiro: guardam assim que o dinheiro entra.\nSlide 3: ✅ Têm reserva para 6 meses.\nSlide 4: ✅ Cuidam do dinheiro 1 hora por semana.\nSlide 5: ✅ Planejam o \"e se der errado\".\nSlide 6: Quantos desses você já tem? Comenta o número.",
+          "ideia": "Lista visual com checks. Termine pedindo o número de hábitos: gera comentários.",
+          "porQueFunciona": "Lista curta, prática e aspiracional. Fácil de salvar e de se autoavaliar.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfQZje6G0ZD/",
+            "formato": "Carrossel",
+            "curtidas": 649,
+            "comentarios": 36,
+            "nota": 51,
+            "resumo": "Lista de hábitos financeiros de quem tem patrimônio."
+          }
+        }
+      ]
+    },
+    {
+      "id": "empreend",
+      "nome": "Empreendedorismo",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Quem vê a porta aberta não imagina o peso",
+          "formato": "Foto",
+          "gancho": "Quem vê a porta aberta nem imagina o peso de manter ela assim.",
+          "estrutura": "Frase de empatia → lista do peso invisível (fornecedor, imposto, salário) → valorização → CTA apoiar pequeno negócio",
+          "textoPronto": "Quem vê a porta aberta nem imagina o peso de manter ela assim.\n\nÉ fornecedor.\nÉ imposto.\nÉ salário no dia certo.\nÉ madrugada fazendo conta.\n\nComprar de um pequeno negócio é manter um sonho de pé.\n\nMarca um pequeno negócio que você admira.",
+          "ideia": "Foto real da fachada do seu negócio ou de um cliente. Legenda com uma história curta de bastidor.",
+          "porQueFunciona": "Empatia com o empreendedor e convite a marcar outros negócios: alcance alto entre empreendedores.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/De9bPKIhwEs/",
+            "formato": "Foto",
+            "curtidas": 22476,
+            "comentarios": 1583,
+            "nota": 92,
+            "resumo": "Desabafo sobre o peso invisível de manter um negócio aberto."
+          }
+        },
+        {
+          "titulo": "Bilionários existem porque resolveram problemas: concorda?",
+          "formato": "Foto",
+          "gancho": "Os grandes negócios existem por um motivo: resolveram o problema de milhões de pessoas.",
+          "estrutura": "Afirmação polêmica → exemplos conhecidos com o problema resolvido → aplicação para o pequeno empreendedor → pergunta concorda/discorda",
+          "textoPronto": "Todo grande negócio nasceu de um problema resolvido.\n\nEntrega rápida.\nTransporte barato.\nConversa de graça pelo celular.\n\nQual problema do seu cliente o seu negócio resolve?\n\nConcorda ou discorda?",
+          "ideia": "Arte de texto com exemplos de empresas conhecidas (sem logotipos). Responda os primeiros comentários para puxar o debate.",
+          "porQueFunciona": "Tema polêmico gera muitos comentários. A virada para o pequeno negócio traz utilidade.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeaN2pUhmQ5/",
+            "formato": "Foto",
+            "curtidas": 111357,
+            "comentarios": 2105,
+            "nota": 97,
+            "resumo": "Post opinativo sobre bilionários e os problemas que seus negócios resolveram."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mentoria",
+      "nome": "Mentoria",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Comenta uma palavra e receba o passo a passo",
+          "formato": "Carrossel",
+          "gancho": "Antes de dormir hoje, faça este exercício para tirar sua mentoria do papel.",
+          "estrutura": "Promessa de ação rápida → 2 ou 3 dicas de amostra → oferta do material completo → CTA comentar palavra",
+          "textoPronto": "Slide 1: Antes de dormir hoje, faça isso para tirar sua mentoria do papel.\nSlide 2: Escreva o problema número 1 que você resolve para os seus clientes.\nSlide 3: Liste os 5 passos que você usa para resolver.\nSlide 4: Esses 5 passos já são o esqueleto da sua mentoria.\nSlide 5: Quer o modelo completo? Comenta MENTORIA que eu te mando.",
+          "ideia": "Carrossel com cara de exercício prático. Use automação no direct para enviar o material.",
+          "porQueFunciona": "Ação concreta e rápida + isca no comentário: gera comentários e contatos qualificados.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DezRSQ7kXLt/",
+            "formato": "Carrossel",
+            "curtidas": 542,
+            "comentarios": 266,
+            "nota": 33,
+            "resumo": "Carrossel com 'comenta PRODUTO' para receber passo a passo de produto digital."
+          }
+        },
+        {
+          "titulo": "Inscrições abertas para formação gratuita",
+          "formato": "Foto",
+          "gancho": "Inscrições abertas: formação gratuita para [seu público].",
+          "estrutura": "Anúncio claro → para quem é → o que a pessoa ganha → prazo → CTA",
+          "textoPronto": "INSCRIÇÕES ABERTAS\n\n[Nome da aula ou formação gratuita]\nPara: [público]\nVocê vai aprender: [3 resultados]\nVagas até: [data]\n\nLink na bio.",
+          "ideia": "Use para lançar uma aula gratuita sua (captação para a mentoria). Visual de anúncio, cores da sua marca.",
+          "porQueFunciona": "Gratuito + utilidade + prazo: o post de cursos gratuitos teve mais de 2 mil comentários pedindo o link.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DexrYFExMBE/",
+            "formato": "Foto",
+            "curtidas": 5375,
+            "comentarios": 2115,
+            "nota": 78,
+            "resumo": "Anúncio de cursos gratuitos com inscrições abertas."
+          }
+        }
+      ]
+    },
+    {
+      "id": "direito",
+      "nome": "Direito e advocacia",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Notícia explicada: mulher pede direitos para parceiro de IA",
+          "formato": "Carrossel",
+          "gancho": "Uma mulher procurou a Defensoria para pedir direitos para o \"companheiro\" dela: uma inteligência artificial.",
+          "estrutura": "Notícia curiosa → o que ela pediu → o que a lei diz → o que isso revela → pergunta",
+          "textoPronto": "Slide 1: Uma mulher pediu à Justiça direitos para o \"companheiro\" dela. Ele é uma inteligência artificial.\nSlide 2: O que aconteceu: [resuma conferindo a notícia].\nSlide 3: O que a lei diz hoje: união estável é entre pessoas. IA não tem personalidade jurídica.\nSlide 4: O que isso revela: a solidão e a forma como a tecnologia entrou nas relações.\nSlide 5: Você acha que a lei vai precisar mudar? Comenta.",
+          "ideia": "Carrossel ou react em vídeo com a notícia ao fundo. Tom respeitoso, sem ridicularizar a pessoa.",
+          "porQueFunciona": "Notícia inusitada desperta curiosidade e debate. Explicação jurídica simples posiciona como autoridade.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfHkW2WFusp/",
+            "formato": "Foto",
+            "curtidas": 19854,
+            "comentarios": 2896,
+            "nota": 94,
+            "resumo": "Notícia sobre mulher que pediu reconhecimento de direitos para uma IA."
+          }
+        },
+        {
+          "titulo": "Papel timbrado com logo: ainda faz sentido?",
+          "formato": "Reels",
+          "gancho": "Nunca mais coloque a logomarca do seu escritório no papel timbrado das petições. Eu explico.",
+          "estrutura": "Afirmação polêmica para a classe → 'eu explico' → argumentos → pergunta concorda/discorda",
+          "textoPronto": "Cena 1: Eu vou provocar meus colegas advogados: papel timbrado cheio de logo nas petições já era.\nCena 2: O juiz lê centenas de páginas por dia. Ele quer clareza, não decoração.\nCena 3: Peça limpa, bem organizada e objetiva passa mais profissionalismo.\nCena 4: Concorda ou discorda? Comenta aqui.",
+          "ideia": "Vídeo falando para a câmera com o texto do gancho na tela. Responda os comentários para puxar debate entre advogados.",
+          "porQueFunciona": "Polêmica dentro da própria profissão gera muitos comentários (o original passou de mil).",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeynMDPjHnn/",
+            "formato": "Carrossel",
+            "curtidas": 1912,
+            "comentarios": 1693,
+            "nota": 68,
+            "resumo": "Provocação sobre papel timbrado com logomarca nas petições."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dirbanc",
+      "nome": "Direito bancário",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Servidor sufocado com consignado",
+          "formato": "Foto",
+          "gancho": "Servidor, você está sufocado com os consignados?",
+          "estrutura": "Pergunta direta ao público → situações em que dá para pedir suspensão/revisão → o que fazer → CTA",
+          "textoPronto": "Servidor, os consignados estão sufocando seu salário?\n\nEm algumas situações é possível pedir revisão ou suspensão dos descontos:\n• desconto acima do limite legal\n• contrato que você não reconhece\n• superendividamento\n\nCada caso precisa de análise. Me chama no direct.",
+          "ideia": "Arte direta com a pergunta em destaque. Legenda com a base legal (Lei do Superendividamento) e sem prometer resultado.",
+          "porQueFunciona": "Fala direto com um público específico e com dor financeira urgente. O original teve mais de 2 mil comentários.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/De_5T9TEY5r/",
+            "formato": "Foto",
+            "curtidas": 1575,
+            "comentarios": 2396,
+            "nota": 78,
+            "resumo": "Post sobre possibilidade de suspender descontos de consignados de servidores."
+          }
+        },
+        {
+          "titulo": "Como cancelar o débito automático do empréstimo",
+          "formato": "Carrossel",
+          "gancho": "Como cancelar o débito automático do empréstimo que cai junto com o seu salário.",
+          "estrutura": "Promessa de passo a passo → regra que permite → passos numerados → cuidados → CTA salvar",
+          "textoPronto": "Slide 1: Como cancelar o débito automático do empréstimo que cai junto com o salário.\nSlide 2: Existe uma regra do Conselho Monetário Nacional que permite pedir o cancelamento da autorização.\nSlide 3: Passo 1: peça por escrito ao banco (app, e-mail ou protocolo).\nSlide 4: Passo 2: guarde o número do protocolo.\nSlide 5: Atenção: cancelar o débito não cancela a dívida. Combine outra forma de pagar.\nSlide 6: Salva e manda para quem perdeu o salário inteiro para o banco.",
+          "ideia": "Confira a resolução vigente antes de postar. Visual de passo a passo com números grandes.",
+          "porQueFunciona": "Utilidade imediata para um problema doloroso. Muito salvo e compartilhado.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/Dec5Iv0m_nk/",
+            "formato": "Carrossel",
+            "curtidas": 1194,
+            "comentarios": 184,
+            "nota": 35,
+            "resumo": "Passo a passo para cancelar débito automático de empréstimo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "clt",
+      "nome": "Direitos trabalhistas",
+      "painel": "Negócios e direito",
+      "pautas": [
+        {
+          "titulo": "Adoecer não significa perder direitos",
+          "formato": "Foto",
+          "gancho": "TRABALHADOR NÃO É MÁQUINA. Adoecer não significa perder direitos.",
+          "estrutura": "Frase forte em caixa alta → diferença entre horas trabalhadas e direitos no afastamento → situações comuns → orientação",
+          "textoPronto": "TRABALHADOR NÃO É MÁQUINA.\nADOECER NÃO É PERDER DIREITOS.\n\nAfastado por doença?\n• Até 15 dias: quem paga é a empresa.\n• Depois disso: pode haver benefício do INSS.\n• Doença ligada ao trabalho pode garantir estabilidade.\n\nCada caso tem detalhes. Procure orientação.",
+          "ideia": "Arte com a frase em destaque. Confira as regras atuais e cite. Na legenda, convide a contar a experiência nos comentários.",
+          "porQueFunciona": "Frase de defesa do trabalhador com muita identificação. O original passou de 4 mil comentários.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeUpf0DALU_/",
+            "formato": "Foto",
+            "curtidas": 50281,
+            "comentarios": 4978,
+            "nota": 94,
+            "resumo": "Post afirmando que adoecer não significa perder direitos trabalhistas."
+          }
+        },
+        {
+          "titulo": "Fim da escala 6x1: o que muda (e o que ainda não)",
+          "formato": "Carrossel",
+          "gancho": "O Senado aprovou o fim da escala 6x1. Mas calma: ainda não muda nada no seu contrato.",
+          "estrutura": "Notícia → o que foi aprovado → próximas etapas → o que muda na prática hoje → CTA seguir",
+          "textoPronto": "Slide 1: O Senado aprovou o fim da escala 6x1. E agora?\nSlide 2: O que foi aprovado: [resuma com fonte oficial].\nSlide 3: Próximos passos: ainda precisa passar pela Câmara e ser sancionado.\nSlide 4: Hoje: nada muda no seu contrato até a lei valer.\nSlide 5: Empresário: já vale planejar escala e custo de equipe.\nSlide 6: Siga para acompanhar cada etapa.",
+          "ideia": "Notícia explicada para os dois lados (trabalhador e empresário), sem tomar partido.",
+          "porQueFunciona": "Assunto quente que mexe com todo trabalhador. Explicação equilibrada atrai os dois públicos.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DehIugCkXge/",
+            "formato": "Carrossel",
+            "curtidas": 25399,
+            "comentarios": 374,
+            "nota": 88,
+            "resumo": "Comentário sobre a aprovação do fim da escala 6x1 no Senado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "amor",
+      "nome": "Relacionamento amoroso",
+      "painel": "Relacionamentos e família",
+      "pautas": [
+        {
+          "titulo": "Amar é perceber quando o outro precisa de colo",
+          "formato": "Carrossel",
+          "gancho": "Amar também é perceber quando quem sempre parece forte precisa de colo.",
+          "estrutura": "Definição de amor → a pessoa 'forte' que não pede ajuda → sinais de que ela precisa → convite a cuidar → marcar alguém",
+          "textoPronto": "Slide 1: Amar também é perceber quando a pessoa forte precisa de colo.\nSlide 2: Ela não pede ajuda. Ela só fica mais quieta.\nSlide 3: Responde \"tô bem\" rápido demais.\nSlide 4: Some um pouco das conversas.\nSlide 5: Às vezes ninguém precisa de solução. Só de alguém que fique.\nSlide 6: Marca aquela pessoa que sempre cuida de todo mundo.",
+          "ideia": "Fotos de casal ou amigos em momentos simples. Tom delicado.",
+          "porQueFunciona": "Fala com quem é 'o forte' da relação. Marcação de alguém querido espalha o post.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DerUexlFVSH/",
+            "formato": "Carrossel",
+            "curtidas": 70442,
+            "comentarios": 818,
+            "nota": 97,
+            "resumo": "Carrossel sobre perceber quando quem parece forte precisa de colo."
+          }
+        },
+        {
+          "titulo": "Evitar conflito também machuca",
+          "formato": "Foto",
+          "gancho": "Você acha que está evitando briga. Mas pode estar alimentando um problema maior.",
+          "estrutura": "Frase de quebra de crença → o que o silêncio provoca no outro → virada → orientação",
+          "textoPronto": "Você acha que está evitando briga.\nMas o silêncio também fala.\n\nQuando você não conta o que sente, o outro tenta adivinhar.\nE quase nunca adivinha algo leve.\n\nConversar com calma é cuidado. Não é briga.",
+          "ideia": "Arte estilo nota escrita à mão. Legenda com uma frase pronta para começar uma conversa difícil.",
+          "porQueFunciona": "Quebra a crença de que calar é proteger a relação. Muita gente se reconhece.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DejbXI3Rv0D/",
+            "formato": "Foto",
+            "curtidas": 5444,
+            "comentarios": 30,
+            "nota": 65,
+            "resumo": "Reflexão sobre como evitar conflito pode alimentar problemas."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dialogo",
+      "nome": "Comunicação e diálogo",
+      "painel": "Relacionamentos e família",
+      "pautas": [
+        {
+          "titulo": "Como começar uma conversa difícil",
+          "formato": "Carrossel",
+          "gancho": "\"Precisamos conversar.\" Tem jeito melhor de começar.",
+          "estrutura": "Frase temida entre aspas → por que ela assusta → trocas de frase (❌/✅) → CTA salvar",
+          "textoPronto": "Slide 1: \"Precisamos conversar.\" Por que essa frase dá frio na barriga?\nSlide 2: Porque o cérebro entende como ameaça antes de ouvir o assunto.\nSlide 3: ❌ \"Você nunca me escuta.\"\n✅ \"Eu me sinto sozinha quando falo e você está no celular.\"\nSlide 4: ❌ \"Precisamos conversar.\"\n✅ \"Queria te contar uma coisa que está me incomodando. Pode ser hoje à noite?\"\nSlide 5: Fale do que você sente, não do que o outro \"é\".\nSlide 6: Salva para usar na próxima conversa difícil.",
+          "ideia": "Formato troque isso por isso. Pode virar série.",
+          "porQueFunciona": "Útil, prático e muito salvo. Todo mundo já travou numa conversa difícil.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DejbXI3Rv0D/",
+            "formato": "Foto",
+            "curtidas": 5444,
+            "comentarios": 30,
+            "nota": 65,
+            "resumo": "Reflexão sobre o silêncio e a falta de comunicação nas relações."
+          }
+        }
+      ]
+    },
+    {
+      "id": "familia",
+      "nome": "Família e criação dos filhos",
+      "painel": "Relacionamentos e família",
+      "pautas": [
+        {
+          "titulo": "Afastar-se da família não é capricho",
+          "formato": "Carrossel",
+          "gancho": "Ninguém se afasta de casa por capricho.",
+          "estrutura": "Frase de defesa → feridas familiares → limites como cuidado → acolhimento sem julgamento",
+          "textoPronto": "Slide 1: Ninguém se afasta da própria família por capricho.\nSlide 2: Às vezes é para conseguir respirar.\nSlide 3: Às vezes é o único jeito de parar de se machucar.\nSlide 4: Limite não é falta de amor. Pode ser a forma possível de amar.\nSlide 5: Antes de julgar quem se afastou, pergunte o que ela viveu.\nSlide 6: Se isso dói em você, terapia ajuda a lidar com essa história.",
+          "ideia": "Carrossel de texto, tom calmo. Evite incentivar rompimento: fale de limites e cuidado.",
+          "porQueFunciona": "Tema delicado e pouco falado. Quem viveu se sente validado e compartilha.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfP8kvlEesV/",
+            "formato": "Carrossel",
+            "curtidas": 538,
+            "comentarios": 12,
+            "nota": 45,
+            "resumo": "Texto sobre afastamento de relações familiares complexas."
+          }
+        }
+      ]
+    }
+  ],
+  "analise": {
+    "resumo": "Os posts mais fortes da semana falaram de dinheiro e de culpa: dívidas, custo de vida, direitos de quem cuida (mães atípicas) e de quem adoece no trabalho. Os formatos que mais viralizaram foram imagens com texto direto e carrosséis de identificação; as legendas longas e explicativas superaram as curtas. Posts de campanha eleitoral também viralizaram muito, mas ficaram de fora das pautas.",
+    "temas": [
+      {
+        "id": "autismo",
+        "nome": "Autismo",
+        "padroes": [
+          "Direitos e benefícios de mães atípicas geraram mais engajamento do que conteúdo sobre a criança.",
+          "Alertas em caixa alta ('URGENTE, MÃES ATÍPICAS!') puxaram muitos comentários de dúvida."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DfQjw-cpUwH/",
+            "formato": "Foto",
+            "curtidas": 13166,
+            "comentarios": 805,
+            "nota": 93,
+            "porQueViralizou": "Notícia de um benefício em dinheiro para um público muito unido, que compartilha entre si.",
+            "gatilhos": [
+              "alerta",
+              "benefício",
+              "comunidade"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DewrjvFloek/",
+            "formato": "Carrossel",
+            "curtidas": 10912,
+            "comentarios": 607,
+            "nota": 82,
+            "porQueViralizou": "Retrato preciso de uma experiência pouco falada: a mãe que também é autista.",
+            "gatilhos": [
+              "identificação",
+              "representatividade"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "neuro",
+        "nome": "Neurodesenvolvimento",
+        "padroes": [
+          "Textos que tiram a culpa dos pais ('a criança não está demais') viralizaram muito.",
+          "Frases em paralelo sobre infância são salvas e compartilhadas."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DeJqqTdx7vF/",
+            "formato": "Foto",
+            "curtidas": 48293,
+            "comentarios": 224,
+            "nota": 92,
+            "porQueViralizou": "Inverte o julgamento: o problema é o ambiente, não a criança.",
+            "gatilhos": [
+              "inversão de culpa",
+              "acolhimento"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DeRjC6-lOSV/",
+            "formato": "Carrossel",
+            "curtidas": 103131,
+            "comentarios": 904,
+            "nota": 97,
+            "porQueViralizou": "Frases curtas e fortes sobre marcas da infância, fáceis de compartilhar.",
+            "gatilhos": [
+              "frases de impacto",
+              "reflexão"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tdah",
+        "nome": "TDAH",
+        "padroes": [
+          "Validação de experiências sensoriais e rebater o 'virou moda' continuam fortes.",
+          "Conteúdo para pais (castigo, rotina) engaja bem."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DeKDqoVjjds/",
+            "formato": "Carrossel",
+            "curtidas": 9025,
+            "comentarios": 896,
+            "nota": 72,
+            "porQueViralizou": "Lista sons concretos e pede para a pessoa comentar o dela.",
+            "gatilhos": [
+              "identificação",
+              "convite a comentar"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DeKPIa0zGBD/",
+            "formato": "Foto",
+            "curtidas": 9715,
+            "comentarios": 357,
+            "nota": 71,
+            "porQueViralizou": "Ironia contra um julgamento comum, com custos reais.",
+            "gatilhos": [
+              "quebra de crença",
+              "indignação"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dividas",
+        "nome": "Dívidas",
+        "padroes": [
+          "Ansiedade ligada ao dinheiro (evitar abrir o app do banco) foi um dos posts mais fortes da semana.",
+          "Histórias em primeira pessoa sobre sair das dívidas engajam pela virada emocional."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DenFFVgxxBZ/",
+            "formato": "Foto",
+            "curtidas": 53729,
+            "comentarios": 898,
+            "nota": 95,
+            "porQueViralizou": "Descreve um comportamento escondido que muita gente tem vergonha de admitir.",
+            "gatilhos": [
+              "identificação",
+              "vergonha",
+              "utilidade"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DfIwGmODlJ8/",
+            "formato": "Carrossel",
+            "curtidas": 13034,
+            "comentarios": 244,
+            "nota": 90,
+            "porQueViralizou": "História com virada: viver antes de pagar tudo.",
+            "gatilhos": [
+              "história",
+              "alívio"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "clt",
+        "nome": "Direitos trabalhistas",
+        "padroes": [
+          "Frases de defesa do trabalhador em caixa alta tiveram milhares de comentários.",
+          "Notícias como o fim da escala 6x1 dominaram a conversa."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DeUpf0DALU_/",
+            "formato": "Foto",
+            "curtidas": 50281,
+            "comentarios": 4978,
+            "nota": 94,
+            "porQueViralizou": "Frase forte que defende o trabalhador doente e convida a contar experiências.",
+            "gatilhos": [
+              "defesa de direitos",
+              "indignação",
+              "comentários"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DehIugCkXge/",
+            "formato": "Carrossel",
+            "curtidas": 25399,
+            "comentarios": 374,
+            "nota": 88,
+            "porQueViralizou": "Notícia quente com impacto direto na rotina de milhões.",
+            "gatilhos": [
+              "notícia",
+              "urgência"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mulher",
+        "nome": "Mulher",
+        "padroes": [
+          "Contrastes de criação entre homens e mulheres geram debate e compartilhamento.",
+          "Homenagens à mãe em formato de frase curta viralizam."
+        ],
+        "destaques": [
+          {
+            "link": "https://www.instagram.com/p/DfF-ewPGTJH/",
+            "formato": "Carrossel",
+            "curtidas": 57526,
+            "comentarios": 1257,
+            "nota": 98,
+            "porQueViralizou": "Contraste forte e verdadeiro para muitas mulheres, em carrossel com cenas conhecidas.",
+            "gatilhos": [
+              "contraste",
+              "empoderamento"
+            ]
+          },
+          {
+            "link": "https://www.instagram.com/p/DfDzdZBtVZo/",
+            "formato": "Foto",
+            "curtidas": 55973,
+            "comentarios": 313,
+            "nota": 97,
+            "porQueViralizou": "Homenagem curta e emocional, fácil de marcar a mãe.",
+            "gatilhos": [
+              "emoção",
+              "homenagem"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
