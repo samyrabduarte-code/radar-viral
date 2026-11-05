@@ -3,7 +3,7 @@
   "geradoEm": "2026-11-05T13:30:00Z",
   "postsAnalisados": 479,
   "avisos": [
-    "Edição feita com os posts coletados em 04/11 (a coleta automática desta madrugada não terminou a tempo). Posts de campanha eleitoral viralizaram muito, mas ficaram de fora das pautas. Uso de telas, Social media e Estratégia de conteúdo tiveram poucos posts fortes e ficaram sem pauta nesta semana."
+    "Edição feita com os posts coletados em 04/11 (a coleta automática desta madrugada não terminou a tempo). Posts de campanha eleitoral e de posicionamento político viralizaram muito, mas ficaram de fora das pautas. Uso de telas teve poucos posts fortes e ficou sem pauta nesta semana."
   ],
   "temas": [
     {
@@ -1003,6 +1003,146 @@
             "comentarios": 12,
             "nota": 45,
             "resumo": "Texto sobre afastamento de relações familiares complexas."
+          }
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "nome": "Marketing",
+      "painel": "Marketing e conteúdo",
+      "pautas": [
+        {
+          "titulo": "Ache o gargalo antes de escolher a estratégia",
+          "formato": "Carrossel",
+          "gancho": "Escolher estratégia de marketing antes de achar o gargalo é jogar dinheiro fora.",
+          "estrutura": "Afirmação direta → diagnóstico por etapa do funil (poucos clientes entrando / entrando mas não comprando / comprando uma vez só) → o que fazer em cada caso → CTA",
+          "textoPronto": "Slide 1: Antes de escolher a estratégia de marketing, ache o gargalo.\nSlide 2: Pouca gente chegando até você? O problema é atração: conteúdo de alcance, parcerias, anúncio.\nSlide 3: Muita gente chegando e pouca comprando? O problema é conversão: oferta, prova, atendimento.\nSlide 4: Clientes compram uma vez e somem? O problema é retenção: pós-venda e relacionamento.\nSlide 5: Postar mais não resolve gargalo de venda. E vender melhor não resolve falta de público.\nSlide 6: Qual é o seu gargalo hoje? Comenta: atração, conversão ou retenção.",
+          "ideia": "Carrossel didático com um ícone por etapa. A pergunta final gera comentários que viram pautas.",
+          "porQueFunciona": "Diagnóstico simples para uma dor comum de quem empreende. Útil, salvável e com pergunta que engaja.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeKE8eMDNhi/",
+            "formato": "Carrossel",
+            "curtidas": 2684,
+            "comentarios": 19,
+            "nota": 44,
+            "resumo": "Carrossel sobre encontrar o gargalo antes de escolher a estratégia de marketing."
+          }
+        },
+        {
+          "titulo": "Comente uma palavra e receba o material",
+          "formato": "Carrossel",
+          "gancho": "Antes de dormir hoje, faça este exercício e tenha uma ideia de produto pronta amanhã.",
+          "estrutura": "Promessa de ação rápida → 2 ou 3 passos de amostra → oferta do material completo → CTA com palavra-chave",
+          "textoPronto": "Slide 1: Antes de dormir hoje, faça este exercício.\nSlide 2: Liste as 5 perguntas que seus clientes mais fazem.\nSlide 3: Escolha a que você responde com mais facilidade.\nSlide 4: Transforme a resposta em um passo a passo de 5 etapas. Isso já pode virar um material, uma aula ou um produto.\nSlide 5: Quer o modelo completo? Comenta PRODUTO que eu te mando no direct.",
+          "ideia": "Use automação de direct para enviar o material na hora. Escolha uma palavra ligada ao seu nicho.",
+          "porQueFunciona": "Captação: troca valor por contato. O original teve mais comentários proporcionais do que curtidas.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DezRSQ7kXLt/",
+            "formato": "Carrossel",
+            "curtidas": 542,
+            "comentarios": 266,
+            "nota": 33,
+            "resumo": "Carrossel com 'comenta PRODUTO' para receber passo a passo de produto digital."
+          }
+        },
+        {
+          "titulo": "Posicionamento: o detalhe que passa profissionalismo",
+          "formato": "Reels",
+          "gancho": "Nunca mais faça isso no material do seu negócio. Eu explico por quê.",
+          "estrutura": "Afirmação polêmica para a profissão → 'eu explico' → argumento de percepção do cliente → pergunta concorda/discorda",
+          "textoPronto": "Cena 1: Vou provocar: logo gigante em todo material não deixa seu negócio mais profissional.\nCena 2: O cliente quer entender rápido o que você faz e por que confiar em você.\nCena 3: Clareza passa mais autoridade do que enfeite.\nCena 4: Concorda ou discorda? Comenta aqui.",
+          "ideia": "Vídeo falando para a câmera, adaptado ao seu nicho (consultório, escritório, loja). Responda os primeiros comentários.",
+          "porQueFunciona": "Polêmica dentro da própria profissão gera muitos comentários. O original passou de mil e seiscentos.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DeynMDPjHnn/",
+            "formato": "Carrossel",
+            "curtidas": 1912,
+            "comentarios": 1693,
+            "nota": 68,
+            "resumo": "Provocação de um advogado sobre usar logomarca no papel timbrado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "nome": "Social media",
+      "painel": "Marketing e conteúdo",
+      "pautas": [
+        {
+          "titulo": "Meme da rotina do seu nicho",
+          "formato": "Foto",
+          "gancho": "QUEM CONTOU??",
+          "estrutura": "Imagem engraçada e reconhecível → frase curta de situação muito comum → legenda pedindo para marcar alguém",
+          "textoPronto": "Imagem: [foto sua ou meme popular com expressão de susto]\nTexto: Quando o cliente pergunta \"é rapidinho?\" e você sabe que não é.\nLegenda: Quem nunca? Marca o colega que vive isso.",
+          "ideia": "Crie um banco de 10 situações típicas do seu trabalho e transforme em memes. Poste 1 por semana para alcançar gente nova.",
+          "porQueFunciona": "Humor de identificação tem alto alcance e compartilhamento. O original passou de 40 mil curtidas.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DemI-EtRJQz/",
+            "formato": "Foto",
+            "curtidas": 41311,
+            "comentarios": 275,
+            "nota": 92,
+            "resumo": "Meme de humor com a frase 'Quem contou?'."
+          }
+        },
+        {
+          "titulo": "Print de tweet com um lembrete do seu nicho",
+          "formato": "Foto",
+          "gancho": "Lembrete do dia: [algo que todo mundo do seu público vive].",
+          "estrutura": "Visual de tweet com sua foto e @ → frase curta de lembrete com humor → legenda curta",
+          "textoPronto": "[Sua foto] [Seu nome] [@seu_perfil]\n\nLembrete do dia:\nHoje é dia 20.\nBora pagar imposto.\n\n(Troque pelo lembrete do seu nicho: dia de consulta, dia de fechar o caixa, dia de postar.)",
+          "ideia": "Use sempre o seu perfil no layout. Poste no dia exato da situação (ex.: dia 20, vencimento do DAS).",
+          "porQueFunciona": "Frase curta, com humor e data certa: o público compartilha nos stories no mesmo dia.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DetxwcgC6wB/",
+            "formato": "Foto",
+            "curtidas": 24886,
+            "comentarios": 1169,
+            "nota": 90,
+            "resumo": "Print de tweet com o lembrete 'Hoje é 20. Bora pagar imposto'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "conteudo",
+      "nome": "Estratégia de conteúdo",
+      "painel": "Marketing e conteúdo",
+      "pautas": [
+        {
+          "titulo": "Storytelling de bastidor: o que ninguém viu",
+          "formato": "Foto",
+          "gancho": "Por trás de cada resultado meu tem uma história que eu nunca contei aqui.",
+          "estrutura": "Frase de abertura → lista do que ninguém vê → decisão de continuar → pergunta",
+          "textoPronto": "Por trás de cada resultado tem uma parte que ninguém viu.\n\nAs noites estudando.\nOs clientes que desistiram.\nOs posts que ninguém curtiu.\n\nE a decisão de continuar mesmo assim.\n\nQual parte da sua história ninguém conhece?",
+          "ideia": "Use como pilar de conexão do seu calendário: 1 post de bastidor por semana, com foto real.",
+          "porQueFunciona": "Conteúdo de conexão gera seguidores fiéis. O original teve mais de 46 mil curtidas.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfAOnZgvOL4/",
+            "formato": "Foto",
+            "curtidas": 46347,
+            "comentarios": 34,
+            "nota": 96,
+            "resumo": "Reflexão sobre o que existe por trás de cada conquista na advocacia."
+          }
+        },
+        {
+          "titulo": "Notícia explicada como pilar de autoridade",
+          "formato": "Carrossel",
+          "gancho": "Saiu uma mudança que mexe no bolso do meu público. Eu explico em 5 telas.",
+          "estrutura": "Alerta → o que aconteceu → o que muda para o público → o que fazer → fonte e CTA seguir",
+          "textoPronto": "Slide 1: MUDOU: [notícia da semana do seu nicho em uma frase].\nSlide 2: O que aconteceu: [fato, data, quem decidiu].\nSlide 3: O que muda para você: [impacto prático].\nSlide 4: O que fazer agora: [ação].\nSlide 5: Fonte: [veículo]. Siga para entender as próximas mudanças.",
+          "ideia": "Reserve 1 post por semana para notícia explicada. Use a aba Notícias e react do radar para escolher o assunto.",
+          "porQueFunciona": "Notícia traduzida para o público gera alcance e posiciona como referência. Os posts de notícia explicada estão entre os que mais viralizaram.",
+          "referencia": {
+            "link": "https://www.instagram.com/p/DfPTHPNG4Z3/",
+            "formato": "Carrossel",
+            "curtidas": 1598,
+            "comentarios": 147,
+            "nota": 68,
+            "resumo": "Carrossel com as mudanças do governo com data marcada para 2027."
           }
         }
       ]
