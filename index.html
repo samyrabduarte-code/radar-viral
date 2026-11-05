@@ -1557,7 +1557,8 @@ async function loadPautas(){
     const eds = pz.index.edicoes || [];
     if (!eds.length) { pzMsg("Ainda não há pautas. A primeira edição chega na quinta-feira.", ""); return; }
     $("#pzEd").innerHTML = eds.map(e => `<option value="${esc(e.arquivo)}">${esc(fmtEd(e))}</option>`).join("");
-    if (!pz.ed || !eds.some(e => e.arquivo === pz.ed)) pz.ed = eds[0].arquivo;
+    // abre sempre na edição mais nova, a menos que a pessoa tenha escolhido outra agora há pouco
+    if (!pz.escolhida || !eds.some(e => e.arquivo === pz.ed)) pz.ed = eds[0].arquivo;
     $("#pzEd").value = pz.ed;
     await loadEdicao();
   } catch { pzMsg("Não consegui carregar as pautas agora. Verifique a internet e abra a aba de novo.", "err"); }
@@ -1624,7 +1625,7 @@ function renderPautas(){
   }
   $("#pzList").innerHTML = html;
 }
-$("#pzEd").addEventListener("change", e => { pz.ed = e.target.value; loadEdicao().catch(() => pzMsg("Não consegui abrir esta edição.", "err")); });
+$("#pzEd").addEventListener("change", e => { pz.ed = e.target.value; pz.escolhida = true; loadEdicao().catch(() => pzMsg("Não consegui abrir esta edição.", "err")); });
 $("#pzChips").addEventListener("click", e => {
   const pb = e.target.closest("[data-pzp]"); if (pb) { pz.panel = pb.dataset.pzp; pz.theme = ""; renderPautas(); return; }
   const b = e.target.closest("[data-pzt]"); if (!b) return; pz.theme = b.dataset.pzt; renderPautas();
