@@ -293,6 +293,7 @@ button.word:hover{border-color:var(--violeta);background:var(--accent-soft)}
 .fm-badges{display:flex;gap:6px;align-items:center}
 .fm-banco{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:5px;background:var(--carvao);color:var(--lilas)}
 .fm-more{font-size:13px;font-weight:600;color:var(--accent)}
+.tag.fm-fase{background:var(--carvao);color:var(--lilas);border-color:transparent}
 .tag.fm-et{background:var(--accent-soft);color:var(--accent);border-color:transparent}
 .fm-real{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:5px;background:color-mix(in srgb,var(--ok) 14%,var(--surface));color:var(--ok)}
 .fm-reais{grid-column:1/-1}
@@ -499,6 +500,7 @@ input[type=checkbox]{accent-color:var(--violeta-fundo)}
     <div class="filters" style="padding-block:14px 4px">
       <div class="lvl"><span class="lvl-label">Funil</span><div class="seg" id="fmEt"></div></div>
       <div class="lvl"><span class="lvl-label">Objetivo</span><div class="seg" id="fmObj"></div></div>
+      <div class="lvl"><span class="lvl-label">Lançamento</span><div class="seg" id="fmFase"></div></div>
       <div class="lvl"><span class="lvl-label">Formato</span><div class="seg" id="fmFmt"></div></div>
     </div>
     <div class="fm-grid" id="fmList"></div>
@@ -637,6 +639,7 @@ const DEFAULT_CFG = {
     {"id": "social", "panel": "mkt", "name": "Social media", "hashtags": ["socialmedia"], "keywords": ["social media", "socialmedia", "gestão de redes sociais", "gestora de redes sociais", "gerenciamento de redes sociais", "algoritmo", "algoritmo do instagram", "engajamento", "alcance", "seguidores", "ganhar seguidores", "crescer no instagram", "crescimento no instagram", "bio do instagram", "perfil profissional", "métricas", "insights do instagram", "frequência de postagem", "melhor horário para postar", "design para redes sociais", "canva", "capcut", "edição de vídeo", "trend", "trends", "viralizar", "tiktok", "collab", "criador de conteúdo", "criadora de conteúdo", "influenciador", "influenciadora", "ugc"]},
     {"id": "marketing", "panel": "mkt", "name": "Marketing", "hashtags": ["marketingdigital"], "keywords": ["marketing", "marketing digital", "tráfego pago", "gestor de tráfego", "gestora de tráfego", "anúncios", "meta ads", "google ads", "funil", "funil de vendas", "lançamento", "perpétuo", "copy", "copywriting", "persona", "público-alvo", "posicionamento", "branding", "marca pessoal", "autoridade", "nicho", "oferta", "proposta de valor", "leads", "landing page", "página de vendas", "email marketing", "cpa", "roas", "cac", "ltv", "remarketing", "estratégia de marketing"]},
     {"id": "conteudo", "panel": "mkt", "name": "Estratégia de conteúdo", "hashtags": ["marketingdeconteudo"], "keywords": ["estratégia de conteúdo", "marketing de conteúdo", "planejamento de conteúdo", "linha editorial", "pilares de conteúdo", "calendário editorial", "calendário de postagens", "pauta", "pautas", "ideias de conteúdo", "conteúdo que vende", "conteúdo de valor", "conteúdo de autoridade", "conteúdo de conexão", "storytelling", "gancho", "ganchos", "roteiro", "roteiros", "headline", "cta", "chamada para ação", "funil de conteúdo", "topo de funil", "meio de funil", "fundo de funil", "produção de conteúdo", "reaproveitamento de conteúdo", "tom de voz", "narrativa", "seo", "seo para instagram"]},
+    {"id": "lancamentos", "panel": "mkt", "name": "Lançamentos e infoprodutos", "hashtags": [], "keywords": ["lançamento", "lançamentos", "infoproduto", "infoprodutos", "infoprodutor", "infoprodutora", "curso online", "carrinho aberto", "abertura de carrinho", "carrinho fecha", "vagas abertas", "inscrições abertas", "matrículas abertas", "lista vip", "grupo vip", "lista de espera", "aula gratuita", "aula ao vivo", "aula secreta", "evento online", "evento gratuito", "workshop", "masterclass", "imersão", "desafio de", "semana do", "cpl", "pré-lançamento", "pré-venda", "lote", "turma nova", "nova turma", "últimas vagas", "últimas turmas", "último dia", "encerra hoje", "bônus", "garantia de 7 dias", "garantia incondicional", "low ticket", "high ticket", "perpétuo", "webinar", "comenta que eu te mando o link", "link na bio", "mentoria em grupo", "oferta especial", "condição especial", "black friday"]},
     {"id": "amor", "panel": "rel", "name": "Relacionamento amoroso", "hashtags": ["relacionamento"], "keywords": ["relacionamento", "relacionamentos", "relacionamento saudável", "namoro", "namorado", "namorada", "crush", "ficante", "paquera", "solteira", "solteiro", "primeiro encontro", "apaixonada", "apaixonado", "paixão", "vida a dois", "red flag", "red flags", "green flag", "ciúme", "ciúmes", "carência", "carente", "linguagens do amor", "linguagem do amor", "apego ansioso", "apego evitativo", "estilos de apego", "meu ex", "minha ex", "voltar com o ex", "término", "fim de relacionamento", "coração partido", "superar término", "superar o término"]},
     {"id": "casamento", "panel": "rel", "name": "Casamento", "hashtags": ["terapiadecasal"], "keywords": ["casamento", "casados", "marido", "esposa", "esposo", "cônjuge", "vida de casado", "vida de casada", "casamento saudável", "crise no casamento", "casamento em crise", "rotina do casal", "casal", "casais", "terapia de casal", "terapeuta de casal", "intimidade", "vida sexual", "traição", "infidelidade", "perdão", "reconciliação", "sogra", "sogro", "divisão de tarefas", "filhos e casamento", "bodas"]},
     {"id": "dialogo", "panel": "rel", "name": "Comunicação e diálogo", "hashtags": [], "keywords": ["diálogo", "dialogar", "comunicação", "comunicação não violenta", "cnv", "comunicação assertiva", "assertividade", "saber ouvir", "escuta ativa", "conversa difícil", "conversas difíceis", "discussão", "discussões", "briga", "brigas", "briga de casal", "conflito", "conflitos", "resolver conflitos", "falar sobre sentimentos", "expressar sentimentos", "validação emocional", "empatia", "tratamento de silêncio", "discutir a relação", "limites", "colocar limites", "impor limites", "dizer não"]},
@@ -1292,7 +1295,7 @@ $("#nwNews").addEventListener("click", async e => {
 });
 
 /* ---------- formatos validados ---------- */
-const fm = { list:null, ex:{}, et:"", obj:"", fmt:"", q:"", open:new Set(), more:new Set() };
+const fm = { list:null, ex:{}, et:"", fase:"", obj:"", fmt:"", q:"", open:new Set(), more:new Set() };
 const FM_OBJ = ["Salvamentos","Compartilhamentos","Comentários","Alcance","Seguidores","Captação","Vendas","Lançamento"];
 async function loadFormatos(){
   if (location.protocol === "file:") { $("#fmList").innerHTML = `<div class="notice warn"><div>Os formatos só aparecem no link do sistema: <b>samyrabduarte-code.github.io/radar-viral</b>.</div></div>`; return; }
@@ -1308,10 +1311,12 @@ function renderFormatos(){
   const fmts = [...new Set(all.map(f => f.formato))];
   const ETAPAS = [["Topo","Topo: atrair"],["Meio","Meio: confiança"],["Fundo","Fundo: vender"]];
   $("#fmEt").innerHTML = [`<button data-fmet="" aria-pressed="${!fm.et}">Todas</button>`].concat(ETAPAS.map(([k, l]) => `<button data-fmet="${k}" aria-pressed="${fm.et === k}">${l} <small>${all.filter(f => (f.etapas || []).includes(k)).length}</small></button>`)).join("");
+  const FASES = ["Aquecimento","Captação","Evento","Abertura","Carrinho aberto","Fechamento","Perpétuo"].filter(x => all.some(f => f.fase === x));
+  $("#fmFase").innerHTML = [`<button data-fmfase="" aria-pressed="${!fm.fase}">Todas as fases</button>`].concat(FASES.map((x, i) => `<button data-fmfase="${esc(x)}" aria-pressed="${fm.fase === x}">${i + 1}. ${esc(x)} <small>${all.filter(f => f.fase === x).length}</small></button>`)).join("");
   $("#fmObj").innerHTML = [`<button data-fmo="" aria-pressed="${!fm.obj}">Todos</button>`].concat(objs.map(o => `<button data-fmo="${esc(o)}" aria-pressed="${fm.obj === o}">${esc(o)} <small>${all.filter(f => f.objetivos.includes(o)).length}</small></button>`)).join("");
   $("#fmFmt").innerHTML = [`<button data-fmf="" aria-pressed="${!fm.fmt}">Todos</button>`].concat(fmts.map(x => `<button data-fmf="${esc(x)}" aria-pressed="${fm.fmt === x}">${esc(x)}</button>`)).join("");
   const q = norm(fm.q.trim());
-  const list = all.filter(f => (!fm.et || (f.etapas || []).includes(fm.et)) && (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
+  const list = all.filter(f => (!fm.et || (f.etapas || []).includes(fm.et)) && (!fm.fase || f.fase === fm.fase) && (!fm.obj || f.objetivos.includes(fm.obj)) && (!fm.fmt || f.formato === fm.fmt)
     && (!q || norm(f.nome + " " + f.quandoUsar + " " + f.modelo).includes(q)))
     .sort((a, b) => (fm.ex[b.id]?.length ? 1 : 0) - (fm.ex[a.id]?.length ? 1 : 0));
   $("#fmInfo").textContent = `${list.length} ${list.length === 1 ? "formato" : "formatos"}. Escolha o objetivo, copie o modelo e troque o que está entre [colchetes] pelo seu assunto.`;
@@ -1322,7 +1327,7 @@ function renderFormatos(){
         <div class="fm-badges"><span class="pz-fmt">${esc(f.formato)}</span>${f.origem === "banco" ? `<span class="fm-banco">do seu banco</span>` : ""}${fm.ex[f.id]?.length ? `<span class="fm-real">${fm.ex[f.id].length} ${fm.ex[f.id].length === 1 ? "exemplo real" : "exemplos reais"}</span>` : ""}</div>
         <h3>${esc(f.nome)}</h3>
         <p>${esc(f.quandoUsar)}</p>
-        <div class="themes">${(f.etapas || []).map(o => `<span class="tag fm-et">${esc(o)} de funil</span>`).join("")}${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
+        <div class="themes">${f.fase ? `<span class="tag fm-fase">Lançamento: ${esc(f.fase)}</span>` : ""}${(f.etapas || []).map(o => `<span class="tag fm-et">${esc(o)} de funil</span>`).join("")}${f.objetivos.map(o => `<span class="tag">${esc(o)}</span>`).join("")}</div>
         <span class="fm-more">${open ? "Fechar" : "Ver estrutura e modelo"}</span>
       </button>
       ${open ? `<div class="fm-body">
@@ -1332,7 +1337,7 @@ function renderFormatos(){
         ${fm.ex[f.id]?.length ? `<div class="fm-reais"><h4>Posts reais que usam este formato (${fm.ex[f.id].length})</h4><div class="fm-reais-grid">${fm.ex[f.id].slice(0, fm.more.has(f.id) ? undefined : 6).map(e => `<div class="fm-real-card">
             <p class="fm-trecho">${esc(e.trecho || "")}</p>
             <div class="fm-embed" data-embed="${esc(e.link)}"><button class="btn small" data-loadembed="${esc(e.link)}">Ver o post aqui</button></div>
-            <div class="fm-real-meta"><span>${esc(e.formato || "")}</span>${e.visualizacoes != null ? `<b>${nf.format(e.visualizacoes)}</b> visualizações · ` : ""}<b>${e.curtidas != null ? nf.format(e.curtidas) : "?"}</b> curtidas · <b>${nf.format(e.comentarios || 0)}</b> comentários</div>
+            <div class="fm-real-meta"><span>${esc(e.formato || "")}</span>${e.perfil ? `${esc(e.perfil)} · ` : ""}${e.visualizacoes != null ? `<b>${nf.format(e.visualizacoes)}</b> visualizações · ` : ""}<b>${e.curtidas != null ? nf.format(e.curtidas) : "?"}</b> curtidas · <b>${nf.format(e.comentarios || 0)}</b> comentários</div>
             ${e.temas?.length ? `<div class="themes">${e.temas.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>` : ""}
             <a class="btn small" href="${esc(e.link)}" target="_blank" rel="noopener">Abrir no Instagram ↗</a>
           </div>`).join("")}</div>${fm.ex[f.id].length > 6 && !fm.more.has(f.id) ? `<button class="btn small" style="margin-top:12px" data-fmmore="${esc(f.id)}">Ver mais ${fm.ex[f.id].length - 6} exemplos</button>` : ""}</div>` : `<div class="fm-reais"><h4>Posts reais</h4><p class="hint">Ainda não achamos um post viral com este formato nos seus temas. O robô de quinta procura toda semana.</p></div>`}
@@ -1344,6 +1349,7 @@ function renderFormatos(){
 }
 $("#fmEt").addEventListener("click", e => { const b = e.target.closest("[data-fmet]"); if (!b) return; fm.et = b.dataset.fmet; renderFormatos(); });
 $("#fmObj").addEventListener("click", e => { const b = e.target.closest("[data-fmo]"); if (!b) return; fm.obj = b.dataset.fmo; renderFormatos(); });
+$("#fmFase").addEventListener("click", e => { const b = e.target.closest("[data-fmfase]"); if (!b) return; fm.fase = b.dataset.fmfase; renderFormatos(); });
 $("#fmFmt").addEventListener("click", e => { const b = e.target.closest("[data-fmf]"); if (!b) return; fm.fmt = b.dataset.fmf; renderFormatos(); });
 let fmT; $("#fmQ").addEventListener("input", e => { clearTimeout(fmT); fmT = setTimeout(() => { fm.q = e.target.value; renderFormatos(); }, 200); });
 $("#fmList").addEventListener("click", async e => {

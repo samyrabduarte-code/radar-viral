@@ -669,7 +669,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Aquecimento"
     },
     {
       "id": "lista-sinais",
@@ -1010,7 +1011,8 @@
       "etapas": [
         "Meio",
         "Fundo"
-      ]
+      ],
+      "fase": "Captação"
     },
     {
       "id": "qual-voce-e",
@@ -1229,7 +1231,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Carrinho aberto"
     },
     {
       "id": "dado-surpreendente",
@@ -1324,7 +1327,8 @@
       ],
       "etapas": [
         "Meio"
-      ]
+      ],
+      "fase": "Aquecimento"
     },
     {
       "id": "abertura-carrinho",
@@ -1357,7 +1361,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Abertura"
     },
     {
       "id": "prova-social",
@@ -1389,7 +1394,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Carrinho aberto"
     },
     {
       "id": "contagem-regressiva",
@@ -1419,7 +1425,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Fechamento"
     },
     {
       "id": "oferta-comparativa",
@@ -1451,7 +1458,8 @@
       ],
       "etapas": [
         "Fundo"
-      ]
+      ],
+      "fase": "Carrinho aberto"
     },
     {
       "id": "convite-aula",
@@ -1483,7 +1491,8 @@
       "etapas": [
         "Meio",
         "Fundo"
-      ]
+      ],
+      "fase": "Captação"
     },
     {
       "id": "lista-vip",
@@ -1514,7 +1523,8 @@
       "etapas": [
         "Meio",
         "Fundo"
-      ]
+      ],
+      "fase": "Captação"
     },
     {
       "id": "isca-material",
@@ -1545,7 +1555,8 @@
       ],
       "etapas": [
         "Meio"
-      ]
+      ],
+      "fase": "Captação"
     },
     {
       "id": "quiz-diagnostico",
@@ -1576,7 +1587,8 @@
       ],
       "etapas": [
         "Meio"
-      ]
+      ],
+      "fase": "Captação"
     },
     {
       "id": "meme",
@@ -1639,6 +1651,465 @@
       "etapas": [
         "Topo",
         "Meio"
+      ]
+    },
+    {
+      "id": "bastidor-pre-evento",
+      "nome": "Bastidor da preparação do evento",
+      "formato": "Reels",
+      "fase": "Aquecimento",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Alcance"
+      ],
+      "quandoUsar": "Nos dias antes do evento ou da abertura. Mostra que algo grande está sendo preparado e lembra a data sem parecer anúncio.",
+      "estrutura": [
+        "Cena real de trabalho (gravando, ensaiando, montando material)",
+        "Texto curto na tela com a data do evento",
+        "Legenda com 1 frase de expectativa e o CTA de inscrição"
+      ],
+      "comoAplicar": "Grave sem produção: o bastidor real passa verdade. Repita o formato 2 ou 3 vezes na semana do evento, sempre com a data.",
+      "modelo": "Cena: [você trabalhando no material do evento]\nTexto na tela: Trabalhando muito porque [dia] tem [nome do evento] 🙂\nLegenda: [1 frase do que a pessoa vai aprender] + [link na bio / comenta PALAVRA]",
+      "exemplos": [
+        {
+          "nicho": "Mentoria para psicólogas",
+          "texto": "Texto na tela: Revisando a aula de quinta: 3 erros que travam a agenda de quem atende online."
+        },
+        {
+          "nicho": "Advocacia",
+          "texto": "Texto na tela: Montando o material do encontro de terça para advogados que querem sair do zero."
+        }
+      ]
+    },
+    {
+      "id": "conteudo-do-tema-do-evento",
+      "nome": "Conteúdo de valor com convite para o evento",
+      "formato": "Carrossel",
+      "fase": "Aquecimento",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Captação",
+        "Salvamentos"
+      ],
+      "quandoUsar": "Na fase de aquecimento e captação. Entrega uma parte real do que o evento vai ensinar e, no fim, convida para a versão completa ao vivo.",
+      "estrutura": [
+        "Capa com promessa específica ligada ao tema do evento",
+        "3 a 5 telas de conteúdo útil de verdade",
+        "Penúltima tela: 'isso é só uma parte'",
+        "Última tela: data do evento + CTA de inscrição"
+      ],
+      "comoAplicar": "O conteúdo precisa funcionar sozinho; o convite vem como próximo passo natural, não como propaganda.",
+      "modelo": "Slide 1: [Promessa específica do tema]\nSlide 2 a 5: [conteúdo útil, uma ideia por tela]\nSlide 6: Isso é só uma parte do que vou mostrar ao vivo.\nSlide 7: [Nome do evento], dia [data], às [hora]. [Link na bio / comenta PALAVRA]",
+      "exemplos": [
+        {
+          "nicho": "Direito bancário",
+          "texto": "Slide 1: 5 cláusulas de empréstimo que quase sempre escondem juros abusivos"
+        },
+        {
+          "nicho": "Marketing",
+          "texto": "Slide 1: 3 prompts de IA que eu uso para criar anúncios em 10 minutos"
+        }
+      ]
+    },
+    {
+      "id": "workshop-preco-simbolico",
+      "nome": "Convite para workshop de preço simbólico",
+      "formato": "Reels",
+      "fase": "Captação",
+      "etapas": [
+        "Topo",
+        "Fundo"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Captação",
+        "Vendas"
+      ],
+      "quandoUsar": "Para lançar um evento pago de entrada (R$ 27, R$ 47, R$ 97) que paga os anúncios e prepara a venda do produto principal.",
+      "estrutura": [
+        "Gancho: o erro caro que o evento evita ('tem erro que custa muito mais que R$ 47')",
+        "Quem você é / por que pode ensinar (anos, resultado)",
+        "Data, hora e formato (online, ao vivo)",
+        "CTA para o link ou comentário"
+      ],
+      "comoAplicar": "Compare o preço do evento com o custo do erro que ele evita. O público entende o valor na hora.",
+      "modelo": "Cena 1: Tem erro que custa muito mais que R$ [preço].\nCena 2: Dia [data], às [hora], vou abrir [o que você vai ensinar] e mostrar o que aprendi em [tempo de experiência].\nCena 3: É online e ao vivo. Comenta [PALAVRA] que eu te mando o link.",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Cena 1: Tem erro de precificação que custa muito mais que R$ 47."
+        },
+        {
+          "nicho": "Saúde",
+          "texto": "Cena 1: Tem erro na rotina de sono que custa muito mais que R$ 27."
+        }
+      ]
+    },
+    {
+      "id": "comenta-palavra-evento",
+      "nome": "Comenta a palavra e receba o link do evento",
+      "formato": "Carrossel",
+      "fase": "Captação",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Captação",
+        "Lançamento",
+        "Comentários"
+      ],
+      "quandoUsar": "Durante toda a captação. A pessoa comenta uma palavra e recebe o link de inscrição no direct. Gera comentários (alcance) e leads ao mesmo tempo.",
+      "estrutura": [
+        "Capa com a dor ou o desejo do público do evento",
+        "Conteúdo curto ou frase forte",
+        "CTA duplo: 'comenta PALAVRA que eu te mando o link' + 'marca alguém que precisa estar nessa aula'"
+      ],
+      "comoAplicar": "Use automação de direct. O 'marca alguém' faz o post circular entre pessoas do mesmo perfil de público. Repita o mesmo CTA em vários posts da captação.",
+      "modelo": "Slide 1: [Dor ou desejo do público]\nSlide 2 a 4: [conteúdo curto]\nÚltimo slide: Dia [data] tem aula ao vivo sobre isso. Comenta [PALAVRA] que eu te mando o link. E marca alguém que precisa estar nessa aula.",
+      "exemplos": [
+        {
+          "nicho": "Psicologia",
+          "texto": "Comenta AGENDA que eu te mando o link da aula sobre agenda cheia no consultório."
+        },
+        {
+          "nicho": "Finanças",
+          "texto": "Comenta DÍVIDA que eu te mando o link da aula de quinta."
+        }
+      ]
+    },
+    {
+      "id": "grupo-vip-oferta",
+      "nome": "Entre no Grupo VIP para a melhor oferta",
+      "formato": "Foto",
+      "fase": "Captação",
+      "etapas": [
+        "Meio",
+        "Fundo"
+      ],
+      "objetivos": [
+        "Captação",
+        "Lançamento"
+      ],
+      "quandoUsar": "Antes da abertura de vendas. Junta quem tem mais intenção de compra num grupo (WhatsApp ou Telegram) com promessa de condição exclusiva.",
+      "estrutura": [
+        "Pergunta de dor ou de oportunidade perdida",
+        "Promessa: acesso antecipado ou melhor oferta para quem está no grupo",
+        "CTA com palavra para receber o link do grupo"
+      ],
+      "comoAplicar": "A promessa precisa ser real (preço menor, bônus ou vaga antes). Quem entra no grupo VIP compra muito mais do que quem só segue.",
+      "modelo": "Comenta [PALAVRA] para entrar no Grupo VIP e garantir [condição exclusiva].\n\n[Pergunta de dor: Quantas oportunidades você já perdeu porque achou que não estava pronta?]",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Comenta VIP para entrar no grupo e garantir a turma de janeiro com a condição de fundadora."
+        },
+        {
+          "nicho": "Cirurgia plástica",
+          "texto": "Comenta AGENDA para entrar na lista VIP e ter prioridade nos horários de 2027."
+        }
+      ]
+    },
+    {
+      "id": "episodio-completo-dm",
+      "nome": "Corte de vídeo longo: comente para ver o episódio completo",
+      "formato": "Reels",
+      "fase": "Captação",
+      "etapas": [
+        "Topo"
+      ],
+      "objetivos": [
+        "Captação",
+        "Alcance",
+        "Comentários"
+      ],
+      "quandoUsar": "Para levar o público do Instagram para um conteúdo longo (podcast, aula, entrevista, filme) e criar lista de contatos pelo direct.",
+      "estrutura": [
+        "Corte forte de 20 a 60 segundos do conteúdo longo",
+        "Legenda curta: 'Comente PALAVRA para assistir ao episódio completo'",
+        "Automação envia o link no direct"
+      ],
+      "comoAplicar": "Escolha o trecho mais polêmico ou emocionante. A palavra pode ser o nome do convidado ou do tema.",
+      "modelo": "Vídeo: [trecho mais forte da sua live, aula ou entrevista]\nLegenda: Comente [PALAVRA] para assistir à conversa completa 🔥",
+      "exemplos": [
+        {
+          "nicho": "Saúde mental",
+          "texto": "Comente ANSIEDADE para assistir à aula completa sobre crise de pânico."
+        },
+        {
+          "nicho": "Direito",
+          "texto": "Comente INSS para assistir à live completa sobre aposentadoria."
+        }
+      ]
+    },
+    {
+      "id": "isca-ferramenta",
+      "nome": "Ferramenta gratuita no direct (planilha, app, automação)",
+      "formato": "Reels",
+      "fase": "Captação",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Captação",
+        "Salvamentos"
+      ],
+      "quandoUsar": "Para captar contatos oferecendo uma ferramenta útil (planilha, calculadora, app, automação), muitas vezes pegando carona numa notícia.",
+      "estrutura": [
+        "Gancho com a notícia ou a dor do momento",
+        "Explicação curta do que a ferramenta resolve",
+        "CTA: comenta PALAVRA que eu te mando"
+      ],
+      "comoAplicar": "Ferramenta prática converte mais do que e-book. Ligar a uma notícia da semana (ex.: Selic) aumenta muito o alcance.",
+      "modelo": "Cena 1: [Notícia ou dor do momento]\nCena 2: Fiz uma [planilha / ferramenta] que [o que resolve] em [tempo].\nCena 3: Comenta [PALAVRA] que eu te mando.",
+      "exemplos": [
+        {
+          "nicho": "Juros",
+          "texto": "Comenta PLANILHA que eu te mando a calculadora para ver quanto o rotativo custa no seu cartão."
+        },
+        {
+          "nicho": "Advocacia",
+          "texto": "Comente AUTOMAÇÃO que eu te envio o modelo que uso para acompanhar processos."
+        }
+      ]
+    },
+    {
+      "id": "reality-pre-lancamento",
+      "nome": "Reality ou série antes do lançamento",
+      "formato": "Reels",
+      "fase": "Aquecimento",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Alcance",
+        "Seguidores"
+      ],
+      "quandoUsar": "Na pré-lançamento, para prender a atenção por vários dias: participantes reais passando por um desafio ligado ao seu método.",
+      "estrutura": [
+        "Episódios curtos (um por dia)",
+        "Conflito real (dinheiro, meta, disputa por vaga)",
+        "Cada episódio termina puxando o próximo",
+        "O último episódio leva ao evento ou à abertura"
+      ],
+      "comoAplicar": "Precisa de participantes reais e autorização de imagem. Formato caro de produzir, mas gera muita retenção.",
+      "modelo": "Episódio [N]: [nome da série]\nCena 1: [conflito do participante]\nCena 2: [o que ele tentou]\nCena 3: [gancho para o próximo episódio]\nLegenda: [Siga para ver o próximo / evento dia X]",
+      "exemplos": [
+        {
+          "nicho": "Finanças",
+          "texto": "Série: 3 famílias tentando sair das dívidas em 30 dias."
+        },
+        {
+          "nicho": "Mentoria",
+          "texto": "Série: 5 profissionais disputam 2 vagas na minha mentoria."
+        }
+      ]
+    },
+    {
+      "id": "aftermovie-evento",
+      "nome": "Vídeo do evento (o que acontece lá dentro)",
+      "formato": "Reels",
+      "fase": "Abertura",
+      "etapas": [
+        "Meio",
+        "Fundo"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Vendas",
+        "Seguidores"
+      ],
+      "quandoUsar": "Logo depois de um evento ou antes de abrir a próxima edição. Mostra a experiência real e cria desejo de estar na próxima.",
+      "estrutura": [
+        "Frase que quebra a expectativa ('não é um evento motivacional')",
+        "Cenas reais do público, emoção, transformação",
+        "O que muda na vida de quem participa",
+        "CTA para a próxima edição ou lista"
+      ],
+      "comoAplicar": "Use cenas reais com autorização. Mostre pessoas comuns, não só o palco.",
+      "modelo": "Cena 1: [Nome do evento] não é [o que as pessoas pensam].\nCena 2: [cenas reais do público]\nCena 3: O que acontece aqui é [transformação].\nLegenda: Próxima edição: [data]. [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Cena 1: O encontro presencial da mentoria não é palestra. É mão na massa."
+        },
+        {
+          "nicho": "Bem-estar",
+          "texto": "Cena 1: O retiro não é férias. É onde você reorganiza a sua vida."
+        }
+      ]
+    },
+    {
+      "id": "case-aluno-objecao",
+      "nome": "Case de aluno que venceu a objeção",
+      "formato": "Reels",
+      "fase": "Carrinho aberto",
+      "etapas": [
+        "Fundo"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "Com o carrinho aberto. Conta a história de um aluno que tinha a mesma objeção do público e mostra o que mudou.",
+      "estrutura": [
+        "Objeção do aluno entre aspas ('quem sou eu para ensinar isso?')",
+        "Quem é o aluno e onde estava",
+        "O que fez com o método",
+        "Resultado concreto (com autorização)",
+        "CTA para a oferta"
+      ],
+      "comoAplicar": "A objeção do case deve ser a mesma que mais aparece no seu público. Em saúde e direito, respeite as regras do conselho sobre divulgar resultados.",
+      "modelo": "Cena 1: \"[Objeção do aluno]\". A [nome] pensava exatamente assim.\nCena 2: Ela é [profissão] há [tempo] e [situação].\nCena 3: Na [nome do programa], ela [o que fez].\nCena 4: Hoje, [resultado concreto].\nLegenda: As inscrições fecham [data]. [CTA]",
+      "exemplos": [
+        {
+          "nicho": "Mentoria para psicólogas",
+          "texto": "Cena 1: \"Quem sou eu para cobrar mais caro?\" A Ana pensava exatamente assim."
+        },
+        {
+          "nicho": "Advocacia",
+          "texto": "Cena 1: \"Advogado não pode fazer marketing.\" O João pensava exatamente assim."
+        }
+      ]
+    },
+    {
+      "id": "sala-cheia-ultimas-turmas",
+      "nome": "Sala cheia e últimas turmas",
+      "formato": "Reels",
+      "fase": "Carrinho aberto",
+      "etapas": [
+        "Fundo"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "Com vendas abertas para turmas presenciais ou ao vivo. Mostra a aula acontecendo agora e avisa que restam poucas turmas.",
+      "estrutura": [
+        "Cena da turma em aula (sala cheia, gente anotando)",
+        "Um ensinamento rápido da aula",
+        "Aviso de últimas turmas ou vagas",
+        "CTA link na bio"
+      ],
+      "comoAplicar": "Prova social ao vivo: a pessoa vê que outros já estão dentro. Só diga 'últimas' se for verdade.",
+      "modelo": "Cena 1: Hoje é dia de aula em mais uma turma de [programa].\nCena 2: [Um ensinamento em 1 frase]\nLegenda: São as últimas turmas do ano. Link na bio para garantir sua vaga.",
+      "exemplos": [
+        {
+          "nicho": "Mentoria",
+          "texto": "Cena 1: Hoje tem encontro ao vivo da turma 4. Sala cheia e muita gente saindo com o plano pronto."
+        },
+        {
+          "nicho": "Saúde",
+          "texto": "Cena 1: Mais um grupo do programa de reeducação começando hoje."
+        }
+      ]
+    },
+    {
+      "id": "ultimo-dia-garantia",
+      "nome": "Último dia + garantia",
+      "formato": "Foto",
+      "fase": "Fechamento",
+      "etapas": [
+        "Fundo"
+      ],
+      "objetivos": [
+        "Lançamento",
+        "Vendas"
+      ],
+      "quandoUsar": "No último dia de vendas. Junta urgência real (hoje fecha) com redução de risco (garantia de 7 dias).",
+      "estrutura": [
+        "'Hoje é o último dia' em destaque",
+        "Para quem é o produto, em 1 frase",
+        "Garantia: 7 dias para testar ou devolvemos",
+        "CTA link na bio"
+      ],
+      "comoAplicar": "Combine com stories de contagem regressiva no mesmo dia. A garantia derruba a objeção 'e se não for para mim?'.",
+      "modelo": "HOJE É O ÚLTIMO DIA\n\n[Nome do curso/programa] para [público] que quer [resultado].\n\nVocê tem 7 dias de garantia: se não for para você, devolvemos 100%.\n\nLink na bio.",
+      "exemplos": [
+        {
+          "nicho": "Finanças",
+          "texto": "HOJE É O ÚLTIMO DIA do curso Saindo das Dívidas, com 7 dias de garantia."
+        },
+        {
+          "nicho": "Bem-estar",
+          "texto": "HOJE É O ÚLTIMO DIA para entrar na turma de janeiro do programa de sono."
+        }
+      ]
+    },
+    {
+      "id": "holofote-seguidores",
+      "nome": "Vou divulgar o seu trabalho (holofote)",
+      "formato": "Reels",
+      "fase": "Captação",
+      "etapas": [
+        "Topo"
+      ],
+      "objetivos": [
+        "Comentários",
+        "Alcance",
+        "Seguidores"
+      ],
+      "quandoUsar": "Para explodir comentários e atrair o público certo: você promete divulgar o trabalho de alguns seguidores que comentarem.",
+      "estrutura": [
+        "Explique a ação (vou escolher X perfis por semana)",
+        "Diga quem pode participar (o seu público ideal)",
+        "Regra simples: comente com o @ e o que faz",
+        "Cumpra e mostre os escolhidos (gera confiança)"
+      ],
+      "comoAplicar": "Escolha um público que é o mesmo que compra de você. Cumpra a promessa toda semana, ou a ação vira o contrário.",
+      "modelo": "Cena 1: Esse post é para colocar mais [público] no radar.\nCena 2: Toda semana vou escolher [número] perfis de [público] para aparecer aqui.\nCena 3: Comenta o seu @ e o que você faz.",
+      "exemplos": [
+        {
+          "nicho": "Psicologia",
+          "texto": "Toda semana vou divulgar 5 psicólogas que atendem online. Comenta seu @ e sua abordagem."
+        },
+        {
+          "nicho": "Advocacia",
+          "texto": "Toda sexta vou indicar 3 advogados de família. Comenta seu @ e sua cidade."
+        }
+      ]
+    },
+    {
+      "id": "comunidade-aula-semanal",
+      "nome": "Comunidade com aula gratuita fixa",
+      "formato": "Reels",
+      "fase": "Perpétuo",
+      "etapas": [
+        "Topo",
+        "Meio"
+      ],
+      "objetivos": [
+        "Captação",
+        "Seguidores"
+      ],
+      "quandoUsar": "Para captar o tempo todo, sem depender de lançamento: uma aula ao vivo gratuita sempre no mesmo dia e horário, com entrada pela comunidade.",
+      "estrutura": [
+        "Dica curta e prática no vídeo",
+        "CTA fixo: 'comenta PALAVRA e faça parte da comunidade'",
+        "Lembrete do dia e horário fixo da aula"
+      ],
+      "comoAplicar": "Horário fixo cria hábito (ex.: toda terça às 8h). A palavra-chave pode ser um número ou nome curto da comunidade.",
+      "modelo": "Vídeo: [dica rápida do seu tema]\nLegenda: Comenta [PALAVRA] e faça parte da [nome da comunidade]. Toda [dia], às [hora], tem aula ao vivo e gratuita sobre [tema].",
+      "exemplos": [
+        {
+          "nicho": "Vendas",
+          "texto": "Comenta 808 e entre na comunidade: toda terça às 8h08 tem aula ao vivo de vendas."
+        },
+        {
+          "nicho": "Saúde mental",
+          "texto": "Comenta CALMA e entre no grupo: toda quarta às 20h tem encontro ao vivo sobre ansiedade."
+        }
       ]
     }
   ]

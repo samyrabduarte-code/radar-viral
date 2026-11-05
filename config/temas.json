@@ -1185,6 +1185,63 @@
       ]
     },
     {
+      "id": "lancamentos",
+      "panel": "mkt",
+      "name": "Lançamentos e infoprodutos",
+      "hashtags": [],
+      "keywords": [
+        "lançamento",
+        "lançamentos",
+        "infoproduto",
+        "infoprodutos",
+        "infoprodutor",
+        "infoprodutora",
+        "curso online",
+        "carrinho aberto",
+        "abertura de carrinho",
+        "carrinho fecha",
+        "vagas abertas",
+        "inscrições abertas",
+        "matrículas abertas",
+        "lista vip",
+        "grupo vip",
+        "lista de espera",
+        "aula gratuita",
+        "aula ao vivo",
+        "aula secreta",
+        "evento online",
+        "evento gratuito",
+        "workshop",
+        "masterclass",
+        "imersão",
+        "desafio de",
+        "semana do",
+        "cpl",
+        "pré-lançamento",
+        "pré-venda",
+        "lote",
+        "turma nova",
+        "nova turma",
+        "últimas vagas",
+        "últimas turmas",
+        "último dia",
+        "encerra hoje",
+        "bônus",
+        "garantia de 7 dias",
+        "garantia incondicional",
+        "low ticket",
+        "high ticket",
+        "perpétuo",
+        "webinar",
+        "comenta que eu te mando o link",
+        "link na bio",
+        "mentoria em grupo",
+        "oferta especial",
+        "condição especial",
+        "black friday"
+      ]
+    },
+    {
       "id": "amor",
       "panel": "rel",
       "name": "Relacionamento amoroso",
@@ -1444,15 +1501,15 @@
     },
     {
       "username": "joeljota",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "caiocarneiro",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "nathaliaarcuri",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "eduardofeldberg",
@@ -1468,11 +1525,11 @@
     },
     {
       "username": "pedrosobral",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "gustavocerbasi",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "primorico",
@@ -1480,7 +1537,7 @@
     },
     {
       "username": "luizguedesm",
-      "theme": ""
+      "theme": "lancamentos"
     },
     {
       "username": "cassianinassif",
@@ -2249,6 +2306,26 @@
       "theme": "abusivo",
       "origem": "descoberto",
       "seguidores": 8614
+    },
+    {
+      "username": "wendellcarvalho",
+      "theme": "lancamentos"
+    },
+    {
+      "username": "alfredosoares",
+      "theme": "lancamentos"
+    },
+    {
+      "username": "conradoadolpho",
+      "theme": "lancamentos"
+    },
+    {
+      "username": "natanaeloliveira",
+      "theme": "lancamentos"
+    },
+    {
+      "username": "iurimeira",
+      "theme": "lancamentos"
     }
   ],
   "perfisRecusados": [
